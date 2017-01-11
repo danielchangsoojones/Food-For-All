@@ -8,5 +8,7 @@ target 'Food For All' do
   # Pods for Food For All
   pod 'SnapKit', '~> 3.0'
   pod 'EZSwiftExtensions'
+  pod 'Parse'
+  pod 'ParseUI'
 
 end

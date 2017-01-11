@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         toWelcomeVC()
         return true
+    }
+    
+    fileprivate func setParseConfiguration() {
+        var appConfiguration = Configuration()
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = appConfiguration.environment.applicationId
+            $0.server = appConfiguration.environment.server
+        }
     }
     
     fileprivate func toWelcomeVC() {

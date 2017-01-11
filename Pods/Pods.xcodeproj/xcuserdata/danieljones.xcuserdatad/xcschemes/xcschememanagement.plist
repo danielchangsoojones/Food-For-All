@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZSwiftExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ParseUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>25765261BFB9E5DA4FE12ABCC2202147</key>
+		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CE3C884AF9881CFC6EFBFFCCBFCEADF</key>
+		<key>61F09151D03833E85E02FBE8C8925C3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6C1517DA001CFBE8BC935F35BC20871</key>
+		<key>6D46ACCA4C3F2BE3B8F9A9E35B37F4A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7129FAB61478FA70223DADF4921468CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4D2E29222F10EF4DF1E2B95411A38C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1F78B1C5F8F2CCD0E68552EAF2B9B52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
