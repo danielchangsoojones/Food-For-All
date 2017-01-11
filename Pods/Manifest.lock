@@ -1,0 +1,15 @@
+PODS:
+  - EZSwiftExtensions (1.7)
+  - SnapKit (3.0.2)
+
+DEPENDENCIES:
+  - EZSwiftExtensions
+  - SnapKit (~> 3.0)
+
+SPEC CHECKSUMS:
+  EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+
+PODFILE CHECKSUM: 54a8bec5f1206d7e382acce7820016bb0aa1dca8
+
+COCOAPODS: 1.1.1

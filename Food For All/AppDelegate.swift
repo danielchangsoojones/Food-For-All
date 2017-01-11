@@ -16,7 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        toWelcomeVC()
         return true
+    }
+    
+    fileprivate func toWelcomeVC() {
+        let rootVC = WelcomeViewController()
+        let navController = UINavigationController(rootViewController: rootVC)
+        setInitialVC(vc: navController)
+    }
+    
+    fileprivate func setInitialVC(vc: UIViewController) {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
