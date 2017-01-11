@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F0E1E25A53F00196504 /* AppDelegate.swift */; };
-		925C5F111E25A53F00196504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F101E25A53F00196504 /* ViewController.swift */; };
-		925C5F141E25A53F00196504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C5F121E25A53F00196504 /* Main.storyboard */; };
 		925C5F161E25A53F00196504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C5F151E25A53F00196504 /* Assets.xcassets */; };
 		925C5F191E25A53F00196504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C5F171E25A53F00196504 /* LaunchScreen.storyboard */; };
 		925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F211E25AA1A00196504 /* WelcomeView.swift */; };
@@ -21,9 +19,7 @@
 /* Begin PBXFileReference section */
 		925C5F0B1E25A53F00196504 /* Food For All.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food For All.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C5F0E1E25A53F00196504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		925C5F101E25A53F00196504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		925C5F131E25A53F00196504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		925C5F151E25A53F00196504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		925C5F151E25A53F00196504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Food For All/Assets.xcassets"; sourceTree = "<group>"; };
 		925C5F181E25A53F00196504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925C5F1A1E25A53F00196504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		925C5F211E25AA1A00196504 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -67,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				925C5F0D1E25A53F00196504 /* Food For All */,
+				925C5F151E25A53F00196504 /* Assets.xcassets */,
+				925C5F171E25A53F00196504 /* LaunchScreen.storyboard */,
 				925C5F0C1E25A53F00196504 /* Products */,
 				16FEE1F0702F453DDAEAA40C /* Pods */,
 				0B2CE589FC9A75040C12BEF2 /* Frameworks */,
@@ -86,10 +84,6 @@
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
-				925C5F101E25A53F00196504 /* ViewController.swift */,
-				925C5F121E25A53F00196504 /* Main.storyboard */,
-				925C5F151E25A53F00196504 /* Assets.xcassets */,
-				925C5F171E25A53F00196504 /* LaunchScreen.storyboard */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				925C5F251E25BD2900196504 /* Helpers */,
 			);
@@ -177,7 +171,6 @@
 			files = (
 				925C5F191E25A53F00196504 /* LaunchScreen.storyboard in Resources */,
 				925C5F161E25A53F00196504 /* Assets.xcassets in Resources */,
-				925C5F141E25A53F00196504 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +229,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925C5F111E25A53F00196504 /* ViewController.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
@@ -247,20 +239,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		925C5F121E25A53F00196504 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				925C5F131E25A53F00196504 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		925C5F171E25A53F00196504 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				925C5F181E25A53F00196504 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = "Food For All";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -65,7 +65,7 @@ extension WelcomeView {
     fileprivate func logInButtonSetup() {
         theLogInButton.setTitle("Log In", for: .normal)
         theLogInButton.setTitleColor(UIColor.white, for: .normal)
-        theLogInButton.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+        theLogInButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         self.addSubview(theLogInButton)
         theLogInButton.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(10)
