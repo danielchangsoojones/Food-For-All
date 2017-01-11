@@ -10,12 +10,13 @@ import UIKit
 import SnapKit
 
 class WelcomeView: UIView {
-    fileprivate var button = UIButton()
     fileprivate var theStackView = UIStackView()
+    fileprivate var theLogInButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         stackViewSetup()
+        logInButtonSetup()
         self.backgroundColor = UIColor.red
     }
     
@@ -41,13 +42,15 @@ extension WelcomeView {
     }
     
     fileprivate func facebookButtonSetup() {
-        let button = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
+        //TODO: add f logo to the button like the Airbnb page
+        let _ = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
+        
     }
     
     private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {
         let button = UIButton()
         button.layer.cornerRadius = 25
-        button.addBorder(width: 3, color: textColor)
+        button.addBorder(width: 2, color: textColor)
         button.setTitle(title, for: .normal)
         button.setTitleColor(textColor, for: .normal)
         button.layer.borderColor = textColor.cgColor
@@ -57,5 +60,16 @@ extension WelcomeView {
             make.height.equalTo(50)
         }
         return button
+    }
+    
+    fileprivate func logInButtonSetup() {
+        theLogInButton.setTitle("Log In", for: .normal)
+        theLogInButton.setTitleColor(UIColor.white, for: .normal)
+        theLogInButton.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+        self.addSubview(theLogInButton)
+        theLogInButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(10)
+            make.trailing.equalTo(self).inset(10)
+        }
     }
 }
