@@ -83,7 +83,14 @@ strip_invalid_archs() {
 }
 
 
-if [[ "$CONFIGURATION" == "Debug" ]]; then
+if [[ "$CONFIGURATION" == "Debug (Staging)" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/Bolts/Bolts.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ParseUI/ParseUI.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
+fi
+if [[ "$CONFIGURATION" == "Debug (Production)" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Bolts/Bolts.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"

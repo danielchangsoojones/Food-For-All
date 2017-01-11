@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,26 +14,35 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E52F2EDF42036E4D920049090A253C94"
-               BuildableName = "Pods_Food_For_All.framework"
-               BlueprintName = "Pods-Food For All"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "925C5F0A1E25A53E00196504"
+               BuildableName = "Food For All.app"
+               BlueprintName = "Food For All"
+               ReferencedContainer = "container:Food For All.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug (Staging)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "925C5F0A1E25A53E00196504"
+            BuildableName = "Food For All.app"
+            BlueprintName = "Food For All"
+            ReferencedContainer = "container:Food For All.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug (Staging)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E52F2EDF42036E4D920049090A253C94"
-            BuildableName = "Pods_Food_For_All.framework"
-            BlueprintName = "Pods-Food For All"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "925C5F0A1E25A53E00196504"
+            BuildableName = "Food For All.app"
+            BlueprintName = "Food For All"
+            ReferencedContainer = "container:Food For All.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,9 +70,19 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "925C5F0A1E25A53E00196504"
+            BuildableName = "Food For All.app"
+            BlueprintName = "Food For All"
+            ReferencedContainer = "container:Food For All.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug (Staging)">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
