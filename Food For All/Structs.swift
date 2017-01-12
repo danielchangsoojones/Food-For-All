@@ -12,4 +12,15 @@ import EZSwiftExtensions
 
 struct CustomColors {
     static let JellyTeal: UIColor = UIColor(r: 1, g: 195, b: 167)
+    static let Polar: UIColor = UIColor(r: 204, g: 243, b: 237)
+    
+    static let welcomeGradientColors: [CGColor] = [CustomColors.JellyTeal.cgColor, CustomColors.Polar.cgColor]
+    
+    static func addGradient(colors: [CGColor], to view: UIView) {
+        let gradient:CAGradientLayer = CAGradientLayer()
+        gradient.frame.size = view.frame.size
+        gradient.colors = colors
+        view.layer.insertSublayer(gradient, at: 0)
+//        view.layer.addSublayer(gradient)
+    }
 }

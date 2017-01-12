@@ -15,13 +15,17 @@ class WelcomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addBackgroundGradient()
         stackViewSetup()
         logInButtonSetup()
-        self.backgroundColor = UIColor.red
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addBackgroundGradient() {
+        CustomColors.addGradient(colors: CustomColors.welcomeGradientColors, to: self)
     }
 }
 
