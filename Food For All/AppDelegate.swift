@@ -16,18 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        toWelcomeVC()
         setParseConfiguration()
+        toWelcomeVC()
+        
         return true
     }
     
     fileprivate func setParseConfiguration() {
         var appConfiguration = Configuration()
-//        let configuration = ParseClientConfiguration {
-//            $0.applicationId = appConfiguration.environment.applicationId
-//            $0.server = appConfiguration.environment.server
-//        }
-        print(appConfiguration.environment.applicationId)
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = appConfiguration.environment.applicationId
+            $0.server = appConfiguration.environment.server
+        }
+        Parse.initialize(with: configuration)
     }
     
     fileprivate func toWelcomeVC() {

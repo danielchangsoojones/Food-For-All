@@ -21,8 +21,8 @@ enum Environment: String {
     
     var server: String {
         switch self {
-        case .Staging: return "http://foodforalldevelopment.herokuapp.com/parse"
-        case .Production: return "http://foodforallproduction.herokuapp.com/parse"
+        case .Staging: return "https://food-for-all-development.herokuapp.com/parse"
+        case .Production: return "https://food-for-all-production.herokuapp.com/parse"
         }
     }
 }
