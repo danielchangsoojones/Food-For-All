@@ -10,8 +10,10 @@ import UIKit
 import SnapKit
 
 class WelcomeView: UIView {
-    fileprivate var theStackView = UIStackView()
-    fileprivate var theLogInButton = UIButton()
+    var theStackView = UIStackView()
+    var theLogInButton = UIButton()
+    var theFacebookButton = UIButton()
+    var theSignUpButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +39,7 @@ extension WelcomeView {
         theStackView.distribution = .equalCentering
         theStackView.spacing = 10
         facebookButtonSetup()
-        _ = createButton(title: "Create Account", backgroundColor: UIColor.clear, textColor: UIColor.white)
+        theSignUpButton = createButton(title: "Create Account", backgroundColor: UIColor.clear, textColor: UIColor.white)
         self.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
@@ -47,7 +49,7 @@ extension WelcomeView {
     
     fileprivate func facebookButtonSetup() {
         //TODO: add f logo to the button like the Airbnb page
-        let _ = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
+        theFacebookButton = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
         
     }
     

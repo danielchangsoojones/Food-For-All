@@ -9,13 +9,24 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    fileprivate var theFacebookButton: UIButton!
+    fileprivate var theSignUpButton: UIButton!
+    fileprivate var theLogInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
     }
     
     fileprivate func viewSetup() {
-        self.view = WelcomeView(frame: self.view.bounds)
+        let welcomeView = WelcomeView(frame: self.view.bounds)
+        self.view = welcomeView
+        theFacebookButton = welcomeView.theFacebookButton
+        theSignUpButton = welcomeView.theSignUpButton
+        theLogInButton = welcomeView.theLogInButton
+        addTarget(to: theFacebookButton, action: #selector(facebookPressed(sender:)))
+        addTarget(to: theSignUpButton, action: #selector(signUp(sender:)))
+        addTarget(to: theLogInButton, action: #selector(logIn(sender:)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +47,24 @@ class WelcomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+}
 
+//button actions
+extension WelcomeViewController {
+    func facebookPressed(sender: UIButton) {
+        
+    }
+    
+    func signUp(sender: UIButton) {
+        
+    }
+    
+    func logIn(sender: UIButton) {
+        let destinationVC = WelcomeFormViewController()
+        pushVC(destinationVC)
+    }
+    
+    fileprivate func addTarget(to button: UIButton, action: Selector) {
+        button.addTarget(self, action: action, for: .touchUpInside)
+    }
 }

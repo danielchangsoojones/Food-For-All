@@ -15,6 +15,8 @@
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
 		927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0AE1E26F4D400220168 /* Enviroment.swift */; };
 		927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0B01E26F4EA00220168 /* Configuration.swift */; };
+		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
+		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,9 +31,13 @@
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		927BE0AE1E26F4D400220168 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		927BE0B01E26F4EA00220168 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
+		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		F07CA4C10A4CDD588A31B1A4 /* Pods-Food For All.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.release.xcconfig"; sourceTree = "<group>"; };
 		F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_All.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAAEA21BCEDAEB1FF959718 /* Pods-Food For All.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug (staging).xcconfig"; sourceTree = "<group>"; };
+		FF8D642DCC671B8A96399856 /* Pods-Food For All.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug (production).xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,8 @@
 			children = (
 				E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */,
 				F07CA4C10A4CDD588A31B1A4 /* Pods-Food For All.release.xcconfig */,
+				FBAAEA21BCEDAEB1FF959718 /* Pods-Food For All.debug (staging).xcconfig */,
+				FF8D642DCC671B8A96399856 /* Pods-Food For All.debug (production).xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -97,8 +105,10 @@
 		925C5F201E25A55900196504 /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				925C5F211E25AA1A00196504 /* WelcomeView.swift */,
-				925C5F231E25AA9C00196504 /* WelcomeViewController.swift */,
+				92D12B9A1E282F45009AC99E /* Log In */,
+				92D12B991E282F3A009AC99E /* Welcome */,
+				92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */,
+				92D12B9D1E283165009AC99E /* WelcomeFormView.swift */,
 			);
 			name = Login/SignUp;
 			sourceTree = "<group>";
@@ -119,6 +129,22 @@
 				927BE0B01E26F4EA00220168 /* Configuration.swift */,
 			);
 			name = Configurations;
+			sourceTree = "<group>";
+		};
+		92D12B991E282F3A009AC99E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				925C5F211E25AA1A00196504 /* WelcomeView.swift */,
+				925C5F231E25AA9C00196504 /* WelcomeViewController.swift */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		92D12B9A1E282F45009AC99E /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Log In";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,8 +272,10 @@
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
+				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
+				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +388,7 @@
 		};
 		925C5F1E1E25A53F00196504 /* Debug (Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */;
+			baseConfigurationReference = FBAAEA21BCEDAEB1FF959718 /* Pods-Food For All.debug (staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -437,7 +465,7 @@
 		};
 		92D12B981E26F7AC009AC99E /* Debug (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */;
+			baseConfigurationReference = FF8D642DCC671B8A96399856 /* Pods-Food For All.debug (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -10,5 +10,6 @@ target 'Food For All' do
   pod 'EZSwiftExtensions'
   pod 'Parse'
   pod 'ParseUI'
+  pod "TextFieldEffects"
 
 end
