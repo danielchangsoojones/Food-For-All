@@ -13,7 +13,8 @@ class WelcomeFormViewController: UIViewController {
     fileprivate var theForwardButton: UIButton!
     fileprivate var theSpinner: UIActivityIndicatorView!
     fileprivate var theScrollView: UIScrollView!
-    
+    fileprivate var theTopTextField: UITextField!
+    fileprivate var theBottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,10 @@ class WelcomeFormViewController: UIViewController {
         theForwardButton = welcomeFormView.theForwardButton
         theSpinner = welcomeFormView.theSpinner
         theScrollView = welcomeFormView.theScrollView
+        theBottomTextField = welcomeFormView.theBottomTextField
+        theTopTextField = welcomeFormView.theTopTextField
+        theBottomTextField.delegate = self
+        theTopTextField.delegate = self
     }
     
     override var inputAccessoryView: UIView? {
@@ -50,13 +55,27 @@ class WelcomeFormViewController: UIViewController {
     }
 }
 
-//keyboard extension
+//keyboard/keyboard Accessory view extension
 extension WelcomeFormViewController {
     func keyboardWillShow(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
             //the keyboard accessory view is factored into the keyboardHeight already
             theScrollView.contentInset.bottom = keyboardHeight
+        }
+    }
+}
+
+extension WelcomeFormViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let welcomeFormView = self.view as? WelcomeFormView {
+            welcomeFormView.togglePlaceholderColor(textField: textField, shouldDarken: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let welcomeFormView = self.view as? WelcomeFormView {
+            welcomeFormView.togglePlaceholderColor(textField: textField, shouldDarken: false)
         }
     }
 }

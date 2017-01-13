@@ -92,7 +92,7 @@ extension WelcomeFormView {
     
     fileprivate func textFieldSetup(placeholder: String) -> UITextField {
         let textField = HoshiTextField(frame: CGRect.zero)
-        textField.placeholderColor = UIColor.white.withAlphaComponent(0.5)
+        togglePlaceholderColor(textField: textField, shouldDarken: false)
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.placeholderFontScale = 0.9
         textField.borderActiveColor = UIColor.white
@@ -100,6 +100,15 @@ extension WelcomeFormView {
         textField.textColor = UIColor.white
         textField.placeholder = placeholder
         return textField
+    }
+    
+    func togglePlaceholderColor(textField: UITextField, shouldDarken: Bool) {
+        //TODO: the textfield label alpha is not changing because in the hoshiText field class, it is animating it to 0.5 over 0.2 seconds. So, when we change the textfieldLabel alpha in here, it just gets changed back over time. We will need to subclass the hoshi text field or something to make it change the alpha after the animation has completed.
+        if let hoshiTextField = textField as? HoshiTextField {
+            let defaultColor = UIColor.white.withAlphaComponent(0.5)
+            let elevatedColor: UIColor = textField.textColor ?? defaultColor
+            hoshiTextField.placeholderColor = shouldDarken ? elevatedColor : defaultColor
+        }
     }
 }
 
