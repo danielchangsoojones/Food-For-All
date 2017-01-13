@@ -11,15 +11,22 @@ import TextFieldEffects
 
 class WelcomeFormView: UIView {
     let theTitleLabel: UILabel = UILabel()
-    var theTopTextField: KaedeTextField!
-    var theBottomTextField: KaedeTextField!
+    var theTopTextField: UITextField!
+    var theBottomTextField: UITextField!
     var theStackView: UIStackView!
+    var theScrollView: UIScrollView = UIScrollView()
+    var theContentView: UIView = UIView()
+    var theKeyboardAccessoryView: UIView = UIView()
+    var theForwardButton: UIButton = UIButton()
+    var theSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
     init(frame: CGRect, title: String, topTextFieldTitle: String, bottomTextFieldTitle: String) {
         super.init(frame: frame)
+        scrollViewSetup()
         titleLabelSetup(title: title)
         self.backgroundColor = UIColor.green
-//        createTextFields(topTitle: topTextFieldTitle, bottomTitle: bottomTextFieldTitle)
+        createTextFields(topTitle: topTextFieldTitle, bottomTitle: bottomTextFieldTitle)
+        keyboardAccessoryViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,18 +35,42 @@ class WelcomeFormView: UIView {
     
     fileprivate func titleLabelSetup(title: String) {
         theTitleLabel.text = title
+        theTitleLabel.textColor = UIColor.white
         theTitleLabel.font = UIFont.systemFont(ofSize: 40)
-        self.addSubview(theTitleLabel)
+        theContentView.addSubview(theTitleLabel)
         theTitleLabel.snp.makeConstraints { (make) in
-            make.top.trailing.leading.equalTo(self)
+            make.trailing.leading.equalTo(self)
+            make.top.equalTo(theContentView)
         }
     }
 }
 
+//scroll view
+extension WelcomeFormView {
+    fileprivate func scrollViewSetup() {
+        contentViewSetup()
+        self.addSubview(theScrollView)
+        theScrollView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self)
+            make.top.equalTo(self)
+        }
+    }
+    
+    fileprivate func contentViewSetup() {
+        theScrollView.addSubview(theContentView)
+        theContentView.backgroundColor = UIColor.blue
+        theContentView.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalTo(theScrollView)
+            make.width.equalTo(self.frame.width)
+        }
+    }
+}
+
+//textfields
 extension WelcomeFormView {
     fileprivate func createTextFields(topTitle: String, bottomTitle: String) {
-        theTopTextField = textFieldSetup()
-        theBottomTextField = textFieldSetup()
+        theTopTextField = textFieldSetup(placeholder: topTitle)
+        theBottomTextField = textFieldSetup(placeholder: bottomTitle)
         createTextFieldStackView()
     }
     
@@ -49,21 +80,59 @@ extension WelcomeFormView {
         theStackView.alignment = .fill
         theStackView.distribution = .fillEqually
         theStackView.spacing = 10
-        self.addSubview(theStackView)
+        theContentView.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
             make.trailing.leading.equalToSuperview()
-            make.top.equalTo(theTitleLabel)
-    
-            //TODO: set the bottom to the button
-            make.bottom.equalTo(self)
+            make.top.equalTo(theTitleLabel.snp.bottom)
+            make.height.equalTo(200)
+            make.bottom.equalToSuperview() //to tell the scrollView/ContentView how big it should be
         }
     }
     
     
-    fileprivate func textFieldSetup() -> KaedeTextField {
-        let textField = KaedeTextField(frame: CGRect.zero)
-        textField.placeholderColor = UIColor.blue
-        textField.foregroundColor = UIColor.red
+    fileprivate func textFieldSetup(placeholder: String) -> UITextField {
+        let textField = HoshiTextField(frame: CGRect.zero)
+        textField.placeholderColor = UIColor.white.withAlphaComponent(0.5)
+        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.placeholderFontScale = 0.9
+        textField.borderActiveColor = UIColor.white
+        textField.borderInactiveColor = UIColor.white.withAlphaComponent(0.5)
+        textField.textColor = UIColor.white
+        textField.placeholder = placeholder
         return textField
+    }
+}
+
+//keyboard accessory view
+extension WelcomeFormView {
+    fileprivate func keyboardAccessoryViewSetup() {
+        theKeyboardAccessoryView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: 100)
+        theKeyboardAccessoryView.backgroundColor = UIColor.red
+        forwardButtonSetup()
+    }
+    
+    fileprivate func forwardButtonSetup() {
+        theForwardButton.backgroundColor = UIColor.white
+        theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
+        let side: CGFloat = 100
+        theForwardButton.layer.cornerRadius = side / 2
+        theForwardButton.clipsToBounds = true
+        theForwardButton.alpha = 0.8
+        theKeyboardAccessoryView.addSubview(theForwardButton)
+        theForwardButton.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(theKeyboardAccessoryView)
+            make.width.height.equalTo(side)
+        }
+        spinnerSetup()
+    }
+    
+    fileprivate func spinnerSetup() {
+        theForwardButton.addSubview(theSpinner)
+        theSpinner.color = CustomColors.JellyTeal
+        theSpinner.isHidden = true
+        theSpinner.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview().inset(theForwardButton.frame.height * 0.05)
+        }
     }
 }
