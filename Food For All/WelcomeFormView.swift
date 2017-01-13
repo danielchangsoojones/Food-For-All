@@ -22,9 +22,9 @@ class WelcomeFormView: UIView {
     
     init(frame: CGRect, title: String, topTextFieldTitle: String, bottomTextFieldTitle: String) {
         super.init(frame: frame)
+        CustomColors.addGradient(colors: CustomColors.welcomeGradientColors, to: self)
         scrollViewSetup()
         titleLabelSetup(title: title)
-        self.backgroundColor = UIColor.green
         createTextFields(topTitle: topTextFieldTitle, bottomTitle: bottomTextFieldTitle)
         keyboardAccessoryViewSetup()
     }
@@ -58,7 +58,6 @@ extension WelcomeFormView {
     
     fileprivate func contentViewSetup() {
         theScrollView.addSubview(theContentView)
-        theContentView.backgroundColor = UIColor.blue
         theContentView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalTo(theScrollView)
             make.width.equalTo(self.frame.width)

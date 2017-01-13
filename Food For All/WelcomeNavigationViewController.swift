@@ -9,10 +9,10 @@
 import UIKit
 
 class WelcomeNavigationViewController: UINavigationController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         makeTransparent()
+        navigationBar.tintColor = UIColor.white //makes the back button a certain color
     }
 
     override func didReceiveMemoryWarning() {
