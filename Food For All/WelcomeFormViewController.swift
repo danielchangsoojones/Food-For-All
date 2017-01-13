@@ -37,6 +37,7 @@ class WelcomeFormViewController: UIViewController {
         self.view = welcomeFormView
         theKeyboardAccessoryView = welcomeFormView.theKeyboardAccessoryView
         theForwardButton = welcomeFormView.theForwardButton
+        theForwardButton.addTarget(self, action: #selector(forwardButtonPressed(sender:)), for: .touchUpInside)
         theSpinner = welcomeFormView.theSpinner
         theScrollView = welcomeFormView.theScrollView
         theBottomTextField = welcomeFormView.theBottomTextField
@@ -63,6 +64,10 @@ extension WelcomeFormViewController {
             //the keyboard accessory view is factored into the keyboardHeight already
             theScrollView.contentInset.bottom = keyboardHeight
         }
+    }
+    
+    func forwardButtonPressed(sender: UIButton? = nil) {
+        print("implement whatever segue we should be doing")
     }
 }
 

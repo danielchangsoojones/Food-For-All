@@ -116,15 +116,18 @@ extension WelcomeFormView {
 extension WelcomeFormView {
     fileprivate func keyboardAccessoryViewSetup() {
         theKeyboardAccessoryView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: 100)
-        theKeyboardAccessoryView.backgroundColor = UIColor.red
+        theKeyboardAccessoryView.backgroundColor = UIColor.clear
         forwardButtonSetup()
     }
     
     fileprivate func forwardButtonSetup() {
         theForwardButton.backgroundColor = UIColor.white
-        theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
-        let side: CGFloat = 100
+        let side: CGFloat = 40
         theForwardButton.layer.cornerRadius = side / 2
+        theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
+        theForwardButton.imageView?.contentMode = .scaleAspectFit
+        let inset = side * 0.25
+        theForwardButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         theForwardButton.clipsToBounds = true
         theForwardButton.alpha = 0.8
         theKeyboardAccessoryView.addSubview(theForwardButton)
