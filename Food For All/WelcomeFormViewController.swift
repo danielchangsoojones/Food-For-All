@@ -22,6 +22,11 @@ class WelcomeFormViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        theTopTextField.becomeFirstResponder()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -48,11 +53,6 @@ class WelcomeFormViewController: UIViewController {
     
     override var inputAccessoryView: UIView? {
         return theKeyboardAccessoryView
-    }
-    
-    //for the inputAccessoryView to show
-    override var canBecomeFirstResponder: Bool {
-        return true
     }
 }
 
