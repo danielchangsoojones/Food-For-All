@@ -16,7 +16,7 @@ class WelcomeFormView: UIView {
     var theStackView: UIStackView!
     var theScrollView: UIScrollView = UIScrollView()
     var theContentView: UIView = UIView()
-    var theKeyboardAccessoryView: UIView = UIView()
+    var theKeyboardAccessoryView: UIView!
     var theForwardButton: UIButton = UIButton()
     var theSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
@@ -114,7 +114,7 @@ extension WelcomeFormView {
 //keyboard accessory view
 extension WelcomeFormView {
     fileprivate func keyboardAccessoryViewSetup() {
-        theKeyboardAccessoryView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: 100)
+        theKeyboardAccessoryView = WelcomeInputAccessoryView(frame: CGRect(x: 0, y: 0, w: self.frame.width, h: 100))
         theKeyboardAccessoryView.backgroundColor = UIColor.clear
         forwardButtonSetup()
     }
