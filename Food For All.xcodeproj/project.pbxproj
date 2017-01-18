@@ -109,8 +109,8 @@
 		925C5F201E25A55900196504 /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				92DD8D2A1E295F19009EB164 /* Forms */,
 				92D12B991E282F3A009AC99E /* Welcome */,
+				92DD8D2A1E295F19009EB164 /* Forms */,
 				92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */,
 			);
 			name = Login/SignUp;

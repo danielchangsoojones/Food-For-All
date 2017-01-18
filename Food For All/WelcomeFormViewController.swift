@@ -13,8 +13,12 @@ class WelcomeFormViewController: UIViewController {
     fileprivate var theForwardButton: UIButton!
     fileprivate var theSpinner: UIActivityIndicatorView!
     fileprivate var theScrollView: UIScrollView!
-    fileprivate var theTopTextField: UITextField!
-    fileprivate var theBottomTextField: UITextField!
+    fileprivate var theTopTextField: UITextField?
+    fileprivate var theBottomTextField: UITextField?
+    
+    open var welcomeFormView: WelcomeFormView {
+        return WelcomeFormView(frame: self.view.bounds, title: "Welcome", topTextFieldTitle: "top", bottomTextFieldTitle: "bottom")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +28,7 @@ class WelcomeFormViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        theTopTextField.becomeFirstResponder()
+        theTopTextField?.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,21 +42,31 @@ class WelcomeFormViewController: UIViewController {
     }
     
     fileprivate func viewSetup() {
-        let welcomeFormView = WelcomeFormView(frame: self.view.bounds, title: "Log In", topTextFieldTitle: "hi", bottomTextFieldTitle: "boo")
         self.view = welcomeFormView
-        theKeyboardAccessoryView = welcomeFormView.theKeyboardAccessoryView
-        theForwardButton = welcomeFormView.theForwardButton
-        theForwardButton.addTarget(self, action: #selector(forwardButtonPressed(sender:)), for: .touchUpInside)
-        theSpinner = welcomeFormView.theSpinner
-        theScrollView = welcomeFormView.theScrollView
-        theBottomTextField = welcomeFormView.theBottomTextField
-        theTopTextField = welcomeFormView.theTopTextField
-        theBottomTextField.delegate = self
-        theTopTextField.delegate = self
+        if let aWelcomeFormView = self.view as? WelcomeFormView {
+            theKeyboardAccessoryView = aWelcomeFormView.theKeyboardAccessoryView
+            theForwardButton = aWelcomeFormView.theForwardButton
+            theForwardButton.addTarget(self, action: #selector(forwardButtonPressed(sender:)), for: .touchUpInside)
+            theSpinner = aWelcomeFormView.theSpinner
+            theScrollView = aWelcomeFormView.theScrollView
+            if let bottomTextField = aWelcomeFormView.theBottomTextField {
+                theBottomTextField = bottomTextField
+                theBottomTextField?.delegate = self
+            }
+            if let topTextField = aWelcomeFormView.theTopTextField {
+                theTopTextField = topTextField
+                theTopTextField?.delegate = self
+            }
+        }
     }
     
     override var inputAccessoryView: UIView? {
         return theKeyboardAccessoryView
+    }
+    
+    func forwardButtonPressed(sender: UIButton? = nil) {
+        theSpinner.isHidden = false
+        theSpinner.startAnimating()
     }
 }
 
@@ -64,10 +78,6 @@ extension WelcomeFormViewController {
             //the keyboard accessory view is factored into the keyboardHeight already
             theScrollView.contentInset.bottom = keyboardHeight
         }
-    }
-    
-    func forwardButtonPressed(sender: UIButton? = nil) {
-        print("implement whatever segue we should be doing")
     }
 }
 

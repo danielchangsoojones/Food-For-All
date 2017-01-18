@@ -14,10 +14,9 @@ class WelcomeFormView: UIView {
         static let trailingInset: CGFloat = 10
     }
     
-    
     let theTitleLabel: UILabel = UILabel()
-    var theTopTextField: UITextField!
-    var theBottomTextField: UITextField!
+    var theTopTextField: UITextField?
+    var theBottomTextField: UITextField?
     var theStackView: UIStackView!
     var theScrollView: UIScrollView = UIScrollView()
     var theContentView: UIView = UIView()
@@ -25,11 +24,12 @@ class WelcomeFormView: UIView {
     var theForwardButton: UIButton = UIButton()
     var theSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    init(frame: CGRect, title: String, topTextFieldTitle: String, bottomTextFieldTitle: String) {
+    init(frame: CGRect, title: String, topTextFieldTitle: String? = nil, bottomTextFieldTitle: String? = nil) {
         super.init(frame: frame)
         CustomColors.addGradient(colors: CustomColors.welcomeGradientColors, to: self)
         scrollViewSetup()
         titleLabelSetup(title: title)
+        createStackView()
         createTextFields(topTitle: topTextFieldTitle, bottomTitle: bottomTextFieldTitle)
         keyboardAccessoryViewSetup()
     }
@@ -72,14 +72,19 @@ extension WelcomeFormView {
 
 //textfields
 extension WelcomeFormView {
-    fileprivate func createTextFields(topTitle: String, bottomTitle: String) {
-        theTopTextField = textFieldSetup(placeholder: topTitle)
-        theBottomTextField = textFieldSetup(placeholder: bottomTitle)
-        createTextFieldStackView()
+    fileprivate func createTextFields(topTitle: String?, bottomTitle: String?) {
+        if let topTitle = topTitle {
+            theTopTextField = textFieldSetup(placeholder: topTitle)
+            theStackView.addArrangedSubview(theTopTextField!)
+        }
+        if let bottomTitle = bottomTitle {
+            theBottomTextField = textFieldSetup(placeholder: bottomTitle)
+            theStackView.addArrangedSubview(theBottomTextField!)
+        }
     }
     
-    fileprivate func createTextFieldStackView() {
-        theStackView = UIStackView(arrangedSubviews: [theTopTextField, theBottomTextField])
+    fileprivate func createStackView() {
+        theStackView = UIStackView()
         theStackView.axis = .vertical
         theStackView.alignment = .fill
         theStackView.distribution = .equalCentering
