@@ -281,7 +281,8 @@
 				TargetAttributes = {
 					925C5F0A1E25A53E00196504 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = KNK3WJA66N;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -500,10 +501,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dcj.Chong500Productions.Food-For-All";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2e35ae24-9764-4540-a9f6-6cad64584c8f";
+				PROVISIONING_PROFILE_SPECIFIER = "FreedomLancers-Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = "Debug (Staging)";
@@ -514,10 +518,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
+				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dcj.Chong500Productions.Food-For-All";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "eb37e86a-ee72-48c8-baac-19abab27061a";
+				PROVISIONING_PROFILE_SPECIFIER = "Freelancers Distrubution";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -577,10 +585,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dcj.Chong500Productions.Food-For-All";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2e35ae24-9764-4540-a9f6-6cad64584c8f";
+				PROVISIONING_PROFILE_SPECIFIER = "FreedomLancers-Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = "Debug (Production)";
