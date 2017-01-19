@@ -11,5 +11,6 @@ target 'Food For All' do
   pod 'Parse'
   pod 'ParseUI'
   pod "TextFieldEffects"
+  pod 'BRYXBanner'
 
 end

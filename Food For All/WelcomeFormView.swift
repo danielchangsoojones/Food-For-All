@@ -139,6 +139,7 @@ extension WelcomeFormView {
         let side: CGFloat = 40
         theForwardButton.layer.cornerRadius = side / 2
         theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
+        theForwardButton.setImage(UIImage(), for: .selected) //have no image on the selected state, so we can replace it with an UIActivityIndicator
         theForwardButton.imageView?.contentMode = .scaleAspectFit
         let inset = side * 0.25
         theForwardButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)

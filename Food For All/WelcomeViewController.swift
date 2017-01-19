@@ -60,7 +60,7 @@ extension WelcomeViewController {
     }
     
     func logIn(sender: UIButton) {
-        let destinationVC = WelcomeFormViewController()
+        let destinationVC = LoginViewController()
         pushVC(destinationVC)
     }
     

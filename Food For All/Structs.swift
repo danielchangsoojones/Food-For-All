@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import EZSwiftExtensions
+import BRYXBanner
 
 struct CustomColors {
     static let JellyTeal: UIColor = UIColor(r: 1, g: 195, b: 167)
@@ -24,3 +25,13 @@ struct CustomColors {
 //        view.layer.addSublayer(gradient)
     }
 }
+
+struct Helpers {
+    static func showBanner(title: String, subtitle: String) {
+        let banner = Banner(title: title, subtitle: subtitle, backgroundColor: UIColor.red)
+        banner.dismissesOnTap = true
+        banner.show(duration: 10.0)
+    }
+}
+
+
