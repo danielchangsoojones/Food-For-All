@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BRYXBanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,7 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ParseFacebookUtilsV4.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,7 +67,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A3AA2D780CF30388331CCE175336EDF</key>
+		<key>0FB8DA734056A59DA47B28B793871862</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>11AABD03D98838F91BE8181FB2CF7006</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37CAD459F133219E32F18B05732394A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B6557E1C6129FBBFF2626239178E142</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>893979A7C3F972BF6AC5A5F40F2818AD</key>
+		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FFFC46F5B3E0C38278CC608AA34EE0E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6164E7A5B4696F5D8CC782D0927E4EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB06EDC87CF059B10A7AEDF9E9C27C31</key>
+		<key>BE35BA237F3CDB411FB2D265BF214CC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2CEADAD6E40F11FFB02F0BD651B057B</key>
+		<key>D33A971E36C7D614827B65C7112CAB71</key>
 		<dict>
 			<key>primary</key>
 			<true/>

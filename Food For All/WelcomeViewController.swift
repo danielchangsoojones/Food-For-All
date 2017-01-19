@@ -13,8 +13,11 @@ class WelcomeViewController: UIViewController {
     fileprivate var theSignUpButton: UIButton!
     fileprivate var theLogInButton: UIButton!
     
+    var dataStore: WelcomeDataStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataStore = WelcomeDataStore(delegate: self)
         viewSetup()
     }
     
@@ -34,9 +37,9 @@ class WelcomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -52,19 +55,50 @@ class WelcomeViewController: UIViewController {
 //button actions
 extension WelcomeViewController {
     func facebookPressed(sender: UIButton) {
+        showActivityIndicatory(uiView: self.view)
+        dataStore.accessFaceBook()
+    }
+    
+    func showActivityIndicatory(uiView: UIView) {
+        let container: UIView = UIView()
+        container.frame = uiView.frame
+        container.center = uiView.center
+        container.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         
+        let loadingView: UIView = UIView()
+        loadingView.frame = CGRect(x: 0.0, y: 0.0, w: 80.0, h: 80.0)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColor(r: 0.25, g: 0.25, b: 0.25, a: 0.7)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+        actInd.frame = CGRect(x: 0.0, y: 0.0, w: 40.0, h: 40.0)
+        actInd.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        actInd.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
+        loadingView.addSubview(actInd)
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        actInd.startAnimating()
     }
     
     func signUp(sender: UIButton) {
-        
+        pushVC(SignUpViewController())
     }
     
     func logIn(sender: UIButton) {
-        let destinationVC = WelcomeFormViewController()
+        let destinationVC = LoginViewController()
         pushVC(destinationVC)
     }
     
     fileprivate func addTarget(to button: UIButton, action: Selector) {
         button.addTarget(self, action: action, for: .touchUpInside)
+    }
+}
+
+extension WelcomeViewController: WelcomeDataStoreDelegate {
+    func segueIntoApplication() {
+        print("segue into the application")
     }
 }

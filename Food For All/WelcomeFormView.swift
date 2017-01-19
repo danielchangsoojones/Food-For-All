@@ -10,21 +10,26 @@ import UIKit
 import TextFieldEffects
 
 class WelcomeFormView: UIView {
+    fileprivate struct Constants {
+        static let trailingInset: CGFloat = 10
+    }
+    
     let theTitleLabel: UILabel = UILabel()
-    var theTopTextField: UITextField!
-    var theBottomTextField: UITextField!
+    var theTopTextField: UITextField?
+    var theBottomTextField: UITextField?
     var theStackView: UIStackView!
     var theScrollView: UIScrollView = UIScrollView()
     var theContentView: UIView = UIView()
-    var theKeyboardAccessoryView: UIView = UIView()
+    var theKeyboardAccessoryView: UIView!
     var theForwardButton: UIButton = UIButton()
     var theSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    init(frame: CGRect, title: String, topTextFieldTitle: String, bottomTextFieldTitle: String) {
+    init(frame: CGRect, title: String, topTextFieldTitle: String? = nil, bottomTextFieldTitle: String? = nil) {
         super.init(frame: frame)
         CustomColors.addGradient(colors: CustomColors.welcomeGradientColors, to: self)
         scrollViewSetup()
         titleLabelSetup(title: title)
+        createStackView()
         createTextFields(topTitle: topTextFieldTitle, bottomTitle: bottomTextFieldTitle)
         keyboardAccessoryViewSetup()
     }
@@ -39,7 +44,7 @@ class WelcomeFormView: UIView {
         theTitleLabel.font = UIFont.systemFont(ofSize: 40)
         theContentView.addSubview(theTitleLabel)
         theTitleLabel.snp.makeConstraints { (make) in
-            make.trailing.leading.equalTo(self)
+            make.trailing.leading.equalTo(self).inset(Constants.trailingInset)
             make.top.equalTo(theContentView)
         }
     }
@@ -67,23 +72,27 @@ extension WelcomeFormView {
 
 //textfields
 extension WelcomeFormView {
-    fileprivate func createTextFields(topTitle: String, bottomTitle: String) {
-        theTopTextField = textFieldSetup(placeholder: topTitle)
-        theBottomTextField = textFieldSetup(placeholder: bottomTitle)
-        createTextFieldStackView()
+    fileprivate func createTextFields(topTitle: String?, bottomTitle: String?) {
+        if let topTitle = topTitle {
+            theTopTextField = textFieldSetup(placeholder: topTitle)
+            theStackView.addArrangedSubview(theTopTextField!)
+        }
+        if let bottomTitle = bottomTitle {
+            theBottomTextField = textFieldSetup(placeholder: bottomTitle)
+            theStackView.addArrangedSubview(theBottomTextField!)
+        }
     }
     
-    fileprivate func createTextFieldStackView() {
-        theStackView = UIStackView(arrangedSubviews: [theTopTextField, theBottomTextField])
+    fileprivate func createStackView() {
+        theStackView = UIStackView()
         theStackView.axis = .vertical
         theStackView.alignment = .fill
-        theStackView.distribution = .fillEqually
+        theStackView.distribution = .equalCentering
         theStackView.spacing = 10
         theContentView.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
-            make.trailing.leading.equalToSuperview()
+            make.trailing.leading.equalTo(theTitleLabel)
             make.top.equalTo(theTitleLabel.snp.bottom)
-            make.height.equalTo(200)
             make.bottom.equalToSuperview() //to tell the scrollView/ContentView how big it should be
         }
     }
@@ -98,6 +107,12 @@ extension WelcomeFormView {
         textField.borderInactiveColor = UIColor.white.withAlphaComponent(0.5)
         textField.textColor = UIColor.white
         textField.placeholder = placeholder
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.spellCheckingType = .no
+        textField.snp.makeConstraints { (make) in
+            make.height.equalTo(100)
+        }
         return textField
     }
     
@@ -114,7 +129,7 @@ extension WelcomeFormView {
 //keyboard accessory view
 extension WelcomeFormView {
     fileprivate func keyboardAccessoryViewSetup() {
-        theKeyboardAccessoryView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: 100)
+        theKeyboardAccessoryView = WelcomeInputAccessoryView(frame: CGRect(x: 0, y: 0, w: self.frame.width, h: 70))
         theKeyboardAccessoryView.backgroundColor = UIColor.clear
         forwardButtonSetup()
     }
@@ -124,6 +139,7 @@ extension WelcomeFormView {
         let side: CGFloat = 40
         theForwardButton.layer.cornerRadius = side / 2
         theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
+        theForwardButton.setImage(UIImage(), for: .selected) //have no image on the selected state, so we can replace it with an UIActivityIndicator
         theForwardButton.imageView?.contentMode = .scaleAspectFit
         let inset = side * 0.25
         theForwardButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
@@ -132,7 +148,7 @@ extension WelcomeFormView {
         theKeyboardAccessoryView.addSubview(theForwardButton)
         theForwardButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(theKeyboardAccessoryView)
+            make.trailing.equalTo(theKeyboardAccessoryView).inset(Constants.trailingInset)
             make.width.height.equalTo(side)
         }
         spinnerSetup()

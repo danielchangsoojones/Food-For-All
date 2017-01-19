@@ -38,4 +38,8 @@ class WelcomeNavigationViewController: UINavigationController {
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = true
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
