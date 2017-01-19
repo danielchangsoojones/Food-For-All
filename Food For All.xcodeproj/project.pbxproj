@@ -23,6 +23,7 @@
 		92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BAE1E3060F1009AC99E /* SignUpViewController.swift */; };
 		92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BB11E30632B009AC99E /* SignUpDataStore.swift */; };
 		92D12BB41E3066BD009AC99E /* AdmissionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BB31E3066BD009AC99E /* AdmissionFormViewController.swift */; };
+		92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BB61E3069C1009AC99E /* WelcomeDataStore.swift */; };
 		92DD8D291E295E8C009EB164 /* WelcomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */; };
 		92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
@@ -47,6 +48,7 @@
 		92D12BAE1E3060F1009AC99E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		92D12BB11E30632B009AC99E /* SignUpDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDataStore.swift; sourceTree = "<group>"; };
 		92D12BB31E3066BD009AC99E /* AdmissionFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmissionFormViewController.swift; sourceTree = "<group>"; };
+		92D12BB61E3069C1009AC99E /* WelcomeDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeDataStore.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationViewController.swift; sourceTree = "<group>"; };
 		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		92D12B991E282F3A009AC99E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				92D12BB51E3069B0009AC99E /* Data Store */,
 				925C5F211E25AA1A00196504 /* WelcomeView.swift */,
 				925C5F231E25AA9C00196504 /* WelcomeViewController.swift */,
 			);
@@ -212,6 +215,14 @@
 			isa = PBXGroup;
 			children = (
 				92D12BB11E30632B009AC99E /* SignUpDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		92D12BB51E3069B0009AC99E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BB61E3069C1009AC99E /* WelcomeDataStore.swift */,
 			);
 			name = "Data Store";
 			sourceTree = "<group>";
@@ -371,6 +382,7 @@
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
+				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */,
 				92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */,
 			);
