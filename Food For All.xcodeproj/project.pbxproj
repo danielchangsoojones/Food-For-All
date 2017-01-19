@@ -18,6 +18,11 @@
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
+		92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA61E3057B7009AC99E /* LogInDataStore.swift */; };
+		92D12BAC1E30592D009AC99E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BAB1E30592D009AC99E /* User.swift */; };
+		92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BAE1E3060F1009AC99E /* SignUpViewController.swift */; };
+		92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BB11E30632B009AC99E /* SignUpDataStore.swift */; };
+		92D12BB41E3066BD009AC99E /* AdmissionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BB31E3066BD009AC99E /* AdmissionFormViewController.swift */; };
 		92DD8D291E295E8C009EB164 /* WelcomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */; };
 		92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
@@ -37,6 +42,11 @@
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		92D12BA61E3057B7009AC99E /* LogInDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInDataStore.swift; sourceTree = "<group>"; };
+		92D12BAB1E30592D009AC99E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		92D12BAE1E3060F1009AC99E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		92D12BB11E30632B009AC99E /* SignUpDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDataStore.swift; sourceTree = "<group>"; };
+		92D12BB31E3066BD009AC99E /* AdmissionFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmissionFormViewController.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationViewController.swift; sourceTree = "<group>"; };
 		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
+				92D12BA81E3058DF009AC99E /* Models */,
 				925C5F251E25BD2900196504 /* Helpers */,
 			);
 			path = "Food For All";
@@ -111,9 +122,10 @@
 		925C5F201E25A55900196504 /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				92D12BA21E303B4D009AC99E /* Login */,
 				92D12B991E282F3A009AC99E /* Welcome */,
 				92DD8D2A1E295F19009EB164 /* Forms */,
+				92D12BA21E303B4D009AC99E /* Login */,
+				92D12BAD1E3060C9009AC99E /* Sign Up */,
 				92DD8D281E295E8C009EB164 /* WelcomeNavigationViewController.swift */,
 			);
 			name = Login/SignUp;
@@ -149,9 +161,59 @@
 		92D12BA21E303B4D009AC99E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				92D12BA51E3057A5009AC99E /* Data Store */,
 				92D12BA31E303B6D009AC99E /* LoginViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		92D12BA51E3057A5009AC99E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BA61E3057B7009AC99E /* LogInDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		92D12BA81E3058DF009AC99E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BAA1E3058EF009AC99E /* Database Models */,
+				92D12BA91E3058E9009AC99E /* Internal Models */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		92D12BA91E3058E9009AC99E /* Internal Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Internal Models";
+			sourceTree = "<group>";
+		};
+		92D12BAA1E3058EF009AC99E /* Database Models */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BAB1E30592D009AC99E /* User.swift */,
+			);
+			name = "Database Models";
+			sourceTree = "<group>";
+		};
+		92D12BAD1E3060C9009AC99E /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BB01E30631E009AC99E /* Data Store */,
+				92D12BAE1E3060F1009AC99E /* SignUpViewController.swift */,
+			);
+			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		92D12BB01E30631E009AC99E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92D12BB11E30632B009AC99E /* SignUpDataStore.swift */,
+			);
+			name = "Data Store";
 			sourceTree = "<group>";
 		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
@@ -160,6 +222,7 @@
 				92DD8D2B1E2D1F5A009EB164 /* Subviews */,
 				92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */,
 				92D12B9D1E283165009AC99E /* WelcomeFormView.swift */,
+				92D12BB31E3066BD009AC99E /* AdmissionFormViewController.swift */,
 			);
 			name = Forms;
 			sourceTree = "<group>";
@@ -294,13 +357,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* WelcomeNavigationViewController.swift in Sources */,
+				92D12BB41E3066BD009AC99E /* AdmissionFormViewController.swift in Sources */,
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
+				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
+				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
+				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */,

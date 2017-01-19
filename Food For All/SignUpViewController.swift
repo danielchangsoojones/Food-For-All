@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  Food For All
 //
 //  Created by Daniel Jones on 1/18/17.
@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import BRYXBanner
 
-class LoginViewController: AdmissionFormViewController {
-    var dataStore: LogInDataStore!
-    
+class SignUpViewController: AdmissionFormViewController {
+    var dataStore: SignUpDataStore!
     
     override var welcomeFormView: WelcomeFormView {
-        return WelcomeFormView(frame: self.view.bounds, title: "Log In", topTextFieldTitle: "Email", bottomTextFieldTitle: "Password")
+        return WelcomeFormView(frame: self.view.bounds, title: "Sign Up", topTextFieldTitle: "Email", bottomTextFieldTitle: "Password")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataStore = LogInDataStore(delegate: self)
+        dataStore = SignUpDataStore(delegate: self)
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +29,7 @@ class LoginViewController: AdmissionFormViewController {
     override func forwardButtonPressed(sender: UIButton?) {
         if validateEmail() && validatePassword() {
             super.forwardButtonPressed()
-            dataStore.logIn(email: theTopTextField?.text ?? "", password: theBottomTextField?.text ?? "")
+            dataStore.signUp(email: theTopTextField?.text ?? "", password: theBottomTextField?.text ?? "")
         }
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class WelcomeFormViewController: UIViewController {
     fileprivate var theKeyboardAccessoryView: UIView!
-    fileprivate var theForwardButton: UIButton!
-    fileprivate var theSpinner: UIActivityIndicatorView!
+    var theForwardButton: UIButton!
+    var theSpinner: UIActivityIndicatorView!
     fileprivate var theScrollView: UIScrollView!
     var theTopTextField: UITextField?
     var theBottomTextField: UITextField?
@@ -66,6 +66,7 @@ class WelcomeFormViewController: UIViewController {
     
     func forwardButtonPressed(sender: UIButton? = nil) {
         theForwardButton.isSelected = true
+        theForwardButton.isUserInteractionEnabled = false
         theSpinner.isHidden = false
         theSpinner.startAnimating()
     }
@@ -93,25 +94,5 @@ extension WelcomeFormViewController: UITextFieldDelegate {
         if let welcomeFormView = self.view as? WelcomeFormView {
             welcomeFormView.togglePlaceholderColor(textField: textField, shouldDarken: false)
         }
-    }
-    
-    func validateEmail() -> Bool {
-        if let email = theTopTextField?.text {
-            if !email.isEmail {
-                Helpers.showBanner(title: "Invalid Email", subtitle: "You must input a proper email")
-                return false
-            }
-        }
-        return true
-    }
-    
-    func validatePassword() -> Bool {
-        if let password = theBottomTextField?.text {
-            if password.isBlank {
-                Helpers.showBanner(title: "Invalid Password", subtitle: "You must input a password")
-                return false
-            }
-        }
-        return true
     }
 }

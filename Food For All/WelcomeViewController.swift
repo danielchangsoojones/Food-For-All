@@ -56,7 +56,7 @@ extension WelcomeViewController {
     }
     
     func signUp(sender: UIButton) {
-        
+        pushVC(SignUpViewController())
     }
     
     func logIn(sender: UIButton) {
