@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setParseConfiguration()
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
-        toWelcomeVC()
+//        toWelcomeVC()
+        toFrontPageVC()
         
         return true
     }
@@ -45,11 +46,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialVC(vc: navController)
     }
     
+    fileprivate func toFrontPageVC() {
+        let rootVC = FrontPageViewController()
+        let navController = UINavigationController(rootViewController: rootVC)
+        setInitialVC(vc: navController)
+    }
+    
     fileprivate func setInitialVC(vc: UIViewController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
+    
+    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
