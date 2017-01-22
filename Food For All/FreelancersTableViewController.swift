@@ -23,11 +23,6 @@ class FreelancersTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 2
@@ -36,7 +31,7 @@ class FreelancersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "hello"
+        cell.backgroundColor = UIColor.red
 
         return cell
     }
@@ -91,9 +86,14 @@ class FreelancersTableViewController: UITableViewController {
 extension FreelancersTableViewController {
     static func add(to parentVC: UIViewController, toView: UIView) {
         let tableVC = FreelancersTableViewController()
-        parentVC.addAsChildViewController(parentVC, toView: toView)
-        tableVC.view.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        if let childView = tableVC.view {
+            parentVC.addChildViewController(tableVC)
+            toView.addSubview(childView)
+            tableVC.didMove(toParentViewController: parentVC)
+            
+            tableVC.view.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
+            }
         }
     }
 }
