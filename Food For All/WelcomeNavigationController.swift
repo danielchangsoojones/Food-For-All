@@ -1,5 +1,5 @@
 //
-//  WelcomeNavigationViewController.swift
+//  WelcomeNavigationController.swift
 //  Food For All
 //
 //  Created by Daniel Jones on 1/13/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeNavigationViewController: UINavigationController {
+class WelcomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeTransparent()

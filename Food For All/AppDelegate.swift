@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func toWelcomeVC() {
         let rootVC = WelcomeViewController()
-        let navController = WelcomeNavigationViewController(rootViewController: rootVC)
+        let navController = WelcomeNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     
