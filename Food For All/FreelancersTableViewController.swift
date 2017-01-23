@@ -30,8 +30,10 @@ class FreelancersTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = UIColor.red
+        
+        let person = Person()
+        let gig = Gig(title: "K201 Tutoring", price: 15, description: "hi", creator: person)
+        let cell = FreelancersTableViewCell(gig: gig)
 
         return cell
     }
