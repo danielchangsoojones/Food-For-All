@@ -40,6 +40,9 @@ class FrontPageViewController: UIViewController {
     fileprivate func navBarSetup() {
         title = "Finite"
         addNavBarGradient()
+        
+        //make title label white
+        self.navBar?.barStyle = UIBarStyle.black
         self.navBar?.tintColor = UIColor.white
         
         //remove nav bar line
