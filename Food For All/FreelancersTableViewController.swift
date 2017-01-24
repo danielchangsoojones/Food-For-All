@@ -11,6 +11,7 @@ import EZSwiftExtensions
 import SnapKit
 
 class FreelancersTableViewController: UITableViewController {
+    var gigs: [Gig] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,12 @@ class FreelancersTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return gigs.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let person = Person()
-        let gig = Gig(title: "K201 Tutoring", price: 15, description: "hi", creator: person)
+        let gig = gigs[indexPath.row]
         let cell = FreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
 
         return cell
@@ -44,7 +44,7 @@ class FreelancersTableViewController: UITableViewController {
 }
 
 extension FreelancersTableViewController {
-    static func add(to parentVC: UIViewController, toView: UIView) {
+    static func add(to parentVC: UIViewController, toView: UIView) -> FreelancersTableViewController {
         let tableVC = FreelancersTableViewController()
         if let childView = tableVC.view {
             parentVC.addChildViewController(tableVC)
@@ -55,5 +55,6 @@ extension FreelancersTableViewController {
                 make.edges.equalToSuperview()
             }
         }
+        return tableVC
     }
 }

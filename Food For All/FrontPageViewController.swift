@@ -9,11 +9,14 @@
 import UIKit
 
 class FrontPageViewController: UIViewController {
+    var tableVC: FreelancersTableViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         navBarSetup()
         addTableViewVC()
+        dataStoreSetup()
     }
     
     fileprivate func viewSetup() {
@@ -26,8 +29,12 @@ class FrontPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    fileprivate func dataStoreSetup() {
+        let _ = FrontPageDataStore(delegate: self)
+    }
+    
     fileprivate func addTableViewVC() {
-        FreelancersTableViewController.add(to: self, toView: self.view)
+        tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
     }
     
     fileprivate func navBarSetup() {
@@ -54,5 +61,12 @@ class FrontPageViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+    }
+}
+
+extension FrontPageViewController: FrontPageDataStoreDelegate {
+    func pass(gigs: [Gig]) {
+        tableVC.gigs = gigs
+        tableVC.tableView.reloadData()
     }
 }

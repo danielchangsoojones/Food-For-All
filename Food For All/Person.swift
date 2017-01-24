@@ -16,4 +16,12 @@ class Person {
     var profileImage: PFFile?
     
     var user: User = User()
+    
+    init(user: User) {
+        self.user = user
+        self.firstName = user.theFirstName
+        self.lastName = user.theLastName
+        self.birthDate = user.birthDate
+        self.profileImage = user.profileImage
+    }
 }

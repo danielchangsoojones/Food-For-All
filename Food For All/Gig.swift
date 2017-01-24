@@ -13,7 +13,7 @@ class Gig {
     var price: Double = 0.0
     var description: String = ""
     var phoneNumber: Int = 0
-    var creator: Person = Person()
+    var creator: Person!
     
     init(title: String, price: Double, description: String, creator: Person) {
         self.title = title

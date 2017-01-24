@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func registerParseSubclasses() {
         User.registerSubclass()
+        GigParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {
