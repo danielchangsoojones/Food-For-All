@@ -21,8 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setParseConfiguration()
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
-//        toWelcomeVC()
-        toFrontPageVC()
+        if User.current() == nil {
+            //not logged in
+            toWelcomeVC()
+        } else {
+            //already logged in
+            toFrontPageVC()
+        }
         
         return true
     }

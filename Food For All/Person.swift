@@ -24,4 +24,8 @@ class Person {
         self.birthDate = user.birthDate
         self.profileImage = user.profileImage
     }
+    
+    static func current() -> Person {
+        return Person(user: User.current() ?? User())
+    }
 }
