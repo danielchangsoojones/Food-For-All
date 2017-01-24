@@ -9,10 +9,10 @@
 import UIKit
 
 class FrontPageViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        navBarSetup()
         addTableViewVC()
     }
     
@@ -29,5 +29,30 @@ class FrontPageViewController: UIViewController {
     fileprivate func addTableViewVC() {
         FreelancersTableViewController.add(to: self, toView: self.view)
     }
-
+    
+    fileprivate func navBarSetup() {
+        title = "Finite"
+        addNavBarGradient()
+        self.navBar?.tintColor = UIColor.white
+        
+        //remove nav bar line
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    private func addNavBarGradient() {
+        let gradientLayer = CAGradientLayer()
+        var updatedFrame = self.navigationController?.navigationBar.bounds ?? CGRect.zero
+        updatedFrame.size.height += 20
+        gradientLayer.frame = updatedFrame
+        gradientLayer.colors = [CustomColors.AquamarineBlue.cgColor, CustomColors.JellyTeal.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+    }
 }
