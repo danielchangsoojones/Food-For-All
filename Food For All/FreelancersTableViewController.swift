@@ -41,6 +41,12 @@ class FreelancersTableViewController: UITableViewController {
         tableView.rowHeight = 100
         return tableView.rowHeight
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tappedGig = gigs[indexPath.row]
+        let destinationVC = DetailViewController(gig: tappedGig)
+        parent?.pushVC(destinationVC)
+    }
 }
 
 extension FreelancersTableViewController {

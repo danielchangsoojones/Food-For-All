@@ -17,9 +17,8 @@ class FrontPageViewController: UIViewController {
         navBarSetup()
         addTableViewVC()
         dataStoreSetup()
-        
     }
-    
+
     fileprivate func viewSetup() {
         let frontPageView = FrontPageView(frame: self.view.bounds)
         self.view = frontPageView
