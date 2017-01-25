@@ -18,13 +18,6 @@ class FrontPageViewController: UIViewController {
         addTableViewVC()
         dataStoreSetup()
         
-        let gig = GigParse()
-        gig.title = "K201 tutoring"
-        gig.price = 15.85
-        gig.creator = User.current() ?? User()
-        gig.detailDescription = "I do k201 everyday of my lifee!!!"
-        gig.phoneNumber = 3176905323
-        gig.saveInBackground()
     }
     
     fileprivate func viewSetup() {

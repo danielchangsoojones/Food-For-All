@@ -23,6 +23,8 @@ class FrontPageDataStore {
     
     fileprivate func loadGigs() {
         let query = GigParse.query() as! PFQuery<GigParse>
+        query.cachePolicy = .cacheThenNetwork
+        query.includeKey("creator")
         query.findObjectsInBackground { (gigParses, error) in
             if let gigParses = gigParses {
                 let gigs: [Gig] = gigParses.map({ (g: GigParse) -> Gig in
