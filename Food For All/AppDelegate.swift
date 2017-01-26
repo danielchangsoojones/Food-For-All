@@ -21,7 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setParseConfiguration()
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
-        toWelcomeVC()
+        if User.current() == nil {
+            //not logged in
+            toWelcomeVC()
+        } else {
+            //already logged in
+            toFrontPageVC()
+        }
         
         return true
     }
@@ -37,11 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func registerParseSubclasses() {
         User.registerSubclass()
+        GigParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {
         let rootVC = WelcomeViewController()
-        let navController = WelcomeNavigationViewController(rootViewController: rootVC)
+        let navController = WelcomeNavigationController(rootViewController: rootVC)
+        setInitialVC(vc: navController)
+    }
+    
+    fileprivate func toFrontPageVC() {
+        let rootVC = FrontPageViewController()
+        let navController = MainNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     
@@ -50,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
+    
+    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)

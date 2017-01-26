@@ -35,7 +35,9 @@ extension WelcomeFormViewController: AdmissionFormDataStoreDelegate {
     }
     
     func segueIntoApplication() {
-        
+        let startingVC = FrontPageViewController()
+        let navController = MainNavigationController(rootViewController: startingVC)
+        presentVC(navController)
     }
     
     func validateEmail() -> Bool {
