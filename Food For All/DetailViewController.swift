@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
     var theNameLabel: UILabel!
@@ -28,11 +29,15 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         viewSetup()
         setContents()
         descriptionSetup()
         colorPriceLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +102,31 @@ extension DetailViewController {
     }
     
     func messageButtonPressed(sender: UIButton) {
-        print("messsage button was pressed")
+        sendSMSText(phoneNumber: gig.phoneNumber.toString)
+    }
+}
+
+//Text messaging extension
+extension DetailViewController: MFMessageComposeViewControllerDelegate {
+    func sendSMSText(phoneNumber: String) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "We need to think of something to say to the tutor..."
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            let spinnerContainer: UIView = Helpers.showActivityIndicatory(uiView: self.view)
+            self.present(controller, animated: true, completion: {
+                spinnerContainer.removeFromSuperview()
+            })
+        } else {
+            Helpers.showBanner(title: "Message Error", subtitle: "Can not send messages currently")
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        //... handle sms screen actions
+        self.dismiss(animated: true, completion: {
+            Helpers.showBanner(title: "Succesful Message", subtitle: "You have succesfully texted the tutor", bannerType: .success)
+        })
     }
 }

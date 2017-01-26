@@ -15,10 +15,11 @@ class Gig {
     var phoneNumber: Int = 0
     var creator: Person!
     
-    init(title: String, price: Double, description: String, creator: Person) {
+    init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person) {
         self.title = title
         self.price = price
         self.description = description
         self.creator = creator
+        self.phoneNumber = phoneNumber
     }
 }

@@ -135,13 +135,13 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
-		9254B7181E39405B0034F6D0 /* Detail */ = {
+		9254B7181E39405B0034F6D0 /* Gig Detail */ = {
 			isa = PBXGroup;
 			children = (
 				9254B7191E3940F70034F6D0 /* DetailViewController.swift */,
 				9254B71B1E3942DB0034F6D0 /* DetailView.swift */,
 			);
-			name = Detail;
+			name = "Gig Detail";
 			sourceTree = "<group>";
 		};
 		9254B71D1E396A7A0034F6D0 /* Scroll */ = {
@@ -178,7 +178,7 @@
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
-				9254B7181E39405B0034F6D0 /* Detail */,
+				9254B7181E39405B0034F6D0 /* Gig Detail */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				92D12BA81E3058DF009AC99E /* Models */,

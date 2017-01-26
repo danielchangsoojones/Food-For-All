@@ -13,7 +13,7 @@ class CircularImageView: CircleView {
     var theImageView = UIImageView()
     
     init(file: AnyObject?, diameter: CGFloat) {
-        let noVisibleImageColor : UIColor = UIColor.gray
+        let noVisibleImageColor : UIColor = CustomColors.SilverChalice.withAlphaComponent(0.75)
         super.init(diameter: diameter, color: noVisibleImageColor)
         imageViewSetup(diameter)
         if let image = file as? UIImage {
