@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
         viewSetup()
         setContents()
         descriptionSetup()
+        colorPriceLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,6 +75,18 @@ extension DetailViewController {
     
     fileprivate func descriptionSetup() {
         theDescriptionLabel.numberOfLines = 0
+    }
+    
+    fileprivate func colorPriceLabel() {
+        let priceString = gig.price.toString + "$ per hour"
+        let indexOfMoneySign: Int = priceString.getIndexOf("$") ?? 0
+        
+        let myMutableString = NSMutableAttributedString(string: priceString)
+        myMutableString.addAttribute(NSForegroundColorAttributeName, value: CustomColors.JellyTeal, range: NSRange(location: 0,length: indexOfMoneySign + 1))
+        
+        // set label Attribute
+        //thePriceLabel.text = priceString
+        thePriceLabel.attributedText = myMutableString
     }
 }
 

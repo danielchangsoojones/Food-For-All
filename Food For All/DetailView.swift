@@ -126,7 +126,7 @@ extension DetailView {
     }
     
     fileprivate func priceLabelSetup() {
-        thePriceLabel.font = UIFont.systemFont(ofSize: 19, weight: UIFontWeightLight)
+        thePriceLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
         theBottomView.addSubview(thePriceLabel)
         thePriceLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
