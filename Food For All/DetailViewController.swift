@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     var theProfileImageView: CircularImageView!
     var theDescriptionLabel: UILabel!
     var theTitleLabel: UILabel!
+    var thePriceLabel: UILabel!
     
     var gig: Gig!
     
@@ -40,6 +41,7 @@ class DetailViewController: UIViewController {
         theProfileImageView = detailView.theProfileImageView
         theDescriptionLabel = detailView.theDescriptionLabel
         theTitleLabel = detailView.theTitleLabel
+        thePriceLabel = detailView.thePriceLabel
     }
     
     override var prefersStatusBarHidden: Bool {

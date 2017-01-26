@@ -12,6 +12,7 @@ class DetailView: CustomScrollerView {
     struct Constants {
         static let topViewHeight: CGFloat = 100
         static let spacing: CGFloat = 18
+        static let sideInset: CGFloat = 10
     }
     
     var theTopView: UIView = UIView()
@@ -19,6 +20,9 @@ class DetailView: CustomScrollerView {
     var theProfileImageView: CircularImageView!
     var theTitleLabel: UILabel = UILabel()
     var theDescriptionLabel: UILabel = UILabel()
+    var theBottomView: UIView = UIView()
+    var thePriceLabel: UILabel = UILabel()
+    var theMessageButton: UIButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +30,7 @@ class DetailView: CustomScrollerView {
         topViewSetup()
         titleSetup()
         descriptionSetup()
+        bottomViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,7 +56,7 @@ extension DetailView {
         theProfileImageView = CircularImageView(file: nil, diameter: Constants.topViewHeight * 0.75)
         theTopView.addSubview(theProfileImageView)
         theProfileImageView.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(Constants.sideInset)
             make.centerY.equalToSuperview()
         }
     }
@@ -61,7 +66,7 @@ extension DetailView {
         theNameLabel.textColor = UIColor.white
         theTopView.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(Constants.sideInset)
             make.trailing.equalTo(theProfileImageView.snp.leading)
             make.top.equalTo(theProfileImageView)
         }
@@ -86,11 +91,59 @@ extension DetailView {
             make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.spacing)
             make.leading.equalTo(theTitleLabel)
             make.bottom.equalTo(theContentView)
+            make.trailing.equalToSuperview().inset(Constants.sideInset)
         }
     }
 }
 
 //the pricing view
 extension DetailView {
+    fileprivate func bottomViewSetup() {
+        self.addSubview(theBottomView)
+        let height: CGFloat = 70
+        theBottomView.snp.makeConstraints { (make) in
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalTo(height)
+        }
+        priceLabelSetup()
+        messageButtonSetup()
+        addLineToBottomView()
+        theScrollView.contentInset.bottom = height
+        theBottomView.backgroundColor = UIColor.white
+    }
     
+    fileprivate func priceLabelSetup() {
+        thePriceLabel.font = UIFont.systemFont(ofSize: 19, weight: UIFontWeightLight)
+        theBottomView.addSubview(thePriceLabel)
+        thePriceLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(theNameLabel)
+        }
+    }
+    
+    fileprivate func messageButtonSetup() {
+        theMessageButton.setTitle("Message", for: .normal)
+        let inset: CGFloat = 10
+        theMessageButton.contentEdgeInsets.left = inset
+        theMessageButton.contentEdgeInsets.right = inset
+        theMessageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
+        theMessageButton.setTitleColor(UIColor.white, for: .normal)
+        theMessageButton.backgroundColor = CustomColors.AquamarineBlue
+        theMessageButton.layer.cornerRadius = 10
+        theBottomView.addSubview(theMessageButton)
+        theMessageButton.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(theDescriptionLabel)
+            make.height.equalTo(theBottomView).multipliedBy(0.5)
+        }
+    }
+    
+    fileprivate func addLineToBottomView() {
+        let line = Helpers.line
+        theBottomView.addSubview(line)
+        line.snp.makeConstraints { (make) in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
+    }
 }
