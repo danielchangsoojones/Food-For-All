@@ -23,6 +23,7 @@ class DetailView: CustomScrollerView {
     var theBottomView: UIView = UIView()
     var thePriceLabel: UILabel = UILabel()
     var theMessageButton: UIButton = UIButton()
+    var theExitButton: UIButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,6 +50,7 @@ extension DetailView {
             make.height.equalTo(Constants.topViewHeight)
         }
         profileImageSetup()
+        exitButtonSetup()
         nameLabelSetup()
     }
     
@@ -68,7 +70,18 @@ extension DetailView {
         theNameLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().inset(Constants.sideInset)
             make.trailing.equalTo(theProfileImageView.snp.leading)
-            make.top.equalTo(theProfileImageView)
+            make.top.equalTo(theExitButton.snp.bottom).offset(10)
+        }
+    }
+    
+    fileprivate func exitButtonSetup() {
+        theExitButton.setTitleColor(UIColor.white, for: .normal)
+        theExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        theExitButton.setTitle("X", for: .normal)
+        theTopView.addSubview(theExitButton)
+        theExitButton.snp.makeConstraints { (make) in
+            make.top.equalTo(theTopView).inset(10)
+            make.leading.equalToSuperview().inset(Constants.sideInset)
         }
     }
 }

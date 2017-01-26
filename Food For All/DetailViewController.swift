@@ -34,6 +34,11 @@ class DetailViewController: UIViewController {
         descriptionSetup()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     fileprivate func viewSetup() {
         let detailView = DetailView(frame: self.view.bounds)
         self.view = detailView
@@ -42,6 +47,8 @@ class DetailViewController: UIViewController {
         theDescriptionLabel = detailView.theDescriptionLabel
         theTitleLabel = detailView.theTitleLabel
         thePriceLabel = detailView.thePriceLabel
+        detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -67,5 +74,16 @@ extension DetailViewController {
     
     fileprivate func descriptionSetup() {
         theDescriptionLabel.numberOfLines = 0
+    }
+}
+
+//button extensions
+extension DetailViewController {
+    func exitButtonPressed(sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func messageButtonPressed(sender: UIButton) {
+        print("messsage button was pressed")
     }
 }
