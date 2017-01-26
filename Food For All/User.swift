@@ -44,9 +44,6 @@ class User: PFUser {
             lowercaseLastName = newValue.lowercased()
         }
     }
-    var fullName: String {
-        return theFirstName + " " + theLastName
-    }
     
     func calculateAge(birthday: Date) -> Int {
         let calendar : Calendar = Calendar.current

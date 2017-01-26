@@ -15,7 +15,6 @@ class CustomScrollerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         scrollViewSetup()
-        theContentView.backgroundColor = UIColor.blue
     }
     
     required init?(coder aDecoder: NSCoder) {

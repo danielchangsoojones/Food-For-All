@@ -29,7 +29,6 @@ class FreelancersTableViewController: UITableViewController {
         return gigs.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gig = gigs[indexPath.row]
         let cell = FreelancersTableViewCell(gig: gig, height: tableView.rowHeight)

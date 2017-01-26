@@ -54,7 +54,7 @@ class FrontPageViewController: UIViewController {
         var updatedFrame = self.navigationController?.navigationBar.bounds ?? CGRect.zero
         updatedFrame.size.height += 20
         gradientLayer.frame = updatedFrame
-        gradientLayer.colors = [CustomColors.AquamarineBlue.cgColor, CustomColors.JellyTeal.cgColor]
+        gradientLayer.colors = CustomColors.searchBarGradientColors
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
         

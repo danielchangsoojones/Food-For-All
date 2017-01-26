@@ -18,6 +18,7 @@ struct CustomColors {
     static let AquamarineBlue: UIColor = UIColor(r: 108, g: 223, b: 214)
     
     static let welcomeGradientColors: [CGColor] = [CustomColors.JellyTeal.cgColor, CustomColors.Polar.cgColor]
+    static let searchBarGradientColors: [CGColor] = [CustomColors.AquamarineBlue.cgColor, CustomColors.JellyTeal.cgColor]
     
     static func addGradient(colors: [CGColor], to view: UIView) {
         let gradient:CAGradientLayer = CAGradientLayer()

@@ -28,4 +28,11 @@ class Person {
     static func current() -> Person {
         return Person(user: User.current() ?? User())
     }
+    
+    var fullName: String? {
+        if let firstName = firstName, let lastName = lastName {
+            return firstName + " " + lastName
+        }
+        return nil
+    }
 }
