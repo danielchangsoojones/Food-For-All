@@ -14,12 +14,14 @@ class WelcomeView: UIView {
     var theLogInButton = UIButton()
     var theFacebookButton = UIButton()
     var theSignUpButton = UIButton()
+    var theLogoImageView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addBackgroundGradient()
         stackViewSetup()
         logInButtonSetup()
+        logoSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,6 +78,21 @@ extension WelcomeView {
         theLogInButton.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(10)
             make.trailing.equalTo(self).inset(10)
+        }
+    }
+}
+
+extension WelcomeView {
+    fileprivate func logoSetup() {
+        theLogoImageView.image = theLogoImageView.image!.withRenderingMode(.alwaysTemplate)
+        theLogoImageView.tintColor = UIColor.white
+        theLogoImageView.contentMode = .scaleAspectFit
+        self.addSubview(theLogoImageView)
+        theLogoImageView.snp.makeConstraints { (make) in
+            let inset: CGFloat = self.frame.height * 0.1
+            make.top.equalTo(theLogInButton).offset(inset)
+            make.bottom.equalTo(theStackView.snp.top).offset(-inset)
+            make.centerX.equalToSuperview()
         }
     }
 }
