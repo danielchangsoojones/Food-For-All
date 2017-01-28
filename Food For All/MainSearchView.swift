@@ -12,7 +12,7 @@ import SnapKit
 class MainSearchView: UIView {
     var theIconImageView: UIImageView!
     var theSearchLabel: UILabel = UILabel()
-    var theClearButton: UIButton?
+    var theClearButton: UIButton = UIButton()
     
     var icon: UIImage {
         return #imageLiteral(resourceName: "Magnifying Glass")
@@ -22,10 +22,15 @@ class MainSearchView: UIView {
         return "Class Type"
     }
     
+    fileprivate var sideInset: CGFloat {
+        return self.frame.width * 0.02
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white.withAlphaComponent(0.26)
         iconSetup()
+        clearButtonSetup()
         searchLabelSetup()
     }
     
@@ -36,10 +41,11 @@ class MainSearchView: UIView {
     fileprivate func iconSetup() {
         theIconImageView = UIImageView(image: icon)
         theIconImageView.contentMode = .scaleAspectFit
+        
         self.addSubview(theIconImageView)
         theIconImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(self.frame.width * 0.02)
+            make.leading.equalToSuperview().inset(sideInset)
             make.height.equalTo(self).multipliedBy(0.5)
         }
     }
@@ -50,17 +56,45 @@ extension MainSearchView {
     fileprivate func searchLabelSetup() {
         theSearchLabel.text = searchString
         theSearchLabel.textColor = UIColor.white
+        allowSearchLabelStretching()
         theSearchLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)
         self.addSubview(theSearchLabel)
         theSearchLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theIconImageView)
             make.bottom.equalTo(theIconImageView)
-            make.leading.equalTo(theIconImageView.snp.trailing).offset(self.frame.width * 0.05)
-            if let clearButton = theClearButton {
-                make.trailing.equalTo(clearButton.snp.leading)
-            } else {
-                make.trailing.equalTo(self).priority(750)
-            }
+            make.leading.equalTo(theIconImageView.snp.trailing).offset(self.frame.width * 0.03)
+            make.trailing.equalTo(theClearButton.snp.leading)
         }
+    }
+    
+    fileprivate func allowSearchLabelStretching() {
+        theSearchLabel.setContentHuggingPriority(250, for: .horizontal)
+        theIconImageView.setContentHuggingPriority(1000, for: .horizontal)
+    }
+}
+
+extension MainSearchView {
+    func showClearButton() {
+        theClearButton.isHidden = false
+    }
+    
+    func hideClearButton() {
+        theClearButton.isHidden = true
+    }
+    
+    fileprivate func clearButtonSetup() {
+        let side: CGFloat = self.frame.height * 0.4
+        theClearButton.isHidden = true
+        theClearButton.backgroundColor = UIColor.white.withAlphaComponent(0.68)
+        theClearButton.setCornerRadius(radius: side / 2)
+        theClearButton.setTitle("X", for: .normal)
+        theClearButton.setTitleColor(CustomColors.JellyTeal, for: .normal)
+        theClearButton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: UIFontWeightRegular)
+        self.addSubview(theClearButton)
+        theClearButton.snp.makeConstraints({ (make) in
+            make.trailing.equalToSuperview().inset(sideInset)
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(side)
+        })
     }
 }

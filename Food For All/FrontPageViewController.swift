@@ -71,7 +71,7 @@ class FrontPageViewController: UIViewController {
 extension FrontPageViewController {
     fileprivate func searchBarSetup() {
         let frame: CGRect = navBar?.bounds ?? CGRect.zero
-        let insetFrame = frame.insetBy(dx: 10, dy: 5)
+        let insetFrame = frame.insetBy(dx: 10, dy: 6)
         let searchView = MainSearchView(frame: insetFrame)
         self.navBar?.addSubview(searchView)
     }
