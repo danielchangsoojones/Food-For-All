@@ -9,6 +9,10 @@
 import UIKit
 import SnapKit
 
+protocol MainSearchViewDelegate {
+    func handleTap()
+}
+
 class MainSearchView: UIView {
     var theIconImageView: UIImageView!
     var theSearchLabel: UILabel = UILabel()
@@ -26,12 +30,16 @@ class MainSearchView: UIView {
         return self.frame.width * 0.02
     }
     
-    override init(frame: CGRect) {
+    fileprivate var delegate: MainSearchViewDelegate?
+    
+    init(frame: CGRect, delegate: MainSearchViewDelegate) {
         super.init(frame: frame)
         backgroundColor = UIColor.white.withAlphaComponent(0.26)
         iconSetup()
         clearButtonSetup()
         searchLabelSetup()
+        self.delegate = delegate
+        makeTappable()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -103,5 +111,17 @@ extension MainSearchView {
             make.centerY.equalToSuperview()
             make.height.width.equalTo(side)
         })
+    }
+}
+
+//tap gesture extension
+extension MainSearchView {
+    fileprivate func makeTappable() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        addGestureRecognizer(tap)
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        delegate?.handleTap()
     }
 }

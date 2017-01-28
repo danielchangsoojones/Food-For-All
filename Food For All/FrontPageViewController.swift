@@ -69,11 +69,11 @@ class FrontPageViewController: UIViewController {
 }
 
 //search bar extension
-extension FrontPageViewController {
+extension FrontPageViewController: MainSearchViewDelegate {
     fileprivate func searchBarSetup() {
         let frame: CGRect = navBar?.bounds ?? CGRect.zero
         let insetFrame = frame.insetBy(dx: 10, dy: 6)
-        theSearchView = MainSearchView(frame: insetFrame)
+        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
         theSearchView.showClearButton()
         theSearchView.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
         self.navBar?.addSubview(theSearchView)
@@ -81,6 +81,11 @@ extension FrontPageViewController {
     
     func resetSearch() {
         theSearchView.reset()
+    }
+    
+    func handleTap() {
+        // handling code
+        print("segue to the search page now")
     }
 }
 
