@@ -25,8 +25,9 @@
 		927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0AE1E26F4D400220168 /* Enviroment.swift */; };
 		927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0B01E26F4EA00220168 /* Configuration.swift */; };
 		927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */; };
-		927E2F481E3D594A00B24D40 /* MainSearchIngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */; };
+		927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F471E3D594A00B24D40 /* MainSearchingView.swift */; };
 		927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */; };
+		927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -71,8 +72,9 @@
 		927BE0AE1E26F4D400220168 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		927BE0B01E26F4EA00220168 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
-		927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchIngView.swift; sourceTree = "<group>"; };
+		927E2F471E3D594A00B24D40 /* MainSearchingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingView.swift; sourceTree = "<group>"; };
 		927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -246,8 +248,9 @@
 		9279DA241E3D02D600E2CCA1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				927E2F4B1E3D5F2600B24D40 /* Subviews */,
 				9279DA251E3D030A00E2CCA1 /* MainSearchingViewController.swift */,
-				927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */,
+				927E2F471E3D594A00B24D40 /* MainSearchingView.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -267,6 +270,14 @@
 				927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */,
 			);
 			name = "Time Intervals";
+			sourceTree = "<group>";
+		};
+		927E2F4B1E3D5F2600B24D40 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
@@ -536,7 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927E2F481E3D594A00B24D40 /* MainSearchIngView.swift in Sources */,
+				927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
 				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
@@ -550,6 +561,7 @@
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
+				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				92DD8D441E358E9F009EB164 /* Person.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,

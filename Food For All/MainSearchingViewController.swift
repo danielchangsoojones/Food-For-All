@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
 class MainSearchingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
         navBarSetup()
+    }
+    
+    fileprivate func viewSetup() {
+        self.view = MainSearchingView(frame: self.view.bounds, navBarHeight: navigationBarHeight + ez.screenStatusBarHeight)
     }
 
     override func didReceiveMemoryWarning() {
