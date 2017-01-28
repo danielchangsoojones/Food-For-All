@@ -111,7 +111,7 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
     func sendSMSText(phoneNumber: String) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "We need to think of something to say to the tutor..."
+            controller.body = ""
             controller.recipients = [phoneNumber]
             controller.messageComposeDelegate = self
             let spinnerContainer: UIView = Helpers.showActivityIndicatory(uiView: self.view)
