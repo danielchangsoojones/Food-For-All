@@ -15,11 +15,15 @@ class Gig {
     var phoneNumber: Int = 0
     var creator: Person!
     
-    init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person) {
+    var gigParse: GigParse!
+    
+    //TODO: just take in a gigParse, and then I can set all the attributes I want from there
+    init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
         self.title = title
         self.price = price
         self.description = description
         self.creator = creator
         self.phoneNumber = phoneNumber
+        self.gigParse = gigParse
     }
 }

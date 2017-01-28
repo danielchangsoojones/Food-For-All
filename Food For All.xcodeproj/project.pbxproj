@@ -19,6 +19,8 @@
 		925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F211E25AA1A00196504 /* WelcomeView.swift */; };
 		925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F231E25AA9C00196504 /* WelcomeViewController.swift */; };
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
+		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
+		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0AE1E26F4D400220168 /* Enviroment.swift */; };
 		927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0B01E26F4EA00220168 /* Configuration.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
@@ -59,6 +61,8 @@
 		925C5F211E25AA1A00196504 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		925C5F231E25AA9C00196504 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
+		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		927BE0AE1E26F4D400220168 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		927BE0B01E26F4EA00220168 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		9254B7181E39405B0034F6D0 /* Gig Detail */ = {
 			isa = PBXGroup;
 			children = (
+				9279DA1E1E3C340B00E2CCA1 /* Data store */,
 				9254B7191E3940F70034F6D0 /* DetailViewController.swift */,
 				9254B71B1E3942DB0034F6D0 /* DetailView.swift */,
 			);
@@ -212,6 +217,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
+			isa = PBXGroup;
+			children = (
+				9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */,
+			);
+			name = "Data store";
+			sourceTree = "<group>";
+		};
 		927BE0AD1E26F4BF00220168 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +284,7 @@
 			children = (
 				92D12BAB1E30592D009AC99E /* User.swift */,
 				9254B7161E37E2780034F6D0 /* GigParse.swift */,
+				9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */,
 			);
 			name = "Database Models";
 			sourceTree = "<group>";
@@ -500,7 +514,9 @@
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				92DD8D441E358E9F009EB164 /* Person.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
+				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
+				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,

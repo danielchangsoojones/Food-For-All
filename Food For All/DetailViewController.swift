@@ -15,8 +15,10 @@ class DetailViewController: UIViewController {
     var theDescriptionLabel: UILabel!
     var theTitleLabel: UILabel!
     var thePriceLabel: UILabel!
+    var theSpinnerContainer: UIView?
     
     var gig: Gig!
+    var dataStore: DetailDataStore!
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -30,6 +32,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        dataStoreSetup()
         setContents()
         descriptionSetup()
         colorPriceLabel()
@@ -60,6 +63,10 @@ class DetailViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = DetailDataStore()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,8 +96,6 @@ extension DetailViewController {
         let myMutableString = NSMutableAttributedString(string: priceString)
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: CustomColors.JellyTeal, range: NSRange(location: 0,length: indexOfMoneySign + 1))
         
-        // set label Attribute
-        //thePriceLabel.text = priceString
         thePriceLabel.attributedText = myMutableString
     }
 }
@@ -102,6 +107,7 @@ extension DetailViewController {
     }
     
     func messageButtonPressed(sender: UIButton) {
+        theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
         sendSMSText(phoneNumber: gig.phoneNumber.toString)
     }
 }
@@ -114,17 +120,30 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
             controller.body = ""
             controller.recipients = [phoneNumber]
             controller.messageComposeDelegate = self
-            let spinnerContainer: UIView = Helpers.showActivityIndicatory(uiView: self.view)
             self.present(controller, animated: true, completion: {
-                spinnerContainer.removeFromSuperview()
+                self.theSpinnerContainer?.removeFromSuperview()
             })
         } else {
+            theSpinnerContainer?.removeFromSuperview()
             Helpers.showBanner(title: "Message Error", subtitle: "Can not send messages currently")
         }
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //... handle sms screen actions
+        var messageState: String = "defualt"
+        
+        switch result {
+        case .cancelled:
+            messageState = "clicked, but then cancelled"
+        case .failed:
+            messageState = "failure to send"
+        case .sent:
+            messageState = "successfully sent"
+        }
+        
+        dataStore.saveMessageMetric(messageState: messageState, gig: gig)
+        
         self.dismiss(animated: true, completion: {
             Helpers.showBanner(title: "Succesful Message", subtitle: "You have succesfully texted the tutor", bannerType: .success)
         })
