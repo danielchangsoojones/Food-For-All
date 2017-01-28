@@ -17,6 +17,7 @@ class FrontPageViewController: UIViewController {
         navBarSetup()
         addTableViewVC()
         dataStoreSetup()
+        searchBarSetup()
     }
 
     fileprivate func viewSetup() {
@@ -38,7 +39,6 @@ class FrontPageViewController: UIViewController {
     }
     
     fileprivate func navBarSetup() {
-        title = "Finite"
         addNavBarGradient()
         
         //make title label white
@@ -64,6 +64,16 @@ class FrontPageViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+    }
+}
+
+//search bar extension
+extension FrontPageViewController {
+    fileprivate func searchBarSetup() {
+        let frame: CGRect = navBar?.bounds ?? CGRect.zero
+        let insetFrame = frame.insetBy(dx: 10, dy: 5)
+        let searchView = MainSearchView(frame: insetFrame)
+        self.navBar?.addSubview(searchView)
     }
 }
 
