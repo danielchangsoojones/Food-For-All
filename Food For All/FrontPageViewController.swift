@@ -12,6 +12,8 @@ class FrontPageViewController: UIViewController {
     var tableVC: FreelancersTableViewController!
     var theSearchView: MainSearchView?
     
+    var dataStore: FrontPageDataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -44,7 +46,7 @@ class FrontPageViewController: UIViewController {
     }
     
     fileprivate func dataStoreSetup() {
-        let _ = FrontPageDataStore(delegate: self)
+        dataStore = FrontPageDataStore(delegate: self)
     }
     
     fileprivate func addTableViewVC() {
@@ -62,9 +64,11 @@ extension FrontPageViewController: MainSearchViewDelegate {
         if let searchView = theSearchView {
             self.navBar?.addSubview(searchView)
         }
+        theSearchView?.showClearButton()
     }
     
     func resetSearch() {
+        dataStore?.loadDefaultGigs()
         theSearchView?.reset()
     }
     

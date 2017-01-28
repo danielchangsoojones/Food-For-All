@@ -25,6 +25,7 @@
 		9279DA261E3D030A00E2CCA1 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA251E3D030A00E2CCA1 /* MainSearchViewController.swift */; };
 		927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0AE1E26F4D400220168 /* Enviroment.swift */; };
 		927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0B01E26F4EA00220168 /* Configuration.swift */; };
+		927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -69,6 +70,7 @@
 		9279DA251E3D030A00E2CCA1 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		927BE0AE1E26F4D400220168 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		927BE0B01E26F4EA00220168 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		925C5F251E25BD2900196504 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				927E2F441E3D0A8900B24D40 /* Time Intervals */,
 				9254B71D1E396A7A0034F6D0 /* Scroll */,
 				92DD8D3E1E358D7B009EB164 /* Extensions */,
 				92DD8D391E358D10009EB164 /* Circle Views */,
@@ -253,6 +256,14 @@
 				927BE0B01E26F4EA00220168 /* Configuration.swift */,
 			);
 			name = Configurations;
+			sourceTree = "<group>";
+		};
+		927E2F441E3D0A8900B24D40 /* Time Intervals */ = {
+			isa = PBXGroup;
+			children = (
+				927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */,
+			);
+			name = "Time Intervals";
 			sourceTree = "<group>";
 		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
@@ -541,6 +552,7 @@
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
+				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
