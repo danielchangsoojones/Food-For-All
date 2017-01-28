@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func toFrontPageVC() {
         let rootVC = FrontPageViewController()
-        let navController = MainNavigationController(rootViewController: rootVC)
+        let navController = CustomNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     

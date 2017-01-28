@@ -17,7 +17,6 @@ class FrontPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        navBarSetup()
         addTableViewVC()
         dataStoreSetup()
         searchBarSetup()
@@ -25,6 +24,7 @@ class FrontPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navBarSetup()
         if let searchView = theSearchView {
             self.navBar?.addSubview(searchView)
         }
@@ -64,7 +64,6 @@ extension FrontPageViewController: MainSearchViewDelegate {
         if let searchView = theSearchView {
             self.navBar?.addSubview(searchView)
         }
-        theSearchView?.showClearButton()
     }
     
     func resetSearch() {
@@ -73,7 +72,7 @@ extension FrontPageViewController: MainSearchViewDelegate {
     }
     
     func handleTap() {
-        let searchVC = MainSearchViewController()
+        let searchVC = MainSearchingViewController()
         pushVC(searchVC)
     }
     

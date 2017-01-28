@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9254B7121E37E0DB0034F6D0 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7111E37E0DB0034F6D0 /* MainNavigationController.swift */; };
 		9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */; };
 		9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7161E37E2780034F6D0 /* GigParse.swift */; };
 		9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7191E3940F70034F6D0 /* DetailViewController.swift */; };
@@ -22,10 +21,12 @@
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
-		9279DA261E3D030A00E2CCA1 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA251E3D030A00E2CCA1 /* MainSearchViewController.swift */; };
+		9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA251E3D030A00E2CCA1 /* MainSearchingViewController.swift */; };
 		927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0AE1E26F4D400220168 /* Enviroment.swift */; };
 		927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE0B01E26F4EA00220168 /* Configuration.swift */; };
 		927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */; };
+		927E2F481E3D594A00B24D40 /* MainSearchIngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */; };
+		927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -50,7 +51,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9254B7111E37E0DB0034F6D0 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageDataStore.swift; sourceTree = "<group>"; };
 		9254B7161E37E2780034F6D0 /* GigParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigParse.swift; sourceTree = "<group>"; };
 		9254B7191E3940F70034F6D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -67,10 +67,12 @@
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
-		9279DA251E3D030A00E2CCA1 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		9279DA251E3D030A00E2CCA1 /* MainSearchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingViewController.swift; sourceTree = "<group>"; };
 		927BE0AE1E26F4D400220168 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		927BE0B01E26F4EA00220168 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		927E2F451E3D0A9D00B24D40 /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
+		927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchIngView.swift; sourceTree = "<group>"; };
+		927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				9254B7111E37E0DB0034F6D0 /* MainNavigationController.swift */,
+				927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -244,7 +246,8 @@
 		9279DA241E3D02D600E2CCA1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9279DA251E3D030A00E2CCA1 /* MainSearchViewController.swift */,
+				9279DA251E3D030A00E2CCA1 /* MainSearchingViewController.swift */,
+				927E2F471E3D594A00B24D40 /* MainSearchIngView.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -533,7 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9254B7121E37E0DB0034F6D0 /* MainNavigationController.swift in Sources */,
+				927E2F481E3D594A00B24D40 /* MainSearchIngView.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
 				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
@@ -544,7 +547,8 @@
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
-				9279DA261E3D030A00E2CCA1 /* MainSearchViewController.swift in Sources */,
+				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
+				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				92DD8D441E358E9F009EB164 /* Person.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,

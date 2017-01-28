@@ -24,6 +24,7 @@ class FrontPageDataStore {
     func loadDefaultGigs() {
         let query = GigParse.query() as! PFQuery<GigParse>
         query.cachePolicy = .cacheElseNetwork
+        //TODO: I can increase this time period to be longer one day, but for now, I want to make sure that I can add freelancers in quickly. 
         query.maxCacheAge = TimeIntervalHelper(minutes: 5.0).timeInterval
         query.includeKey("creator")
         query.findObjectsInBackground { (gigParses, error) in
