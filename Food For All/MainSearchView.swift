@@ -82,6 +82,13 @@ extension MainSearchView {
         theClearButton.isHidden = true
     }
     
+    func reset() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.theSearchLabel.text = self.searchString
+            self.hideClearButton()
+        })
+    }
+    
     fileprivate func clearButtonSetup() {
         let side: CGFloat = self.frame.height * 0.4
         theClearButton.isHidden = true
