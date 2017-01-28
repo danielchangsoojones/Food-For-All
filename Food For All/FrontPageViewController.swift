@@ -10,7 +10,7 @@ import UIKit
 
 class FrontPageViewController: UIViewController {
     var tableVC: FreelancersTableViewController!
-    var theSearchView: MainSearchView!
+    var theSearchView: MainSearchView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,18 @@ class FrontPageViewController: UIViewController {
         addTableViewVC()
         dataStoreSetup()
         searchBarSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let searchView = theSearchView {
+            self.navBar?.addSubview(searchView)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        theSearchView?.removeFromSuperview()
     }
 
     fileprivate func viewSetup() {
@@ -38,14 +50,32 @@ class FrontPageViewController: UIViewController {
     fileprivate func addTableViewVC() {
         tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
     }
+}
+
+//search bar extension
+extension FrontPageViewController: MainSearchViewDelegate {
+    fileprivate func searchBarSetup() {
+        let frame: CGRect = navBar?.bounds ?? CGRect.zero
+        let insetFrame = frame.insetBy(dx: 10, dy: 6)
+        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
+        theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
+        if let searchView = theSearchView {
+            self.navBar?.addSubview(searchView)
+        }
+    }
+    
+    func resetSearch() {
+        theSearchView?.reset()
+    }
+    
+    func handleTap() {
+        let searchVC = MainSearchViewController()
+        pushVC(searchVC)
+    }
     
     fileprivate func navBarSetup() {
         addNavBarGradient()
-        
-        //make title label white
-        self.navBar?.barStyle = UIBarStyle.black
-        self.navBar?.tintColor = UIColor.white
-        
+
         //remove nav bar line
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -65,27 +95,6 @@ class FrontPageViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
-    }
-}
-
-//search bar extension
-extension FrontPageViewController: MainSearchViewDelegate {
-    fileprivate func searchBarSetup() {
-        let frame: CGRect = navBar?.bounds ?? CGRect.zero
-        let insetFrame = frame.insetBy(dx: 10, dy: 6)
-        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
-        theSearchView.showClearButton()
-        theSearchView.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
-        self.navBar?.addSubview(theSearchView)
-    }
-    
-    func resetSearch() {
-        theSearchView.reset()
-    }
-    
-    func handleTap() {
-        // handling code
-        print("segue to the search page now")
     }
 }
 

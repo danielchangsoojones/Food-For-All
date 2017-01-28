@@ -79,6 +79,10 @@ extension MainSearchView {
         theSearchLabel.setContentHuggingPriority(250, for: .horizontal)
         theIconImageView.setContentHuggingPriority(1000, for: .horizontal)
     }
+    
+    func setSearch(text: String) {
+        theSearchLabel.text = text
+    }
 }
 
 extension MainSearchView {
