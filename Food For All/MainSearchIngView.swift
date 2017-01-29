@@ -11,23 +11,32 @@ import UIKit
 class MainSearchingView: UIView {
     var beginningTopInset: CGFloat = 0
     var theSearchAreaView: UIView = UIView()
+    var theSearchBar: CustomSearchBar = CustomSearchBar()
     
     init(frame: CGRect, navBarHeight: CGFloat) {
         super.init(frame: frame)
         self.beginningTopInset = navBarHeight
-        self.backgroundColor = UIColor.red
+        addGradient()
         searchAreaViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func addGradient() {
+        let gradient:CAGradientLayer = CAGradientLayer()
+        gradient.frame.size = self.frame.size
+        gradient.colors = [CustomColors.AquamarineBlue.cgColor, CustomColors.GrannySmithGreen.cgColor]
+        gradient.startPoint = CGPoint(x: 0.4, y: 0.4)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        self.layer.insertSublayer(gradient, at: 0)
+    }
 }
 
 //search area extension
 extension MainSearchingView {
     fileprivate func searchAreaViewSetup() {
-        let theSearchAreaView = UIView()
         theSearchAreaView.backgroundColor = UIColor.blue
         self.addSubview(theSearchAreaView)
         theSearchAreaView.snp.makeConstraints { (make) in
@@ -35,10 +44,26 @@ extension MainSearchingView {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
         }
-        let searchBar = CustomSearchBar()
-        theSearchAreaView.addSubview(searchBar)
-        searchBar.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        searchBarSetup()
+        lineSetup()
+    }
+    
+    fileprivate func searchBarSetup() {
+        theSearchAreaView.addSubview(theSearchBar)
+        theSearchBar.snp.makeConstraints { (make) in
+            let inset: CGFloat = 5.0
+            make.top.bottom.equalToSuperview().inset(inset)
+            make.leading.trailing.equalToSuperview().inset(inset)
+        }
+    }
+    
+    fileprivate func lineSetup() {
+        let line = Helpers.line
+        line.backgroundColor = UIColor.white
+        theSearchAreaView.addSubview(line)
+        line.snp.makeConstraints { (make) in
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
         }
     }
 }
