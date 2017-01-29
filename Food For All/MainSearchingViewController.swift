@@ -10,10 +10,12 @@ import UIKit
 import EZSwiftExtensions
 
 struct MainSearchingViewConstants {
-    static let leadingInset: CGFloat = 10
+    static let leadingInset: CGFloat = 15
 }
 
 class MainSearchingViewController: UIViewController {
+    var theSearchBar: CustomSearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -25,6 +27,7 @@ class MainSearchingViewController: UIViewController {
         self.view = searchingView
         searchingView.theTableView.delegate = self
         searchingView.theTableView.dataSource = self
+        theSearchBar = searchingView.theSearchBar
     }
 
     override func didReceiveMemoryWarning() {

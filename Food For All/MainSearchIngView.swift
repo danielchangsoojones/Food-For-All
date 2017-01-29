@@ -54,12 +54,12 @@ extension MainSearchingView {
     }
     
     fileprivate func searchBarSetup() {
+        theSearchBar.placeholder = "What Class?"
         theSearchAreaView.addSubview(theSearchBar)
         theSearchBar.snp.makeConstraints { (make) in
             let verticalInset: CGFloat = 5.0
-            let horizontalInset: CGFloat = MainSearchingViewConstants.leadingInset
             make.top.bottom.equalToSuperview().inset(verticalInset)
-            make.leading.trailing.equalToSuperview().inset(horizontalInset)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
