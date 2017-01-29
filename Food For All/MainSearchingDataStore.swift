@@ -12,6 +12,7 @@ import Parse
 protocol MainSearchingDelegate {
     func passSearchResults(results: [String])
     func getMostCurrentSearchText() -> String?
+    func pass(gigs: [Gig])
 }
 
 class MainSearchingDataStore {
@@ -20,6 +21,22 @@ class MainSearchingDataStore {
     
     init(delegate: MainSearchingDelegate) {
         self.delegate = delegate
+    }
+    
+    func findGigs(title: String) {
+        let query = SearchGig.query()! as! PFQuery<SearchGig>
+        query.whereKey("lowercaseTitle", equalTo: title.lowercased())
+        query.includeKey("gigParse")
+        query.includeKey("gigParse.creator")
+        query.findObjectsInBackground { (searchGigs, error) in
+            if let searchGigs = searchGigs {
+                let gigs: [Gig] = searchGigs.map({ (s: SearchGig) -> Gig in
+                    let gig = Gig(gigParse: s.gigParse)
+                    return gig
+                })
+                self.delegate?.pass(gigs: gigs)
+            }
+        }
     }
 }
 
@@ -32,7 +49,7 @@ extension MainSearchingDataStore {
             PFCloud.callFunction(inBackground: "searchGigs", withParameters: ["searchText": lowercasedText], block: {
                 (result: Any?, error: Error?) -> Void in
                 if let resultTexts = result as? [String] {
-                    print(resultTexts)
+                    self.delegate?.passSearchResults(results: resultTexts)
                 } else if let error = error {
                     print(error)
                 }

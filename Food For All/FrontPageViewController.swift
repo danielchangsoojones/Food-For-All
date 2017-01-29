@@ -14,11 +14,13 @@ class FrontPageViewController: UIViewController {
     
     var dataStore: FrontPageDataStore?
     
+    var gigs: [Gig] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        addTableViewVC()
         dataStoreSetup()
+        addTableViewVC()
         searchBarSetup()
     }
     
@@ -51,6 +53,13 @@ class FrontPageViewController: UIViewController {
     
     fileprivate func addTableViewVC() {
         tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
+        if !gigs.isEmpty {
+            //gigs were passed from another screen
+            tableVC.gigs = self.gigs
+        } else {
+            //load the default gigs
+            dataStore?.loadDefaultGigs()
+        }
     }
 }
 
@@ -103,7 +112,7 @@ extension FrontPageViewController: MainSearchViewDelegate {
 
 extension FrontPageViewController: FrontPageDataStoreDelegate {
     func pass(gigs: [Gig]) {
+        self.gigs = gigs
         tableVC.gigs = gigs
-        tableVC.tableView.reloadData()
     }
 }

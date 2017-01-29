@@ -83,6 +83,11 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let result = results[indexPath.row]
+        dataStore?.findGigs(title: result)
+    }
 }
 
 extension MainSearchingViewController: UISearchBarDelegate {
@@ -95,6 +100,13 @@ extension MainSearchingViewController: MainSearchingDelegate {
     func passSearchResults(results: [String]) {
         self.results = results
         theTableView.reloadData()
+    }
+    
+    func pass(gigs: [Gig]) {
+        let destinationVC = FrontPageViewController()
+        destinationVC.gigs = gigs
+        let navController = CustomNavigationController(rootViewController: destinationVC)
+        presentVC(navController)
     }
     
     func getMostCurrentSearchText() -> String? {

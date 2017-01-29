@@ -18,7 +18,6 @@ class FrontPageDataStore {
     
     init(delegate: FrontPageDataStoreDelegate) {
         self.delegate = delegate
-        loadDefaultGigs()
     }
     
     func loadDefaultGigs() {
