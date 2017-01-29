@@ -9,8 +9,11 @@
 import UIKit
 import EZSwiftExtensions
 
-class MainSearchingViewController: UIViewController {
+struct MainSearchingViewConstants {
+    static let leadingInset: CGFloat = 10
+}
 
+class MainSearchingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -18,7 +21,10 @@ class MainSearchingViewController: UIViewController {
     }
     
     fileprivate func viewSetup() {
-        self.view = MainSearchingView(frame: self.view.bounds, navBarHeight: navigationBarHeight + ez.screenStatusBarHeight)
+        let searchingView = MainSearchingView(frame: self.view.bounds, navBarHeight: navigationBarHeight + ez.screenStatusBarHeight)
+        self.view = searchingView
+        searchingView.theTableView.delegate = self
+        searchingView.theTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,5 +52,20 @@ extension MainSearchingViewController {
     
     func leftBarButtonTapped() {
         popVC()
+    }
+}
+
+extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = MainSearchTableViewCell(title: "Testing")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
     }
 }

@@ -28,6 +28,7 @@
 		927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F471E3D594A00B24D40 /* MainSearchingView.swift */; };
 		927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */; };
 		927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */; };
+		927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -75,6 +76,7 @@
 		927E2F471E3D594A00B24D40 /* MainSearchingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingView.swift; sourceTree = "<group>"; };
 		927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchTableViewCell.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				927E2F4C1E3D5F3C00B24D40 /* CustomSearchBar.swift */,
+				927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
+				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,

@@ -12,12 +12,18 @@ class MainSearchingView: UIView {
     var beginningTopInset: CGFloat = 0
     var theSearchAreaView: UIView = UIView()
     var theSearchBar: CustomSearchBar = CustomSearchBar()
+    var theTableView: UITableView = UITableView()
+    
+    var lineColor: UIColor {
+        return UIColor.white.withAlphaComponent(0.5)
+    }
     
     init(frame: CGRect, navBarHeight: CGFloat) {
         super.init(frame: frame)
         self.beginningTopInset = navBarHeight
         addGradient()
         searchAreaViewSetup()
+        tableViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,7 +43,6 @@ class MainSearchingView: UIView {
 //search area extension
 extension MainSearchingView {
     fileprivate func searchAreaViewSetup() {
-        theSearchAreaView.backgroundColor = UIColor.blue
         self.addSubview(theSearchAreaView)
         theSearchAreaView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(beginningTopInset)
@@ -51,19 +56,36 @@ extension MainSearchingView {
     fileprivate func searchBarSetup() {
         theSearchAreaView.addSubview(theSearchBar)
         theSearchBar.snp.makeConstraints { (make) in
-            let inset: CGFloat = 5.0
-            make.top.bottom.equalToSuperview().inset(inset)
-            make.leading.trailing.equalToSuperview().inset(inset)
+            let verticalInset: CGFloat = 5.0
+            let horizontalInset: CGFloat = MainSearchingViewConstants.leadingInset
+            make.top.bottom.equalToSuperview().inset(verticalInset)
+            make.leading.trailing.equalToSuperview().inset(horizontalInset)
         }
     }
     
     fileprivate func lineSetup() {
         let line = Helpers.line
-        line.backgroundColor = UIColor.white
+        line.backgroundColor = lineColor
         theSearchAreaView.addSubview(line)
         line.snp.makeConstraints { (make) in
             make.bottom.leading.trailing.equalToSuperview()
             make.height.equalTo(1)
         }
+    }
+}
+
+//tableview extension
+extension MainSearchingView {
+    fileprivate func tableViewSetup() {
+        theTableView.separatorInset = UIEdgeInsets(top: 0, left: MainSearchingViewConstants.leadingInset, bottom: 0, right: MainSearchingViewConstants.leadingInset)
+        theTableView.separatorColor = lineColor
+        theTableView.tableFooterView = UIView() //makes it so, the tableView will only show real cells, not empty ones
+        self.addSubview(theTableView)
+        theTableView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theSearchAreaView)
+            make.top.equalTo(theSearchAreaView.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        theTableView.backgroundColor = UIColor.clear
     }
 }
