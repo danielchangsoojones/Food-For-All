@@ -21,7 +21,7 @@ class Gig {
         self.gigParse = gigParse
         self.title = gigParse.title
         self.price = gigParse.price
-        self.description = gigParse.description
+        self.description = gigParse.detailDescription
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
         self.creator = person

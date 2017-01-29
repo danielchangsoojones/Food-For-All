@@ -16,7 +16,14 @@ struct MainSearchingViewConstants {
 class MainSearchingViewController: UIViewController {
     var theSearchBar: CustomSearchBar!
     var theTableView: UITableView!
-    var results: [String] = []
+    var theSpinnerView: UIView?
+    
+    var results: [String] = [] {
+        didSet {
+            hasLoadedDatabaseOnce = true
+        }
+    }
+    var hasLoadedDatabaseOnce: Bool = false
     
     var dataStore: MainSearchingDataStore?
     
@@ -74,6 +81,21 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
         return results.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        var numOfSections: Int = 0
+        if results.isEmpty && hasLoadedDatabaseOnce {
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text = "No results found"
+            noDataLabel.textColor = UIColor.white
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+        } else {
+            numOfSections = 1
+            tableView.backgroundView = nil
+        }
+        return numOfSections
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = results[indexPath.row]
         let cell = MainSearchTableViewCell(title: result)
@@ -85,6 +107,7 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
         let result = results[indexPath.row]
         dataStore?.findGigs(title: result)
     }
@@ -111,5 +134,9 @@ extension MainSearchingViewController: MainSearchingDelegate {
     
     func getMostCurrentSearchText() -> String? {
         return theSearchBar.text
+    }
+    
+    func hideSpinner() {
+        theSpinnerView?.removeFromSuperview()
     }
 }

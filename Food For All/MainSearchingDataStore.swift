@@ -13,6 +13,7 @@ protocol MainSearchingDelegate {
     func passSearchResults(results: [String])
     func getMostCurrentSearchText() -> String?
     func pass(gigs: [Gig])
+    func hideSpinner()
 }
 
 class MainSearchingDataStore {
@@ -35,6 +36,10 @@ class MainSearchingDataStore {
                     return gig
                 })
                 self.delegate?.pass(gigs: gigs)
+            } else if let error = error {
+                print(error)
+                Helpers.showBanner(title: "Error", subtitle: error.localizedDescription)
+                self.delegate?.hideSpinner()
             }
         }
     }
