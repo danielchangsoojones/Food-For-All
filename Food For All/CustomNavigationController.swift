@@ -13,7 +13,6 @@ class CustomNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = UIColor.white //makes the back button a certain color
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
