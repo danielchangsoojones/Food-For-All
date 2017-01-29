@@ -15,19 +15,26 @@ struct MainSearchingViewConstants {
 
 class MainSearchingViewController: UIViewController {
     var theSearchBar: CustomSearchBar!
+    var theTableView: UITableView!
+    var results: [String] = []
+    
+    var dataStore: MainSearchingDataStore?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        dataStoreSetup()
         navBarSetup()
     }
     
     fileprivate func viewSetup() {
         let searchingView = MainSearchingView(frame: self.view.bounds, navBarHeight: navigationBarHeight + ez.screenStatusBarHeight)
         self.view = searchingView
-        searchingView.theTableView.delegate = self
-        searchingView.theTableView.dataSource = self
+        theTableView = searchingView.theTableView
+        theTableView.delegate = self
+        theTableView.dataSource = self
         theSearchBar = searchingView.theSearchBar
+        theSearchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +44,10 @@ class MainSearchingViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func dataStoreSetup() {
+        dataStore = MainSearchingDataStore(delegate: self)
     }
 }
 
@@ -60,15 +71,33 @@ extension MainSearchingViewController {
 
 extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MainSearchTableViewCell(title: "Testing")
+        let result = results[indexPath.row]
+        let cell = MainSearchTableViewCell(title: result)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+}
+
+extension MainSearchingViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        dataStore?.search(text: searchText)
+    }
+}
+
+extension MainSearchingViewController: MainSearchingDelegate {
+    func passSearchResults(results: [String]) {
+        self.results = results
+        theTableView.reloadData()
+    }
+    
+    func getMostCurrentSearchText() -> String? {
+        return theSearchBar.text
     }
 }
