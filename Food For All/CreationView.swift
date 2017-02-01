@@ -83,10 +83,11 @@ extension CreationView {
     fileprivate func finishButtonSetup() {
         theFinishButton.backgroundColor = CustomColors.Polar
         theFinishButton.setTitle("Finish", for: .normal)
+        theFinishButton.titleLabel!.font =  UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
         theFinishButton.setTitleColor(CustomColors.SilverChalice, for: .normal)
-        let inset: CGFloat = 20
-        theFinishButton.contentEdgeInsets.left = inset
-        theFinishButton.contentEdgeInsets.right = inset
+        let horizontalInset: CGFloat = 30
+        let verticalInset: CGFloat = 10
+        theFinishButton.contentEdgeInsets = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
         theFinishButton.setCornerRadius(radius: 15)
         footerView.addSubview(theFinishButton)
         theFinishButton.snp.makeConstraints { (make) in

@@ -9,6 +9,9 @@
 import UIKit
 
 class CreationViewController: UIViewController {
+    var theTableView: UITableView!
+    var theCameraImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -18,6 +21,10 @@ class CreationViewController: UIViewController {
     fileprivate func viewSetup() {
         let creationView = CreationView(frame: self.view.bounds)
         self.view = creationView
+        theTableView = creationView.theTableView
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        theCameraImageView = creationView.theCameraImageView
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,3 +47,16 @@ extension CreationViewController {
         self.navigationController?.dismissVC(completion: nil)
     }
 }
+
+extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = UIColor.brown
+        return cell
+    }
+}
+
