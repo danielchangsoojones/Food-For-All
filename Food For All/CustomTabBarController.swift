@@ -36,7 +36,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.title == Titles.creationVC {
             //The creationVC should not show the tab bar, we want it to present the creation stuff over the whole screen, like instagram/flipagram does, and then they can hit X in the corner to exit.
-            let vcToPresent = CreationViewController() //need to make a new VC, can't re-present the creationVC or else crash
+            let vcToPresent = creationNavController //need to make a new VC, can't re-present the creationVC or else crash
             present(vcToPresent, animated: true, completion: nil)
             return false
         }
@@ -71,6 +71,13 @@ extension CustomTabBarController {
         vc.title = Titles.creationVC
         vc.tabBarItem = secondTabBarItem
         return vc
+    }
+    
+    var creationNavController: UINavigationController {
+        let rootVC = CreationViewController()
+        rootVC.view.backgroundColor = UIColor.red
+        let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
+        return clearNavController
     }
 }
 
