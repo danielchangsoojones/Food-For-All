@@ -76,7 +76,7 @@ extension WelcomeViewController {
 extension WelcomeViewController: WelcomeDataStoreDelegate {
     func segueIntoApplication() {
         let startingVC = FrontPageViewController()
-        let navController = MainNavigationController(rootViewController: startingVC)
+        let navController = CustomNavigationController(rootViewController: startingVC)
         presentVC(navController)
     }
 }

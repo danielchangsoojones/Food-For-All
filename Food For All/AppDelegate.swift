@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseFacebookUtilsV4
+import Instabug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerParseSubclasses()
         setParseConfiguration()
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        instabugSetup()
         
         if User.current() == nil {
             //not logged in
@@ -45,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         User.registerSubclass()
         GigParse.registerSubclass()
         MessageMetrics.registerSubclass()
+        SearchGig.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {
@@ -55,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func toFrontPageVC() {
         let rootVC = FrontPageViewController()
-        let navController = MainNavigationController(rootViewController: rootVC)
+        let navController = CustomNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     
@@ -65,6 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
     
+    fileprivate func instabugSetup() {
+        Instabug.start(withToken: "c1d90288be3cf98624000127f6139a87", invocationEvent: .shake)
+        Instabug.setIntroMessageEnabled(false)
+    }
     
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

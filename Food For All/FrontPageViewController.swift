@@ -10,13 +10,31 @@ import UIKit
 
 class FrontPageViewController: UIViewController {
     var tableVC: FreelancersTableViewController!
+    var theSearchView: MainSearchView?
+    
+    var dataStore: FrontPageDataStore?
+    
+    var gigs: [Gig] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        navBarSetup()
-        addTableViewVC()
         dataStoreSetup()
+        addTableViewVC()
+        searchBarSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBarSetup()
+        if let searchView = theSearchView {
+            self.navBar?.addSubview(searchView)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        theSearchView?.removeFromSuperview()
     }
 
     fileprivate func viewSetup() {
@@ -30,21 +48,46 @@ class FrontPageViewController: UIViewController {
     }
     
     fileprivate func dataStoreSetup() {
-        let _ = FrontPageDataStore(delegate: self)
+        dataStore = FrontPageDataStore(delegate: self)
     }
     
     fileprivate func addTableViewVC() {
         tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
+        if !gigs.isEmpty {
+            //gigs were passed from another screen
+            tableVC.gigs = self.gigs
+        } else {
+            //load the default gigs
+            dataStore?.loadDefaultGigs()
+        }
+    }
+}
+
+//search bar extension
+extension FrontPageViewController: MainSearchViewDelegate {
+    fileprivate func searchBarSetup() {
+        let frame: CGRect = navBar?.bounds ?? CGRect.zero
+        let insetFrame = frame.insetBy(dx: 10, dy: 6)
+        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
+        theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
+        if let searchView = theSearchView {
+            self.navBar?.addSubview(searchView)
+        }
+    }
+    
+    func resetSearch() {
+        dataStore?.loadDefaultGigs()
+        theSearchView?.reset()
+    }
+    
+    func handleTap() {
+        let searchVC = MainSearchingViewController()
+        pushVC(searchVC)
     }
     
     fileprivate func navBarSetup() {
-        title = "Finite"
         addNavBarGradient()
-        
-        //make title label white
-        self.navBar?.barStyle = UIBarStyle.black
-        self.navBar?.tintColor = UIColor.white
-        
+
         //remove nav bar line
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -69,7 +112,7 @@ class FrontPageViewController: UIViewController {
 
 extension FrontPageViewController: FrontPageDataStoreDelegate {
     func pass(gigs: [Gig]) {
+        self.gigs = gigs
         tableVC.gigs = gigs
-        tableVC.tableView.reloadData()
     }
 }

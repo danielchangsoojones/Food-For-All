@@ -17,13 +17,17 @@ class Gig {
     
     var gigParse: GigParse!
     
-    //TODO: just take in a gigParse, and then I can set all the attributes I want from there
-    init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
-        self.title = title
-        self.price = price
-        self.description = description
-        self.creator = creator
-        self.phoneNumber = phoneNumber
+    init(gigParse: GigParse) {
         self.gigParse = gigParse
+        self.title = gigParse.title
+        self.price = gigParse.price
+        self.description = gigParse.detailDescription
+        self.phoneNumber = gigParse.phoneNumber
+        let person = Person(user: gigParse.creator)
+        self.creator = person
+    }
+    
+    convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
+        self.init(gigParse: gigParse)
     }
 }

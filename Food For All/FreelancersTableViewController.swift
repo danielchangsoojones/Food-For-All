@@ -11,7 +11,11 @@ import EZSwiftExtensions
 import SnapKit
 
 class FreelancersTableViewController: UITableViewController {
-    var gigs: [Gig] = []
+    var gigs: [Gig] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -36,7 +36,7 @@ extension WelcomeFormViewController: AdmissionFormDataStoreDelegate {
     
     func segueIntoApplication() {
         let startingVC = FrontPageViewController()
-        let navController = MainNavigationController(rootViewController: startingVC)
+        let navController = CustomNavigationController(rootViewController: startingVC)
         presentVC(navController)
     }
     
