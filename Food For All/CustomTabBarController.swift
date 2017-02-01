@@ -18,14 +18,18 @@ class CustomTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func createTabBarItem(image: UIImage, tag: Int) -> UITabBarItem {
+        let item = UITabBarItem(title: nil, image: image, tag: tag)
+        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        return item
+    }
 }
 
 //first view controller
 extension CustomTabBarController {
     var firstTabBarItem: UITabBarItem {
-        let item = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Home"), tag: 1)
-        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-        return item
+        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: 1)
     }
     
     var firstVC: UIViewController {
@@ -39,10 +43,8 @@ extension CustomTabBarController {
 //second view controller
 extension CustomTabBarController {
     var secondTabBarItem: UITabBarItem {
-        let image = #imageLiteral(resourceName: "TabBarAdd").withRenderingMode(.alwaysOriginal)
-        let item = UITabBarItem(title: nil, image: image, tag: 2)
-        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-        return item
+        let image = #imageLiteral(resourceName: "TabBarAdd")
+        return createTabBarItem(image: image, tag: 2)
     }
     
     var secondVC: UIViewController {
@@ -54,9 +56,7 @@ extension CustomTabBarController {
 
 extension CustomTabBarController {
     var thirdTabBarItem: UITabBarItem {
-        let item = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Profile"), tag: 3)
-        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-        return item
+        return createTabBarItem(image: #imageLiteral(resourceName: "Profile"), tag: 3)
     }
     
     var thirdVC: UIViewController {
