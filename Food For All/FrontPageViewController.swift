@@ -95,7 +95,7 @@ extension FrontPageViewController: MainSearchViewDelegate {
     private func addNavBarGradient() {
         let gradientLayer = CAGradientLayer()
         var updatedFrame = self.navigationController?.navigationBar.bounds ?? CGRect.zero
-        updatedFrame.size.height += 20
+        updatedFrame.size.height += 20 //for the status bar height, not sure what this line is doing?
         gradientLayer.frame = updatedFrame
         gradientLayer.colors = CustomColors.searchBarGradientColors
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)

@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            toFrontPageVC()
+            //toFrontPageVC()
+            setInitialVC(vc: WelcomeNavigationController(rootViewController: CreationViewController()))
         }
         
         return true

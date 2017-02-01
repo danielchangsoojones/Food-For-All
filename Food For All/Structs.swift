@@ -20,11 +20,18 @@ struct CustomColors {
     
     static let welcomeGradientColors: [CGColor] = [CustomColors.JellyTeal.cgColor, CustomColors.Polar.cgColor]
     static let searchBarGradientColors: [CGColor] = [CustomColors.AquamarineBlue.cgColor, CustomColors.JellyTeal.cgColor]
+    static let creationGradientColors: [CGColor] = [CustomColors.AquamarineBlue.cgColor, CustomColors.GrannySmithGreen.cgColor]
     
-    static func addGradient(colors: [CGColor], to view: UIView) {
+    static func addGradient(colors: [CGColor], to view: UIView, startPoint: CGPoint? = nil, endPoint: CGPoint? = nil) {
         let gradient:CAGradientLayer = CAGradientLayer()
         gradient.frame.size = view.frame.size
         gradient.colors = colors
+        if let startPoint = startPoint {
+            gradient.startPoint = startPoint
+        }
+        if let endPoint = endPoint {
+            gradient.endPoint = endPoint
+        }
         view.layer.insertSublayer(gradient, at: 0)
     }
 }

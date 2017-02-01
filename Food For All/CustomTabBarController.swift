@@ -75,7 +75,6 @@ extension CustomTabBarController {
     
     var creationNavController: UINavigationController {
         let rootVC = CreationViewController()
-        rootVC.view.backgroundColor = UIColor.red
         let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
         return clearNavController
     }
