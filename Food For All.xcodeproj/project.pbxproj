@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */; };
 		9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7161E37E2780034F6D0 /* GigParse.swift */; };
 		9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7191E3940F70034F6D0 /* DetailViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageDataStore.swift; sourceTree = "<group>"; };
 		9254B7161E37E2780034F6D0 /* GigParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigParse.swift; sourceTree = "<group>"; };
 		9254B7191E3940F70034F6D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		923A8CDD1E425D1300F1BFCA /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */,
+			);
+			name = Creation;
+			sourceTree = "<group>";
+		};
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
 				9279DA241E3D02D600E2CCA1 /* Search */,
+				923A8CDD1E425D1300F1BFCA /* Creation */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				92D12BA81E3058DF009AC99E /* Models */,
@@ -598,6 +609,7 @@
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
+				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
