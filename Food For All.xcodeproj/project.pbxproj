@@ -36,6 +36,8 @@
 		927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F501E3DA40500B24D40 /* SearchGig.swift */; };
 		927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
+		92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BE1E42CD5C00F6358E /* CellData.swift */; };
+		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -91,6 +93,8 @@
 		927E2F501E3DA40500B24D40 /* SearchGig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGig.swift; sourceTree = "<group>"; };
 		927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingDataStore.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		92A843BE1E42CD5C00F6358E /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
 			isa = PBXGroup;
 			children = (
+				92A843C01E42D05B00F6358E /* Forms */,
 				923A8CE21E42855200F1BFCA /* Cell */,
 				923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */,
 				923A8CE01E42658E00F1BFCA /* CreationView.swift */,
@@ -163,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */,
+				92A843BE1E42CD5C00F6358E /* CellData.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -333,6 +339,14 @@
 				92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */,
 			);
 			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		92A843C01E42D05B00F6358E /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */,
+			);
+			name = Forms;
 			sourceTree = "<group>";
 		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
@@ -620,6 +634,7 @@
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				92DD8D441E358E9F009EB164 /* Person.swift in Sources */,
+				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
@@ -638,6 +653,7 @@
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
+				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,

@@ -15,6 +15,7 @@ struct CustomColors {
     static let JellyTeal: UIColor = UIColor(r: 1, g: 195, b: 167)
     static let Polar: UIColor = UIColor(r: 204, g: 243, b: 237)
     static let SilverChalice: UIColor = UIColor(r: 178, g: 178, b: 178)
+    static let BombayGray: UIColor = UIColor(r: 212, g: 213, b: 215)
     static let AquamarineBlue: UIColor = UIColor(r: 108, g: 223, b: 214)
     static let GrannySmithGreen: UIColor = UIColor(r: 165, g: 223, b: 160)
     
