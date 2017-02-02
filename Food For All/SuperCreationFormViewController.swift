@@ -25,15 +25,6 @@ class SuperCreationFormViewController: UIViewController {
         return nil
     }
     
-    init(delegate: CreationVCDelegate) {
-        super.init(nibName: nil, bundle: nil)
-        self.delegate = delegate
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewSetup()
@@ -67,6 +58,14 @@ class SuperCreationFormViewController: UIViewController {
         hud.mode = .customView
         hud.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
         delegate?.updateCell(title: passingCellUpdatedTitle, isComplete: isComplete)
+    }
+    
+    func append(rows: [RowFormer], headerTitle: String) {
+        let header = LabelViewFormer<FormLabelHeaderView>()
+        header.text = headerTitle
+        let section = SectionFormer(rowFormers: rows)
+            .set(headerViewFormer: header)
+        former.append(sectionFormer: section)
     }
 }
 

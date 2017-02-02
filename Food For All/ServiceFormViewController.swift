@@ -44,14 +44,6 @@ class ServiceFormViewController: SuperCreationFormViewController {
             gig?.description = description
         }
     }
-    
-    func append(rows: [RowFormer], headerTitle: String) {
-        let header = LabelViewFormer<FormLabelHeaderView>()
-        header.text = headerTitle
-        let section = SectionFormer(rowFormers: rows)
-            .set(headerViewFormer: header)
-        former.append(sectionFormer: section)
-    }
 }
 
 extension ServiceFormViewController {

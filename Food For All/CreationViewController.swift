@@ -13,7 +13,7 @@ class CreationViewController: UIViewController {
     var theCameraImageView: UIImageView!
     var theFinishButton: UIButton!
     
-    var cells: [UITableViewCell] = CellData.creationCells
+    var cellDatas: [CellData] = CellData.creationCellDatas
     var completions: [Bool] = [] //keeping track to make sure all mandatory cells are completed before continuing
     
     var gig: Gig = Gig()
@@ -47,7 +47,7 @@ class CreationViewController: UIViewController {
     
     func populateCompletions() {
         let imageEntryCount = 1
-        let itemsToComplete = imageEntryCount + cells.count
+        let itemsToComplete = imageEntryCount + cellDatas.count
         for _ in 0...itemsToComplete {
             completions.append(false)
         }
@@ -79,11 +79,11 @@ extension CreationViewController {
 
 extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+        return cellDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cells[indexPath.row]
+        let cell = cellDatas[indexPath.row].cell
         return cell
     }
     
@@ -92,8 +92,10 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let destinationVC = ServiceFormViewController(delegate: self)
+        tableView.deselectRow(at: indexPath, animated: true) //don't have it highlight the rows
+        let cellData = cellDatas[indexPath.row]
+        let destinationVC = cellData.destinationVC
+        destinationVC.delegate = self
         destinationVC.gig = self.gig
         pushVC(destinationVC)
     }
@@ -105,7 +107,8 @@ protocol CreationVCDelegate {
 
 extension CreationViewController: CreationVCDelegate {
     func updateCell(title: String?, isComplete: Bool) {
-        if let row = theTableView.indexPathForSelectedRow?.row, let previouslyTappedCell = cells[row] as? CreationTableViewCell {
+        if let row = theTableView.indexPathForSelectedRow?.row {
+            let previouslyTappedCell = cellDatas[row].cell
             toggle(shouldComplete: isComplete, for: previouslyTappedCell, index: row)
             if let title = title {
                 update(cellTitle: title, for: previouslyTappedCell)

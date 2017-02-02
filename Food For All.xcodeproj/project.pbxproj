@@ -39,6 +39,7 @@
 		92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BE1E42CD5C00F6358E /* CellData.swift */; };
 		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
 		92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C41E42D31400F6358E /* ServiceFormViewController.swift */; };
+		92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C81E43E09900F6358E /* PricingFormViewController.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -97,6 +98,7 @@
 		92A843BE1E42CD5C00F6358E /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
 		92A843C41E42D31400F6358E /* ServiceFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFormViewController.swift; sourceTree = "<group>"; };
+		92A843C81E43E09900F6358E /* PricingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PricingFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */,
 				92A843C41E42D31400F6358E /* ServiceFormViewController.swift */,
+				92A843C81E43E09900F6358E /* PricingFormViewController.swift */,
 			);
 			name = Forms;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
+				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,

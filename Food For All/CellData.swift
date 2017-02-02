@@ -9,24 +9,49 @@
 import Foundation
 import UIKit
 
+struct Form {
+    
+}
+
 struct CellData {
-    static var serviceInfoCell: CreationTableViewCell {
+    var cell: CreationTableViewCell
+    var destinationVC: SuperCreationFormViewController
+    
+    static var service: CellData {
+        let cell = serviceInfoCell
+        let destinationVC = ServiceFormViewController()
+        return CellData(cell: cell, destinationVC: destinationVC)
+    }
+    
+    private static var serviceInfoCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "Pencil")
         let cell = CreationTableViewCell(iconImage: image, titleText: "What's your service?")
         return cell
     }
     
-    static var pricingCell: CreationTableViewCell {
+    static var pricing: CellData {
+        let cell = pricingCell
+        let destinationVC = PricingFormViewController()
+        return CellData(cell: cell, destinationVC: destinationVC)
+    }
+    
+    private static var pricingCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "MoneySymbol")
-        let cell = CreationTableViewCell(iconImage: image, titleText: "What Price?")
+        let cell = CreationTableViewCell(iconImage: image, titleText: "What price?")
         return cell
     }
     
-    static var contactCell: CreationTableViewCell {
+    static var contact: CellData {
+        let cell = pricingCell
+        let destinationVC = PricingFormViewController()
+        return CellData(cell: cell, destinationVC: destinationVC)
+    }
+    
+    private static var contactCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "PhoneSymbol")
         let cell = CreationTableViewCell(iconImage: image, titleText: "How to contact?")
         return cell
     }
     
-    static let creationCells = [CellData.serviceInfoCell, CellData.pricingCell, CellData.contactCell]
+    static let creationCellDatas = [CellData.service, CellData.pricing, CellData.contact]
 }
