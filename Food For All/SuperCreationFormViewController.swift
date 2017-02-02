@@ -15,6 +15,24 @@ class SuperCreationFormViewController: UIViewController {
     lazy var former: Former = Former(tableView: self.tableView)
     
     var gig: Gig?
+    var delegate: CreationVCDelegate?
+    
+    var isComplete: Bool {
+        return true
+    }
+    
+    var passingCellUpdatedTitle: String? {
+        return nil
+    }
+    
+    init(delegate: CreationVCDelegate) {
+        super.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +66,7 @@ class SuperCreationFormViewController: UIViewController {
         hud.hide(animated: true, afterDelay: TimeIntervalHelper.init(seconds: 2.0).timeInterval)
         hud.mode = .customView
         hud.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
+        delegate?.updateCell(title: passingCellUpdatedTitle, isComplete: isComplete)
     }
 }
 

@@ -35,11 +35,6 @@ class CreationViewController: UIViewController {
         theFinishButton = creationView.theFinishButton
         theFinishButton.addTarget(self, action: #selector(finishButtonTapped(sender:)), for: .touchUpInside)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(gig.description)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,21 +92,24 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = ServiceFormViewController()
+        tableView.deselectRow(at: indexPath, animated: true)
+        let destinationVC = ServiceFormViewController(delegate: self)
         destinationVC.gig = self.gig
         pushVC(destinationVC)
     }
 }
 
 protocol CreationVCDelegate {
-    func updateCell(title: String, isComplete: Bool)
+    func updateCell(title: String?, isComplete: Bool)
 }
 
 extension CreationViewController: CreationVCDelegate {
-    func updateCell(title: String, isComplete: Bool) {
+    func updateCell(title: String?, isComplete: Bool) {
         if let row = theTableView.indexPathForSelectedRow?.row, let previouslyTappedCell = cells[row] as? CreationTableViewCell {
             toggle(shouldComplete: isComplete, for: previouslyTappedCell, index: row)
-            update(cellTitle: title, for: previouslyTappedCell)
+            if let title = title {
+                update(cellTitle: title, for: previouslyTappedCell)
+            }
         }
     }
     
