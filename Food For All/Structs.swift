@@ -35,6 +35,25 @@ struct CustomColors {
         }
         view.layer.insertSublayer(gradient, at: 0)
     }
+    
+    static func addNavBarGradient(navController: UINavigationController?) {
+        if let navController = navController {
+            let gradientLayer = CAGradientLayer()
+            var updatedFrame = navController.navigationBar.bounds
+            updatedFrame.size.height += 20 //for the status bar height, not sure what this line is doing?
+            gradientLayer.frame = updatedFrame
+            gradientLayer.colors = CustomColors.searchBarGradientColors
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+            
+            UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+            gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            navController.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        }
+    }
 }
 
 struct Helpers {

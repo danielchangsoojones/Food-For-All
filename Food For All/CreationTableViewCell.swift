@@ -9,6 +9,11 @@
 import UIKit
 
 class CreationTableViewCell: UITableViewCell {
+    struct Constants {
+        static let completedImage: UIImage = #imageLiteral(resourceName: "Checkmark")
+        static let uncompletedImage: UIImage = #imageLiteral(resourceName: "Arrow")
+    }
+    
     var theIconImageView: UIImageView = UIImageView()
     var theLine: UIView!
     var theTitleLabel: UILabel = UILabel()
@@ -86,7 +91,7 @@ class CreationTableViewCell: UITableViewCell {
     }
     
     fileprivate func completionImageViewSetup() {
-        theCompletionImageView.image = #imageLiteral(resourceName: "Arrow")
+        theCompletionImageView.image = Constants.uncompletedImage
         theCompletionImageView.contentMode = .scaleAspectFit
         theContentView.addSubview(theCompletionImageView)
         theCompletionImageView.snp.makeConstraints { (make) in

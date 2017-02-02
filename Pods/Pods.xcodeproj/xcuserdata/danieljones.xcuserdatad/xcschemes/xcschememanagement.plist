@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Former.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,7 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>25A6BF10A183140E86F688B57CE6A4BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>37CAD459F133219E32F18B05732394A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54B3E157EB6A7532FD4B725823FA6597</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,27 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71A16B4F3D4D05ABBB4AE120D9376FED</key>
+		<key>5DB499EB898E52D23FA69E8929CD9D55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D3E99FA6BE87EA98A10B7025349717B</key>
+		<key>7517A2C6B74C828151D6C5E69D3DC7C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>820A41A354F14521E67C102E457A7C76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E899E5F219D614BE1B440FD90C1E107</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -123,6 +128,11 @@
 			<true/>
 		</dict>
 		<key>BB5A97D8F6B074BA2676782097620F9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C967C576DACE1784230BD7D7EB159C44</key>
 		<dict>
 			<key>primary</key>
 			<true/>

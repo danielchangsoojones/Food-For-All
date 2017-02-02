@@ -14,8 +14,11 @@ class Gig {
     var description: String = ""
     var phoneNumber: Int = 0
     var creator: Person!
+    var isDraft: Bool = false
     
     var gigParse: GigParse!
+    
+    init() {}
     
     init(gigParse: GigParse) {
         self.gigParse = gigParse
