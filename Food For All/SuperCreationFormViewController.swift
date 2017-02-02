@@ -8,6 +8,7 @@
 
 import UIKit
 import Former
+import MBProgressHUD
 
 class SuperCreationFormViewController: UIViewController {
     let tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
@@ -43,6 +44,10 @@ class SuperCreationFormViewController: UIViewController {
     }
     
     func save(sender: UIBarButtonItem) {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.hide(animated: true, afterDelay: TimeIntervalHelper.init(seconds: 2.0).timeInterval)
+        hud.mode = .customView
+        hud.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
     }
 }
 
