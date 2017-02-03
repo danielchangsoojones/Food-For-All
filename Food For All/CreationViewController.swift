@@ -92,8 +92,8 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true) //don't have it highlight the rows
         let cellData = cellDatas[indexPath.row]
+        cellData.cell.selectionStyle = .none
         let destinationVC = cellData.destinationVC
         destinationVC.delegate = self
         destinationVC.gig = self.gig
