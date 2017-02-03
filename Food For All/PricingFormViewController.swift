@@ -10,11 +10,26 @@ import UIKit
 import Former
 
 class PricingFormViewController: SuperCreationFormViewController {
+    struct Constants {
+        static let customUnitChoice: String = "create custom"
+    }
+    
     var priceRow: SliderRowFormer<FormSliderCell>!
     var unitsRow: InlinePickerRowFormer<FormInlinePickerCell, String>!
     var customUnitRow: TextFieldRowFormer<FormTextFieldCell>!
     
     var isShowingCustomUnitRow: Bool = false
+    
+    override var isComplete: Bool {
+        let isUnitsCompleted: Bool = (customUnitRow.text?.isNotEmpty ?? false) || unitsRow.selectedRow != units.count - 1
+        return isUnitsCompleted
+    }
+    
+    override var passingCellUpdatedTitle: String? {
+        let price = Double(priceRow.value).toString
+        let unit: String = selectedUnit ?? ""
+        return price + " " + unit
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +42,20 @@ class PricingFormViewController: SuperCreationFormViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func save(sender: UIBarButtonItem) {
+        super.save(sender: sender)
+        gig?.price = Double(priceRow.cell.slider.value)
+        let selectedUnit: String = units[unitsRow.selectedRow]
+        if units.last == units[unitsRow.selectedRow] {
+            //they chose custom unit
+            if let customUnit = customUnitRow.cell.textField.text {
+                gig?.priceUnit = customUnit
+            }
+        } else {
+            gig?.priceUnit = selectedUnit
+        }
+    }
 }
 
 extension PricingFormViewController {
@@ -43,9 +71,24 @@ extension PricingFormViewController {
         }
         _ = append(rows:[priceRow], headerTitle: "Pricing")
     }
+}
+
+//units
+extension PricingFormViewController {
+    var units: [String] {
+        return ["per hour", "per session", "per job", Constants.customUnitChoice]
+    }
+    
+    var selectedUnit: String? {
+        let chosenUnit: String = units[unitsRow.selectedRow]
+        if chosenUnit == Constants.customUnitChoice {
+            return customUnitRow.text
+        } else {
+            return chosenUnit
+        }
+    }
     
     fileprivate func unitsRowSetup() {
-        let units = ["per hour", "per session", "per job", "create custom"]
         unitsRow = InlinePickerRowFormer<FormInlinePickerCell, String>(cellSetup: {
             $0.titleLabel.text = "Units"
         })
@@ -55,7 +98,7 @@ extension PricingFormViewController {
             }
         }
         unitsRow.onValueChanged { (item: InlinePickerItem) in
-            if item.title == units.last {
+            if item.title == Constants.customUnitChoice {
                 //allow custom pricing unit
                 self.former.insertUpdate(rowFormer: self.customUnitRow, below: self.unitsRow)
             }

@@ -11,6 +11,7 @@ import Foundation
 class Gig {
     var title: String = ""
     var price: Double = 0.0
+    var priceUnit: String = ""
     var description: String = ""
     var phoneNumber: Int = 0
     var creator: Person!
