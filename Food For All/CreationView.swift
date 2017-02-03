@@ -65,11 +65,12 @@ extension CreationView {
     
     fileprivate func addCameraImage(to view: UIView) {
         theCameraImageView = UIImageView(image: #imageLiteral(resourceName: "Camera"))
-        theCameraImageView.isHidden = true
         theCameraImageView.contentMode = .scaleAspectFit
-        view.addSubview(theCameraImageView)
-        theCameraImageView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+        if let circularImageView = view as? CircularImageView {
+            circularImageView.insertSubview(theCameraImageView, belowSubview: circularImageView.theImageView)
+            theCameraImageView.snp.makeConstraints { (make) in
+                make.center.equalToSuperview()
+            }
         }
     }
 }
