@@ -12,6 +12,7 @@ class CreationViewController: UIViewController {
     var theTableView: UITableView!
     var theCameraImageView: UIImageView!
     var theFinishButton: UIButton!
+    var theProfileCircleView: CircularImageView!
     
     var cellDatas: [CellData] = CellData.creationCellDatas
     var completions: [Bool] = [] //keeping track to make sure all mandatory cells are completed before continuing
@@ -32,6 +33,8 @@ class CreationViewController: UIViewController {
         theTableView.delegate = self
         theTableView.dataSource = self
         theCameraImageView = creationView.theCameraImageView
+        theProfileCircleView = creationView.theProfileCircleView
+        theProfileCircleView.addTapGesture(target: self, action: #selector(profileCircleTapped(sender:)))
         theFinishButton = creationView.theFinishButton
         theFinishButton.addTarget(self, action: #selector(finishButtonTapped(sender:)), for: .touchUpInside)
     }

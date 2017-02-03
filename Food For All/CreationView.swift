@@ -13,6 +13,7 @@ class CreationView: UIView {
     var thePhotoEntryView: UIView = UIView()
     var theCameraImageView: UIImageView!
     var theFinishButton: UIButton = UIButton()
+    var theProfileCircleView: CircularImageView!
     var footerView: UIView = UIView()
     
     override init(frame: CGRect) {
@@ -53,11 +54,11 @@ extension CreationView {
     }
     
     fileprivate func circularImageViewSetup(diameter: CGFloat) {
-        let circularImageView = CircularImageView(file: nil, diameter: diameter * 0.75)
-        circularImageView.backgroundColor = CustomColors.Polar
-        addCameraImage(to: circularImageView)
-        thePhotoEntryView.addSubview(circularImageView)
-        circularImageView.snp.makeConstraints { (make) in
+        theProfileCircleView = CircularImageView(file: nil, diameter: diameter * 0.75)
+        theProfileCircleView.backgroundColor = CustomColors.Polar
+        addCameraImage(to: theProfileCircleView)
+        thePhotoEntryView.addSubview(theProfileCircleView)
+        theProfileCircleView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
         }
     }

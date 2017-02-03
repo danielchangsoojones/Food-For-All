@@ -38,4 +38,8 @@ class CircularImageView: CircleView {
     func add(file: AnyObject) {
         theImageView.loadFromFile(file)
     }
+    
+    func update(image: UIImage) {
+        theImageView.image = image
+    }
 }
