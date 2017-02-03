@@ -42,8 +42,8 @@ struct CellData {
     }
     
     static var contact: CellData {
-        let cell = pricingCell
-        let destinationVC = PricingFormViewController()
+        let cell = contactCell
+        let destinationVC = ContactFormViewController()
         return CellData(cell: cell, destinationVC: destinationVC)
     }
     

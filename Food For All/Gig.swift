@@ -14,7 +14,7 @@ class Gig {
     var priceUnit: String = ""
     var description: String = ""
     var phoneNumber: Int = 0
-    var creator: Person!
+    var creator: Person = Person.current()
     var isDraft: Bool = false
     
     var gigParse: GigParse!

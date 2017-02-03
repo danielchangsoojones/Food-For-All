@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Parse
 
 class DataInput {
     func signUpUser() {
-        let firstName = "Jessie"
-        let lastName = "DiGiovanni"
-        let email = "jdigiova@indiana.edu"
+        let firstName = "Robert"
+        let lastName = "Brown"
+        let email = "robhbrow@indiana.edu"
         
         let newUser = User()
         newUser.theFirstName = firstName
@@ -29,11 +30,27 @@ class DataInput {
         }
     }
     
+    func findUser() {
+        let email = "mikefrancismc@aol.com"
+        
+        let query = User.query() as! PFQuery<User>
+        query.whereKey("email", equalTo: email)
+        query.getFirstObjectInBackground { (user, error) in
+            if let user = user {
+                self.createGig(user: user)
+            } else if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    
     fileprivate func createGig(user: User) {
-        let title = "Finite M-118 Tutoring"
-        let price: Double = 20
-        let detailDescription = "I've tutored a couple people who've reached out to me before for pay. Received 4.0 in Finite. Price is negotiable."
-        let phoneNumber: Int = 5862588651
+        let title = "M118/M119 Tutoring"
+        let price: Double = 25
+        let detailDescription = "I have two years of experience tutoring for Indiana University in the athletic department where I met with students weekly or multiple times per week to prepare for exams and work through assignments. I am available in all of the following subjects: M118, M119, A100."
+        let phoneNumber: Int = 3176453197
+        let tag = "tutoring"
         
         let gig = GigParse()
         gig.title = title
@@ -41,6 +58,7 @@ class DataInput {
         gig.detailDescription = detailDescription
         gig.phoneNumber = phoneNumber
         gig.creator = user
+        gig.addUniqueObject(tag.lowercased(), forKey: "tags")
         gig.saveInBackground()
     }
 }
