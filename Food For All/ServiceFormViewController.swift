@@ -52,13 +52,13 @@ extension ServiceFormViewController {
             row.placeholder = "Name of your service?"
         }
         
-        append(rows: [titleRow], headerTitle: "Title")
+        _ = append(rows: [titleRow], headerTitle: "Title")
     }
     
     fileprivate func descriptionFormSetup() {
         descriptionRow.configure { row in
             row.placeholder = "Describe your service/qualifications..."
         }
-        append(rows: [descriptionRow], headerTitle: "Description")
+        _ = append(rows: [descriptionRow], headerTitle: "Description")
     }
 }

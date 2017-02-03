@@ -60,12 +60,13 @@ class SuperCreationFormViewController: UIViewController {
         delegate?.updateCell(title: passingCellUpdatedTitle, isComplete: isComplete)
     }
     
-    func append(rows: [RowFormer], headerTitle: String) {
+    func append(rows: [RowFormer], headerTitle: String) -> SectionFormer? {
         let header = LabelViewFormer<FormLabelHeaderView>()
         header.text = headerTitle
         let section = SectionFormer(rowFormers: rows)
             .set(headerViewFormer: header)
         former.append(sectionFormer: section)
+        return section
     }
 }
 
