@@ -13,6 +13,7 @@ target 'Food For All' do
   pod "TextFieldEffects"
   pod 'BRYXBanner'
   pod 'Alamofire', '~> 4.3'
+  pod 'AlamofireImage', '~> 3.1' #for image resizing purposes
   pod 'ParseFacebookUtilsV4', :git => 'https://github.com/white-rabbit-apps/ParseFacebookUtils-iOS.git' #pointing to a random fork that someone made because the original ParseFacebookUtilsV4 has a dependency lock on FacebookCore that is incompatible with GHBFacebookImagePicker. But, this fork has been updated to a better FacebookCoreDependency. If this public fork gets changed, or GHBFacebookImagePicker dependency number changes, then this would need to be updated to accomodate.
   pod "Timepiece"
   pod 'Instabug'

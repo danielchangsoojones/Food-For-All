@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BRYXBanner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +87,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A80986E06E26F226971CDAFE2AB60DF</key>
+		<key>0FB8DA734056A59DA47B28B793871862</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FB8DA734056A59DA47B28B793871862</key>
+		<key>299909ABDE0179421A6FAF867E11B56B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43577653FE347968DC98CDEA26E7F7FA</key>
+		<key>3DBAEBA17F31A2EC0E763FC4F12489F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>572841551D288893FC6F854EA5BD52ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71A16B4F3D4D05ABBB4AE120D9376FED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7D3E99FA6BE87EA98A10B7025349717B</key>
+		<key>7B418AB00E9F9D251790F840E73FBD57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,22 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>820A41A354F14521E67C102E457A7C76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>891841C3419A52929FB5D16A575798DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9B74E95F134E907814A2088E2B5CFC1E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E899E5F219D614BE1B440FD90C1E107</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,12 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D33A971E36C7D614827B65C7112CAB71</key>
+		<key>CDA63C34C906193362843D7AAB094DB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4432D8F5095624DDB06EAE69C196526</key>
+		<key>D33A971E36C7D614827B65C7112CAB71</key>
 		<dict>
 			<key>primary</key>
 			<true/>

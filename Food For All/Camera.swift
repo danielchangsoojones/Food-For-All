@@ -10,6 +10,7 @@
 import UIKit
 import MobileCoreServices
 import AVFoundation
+import AlamofireImage
 
 class Camera {
     class func shouldStartCamera(target: AnyObject, canEdit: Bool, frontFacing: Bool) -> Bool {
@@ -88,6 +89,7 @@ class Camera {
     }
     
     static func resize(image: UIImage, targetSize: CGSize) -> UIImage {
+        //when aiming for a target size, best results is to jstu divide the given ratio by a certain number, keeps the picture whole.
         let size = targetSize
         let aspectScaledToFitImage = image.af_imageAspectScaled(toFit: size)
         return aspectScaledToFitImage
