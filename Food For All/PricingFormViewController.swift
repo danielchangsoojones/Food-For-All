@@ -21,8 +21,8 @@ class PricingFormViewController: SuperCreationFormViewController {
     var isShowingCustomUnitRow: Bool = false
     
     override var isComplete: Bool {
-        let isUnitsCompleted: Bool = (customUnitRow.text?.isNotEmpty ?? false) || unitsRow.selectedRow != units.count - 1
-        return isUnitsCompleted
+        let isComplete: Bool = CreationData.validateCompletion(gig: gig ?? Gig(), type: .pricing)
+        return isComplete
     }
     
     override var passingCellUpdatedTitle: String? {
@@ -44,7 +44,6 @@ class PricingFormViewController: SuperCreationFormViewController {
     }
     
     override func save(sender: UIBarButtonItem) {
-        super.save(sender: sender)
         gig?.price = Double(Int(priceRow.value)) //round to a int number
         let selectedUnit: String = units[unitsRow.selectedRow]
         if units.last == units[unitsRow.selectedRow] {
@@ -55,6 +54,7 @@ class PricingFormViewController: SuperCreationFormViewController {
         } else {
             gig?.priceUnit = selectedUnit
         }
+        super.save(sender: sender)
     }
 }
 

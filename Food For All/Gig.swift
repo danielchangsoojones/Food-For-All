@@ -21,7 +21,7 @@ class Gig {
     var fullSizeFrontImage: AnyObject?
     var frontImage: AnyObject?
     
-    private var _price: Double = 0.0
+    private var _price: Double = -1
     var price: Double {
         get {
             return _price

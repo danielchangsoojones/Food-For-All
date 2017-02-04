@@ -57,3 +57,50 @@ class CreationData {
         return [service, pricing, contact]
     }
 }
+
+enum Creation: Int {
+    //based on ordering in tableView
+    case service = 0
+    case pricing = 1
+    case contact = 2
+}
+
+extension CreationData {
+    static func validateCompletion(gig: Gig, type: Creation) -> Bool {
+        var isComplete: Bool = false
+        switch type {
+        case .service:
+            isComplete = gig.title.isNotEmpty && gig.description.isNotEmpty
+        case .pricing:
+            isComplete = (gig.price >= 0) && gig.priceUnit.isNotEmpty
+        case .contact:
+            let phoneString = gig.phoneNumber.toString
+            let firstNameExists: Bool = gig.creator.firstName?.isNotEmpty ?? false
+            let lastNameExists: Bool = gig.creator.lastName?.isNotEmpty ?? false
+            isComplete = PhoneValidator.isValidPhoneNumber(phoneString: phoneString) && firstNameExists && lastNameExists
+        }
+        
+        return isComplete
+    }
+    
+    static func extractCellTitle(gig: Gig, type: Creation) -> String? {
+        var title: String?
+        switch type {
+        case .service:
+            if gig.title.isNotEmpty {
+                title = gig.title
+            }
+        case .pricing:
+            if gig.price >= 0 {
+                title = gig.priceString
+            }
+        case .contact:
+            let phoneString = gig.phoneNumber.toString
+            if PhoneValidator.isValidPhoneNumber(phoneString: phoneString) {
+                title = PhoneValidator.format(phoneNumber: phoneString)
+            }
+        }
+        
+        return title
+    }
+}

@@ -14,9 +14,7 @@ class ServiceFormViewController: SuperCreationFormViewController {
     var descriptionRow = TextViewRowFormer<FormTextViewCell>()
     
     override var isComplete: Bool {
-        let isTitleComplete: Bool = titleRow.cell.textField.text?.isNotEmpty ?? false
-        let isDescriptionComplete: Bool = descriptionRow.cell.textView.text.isNotEmpty
-        let isComplete: Bool = isTitleComplete && isDescriptionComplete
+        let isComplete: Bool = CreationData.validateCompletion(gig: gig ?? Gig(), type: .service)
         return isComplete
     }
     
@@ -36,13 +34,13 @@ class ServiceFormViewController: SuperCreationFormViewController {
     }
     
     override func save(sender: UIBarButtonItem) {
-        super.save(sender: sender)
         if let title = titleRow.cell.textField.text {
             gig?.title = title
         }
         if let description = descriptionRow.cell.textView.text {
             gig?.description = description
         }
+        super.save(sender: sender)
     }
 }
 

@@ -97,7 +97,21 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = cellDatas[indexPath.row]
-        return data.cell
+        let cell = data.cell
+        setInitialContent(cell: cell, row: indexPath.row)
+        return cell
+    }
+    
+    fileprivate func setInitialContent(cell: CreationTableViewCell, row: Int) {
+        if let creation = Creation(rawValue: row) {
+            let title = CreationData.extractCellTitle(gig: gig, type: creation)
+            let isComplete = CreationData.validateCompletion(gig: gig, type: creation)
+            
+            if let title = title {
+                cell.theTitleLabel.text = title
+            }
+            toggle(shouldComplete: isComplete, for: cell, index: row)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,6 +123,7 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
         let destinationVC = cellData.destinationVC
         destinationVC.delegate = self
         destinationVC.gig = self.gig
+        
         pushVC(destinationVC)
     }
 }
