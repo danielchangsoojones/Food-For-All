@@ -65,6 +65,7 @@ class ProfileViewController: UIViewController {
     
     fileprivate func navBarSetup() {
         leftBarButtonSetup()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Gear"), style: .plain, target: self, action: #selector(goToSettings))
     }
     
     fileprivate func leftBarButtonSetup() {
@@ -75,5 +76,9 @@ class ProfileViewController: UIViewController {
     
     func editProfile() {
         print("edit profile")
+    }
+    
+    func goToSettings() {
+        print("go to settings")
     }
 }
