@@ -12,6 +12,7 @@ import Former
 class ServiceFormViewController: SuperCreationFormViewController {
     var titleRow = TextFieldRowFormer<FormTextFieldCell>()
     var descriptionRow = TextViewRowFormer<FormTextViewCell>()
+    var tagRow: InlinePickerRowFormer<FormInlinePickerCell, String>!
     
     override var isComplete: Bool {
         let isComplete: Bool = CreationData.validateCompletion(gig: gig ?? Gig(), type: .service)
@@ -26,6 +27,7 @@ class ServiceFormViewController: SuperCreationFormViewController {
         super.viewDidLoad()
         titleFormSetup()
         descriptionFormSetup()
+        tagFormSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +42,7 @@ class ServiceFormViewController: SuperCreationFormViewController {
         if let description = descriptionRow.cell.textView.text {
             gig?.description = description
         }
+        gig?.tags.append(categories[tagRow.selectedRow])
         super.save(sender: sender)
     }
 }
@@ -61,5 +64,22 @@ extension ServiceFormViewController {
             row.placeholder = "Describe your service/qualifications..."
         }
         _ = append(rows: [descriptionRow], headerTitle: "Description")
+    }
+    
+    var categories: [String] {
+        return ["Tutoring", "Laundry"]
+    }
+    
+    fileprivate func tagFormSetup() {
+        tagRow = InlinePickerRowFormer<FormInlinePickerCell, String>(cellSetup: {
+            $0.titleLabel.text = "Category"
+        })
+        tagRow.configure { (row) in
+            row.pickerItems = categories.map {
+                InlinePickerItem(title: $0)
+            }
+        }
+        
+        _ = append(rows: [tagRow], headerTitle: "Category")
     }
 }
