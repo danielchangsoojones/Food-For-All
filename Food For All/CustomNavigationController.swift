@@ -29,8 +29,18 @@ class CustomNavigationController: UINavigationController {
             let backItem = UIBarButtonItem()
             backItem.title = "" //get rid of the title, we just want the back arrow: <
             pushingVC.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+            tabBarController?.tabBar.isHidden = true
         }
         super.pushViewController(viewController, animated: animated)
+    }
+    
+    override func popViewController(animated: Bool) -> UIViewController? {
+        let poppedVC = super.popViewController(animated: animated)
+        if viewControllers.count == 1 {
+            //down to the rootVC
+            tabBarController?.tabBar.isHidden = false
+        }
+        return poppedVC
     }
     
     func makeTransparent() {

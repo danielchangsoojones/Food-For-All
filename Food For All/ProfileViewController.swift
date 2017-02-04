@@ -54,13 +54,13 @@ class ProfileViewController: UIViewController {
         
         
         //FOR Testing purposes
-//        let gig = Gig()
-//        gig.creator = Person.current()
-//        gig.title = "hi"
-//        gig.price = 50
-//        if let tableVC = theTableVC as? PersonalGigsTableViewController {
-//            tableVC.gigs = [gig]
-//        }
+        let gig = Gig()
+        gig.creator = Person.current()
+        gig.title = "hi"
+        gig.price = 50
+        if let tableVC = theTableVC as? PersonalGigsTableViewController {
+            tableVC.gigs = [gig]
+        }
     }
     
     fileprivate func navBarSetup() {
