@@ -28,7 +28,7 @@ class CreationTableViewCell: UITableViewCell {
         iconSetup(image: iconImage)
         lineSetup()
         titleSetup(text: titleText)
-        
+        selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {

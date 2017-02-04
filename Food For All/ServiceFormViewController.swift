@@ -50,6 +50,9 @@ extension ServiceFormViewController {
     fileprivate func titleFormSetup() {
         titleRow.configure { row in
             row.placeholder = "Name of your service?"
+            if let title = gig?.title {
+                row.text = title
+            }
         }
         
         _ = append(rows: [titleRow], headerTitle: "Title")
