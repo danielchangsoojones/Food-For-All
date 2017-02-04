@@ -106,6 +106,6 @@ extension ProfileViewController {
     }
     
     func goToSettings() {
-        print("go to settings")
+        pushVC(SettingsViewController())
     }
 }

@@ -58,6 +58,8 @@
 		92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199991E45871300ABC255 /* ProfileView.swift */; };
 		92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1999C1E458F1B00ABC255 /* PersonalGigsTableViewController.swift */; };
 		92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1999F1E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift */; };
+		92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199A21E4684DA00ABC255 /* SettingsViewController.swift */; };
+		92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199A41E4685A300ABC255 /* SettingsDataStore.swift */; };
 		92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */; };
 		92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
@@ -126,6 +128,8 @@
 		92D199991E45871300ABC255 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		92D1999C1E458F1B00ABC255 /* PersonalGigsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalGigsTableViewController.swift; sourceTree = "<group>"; };
 		92D1999F1E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalFreelancersTableViewCell.swift; sourceTree = "<group>"; };
+		92D199A21E4684DA00ABC255 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92D199A41E4685A300ABC255 /* SettingsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDataStore.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
 		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				9279DA241E3D02D600E2CCA1 /* Search */,
 				923A8CDD1E425D1300F1BFCA /* Creation */,
 				92D199961E4586B900ABC255 /* Profile */,
+				92D199A11E4684BA00ABC255 /* Settings */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				92D12BA81E3058DF009AC99E /* Models */,
@@ -503,6 +508,15 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		92D199A11E4684BA00ABC255 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92D199A21E4684DA00ABC255 /* SettingsViewController.swift */,
+				92D199A41E4685A300ABC255 /* SettingsDataStore.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +718,7 @@
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
+				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
@@ -718,6 +733,7 @@
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
+				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,

@@ -33,7 +33,9 @@ class GigParse: PFObject, PFSubclassing {
         detailDescription = gig.description
         phoneNumber = gig.phoneNumber
         creator = gig.creator.user
-        tags = gig.tags
+        tags = gig.tags.map({ (tag: String) -> String in
+            return tag.lowercased()
+        })
         if let file = Helpers.saveImageAsPFFIle(fileName: "gigImage.jpg", image: gig.frontImage) {
             frontImage = file
         }
