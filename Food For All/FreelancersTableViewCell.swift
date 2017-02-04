@@ -32,7 +32,7 @@ class FreelancersTableViewCell: UITableViewCell {
     }
     
     fileprivate func profileViewSetup() {
-        theProfileImageView = CircularImageView(file: gig?.creator.profileImage, diameter: cellHeight * 0.75)
+        theProfileImageView = CircularImageView(file: gig?.frontImage, diameter: cellHeight * 0.75)
         self.addSubview(theProfileImageView)
         theProfileImageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
@@ -52,7 +52,7 @@ class FreelancersTableViewCell: UITableViewCell {
     
     fileprivate func priceLabelSetup() {
         let unitText = "$ per hour"
-        if let priceText = gig?.price.toString {
+        if let priceText = gig?.priceString {
             thePriceLabel.text = priceText + unitText
             thePriceLabel.textColor = CustomColors.JellyTeal
             thePriceLabel.font = UIFont.boldSystemFont(ofSize: 15)

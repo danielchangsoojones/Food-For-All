@@ -78,7 +78,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     fileprivate func setContents() {
         theNameLabel.text = gig.creator.fullName
-        if let profileFile = gig.creator.profileImage {
+        if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
         }
         theTitleLabel.text = gig.title
@@ -90,7 +90,7 @@ extension DetailViewController {
     }
     
     fileprivate func colorPriceLabel() {
-        let priceString = gig.price.toString + "$ per hour"
+        let priceString = gig.priceString + "$ per hour"
         let indexOfMoneySign: Int = priceString.getIndexOf("$") ?? 0
         
         let myMutableString = NSMutableAttributedString(string: priceString)

@@ -18,8 +18,8 @@ class Gig {
     var isDraft: Bool = false
     var tags: [String] = []
     
-    var fullSizeFrontImage: Any?
-    var frontImage: Any?
+    var fullSizeFrontImage: AnyObject?
+    var frontImage: AnyObject?
     
     private var _price: Double = 0.0
     var price: Double {
@@ -30,6 +30,9 @@ class Gig {
             let roundedValue = newValue.getRoundedByPlaces(2)
             _price = roundedValue
         }
+    }
+    var priceString: String {
+        return Int(_price.getRoundedByPlaces(0)).toString
     }
     
     var gigParse: GigParse!
@@ -44,11 +47,19 @@ class Gig {
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
         self.creator = person
-        self.frontImage = creator.profileImage
+        setGigImage()
     }
     
     convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
         self.init(gigParse: gigParse)
     }
     
+    fileprivate func setGigImage() {
+        //Either set the image as the gig image, but if non-existent, then use their profile image
+        if let gigImage = gigParse.frontImage {
+            self.frontImage = gigImage
+        } else if let profileImage = creator.profileImage {
+            self.frontImage = profileImage
+        }
+    }
 }
