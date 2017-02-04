@@ -12,18 +12,23 @@ class ProfileViewController: UIViewController {
     var theTableHolderView: UIView!
     var theTableView: UITableView!
     var theTableVC: UITableViewController!
+    var theProfileCircleView: CircularImageView!
+    var theNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         addTableVC()
         navBarSetup()
+        setContent()
     }
     
     fileprivate func viewSetup() {
         let profileView = ProfileView(frame: self.view.bounds)
         self.view = profileView
         theTableHolderView = profileView.theTableHolderView
+        theProfileCircleView = profileView.theProfileCircleView
+        theNameLabel = profileView.theNameLabel
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +69,13 @@ class ProfileViewController: UIViewController {
 //        if let tableVC = theTableVC as? PersonalGigsTableViewController {
 //            tableVC.gigs = [gig]
 //        }
+    }
+    
+    fileprivate func setContent() {
+        if let profileImage = Person.current().profileImage {
+            theProfileCircleView.add(file: profileImage)
+        }
+        theNameLabel.text = Person.current().fullName
     }
 }
 

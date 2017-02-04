@@ -46,10 +46,11 @@ extension ProfileView {
     
     fileprivate func nameLabelSetup() {
         theNameLabel.textColor = UIColor.white
-        theNameLabel.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightMedium)
+        theNameLabel.textAlignment = .center
+        theNameLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
         theTopBackgroundView.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(theProfileCircleView.snp.bottom).inset(5)
+            make.top.equalTo(theProfileCircleView.snp.bottom).offset(10)
             make.centerX.equalTo(theProfileCircleView)
         }
     }
