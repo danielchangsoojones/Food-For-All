@@ -32,4 +32,13 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
         }
         return cell
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if gigs.count > 0 {
+            return 1
+        } else {
+            Helpers.EmptyMessage(message: "No current services", viewController: self)
+            return 0
+        }
+    }
 }
