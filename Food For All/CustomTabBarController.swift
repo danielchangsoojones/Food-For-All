@@ -86,8 +86,9 @@ extension CustomTabBarController {
     }
     
     var thirdVC: UIViewController {
-        let vc = UIViewController()
+        let vc = ProfileViewController()
         vc.tabBarItem = thirdTabBarItem
-        return vc
+        let clearNavController = WelcomeNavigationController(rootViewController: vc)
+        return clearNavController
     }
 }

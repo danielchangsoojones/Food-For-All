@@ -54,6 +54,10 @@
 		92D199901E452F3C00ABC255 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1998F1E452F3C00ABC255 /* Camera.swift */; };
 		92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199921E4550AE00ABC255 /* CreationDataStore.swift */; };
 		92D199951E45748500ABC255 /* GigImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199941E45748500ABC255 /* GigImage.swift */; };
+		92D199981E4586F700ABC255 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199971E4586F700ABC255 /* ProfileViewController.swift */; };
+		92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199991E45871300ABC255 /* ProfileView.swift */; };
+		92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1999C1E458F1B00ABC255 /* PersonalGigsTableViewController.swift */; };
+		92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1999F1E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift */; };
 		92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */; };
 		92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
@@ -118,6 +122,10 @@
 		92D1998F1E452F3C00ABC255 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		92D199921E4550AE00ABC255 /* CreationDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationDataStore.swift; sourceTree = "<group>"; };
 		92D199941E45748500ABC255 /* GigImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigImage.swift; sourceTree = "<group>"; };
+		92D199971E4586F700ABC255 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		92D199991E45871300ABC255 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		92D1999C1E458F1B00ABC255 /* PersonalGigsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalGigsTableViewController.swift; sourceTree = "<group>"; };
+		92D1999F1E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalFreelancersTableViewCell.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
 		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +261,7 @@
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
 				9279DA241E3D02D600E2CCA1 /* Search */,
 				923A8CDD1E425D1300F1BFCA /* Creation */,
+				92D199961E4586B900ABC255 /* Profile */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				92D12BA81E3058DF009AC99E /* Models */,
@@ -467,6 +476,33 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		92D199961E4586B900ABC255 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				92D1999B1E458EFA00ABC255 /* Table Views */,
+				92D199971E4586F700ABC255 /* ProfileViewController.swift */,
+				92D199991E45871300ABC255 /* ProfileView.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		92D1999B1E458EFA00ABC255 /* Table Views */ = {
+			isa = PBXGroup;
+			children = (
+				92D1999E1E458F4F00ABC255 /* Cell */,
+				92D1999C1E458F1B00ABC255 /* PersonalGigsTableViewController.swift */,
+			);
+			name = "Table Views";
+			sourceTree = "<group>";
+		};
+		92D1999E1E458F4F00ABC255 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92D1999F1E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +699,7 @@
 				92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */,
 				927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */,
 				92D12BB41E3066BD009AC99E /* AdmissionFormViewController.swift in Sources */,
+				92D199981E4586F700ABC255 /* ProfileViewController.swift in Sources */,
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
@@ -684,6 +721,7 @@
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
+				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
@@ -693,6 +731,7 @@
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
+				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
@@ -701,6 +740,7 @@
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
+				92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
