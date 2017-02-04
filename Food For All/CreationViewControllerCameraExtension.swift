@@ -41,11 +41,16 @@ extension CreationViewController:  UIImagePickerControllerDelegate, UINavigation
         if picture == nil {
             picture = info[UIImagePickerControllerEditedImage] as? UIImage
         } else if let picture = picture {
-            let resizedImage = Camera.resize(image: picture, targetSize: CGSize(width: picture.size.width / 8, height: picture.size.height / 8))
-            theProfileCircleView.update(image: resizedImage)
+            var image: UIImage = picture
+            let divider: CGFloat = picture.size.width / 300 //how big we want the resized image to be
+            if divider > 1 {
+                image = Camera.resize(image: picture, targetSize: CGSize(width: picture.size.width / divider, height: picture.size.height / divider)) //resize the image if it is massive. divider > 1 because if it is a small image, then we don't want to resize it. Only big images.
+            }
+            
+            theProfileCircleView.update(image: image)
             completions[0] = true //could break if we ever change position of the image circle
-            print(resizedImage.size)
-            gig.frontImage = resizedImage
+            gig.frontImage = image
+            gig.fullSizeFrontImage = picture
         }
         picker.dismiss(animated: true, completion: nil)
     }

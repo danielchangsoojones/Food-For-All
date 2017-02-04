@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            //toFrontPageVC()
-            setInitialVC(vc: WelcomeNavigationController(rootViewController: CreationViewController()))
+            toFrontPageVC()
         }
         
         return true
@@ -49,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GigParse.registerSubclass()
         MessageMetrics.registerSubclass()
         SearchGig.registerSubclass()
+        GigImage.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

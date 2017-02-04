@@ -13,6 +13,7 @@ class CreationViewController: UIViewController {
     var theCameraImageView: UIImageView!
     var theFinishButton: UIButton!
     var theProfileCircleView: CircularImageView!
+    var theSpinnerView: UIView?
     
     var cellDatas: [CellData] = CellData.creationCellDatas
     var completions: [Bool] = [] //keeping track to make sure all mandatory cells are completed before continuing
@@ -68,6 +69,7 @@ extension CreationViewController {
     func finishButtonTapped(sender: UIButton) {
         if !completions.contains(false) {
             //save and finish
+            theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
             dataStore?.save(gig: gig)
         } else {
             //incomplete fields
@@ -139,11 +141,12 @@ extension CreationViewController: CreationVCDelegate {
 
 extension CreationViewController: CreationDataStoreDelegate {
     func errorOccurred(description: String) {
-        print(description)
+        Helpers.showBanner(title: "Error", subtitle: description, bannerType: .error)
+        theSpinnerView?.removeFromSuperview()
     }
     
     func finishedSaving(gig: Gig) {
-        dump(gig)
+        self.navigationController?.dismissVC(completion: nil)
     }
 }
 

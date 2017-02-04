@@ -25,11 +25,17 @@ class CreationDataStore {
         g.saveInBackground { (success, error) in
             if success {
                 gig.gigParse = g
+                self.saveFullGigImage(gig: gig)
                 self.delegate?.finishedSaving(gig: gig)
             } else if let error = error {
                 self.delegate?.errorOccurred(description: error.localizedDescription)
                 print(error)
             }
         }
+    }
+    
+    fileprivate func saveFullGigImage(gig: Gig) {
+        let gigImage = GigImage(gig: gig)
+        gigImage.saveInBackground()
     }
 }

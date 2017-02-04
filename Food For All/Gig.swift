@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Gig {
     var title: String = ""
@@ -15,8 +16,10 @@ class Gig {
     var phoneNumber: Int = 0
     var creator: Person = Person.current()
     var isDraft: Bool = false
-    var frontImage: Any?
     var tags: [String] = []
+    
+    var fullSizeFrontImage: Any?
+    var frontImage: Any?
     
     private var _price: Double = 0.0
     var price: Double {
@@ -47,4 +50,5 @@ class Gig {
     convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
         self.init(gigParse: gigParse)
     }
+    
 }
