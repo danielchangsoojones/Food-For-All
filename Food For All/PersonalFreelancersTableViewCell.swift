@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonalFreelancersTableViewCell: FreelancersTableViewCell {
-    var editButtonTapped: (() -> Void)? = nil
+    var editButtonTapped: (() -> Void)?
     
     override init(gig: Gig, height: CGFloat) {
         super.init(gig: gig, height: height)
@@ -41,6 +41,6 @@ class PersonalFreelancersTableViewCell: FreelancersTableViewCell {
     }
     
     func editTapped() {
-        _ = editButtonTapped
+        editButtonTapped?()
     }
 }

@@ -8,8 +8,13 @@
 
 import UIKit
 
-class PersonalGigsTableViewController: FreelancersTableViewController {
+protocol PersonalGigsTableDelegate {
+    func edit(gig: Gig)
+}
 
+class PersonalGigsTableViewController: FreelancersTableViewController {
+    var delegate: PersonalGigsTableDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,6 +27,9 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gig = gigs[indexPath.row]
         let cell = PersonalFreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
+        cell.editButtonTapped = {
+            self.delegate?.edit(gig: gig)
+        }
         return cell
     }
 }

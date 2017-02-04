@@ -36,7 +36,10 @@ class ProfileViewController: UIViewController {
     }
     
     fileprivate func addTableVC() {
-        theTableVC = PersonalGigsTableViewController()
+        let childVC = PersonalGigsTableViewController()
+        childVC.delegate = self
+        theTableVC = childVC
+        
         let parentVC = self
         let toView = theTableHolderView
         
@@ -62,7 +65,19 @@ class ProfileViewController: UIViewController {
             tableVC.gigs = [gig]
         }
     }
-    
+}
+
+extension ProfileViewController: PersonalGigsTableDelegate {
+    func edit(gig: Gig) {
+        let rootVC = CreationViewController()
+        rootVC.gig = gig
+        let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
+        presentVC(clearNavController)
+    }
+}
+
+//nav extension
+extension ProfileViewController {
     fileprivate func navBarSetup() {
         leftBarButtonSetup()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Gear"), style: .plain, target: self, action: #selector(goToSettings))
