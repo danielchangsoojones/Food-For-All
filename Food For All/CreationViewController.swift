@@ -96,8 +96,17 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cellDatas[indexPath.row].cell
-        return cell
+        //TODO: I have no idea why, but if I do cellDatas[indexpath.row].cell and return that. It works the first time, but when I exit and open this tab again, it doesn't show the cells. No idea why, but this was a workaround
+        switch indexPath.row {
+        case 0:
+            return CellData.service.cell
+        case 1:
+            return CellData.pricing.cell
+        case 2:
+            return CellData.contact.cell
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,8 +114,10 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.selectionStyle = .none
+        
         let cellData = cellDatas[indexPath.row]
-        cellData.cell.selectionStyle = .none
         let destinationVC = cellData.destinationVC
         destinationVC.delegate = self
         destinationVC.gig = self.gig
