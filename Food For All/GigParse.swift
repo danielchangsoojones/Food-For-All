@@ -28,6 +28,10 @@ class GigParse: PFObject, PFSubclassing {
     
     init(gig: Gig) {
         super.init()
+        updateFrom(gig: gig)
+    }
+    
+    func updateFrom(gig: Gig) {
         title = gig.title
         price = gig.price
         detailDescription = gig.description

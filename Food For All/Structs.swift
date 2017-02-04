@@ -134,6 +134,19 @@ struct Helpers {
         
         viewController.tableView.backgroundView = messageLabel;
     }
+    
+    static func stylizeButton(text: String) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = CustomColors.Polar
+        button.setTitle(text, for: .normal)
+        button.titleLabel!.font =  UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
+        button.setTitleColor(CustomColors.SilverChalice, for: .normal)
+        let horizontalInset: CGFloat = 30
+        let verticalInset: CGFloat = 10
+        button.contentEdgeInsets = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        button.setCornerRadius(radius: 15)
+        return button
+    }
 }
 
 struct PhoneValidator {

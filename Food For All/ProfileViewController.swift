@@ -15,12 +15,15 @@ class ProfileViewController: UIViewController {
     var theProfileCircleView: CircularImageView!
     var theNameLabel: UILabel!
     
+    var dataStore: ProfileDataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         addTableVC()
         navBarSetup()
         setContent()
+        dataStoreSetup()
     }
     
     fileprivate func viewSetup() {
@@ -38,6 +41,10 @@ class ProfileViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = ProfileDataStore(delegate: self)
     }
     
     fileprivate func addTableVC() {
@@ -59,16 +66,6 @@ class ProfileViewController: UIViewController {
         }
         
         theTableView = theTableVC.tableView
-        
-        
-        //FOR Testing purposes
-//        let gig = Gig()
-//        gig.creator = Person.current()
-//        gig.title = "hi"
-//        gig.price = 50
-//        if let tableVC = theTableVC as? PersonalGigsTableViewController {
-//            tableVC.gigs = [gig]
-//        }
     }
     
     fileprivate func setContent() {
@@ -81,10 +78,19 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: PersonalGigsTableDelegate {
     func edit(gig: Gig) {
-        let rootVC = CreationViewController()
+        let rootVC = EditingGigViewController()
         rootVC.gig = gig
         let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
         presentVC(clearNavController)
+    }
+}
+
+extension ProfileViewController: ProfileDataStoreDelegate {
+    func loaded(gigs: [Gig]) {
+        if let tableVC = theTableVC as? PersonalGigsTableViewController {
+            tableVC.gigs = gigs
+        }
+        
     }
 }
 

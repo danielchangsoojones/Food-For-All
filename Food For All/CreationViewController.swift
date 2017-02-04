@@ -52,7 +52,7 @@ class CreationViewController: UIViewController {
         return true
     }
     
-    fileprivate func dataStoreSetup() {
+    func dataStoreSetup() {
         dataStore = CreationDataStore(delegate: self)
     }
     
