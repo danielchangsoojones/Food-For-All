@@ -20,4 +20,22 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var phoneNumber: Int
     @NSManaged var creator: User
     @NSManaged var tags: [String]
+    @NSManaged var frontImage: PFFile?
+    
+    override init() {
+        super.init()
+    }
+    
+    init(gig: Gig) {
+        super.init()
+        title = gig.title
+        price = gig.price
+        detailDescription = gig.description
+        phoneNumber = gig.phoneNumber
+        creator = gig.creator.user
+        tags = gig.tags
+        if let file = Helpers.saveImageAsPFFIle(fileName: "gigImage.jpg", image: gig.frontImage) {
+            frontImage = file
+        }
+    }
 }

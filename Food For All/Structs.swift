@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import EZSwiftExtensions
 import BRYXBanner
+import Parse
 
 struct CustomColors {
     static let JellyTeal: UIColor = UIColor(r: 1, g: 195, b: 167)
@@ -63,7 +64,7 @@ struct Helpers {
     }
     
     
-    static func showBanner(title: String, subtitle: String, bannerType: BannerType = .error) {
+    static func showBanner(title: String, subtitle: String, bannerType: BannerType = .error, duration: TimeInterval = 10) {
         var backgroundColor: UIColor = UIColor.red
         switch bannerType {
         case .error:
@@ -74,7 +75,7 @@ struct Helpers {
         
         let banner = Banner(title: title, subtitle: subtitle, backgroundColor: backgroundColor)
         banner.dismissesOnTap = true
-        banner.show(duration: 10.0)
+        banner.show(duration: duration)
     }
     
     static var line: UIView {
@@ -108,6 +109,15 @@ struct Helpers {
         actInd.startAnimating()
         
         return container
+    }
+    
+    //Filename should be something like "profileImage.jpg"
+    static func saveImageAsPFFIle(fileName: String, image: Any?) -> PFFile? {
+        if let image = image as? UIImage, let data = UIImageJPEGRepresentation(image, 0.6) {
+            let pictureFile = PFFile(name: fileName, data: data)
+            return pictureFile
+        }
+        return nil
     }
 }
 

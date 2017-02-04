@@ -26,7 +26,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     }
     
     override var passingCellUpdatedTitle: String? {
-        let price: String = Double(priceRow.value).getRoundedByPlaces(2).toString + "$"
+        let price: String = Int(priceRow.value).toString + "$"
         let unit: String = selectedUnit ?? ""
         return price + " " + unit
     }
@@ -45,7 +45,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     
     override func save(sender: UIBarButtonItem) {
         super.save(sender: sender)
-        gig?.price = Double(priceRow.cell.slider.value)
+        gig?.price = Double(Int(priceRow.value)) //round to a int number
         let selectedUnit: String = units[unitsRow.selectedRow]
         if units.last == units[unitsRow.selectedRow] {
             //they chose custom unit

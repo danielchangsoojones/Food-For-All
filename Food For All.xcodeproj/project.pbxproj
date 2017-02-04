@@ -52,6 +52,7 @@
 		92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1998A1E45179C00ABC255 /* ContactFormViewController.swift */; };
 		92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1998D1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift */; };
 		92D199901E452F3C00ABC255 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1998F1E452F3C00ABC255 /* Camera.swift */; };
+		92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199921E4550AE00ABC255 /* CreationDataStore.swift */; };
 		92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */; };
 		92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
@@ -114,6 +115,7 @@
 		92D1998A1E45179C00ABC255 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		92D1998D1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewControllerCameraExtension.swift; sourceTree = "<group>"; };
 		92D1998F1E452F3C00ABC255 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		92D199921E4550AE00ABC255 /* CreationDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationDataStore.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
 		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
 			isa = PBXGroup;
 			children = (
+				92D199911E45509F00ABC255 /* Data Store */,
 				92D1998C1E452E7600ABC255 /* Photo */,
 				92A843C01E42D05B00F6358E /* Forms */,
 				923A8CE21E42855200F1BFCA /* Cell */,
@@ -453,6 +456,14 @@
 			name = Photo;
 			sourceTree = "<group>";
 		};
+		92D199911E45509F00ABC255 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92D199921E4550AE00ABC255 /* CreationDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +663,7 @@
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
+				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,

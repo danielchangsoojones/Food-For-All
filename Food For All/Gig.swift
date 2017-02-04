@@ -10,12 +10,24 @@ import Foundation
 
 class Gig {
     var title: String = ""
-    var price: Double = 0.0
     var priceUnit: String = ""
     var description: String = ""
     var phoneNumber: Int = 0
     var creator: Person = Person.current()
     var isDraft: Bool = false
+    var frontImage: Any?
+    var tags: [String] = []
+    
+    private var _price: Double = 0.0
+    var price: Double {
+        get {
+            return _price
+        }
+        set (newValue) {
+            let roundedValue = newValue.getRoundedByPlaces(2)
+            _price = roundedValue
+        }
+    }
     
     var gigParse: GigParse!
     
@@ -29,6 +41,7 @@ class Gig {
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
         self.creator = person
+        self.frontImage = creator.profileImage
     }
     
     convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {

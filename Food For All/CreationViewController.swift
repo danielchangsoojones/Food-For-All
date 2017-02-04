@@ -19,11 +19,14 @@ class CreationViewController: UIViewController {
     
     var gig: Gig = Gig()
     
+    var dataStore: CreationDataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         navBarSetup()
         populateCompletions()
+        dataStoreSetup()
     }
     
     fileprivate func viewSetup() {
@@ -48,10 +51,14 @@ class CreationViewController: UIViewController {
         return true
     }
     
+    fileprivate func dataStoreSetup() {
+        dataStore = CreationDataStore(delegate: self)
+    }
+    
     func populateCompletions() {
         let imageEntryCount = 1
         let itemsToComplete = imageEntryCount + cellDatas.count
-        for _ in 0...itemsToComplete {
+        for _ in 0..<itemsToComplete {
             completions.append(false)
         }
     }
@@ -61,10 +68,11 @@ extension CreationViewController {
     func finishButtonTapped(sender: UIButton) {
         if !completions.contains(false) {
             //save and finish
+            dataStore?.save(gig: gig)
         } else {
             //incomplete fields
             //TODO: shake the fields that haven't been done yet and add red to them
-            Helpers.showBanner(title: "Incomplete Fields", subtitle: "Please complete all necessary fields", bannerType: .error)
+            Helpers.showBanner(title: "Incomplete Fields", subtitle: "Please complete all necessary fields", bannerType: .error, duration: 5.0)
         }
     }
 }
@@ -126,6 +134,16 @@ extension CreationViewController: CreationVCDelegate {
     
     fileprivate func update(cellTitle: String, for cell: CreationTableViewCell) {
         cell.theTitleLabel.text = cellTitle
+    }
+}
+
+extension CreationViewController: CreationDataStoreDelegate {
+    func errorOccurred(description: String) {
+        print(description)
+    }
+    
+    func finishedSaving(gig: Gig) {
+        dump(gig)
     }
 }
 
