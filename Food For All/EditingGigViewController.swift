@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol EditingGigDelegate {
+    func remove(gig: Gig)
+}
+
+
 class EditingGigViewController: CreationViewController {
     var theButtonStackView: UIStackView!
     var theTableViewFooterView: UIView!
+    
+    var delegate: EditingGigDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +73,7 @@ class EditingGigViewController: CreationViewController {
     func delete(sender: UIButton) {
         if let dataStore = dataStore as? EditingGigDataStore {
             dataStore.delete(gig: gig)
+            delegate?.remove(gig: gig)
         }
     }
 }

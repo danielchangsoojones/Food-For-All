@@ -80,8 +80,17 @@ extension ProfileViewController: PersonalGigsTableDelegate {
     func edit(gig: Gig) {
         let rootVC = EditingGigViewController()
         rootVC.gig = gig
+        rootVC.delegate = self
         let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
         presentVC(clearNavController)
+    }
+}
+
+extension ProfileViewController: EditingGigDelegate {
+    func remove(gig: Gig) {
+        if let tableVC = theTableVC as? PersonalGigsTableViewController {
+            tableVC.remove(gig: gig)
+        }
     }
 }
 
@@ -97,7 +106,8 @@ extension ProfileViewController: ProfileDataStoreDelegate {
 //nav extension
 extension ProfileViewController {
     fileprivate func navBarSetup() {
-        leftBarButtonSetup()
+        //TODO: allow people to edit their profiles
+//        leftBarButtonSetup()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Gear"), style: .plain, target: self, action: #selector(goToSettings))
     }
     

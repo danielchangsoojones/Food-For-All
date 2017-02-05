@@ -35,10 +35,20 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if gigs.count > 0 {
+            self.tableView.backgroundView = nil
             return 1
         } else {
             Helpers.EmptyMessage(message: "No current services", viewController: self)
             return 0
         }
+    }
+    
+    func remove(gig: Gig) {
+        gigs = gigs.filter({ (g: Gig) -> Bool in
+            if g.description == gig.description && g.title == gig.title {
+                return false
+            }
+            return true
+        })
     }
 }
