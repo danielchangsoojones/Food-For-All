@@ -52,9 +52,9 @@ extension CustomTabBarController {
     }
     
     var firstVC: UIViewController {
-        let vc = FrontPageViewController()
+        let vc = EntryViewController()
         vc.tabBarItem = firstTabBarItem
-        let navController = CustomNavigationController(rootViewController: vc)
+        let navController = WelcomeNavigationController(rootViewController: vc)
         return navController
     }
 }

@@ -9,9 +9,15 @@
 import UIKit
 
 class FreelancersTableViewCell: UITableViewCell {
+    struct Constants {
+        static let verticalWordSpacing: CGFloat = 5
+    }
+
     var theProfileImageView: CircularImageView!
-    var theTitleLabel: UILabel = UILabel()
+    var theNameLabel: UILabel = UILabel()
+    var theServiceTitleLabel: UILabel = UILabel()
     var thePriceLabel: UILabel = UILabel()
+
     
     var gig: Gig?
     
@@ -22,7 +28,8 @@ class FreelancersTableViewCell: UITableViewCell {
         self.cellHeight = height
         self.gig = gig
         profileViewSetup()
-        titleLabelSetup()
+        nameLabelSetup()
+        serviceTitleLabelSetup()
         priceLabelSetup()
         lineSetup()
     }
@@ -40,30 +47,41 @@ class FreelancersTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate func titleLabelSetup() {
-        theTitleLabel.text = gig?.title
-        theTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
-        self.addSubview(theTitleLabel)
-        theTitleLabel.snp.makeConstraints { (make) in
+    fileprivate func nameLabelSetup() {
+        theNameLabel.text = gig?.creator.fullName
+        theNameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        self.addSubview(theNameLabel)
+        theNameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theProfileImageView)
             make.leading.equalTo(theProfileImageView.snp.trailing).offset(10)
         }
     }
     
+    fileprivate func serviceTitleLabelSetup() {
+        theServiceTitleLabel.text = gig?.title
+        theServiceTitleLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
+        self.addSubview(theServiceTitleLabel)
+        theServiceTitleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(theNameLabel.snp.bottom).offset(Constants.verticalWordSpacing)
+            make.leading.equalTo(theNameLabel)
+        }
+    }
+
     fileprivate func priceLabelSetup() {
         let unitText = "$ per hour"
-        if let priceText = gig?.priceString {
+        if let priceText = gig?.price.toString {
             thePriceLabel.text = priceText + unitText
             thePriceLabel.textColor = CustomColors.JellyTeal
-            thePriceLabel.font = UIFont.boldSystemFont(ofSize: 15)
+            thePriceLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
             self.addSubview(thePriceLabel)
             thePriceLabel.snp.makeConstraints({ (make) in
-                make.top.equalTo(theTitleLabel.snp.bottom).offset(5)
-                make.leading.equalTo(theTitleLabel)
+                make.top.equalTo(theServiceTitleLabel.snp.bottom).offset(Constants.verticalWordSpacing)
+                make.leading.equalTo(theNameLabel)
             })
         }
     }
-    
+
+    //TODO: can just change the tableView seperator instead
     fileprivate func lineSetup() {
         let line: UIView = Helpers.line
         self.addSubview(line)

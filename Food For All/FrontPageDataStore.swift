@@ -30,7 +30,7 @@ class FrontPageDataStore {
             if let gigParses = gigParses {
                 let gigs: [Gig] = gigParses.map({ (g: GigParse) -> Gig in
                     let person = Person(user: g.creator)
-                    let gig = Gig(title: g.title, price: g.price, description: g.detailDescription, phoneNumber: g.phoneNumber, creator: person, gigParse: g)
+                    let gig = Gig(title: g.title, price: g.price, description: g.detailDescription, phoneNumber: Int(g.phoneNumber), creator: person, gigParse: g)
                     return gig
                 })
                 self.delegate?.pass(gigs: gigs)

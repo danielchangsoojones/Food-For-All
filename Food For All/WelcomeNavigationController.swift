@@ -12,6 +12,7 @@ class WelcomeNavigationController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeTransparent()
+        self.navigationBar.barStyle = UIBarStyle.black //white view controller title
     }
 
     override func didReceiveMemoryWarning() {

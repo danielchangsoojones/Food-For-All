@@ -42,7 +42,7 @@ class ContactFormViewController: SuperCreationFormViewController {
         gig?.creator.firstName = theFirstNameRow.text
         gig?.creator.lastName = theLastNameRow.text
         if let phoneNumber = thePhoneNumberRow.text?.toInt() {
-            gig?.phoneNumber = phoneNumber
+            gig?.phoneNumber = Double(phoneNumber)
         }
         super.save(sender: sender)
     }

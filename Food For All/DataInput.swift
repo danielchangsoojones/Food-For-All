@@ -56,9 +56,23 @@ class DataInput {
         gig.title = title
         gig.price = price
         gig.detailDescription = detailDescription
-        gig.phoneNumber = phoneNumber
+        gig.phoneNumber = Double(phoneNumber)
         gig.creator = user
         gig.addUniqueObject(tag.lowercased(), forKey: "tags")
         gig.saveInBackground()
+    }
+    
+    func updateGigTags() {
+        let tag = "Tutoring"
+        
+        let query = GigParse.query() as! PFQuery<GigParse>
+        query.findObjectsInBackground { (gigParses, error) in
+            if let gigParses = gigParses {
+                for g in gigParses {
+                    g.addUniqueObject(tag.lowercased(), forKey: "tags")
+                    g.saveInBackground()
+                }
+            }
+        }
     }
 }

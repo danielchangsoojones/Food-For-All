@@ -17,7 +17,7 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var title: String
     @NSManaged var price: Double
     @NSManaged var detailDescription: String
-    @NSManaged var phoneNumber: Int
+    @NSManaged var phoneNumber: Double
     @NSManaged var creator: User
     @NSManaged var tags: [String]
     @NSManaged var frontImage: PFFile?

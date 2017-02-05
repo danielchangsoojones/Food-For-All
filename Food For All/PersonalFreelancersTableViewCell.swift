@@ -28,14 +28,14 @@ class PersonalFreelancersTableViewCell: FreelancersTableViewCell {
         button.setContentHuggingPriority(1000, for: .horizontal)
         self.addSubview(button)
         button.snp.makeConstraints { (make) in
-            make.firstBaseline.equalTo(theTitleLabel)
+            make.firstBaseline.equalTo(theNameLabel)
             make.trailing.equalToSuperview().inset(5)
         }
         remakeTopLabelConstraints(to: button)
     }
     
     fileprivate func remakeTopLabelConstraints(to view: UIButton) {
-        theTitleLabel.snp.makeConstraints { (make) in
+        theNameLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(view.snp.leading) // so they don't overlap if someone has very long name
         }
     }
