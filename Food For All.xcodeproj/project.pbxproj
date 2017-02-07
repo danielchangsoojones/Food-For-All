@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
+		921C798C1E49853400D9396B /* GigItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798B1E49853400D9396B /* GigItemView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -82,6 +83,7 @@
 /* Begin PBXFileReference section */
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		921C798B1E49853400D9396B /* GigItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigItemView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		921C798A1E4984D300D9396B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				921C798B1E49853400D9396B /* GigItemView.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				9279DA1E1E3C340B00E2CCA1 /* Data store */,
+				921C798A1E4984D300D9396B /* Cells */,
 				9254B7191E3940F70034F6D0 /* DetailViewController.swift */,
 				9254B71B1E3942DB0034F6D0 /* DetailView.swift */,
 			);
@@ -812,6 +823,7 @@
 				92DD8D2D1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
+				921C798C1E49853400D9396B /* GigItemView.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,

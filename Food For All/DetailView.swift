@@ -109,6 +109,19 @@ extension DetailView {
     }
 }
 
+//gig items
+extension DetailView {
+    fileprivate func venmoItemSetup() {
+        let venmoItem = GigItemView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 70))
+        theContentView.addSubview(venmoItem)
+        venmoItem.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theDescriptionLabel)
+            make.top.equalTo(theDescriptionLabel.snp.bottom).inset(Constants.spacing)
+            
+        }
+    }
+}
+
 //the pricing view
 extension DetailView {
     fileprivate func bottomViewSetup() {
