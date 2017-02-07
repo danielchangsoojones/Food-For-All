@@ -31,6 +31,7 @@ class DetailView: CustomScrollerView {
         topViewSetup()
         titleSetup()
         descriptionSetup()
+        venmoItemSetup()
         bottomViewSetup()
     }
     
@@ -103,7 +104,6 @@ extension DetailView {
         theDescriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.spacing)
             make.leading.equalTo(theTitleLabel)
-            make.bottom.equalTo(theContentView)
             make.trailing.equalToSuperview().inset(Constants.sideInset)
         }
     }
@@ -112,12 +112,13 @@ extension DetailView {
 //gig items
 extension DetailView {
     fileprivate func venmoItemSetup() {
-        let venmoItem = GigItemView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 70))
+        let venmoItem = VenmoItemView(frame: CGRect.zero)
         theContentView.addSubview(venmoItem)
         venmoItem.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theDescriptionLabel.snp.bottom).inset(Constants.spacing)
-            
+            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
+            make.height.equalTo(70)
+            make.bottom.equalTo(theContentView)
         }
     }
 }

@@ -23,23 +23,29 @@ class GigItemView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func elementViewSetup() {
+    func elementViewSetup() {
         theElementView = UILabel()
+        elementViewPosition()
+    }
+    
+    func elementViewPosition() {
         self.addSubview(theElementView)
         theElementView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(DetailView.Constants.sideInset)
+            make.leading.equalToSuperview()
         }
     }
     
     fileprivate func accessoryViewSetup() {
         let coloredImage = #imageLiteral(resourceName: "ArrowHead").withRenderingMode(.alwaysTemplate)
         theAccessoryView = UIImageView(image: coloredImage)
+        theAccessoryView.contentMode = .scaleAspectFit
         theAccessoryView.tintColor = CustomColors.BombayGray
         self.addSubview(theAccessoryView)
         theAccessoryView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(DetailView.Constants.sideInset)
+            make.trailing.equalToSuperview()
+            make.width.height.equalTo(20)
         }
     }
     

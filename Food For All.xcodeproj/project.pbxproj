@@ -10,6 +10,7 @@
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
 		921C798C1E49853400D9396B /* GigItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798B1E49853400D9396B /* GigItemView.swift */; };
+		921C798E1E4A7B6400D9396B /* VenmoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798D1E4A7B6400D9396B /* VenmoItemView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		921C798B1E49853400D9396B /* GigItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigItemView.swift; sourceTree = "<group>"; };
+		921C798D1E4A7B6400D9396B /* VenmoItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoItemView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				921C798B1E49853400D9396B /* GigItemView.swift */,
+				921C798D1E4A7B6400D9396B /* VenmoItemView.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
+				921C798E1E4A7B6400D9396B /* VenmoItemView.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
