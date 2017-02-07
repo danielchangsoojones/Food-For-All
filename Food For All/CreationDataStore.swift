@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 protocol CreationDataStoreDelegate {
     func errorOccurred(description: String)
@@ -22,7 +23,8 @@ class CreationDataStore {
     
     func save(gig: Gig) {
         let g = GigParse(gig: gig)
-        g.saveInBackground { (success, error) in
+        let creator = gig.creator.updatedUser
+        PFObject.saveAll(inBackground: [creator, g]) { (success, error) in
             if success {
                 gig.gigParse = g
                 self.saveFullGigImage(gig: gig)

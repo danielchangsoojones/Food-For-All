@@ -18,6 +18,19 @@ class Person {
     
     var user: User = User()
     
+    var updatedUser: User {
+        if let firstName = firstName {
+            user.theFirstName = firstName
+        }
+        if let lastName = lastName {
+            user.theLastName = lastName
+        }
+        user.birthDate = birthDate
+        user.venmoUsername = venmoUsername
+        user.profileImage = profileImage
+        return user
+    }
+    
     init(user: User) {
         self.user = user
         self.firstName = user.theFirstName

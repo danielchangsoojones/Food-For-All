@@ -74,7 +74,7 @@ extension CreationData {
         case .pricing:
             isComplete = (gig.price >= 0) && gig.priceUnit.isNotEmpty
         case .contact:
-            let phoneString = gig.phoneNumber.toString
+            let phoneString = Int(gig.phoneNumber).toString //so it doesn't end in a .0 as a double (i.e. 3176905323.0)
             let firstNameExists: Bool = gig.creator.firstName?.isNotEmpty ?? false
             let lastNameExists: Bool = gig.creator.lastName?.isNotEmpty ?? false
             isComplete = PhoneValidator.isValidPhoneNumber(phoneString: phoneString) && firstNameExists && lastNameExists
