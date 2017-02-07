@@ -113,7 +113,11 @@ extension DetailViewController {
     }
     
     func venmoTapped() {
-        print("venmo tapped")
+        let venmoUsername = "Jake-McCarty"
+        let headURL = "https://venmo.com/"
+        if let destinationURL = URL(string: headURL + venmoUsername) {
+            UIApplication.shared.openURL(destinationURL)
+        }
     }
 }
 
