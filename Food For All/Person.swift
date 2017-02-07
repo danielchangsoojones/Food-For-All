@@ -13,6 +13,7 @@ class Person {
     var firstName: String?
     var lastName: String?
     var birthDate: Date?
+    var venmoUsername: String?
     var profileImage: PFFile?
     
     var user: User = User()
@@ -23,6 +24,7 @@ class Person {
         self.lastName = user.theLastName
         self.birthDate = user.birthDate
         self.profileImage = user.profileImage
+        self.venmoUsername = user.venmoUsername
     }
     
     static func current() -> Person {
