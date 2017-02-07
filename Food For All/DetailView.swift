@@ -24,6 +24,7 @@ class DetailView: CustomScrollerView {
     var thePriceLabel: UILabel = UILabel()
     var theMessageButton: UIButton = UIButton()
     var theExitButton: UIButton = UIButton()
+    var theVenmoView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,9 +113,9 @@ extension DetailView {
 //gig items
 extension DetailView {
     fileprivate func venmoItemSetup() {
-        let venmoItem = VenmoItemView(frame: CGRect.zero)
-        theContentView.addSubview(venmoItem)
-        venmoItem.snp.makeConstraints { (make) in
+        theVenmoView = VenmoItemView(frame: CGRect.zero)
+        theContentView.addSubview(theVenmoView)
+        theVenmoView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
             make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
             make.height.equalTo(70)

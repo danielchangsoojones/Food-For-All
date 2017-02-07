@@ -58,6 +58,7 @@ class DetailViewController: UIViewController {
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -109,6 +110,10 @@ extension DetailViewController {
     func messageButtonPressed(sender: UIButton) {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
         sendSMSText(phoneNumber: gig.phoneNumber.toString)
+    }
+    
+    func venmoTapped() {
+        print("venmo tapped")
     }
 }
 
