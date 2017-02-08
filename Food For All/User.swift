@@ -18,6 +18,7 @@ class User: PFUser {
     @NSManaged var birthDate: Date?
     @NSManaged var facebookId : String?
     @NSManaged var location: PFGeoPoint
+    @NSManaged var venmoUsername: String?
     @NSManaged var profileImage: PFFile?
 
     var age : Int? {

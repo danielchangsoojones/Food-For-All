@@ -13,6 +13,7 @@ class ContactFormViewController: SuperCreationFormViewController {
     var theFirstNameRow: TextFieldRowFormer<FormTextFieldCell>!
     var theLastNameRow: TextFieldRowFormer<FormTextFieldCell>!
     var thePhoneNumberRow: TextFieldRowFormer<FormTextFieldCell>!
+    var theVenmoRow: TextFieldRowFormer<FormTextFieldCell>!
     
     override var isComplete: Bool {
         let isComplete: Bool = CreationData.validateCompletion(gig: gig ?? Gig(), type: .contact)
@@ -31,6 +32,7 @@ class ContactFormViewController: SuperCreationFormViewController {
         firstNameRowSetup()
         lastNameRowSetup()
         phoneNumberRowSetup()
+        venmoRowSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +46,7 @@ class ContactFormViewController: SuperCreationFormViewController {
         if let phoneNumber = thePhoneNumberRow.text?.toInt() {
             gig?.phoneNumber = Double(phoneNumber)
         }
+        gig?.creator.venmoUsername = theVenmoRow.text
         super.save(sender: sender)
     }
     
@@ -96,6 +99,40 @@ extension ContactFormViewController {
         }
         _ = append(rows: [thePhoneNumberRow], headerTitle: "Phone Number")
     }
+}
+
+//venmo extension
+extension ContactFormViewController {
+    fileprivate func venmoRowSetup() {
+        theVenmoRow = TextFieldRowFormer<FormTextFieldCell>()
+        theVenmoRow.configure { (row) in
+            row.placeholder = "i.e. Johnny-Bravo"
+            row.text = gig?.creator.venmoUsername
+//            if let venmoUsername = gig?.creator.venmoUsername {
+//                row.text = venmoUsername
+//            }
+        }
+        
+        let header = LabelViewFormer<FormLabelHeaderView>()
+        header.text = "Venmo Username"
+        
+        let footer = LabelViewFormer<FormLabelFooterView>()
+        footer.text = "We use your venmo username to allow customers to be directed to your venmo page. We have no access to any of your venmo payments or accounts. It is merely to allow customers to quickly navigate to your venmo page and pay you."
+        footer.configure { (view) in
+            view.viewHeight = 100
+        }
+        
+        let section = SectionFormer(rowFormer: theVenmoRow)
+        section.set(headerViewFormer: header)
+        section.set(footerViewFormer: footer)
+        former.append(sectionFormer: section)
+    }
+    
+//    fileprivate func venmoFooterSetup() -> ViewFormer {
+//        let footer = LabelViewFormer<FormLabelFooterView>()
+//        footer.text = "We use your venmo username to allow customers to be directed to your venmo page. We have no access to any of your venmo payments or accounts. It is merely to allow customers to quickly navigate to your venmo page and pay you."
+//        return footer
+//    }
 }
 
 

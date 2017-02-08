@@ -49,14 +49,14 @@ class DataInput {
         let title = "M118/M119 Tutoring"
         let price: Double = 25
         let detailDescription = "I have two years of experience tutoring for Indiana University in the athletic department where I met with students weekly or multiple times per week to prepare for exams and work through assignments. I am available in all of the following subjects: M118, M119, A100."
-        let phoneNumber: Int = 3176453197
+        let phoneNumber: Double = 3176453197
         let tag = "tutoring"
         
         let gig = GigParse()
         gig.title = title
         gig.price = price
         gig.detailDescription = detailDescription
-        gig.phoneNumber = Double(phoneNumber)
+        gig.phoneNumber = phoneNumber
         gig.creator = user
         gig.addUniqueObject(tag.lowercased(), forKey: "tags")
         gig.saveInBackground()

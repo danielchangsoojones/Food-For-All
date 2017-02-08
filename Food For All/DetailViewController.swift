@@ -58,6 +58,7 @@ class DetailViewController: UIViewController {
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -109,6 +110,21 @@ extension DetailViewController {
     func messageButtonPressed(sender: UIButton) {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
         sendSMSText(phoneNumber: gig.phoneNumber.toString)
+    }
+    
+    func venmoTapped() {
+        let venmoUsername: String? = gig.creator.venmoUsername
+        let headURL = "https://venmo.com/"
+        if let venmoUsername = venmoUsername {
+            if let destinationURL = URL(string: headURL + venmoUsername) {
+                UIApplication.shared.openURL(destinationURL)
+            } else {
+                Helpers.showBanner(title: "Error", subtitle: "Venmo could not be loaded", bannerType: .error)
+            }
+        } else {
+            //the gig creator never made a username
+            Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
+        }
     }
 }
 
