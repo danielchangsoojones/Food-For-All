@@ -35,8 +35,7 @@ extension WelcomeFormViewController: AdmissionFormDataStoreDelegate {
     }
     
     func segueIntoApplication() {
-        let tabBarController = CustomTabBarController()
-        presentVC(tabBarController)
+        Helpers.enterApplication(from: self)
     }
     
     func validateEmail() -> Bool {

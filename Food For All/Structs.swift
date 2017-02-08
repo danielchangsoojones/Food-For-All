@@ -147,6 +147,11 @@ struct Helpers {
         button.setCornerRadius(radius: 15)
         return button
     }
+    
+    static func enterApplication(from vc: UIViewController) {
+        let tabBarController = CustomTabBarController()
+        vc.presentVC(tabBarController)
+    }
 }
 
 struct PhoneValidator {

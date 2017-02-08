@@ -48,6 +48,7 @@ class EntryViewController: UIViewController {
         //If I change the name of a button, make sure that I update the necessary tags, because it searches tags based upon their button name.
         let _ = createButton(title: "Tutoring", backgroundColor: UIColor.clear, textColor: UIColor.white)
         let _ = createButton(title: "Laundry", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
+        _ = createButton(title: "Other", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
         self.view.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()

@@ -67,7 +67,7 @@ extension ServiceFormViewController {
     }
     
     var categories: [String] {
-        return ["Tutoring", "Laundry"]
+        return ["Tutoring", "Laundry", "Other"]
     }
     
     fileprivate func tagFormSetup() {
