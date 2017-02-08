@@ -58,7 +58,7 @@ class Camera {
             return true
         } else {
             //permission has not been granted
-            Helpers.showBanner(title: "Camera Denied", subtitle: "please go to iphone settings -> ShuffleHunt to allow us access to your camera", bannerType: .error)
+            Helpers.showBanner(title: "Camera Denied", subtitle: "please go to iphone settings -> Gigio to allow us access to your camera", bannerType: .error)
             return false
         }
     }
