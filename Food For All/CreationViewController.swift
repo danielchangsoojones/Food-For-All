@@ -69,8 +69,10 @@ extension CreationViewController {
     func setContent() {
         if let gigPhotoFile = gig.frontImage {
             theProfileCircleView.add(file: gigPhotoFile)
+            completions[0] = true
         } else if let profileImage = Person.current().profileImage {
             theProfileCircleView.add(file: profileImage)
+            completions[0] = true
         }
     }
     
@@ -79,6 +81,9 @@ extension CreationViewController {
             //save and finish
             theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
             dataStore?.save(gig: gig)
+        } else if !completions[0] {
+            //the gig picture hasn't been completed
+            Helpers.showBanner(title: "No Picture", subtitle: "Please input a photo", bannerType: .error, duration: 5.0)
         } else {
             //incomplete fields
             //TODO: shake the fields that haven't been done yet and add red to them
