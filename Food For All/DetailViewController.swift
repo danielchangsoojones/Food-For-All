@@ -91,7 +91,7 @@ extension DetailViewController {
     }
     
     fileprivate func colorPriceLabel() {
-        let priceString = gig.priceString + "$ per hour"
+        let priceString = gig.priceString
         let indexOfMoneySign: Int = priceString.getIndexOf("$") ?? 0
         
         let myMutableString = NSMutableAttributedString(string: priceString)
