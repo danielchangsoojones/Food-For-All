@@ -68,9 +68,8 @@ class FreelancersTableViewCell: UITableViewCell {
     }
 
     fileprivate func priceLabelSetup() {
-        let unitText = "$ per hour"
-        if let priceText = gig?.price.toString {
-            thePriceLabel.text = priceText + unitText
+        if let priceText = gig?.priceString {
+            thePriceLabel.text = priceText
             thePriceLabel.textColor = CustomColors.JellyTeal
             thePriceLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
             self.addSubview(thePriceLabel)

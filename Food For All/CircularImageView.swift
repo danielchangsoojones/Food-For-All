@@ -28,6 +28,7 @@ class CircularImageView: CircleView {
     }
     
     func imageViewSetup(_ diameter: CGFloat) {
+        theImageView.contentMode = .scaleAspectFill
         self.addSubview(theImageView)
         theImageView.snp.makeConstraints { (make) in
             make.center.equalTo(self)

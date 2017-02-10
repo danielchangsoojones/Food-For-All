@@ -16,6 +16,7 @@ class GigParse: PFObject, PFSubclassing {
     
     @NSManaged var title: String
     @NSManaged var price: Double
+    @NSManaged var priceUnit: String
     @NSManaged var detailDescription: String
     @NSManaged var phoneNumber: Double
     @NSManaged var creator: User
@@ -34,6 +35,7 @@ class GigParse: PFObject, PFSubclassing {
     func updateFrom(gig: Gig) {
         title = gig.title
         price = gig.price
+        priceUnit = gig.priceUnit
         detailDescription = gig.description
         phoneNumber = gig.phoneNumber
         creator = gig.creator.user

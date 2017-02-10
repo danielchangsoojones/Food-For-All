@@ -32,7 +32,7 @@ class Gig {
         }
     }
     var priceString: String {
-        return Int(_price.getRoundedByPlaces(0)).toString
+        return Int(_price.getRoundedByPlaces(0)).toString + "$ " + priceUnit
     }
     
     var gigParse: GigParse!
@@ -43,6 +43,7 @@ class Gig {
         self.gigParse = gigParse
         self.title = gigParse.title
         self.price = gigParse.price
+        self.priceUnit = gigParse.priceUnit
         self.description = gigParse.detailDescription
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
