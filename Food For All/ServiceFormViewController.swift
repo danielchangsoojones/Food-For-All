@@ -42,7 +42,7 @@ class ServiceFormViewController: SuperCreationFormViewController {
         if let description = descriptionRow.cell.textView.text {
             gig?.description = description
         }
-        gig?.tags.append(categories[tagRow.selectedRow])
+        gig?.tags = [categories[tagRow.selectedRow]]
         super.save(sender: sender)
     }
 }
