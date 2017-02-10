@@ -15,7 +15,6 @@ class CreationViewController: UIViewController {
     var theProfileCircleView: CircularImageView!
     var theSpinnerView: UIView?
     
-    var cellDatas: [CellData] = CreationData().cellDatas
     var completions: [Bool] = [] //keeping track to make sure all mandatory cells are completed before continuing
     
     var gig: Gig = Gig()
@@ -59,7 +58,7 @@ class CreationViewController: UIViewController {
     
     func populateCompletions() {
         let imageEntryCount = 1
-        let itemsToComplete = imageEntryCount + cellDatas.count
+        let itemsToComplete = imageEntryCount + Creation.count
         for _ in 0..<itemsToComplete {
             completions.append(false)
         }
@@ -101,12 +100,22 @@ extension CreationViewController {
 
 extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellDatas.count
+        return Creation.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = cellDatas[indexPath.row]
-        let cell = data.cell
+        var cell: CreationTableViewCell!
+        if let creation: Creation = Creation(rawValue: indexPath.row) {
+            switch creation {
+            case .service:
+                cell = CreationData().serviceCell
+            case .pricing:
+                cell = CreationData().pricingCell
+            case .contact:
+                cell = CreationData().contactCell
+            }
+        }
+        
         setInitialContent(cell: cell, row: indexPath.row)
         return cell
     }
@@ -128,11 +137,20 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellData = cellDatas[indexPath.row]
-        let destinationVC = cellData.destinationVC
+        var destinationVC = SuperCreationFormViewController()
+        if let creation = Creation(rawValue: indexPath.row) {
+            switch creation {
+            case .service:
+                destinationVC = CreationData().service.destinationVC
+            case .pricing:
+                destinationVC = CreationData().pricing.destinationVC
+            case .contact:
+                destinationVC = CreationData().contact.destinationVC
+            }
+        }
+        
         destinationVC.delegate = self
         destinationVC.gig = self.gig
-        
         pushVC(destinationVC)
     }
 }
@@ -143,8 +161,8 @@ protocol CreationVCDelegate {
 
 extension CreationViewController: CreationVCDelegate {
     func updateCell(title: String?, isComplete: Bool) {
-        if let row = theTableView.indexPathForSelectedRow?.row {
-            let previouslyTappedCell = cellDatas[row].cell
+        if let selectedIndexPath = theTableView.indexPathForSelectedRow, let previouslyTappedCell = theTableView.cellForRow(at: selectedIndexPath) as? CreationTableViewCell {
+            let row = selectedIndexPath.row
             toggle(shouldComplete: isComplete, for: previouslyTappedCell, index: row)
             if let title = title {
                 update(cellTitle: title, for: previouslyTappedCell)

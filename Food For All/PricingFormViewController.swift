@@ -37,6 +37,13 @@ class PricingFormViewController: SuperCreationFormViewController {
         unitsRowSetup()
         customUnitSetup()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let savedPrice = gig?.price {
+            priceRow.cell.slider.setValue(Float(savedPrice), animated: false)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,6 +71,10 @@ extension PricingFormViewController {
         priceRow.configure { (row) in
             row.cell.slider.maximumValue = 100
             row.cell.slider.minimumValue = 0
+            if let savedPrice = gig?.price {
+                row.cell.displayLabel.text = Int(savedPrice).toString + " $"
+            }
+            
             row.onValueChanged({ (value: Float) in
                 let roundedValue = Int(value)
                 row.cell.displayLabel.text = roundedValue.toString + " $"

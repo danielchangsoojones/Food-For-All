@@ -35,7 +35,7 @@ class CreationData {
         return CellData(cell: cell, destinationVC: destinationVC)
     }
     
-    private var pricingCell: CreationTableViewCell {
+    var pricingCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "MoneySymbol")
         let cell = CreationTableViewCell(iconImage: image, titleText: "What price?")
         return cell
@@ -47,7 +47,7 @@ class CreationData {
         return CellData(cell: cell, destinationVC: destinationVC)
     }
     
-    private var contactCell: CreationTableViewCell {
+    var contactCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "PhoneSymbol")
         let cell = CreationTableViewCell(iconImage: image, titleText: "How to contact?")
         return cell
@@ -63,6 +63,8 @@ enum Creation: Int {
     case service = 0
     case pricing = 1
     case contact = 2
+    
+    static var count: Int = 3
 }
 
 extension CreationData {
