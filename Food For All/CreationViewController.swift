@@ -28,6 +28,7 @@ class CreationViewController: UIViewController {
         navBarSetup()
         populateCompletions()
         dataStoreSetup()
+        setContent()
     }
     
     fileprivate func viewSetup() {
@@ -66,6 +67,14 @@ class CreationViewController: UIViewController {
 }
 
 extension CreationViewController {
+    func setContent() {
+        if let gigPhotoFile = gig.frontImage {
+            theProfileCircleView.add(file: gigPhotoFile)
+        } else if let profileImage = Person.current().profileImage {
+            theProfileCircleView.add(file: profileImage)
+        }
+    }
+    
     func finishButtonTapped(sender: UIButton) {
         if !completions.contains(false) {
             //save and finish
