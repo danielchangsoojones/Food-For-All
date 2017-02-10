@@ -63,6 +63,10 @@ class CreationViewController: UIViewController {
             completions.append(false)
         }
     }
+    
+    func exitTapped() {
+        self.navigationController?.dismissVC(completion: nil)
+    }
 }
 
 extension CreationViewController {
@@ -96,10 +100,6 @@ extension CreationViewController {
 extension CreationViewController {
     fileprivate func navBarSetup() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "X"), style: .plain, target: self, action: #selector(exitTapped))
-    }
-    
-    func exitTapped() {
-        self.navigationController?.dismissVC(completion: nil)
     }
 }
 

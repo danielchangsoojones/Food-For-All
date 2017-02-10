@@ -26,7 +26,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     }
     
     override var passingCellUpdatedTitle: String? {
-        let price: String = Int(priceRow.value).toString + "$"
+        let price: String = Int(priceRow.cell.slider.value).toString + "$"
         let unit: String = selectedUnit ?? ""
         return price + " " + unit
     }
@@ -42,7 +42,9 @@ class PricingFormViewController: SuperCreationFormViewController {
         super.viewDidAppear(animated)
         if let savedPrice = gig?.price {
             //For some reason, I have to set the value in viewDidAppear, doesn't update when it's in viewDidLoad
-            priceRow.cell.slider.setValue(Float(savedPrice), animated: false)
+            let floatPrice = Float(savedPrice)
+            priceRow.cell.slider.setValue(floatPrice, animated: false)
+            priceRow.cell.slider.value = floatPrice
             priceRow.cell.displayLabel.text = Int(savedPrice).toString + " $"
         }
     }
@@ -53,7 +55,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     }
     
     override func save(sender: UIBarButtonItem) {
-        gig?.price = Double(Int(priceRow.value)) //round to a int number
+        gig?.price = Double(Int(priceRow.cell.slider.value)) //round to a int number
         let selectedUnit: String = units[unitsRow.selectedRow]
         if units.last == units[unitsRow.selectedRow] {
             //they chose custom unit

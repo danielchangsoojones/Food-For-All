@@ -33,6 +33,12 @@ class EditingGigViewController: CreationViewController {
         dataStore = EditingGigDataStore(delegate: self)
     }
     
+    override func exitTapped() {
+        //save the gig when they are editing and they exit the screen
+        dataStore?.save(gig: gig)
+        super.exitTapped()
+    }
+    
     fileprivate func updateTableFooter() {
         theTableViewFooterView = UIView(frame: CGRect(x: 0, y: 0, w: self.view.frame.width, h: 100))
         stackViewSetup()
