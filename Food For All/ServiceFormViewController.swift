@@ -62,6 +62,9 @@ extension ServiceFormViewController {
     fileprivate func descriptionFormSetup() {
         descriptionRow.configure { row in
             row.placeholder = "Describe your service/qualifications..."
+            if let description = gig?.description {
+                row.text = description
+            }
         }
         _ = append(rows: [descriptionRow], headerTitle: "Description")
     }
