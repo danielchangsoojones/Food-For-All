@@ -80,7 +80,7 @@ extension ServiceFormViewController {
         tagRow.configure { (row) in
             if let tags = gig?.tags {
                 let categoryIndex: Int = categories.index(where: { (str: String) -> Bool in
-                    return str.lowercased() == tags.first
+                    return str.lowercased() == tags.first?.lowercased()
                 }) ?? 0
                 row.selectedRow = categoryIndex
             }

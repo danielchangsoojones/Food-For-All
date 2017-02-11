@@ -97,7 +97,7 @@ extension CreationData {
                 title = gig.priceString
             }
         case .contact:
-            let phoneString = gig.phoneNumber.toString
+            let phoneString = Int(gig.phoneNumber).toString
             if PhoneValidator.isValidPhoneNumber(phoneString: phoneString) {
                 title = PhoneValidator.format(phoneNumber: phoneString)
             }

@@ -206,7 +206,8 @@ struct PhoneValidator {
     
     static func isValidPhoneNumber(phoneString: String?) -> Bool {
         if let phoneString = phoneString {
-            if let _ = phoneString.toInt(), (phoneString.characters.count == 10 || phoneString.characters.count == 11) {
+            //To make sure that any Doubles don't use a phone number with .0 (i.e. 3176905323.0)
+            if let intPhoneString = phoneString.toInt()?.toString, (intPhoneString.characters.count == 10 || intPhoneString.characters.count == 11) {
                 return true
             }
         }

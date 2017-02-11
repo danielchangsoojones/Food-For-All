@@ -109,7 +109,7 @@ extension DetailViewController {
     
     func messageButtonPressed(sender: UIButton) {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
-        sendSMSText(phoneNumber: gig.phoneNumber.toString)
+        sendSMSText(phoneNumber: gig.phoneNumberString)
     }
     
     func venmoTapped() {

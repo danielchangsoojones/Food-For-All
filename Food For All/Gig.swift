@@ -13,7 +13,12 @@ class Gig {
     var title: String = ""
     var priceUnit: String = ""
     var description: String = ""
+    
     var phoneNumber: Double = 0
+    var phoneNumberString: String {
+        return Int(phoneNumber).toString
+    }
+    
     var creator: Person = Person.current()
     var isDraft: Bool = false
     var tags: [String] = []
@@ -48,6 +53,7 @@ class Gig {
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
         self.creator = person
+        self.tags = gigParse.tags
         setGigImage()
     }
     

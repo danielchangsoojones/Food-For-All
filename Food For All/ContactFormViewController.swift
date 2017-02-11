@@ -92,8 +92,8 @@ extension ContactFormViewController {
         thePhoneNumberRow = TextFieldRowFormer<FormTextFieldCell>()
         thePhoneNumberRow.configure { (row) in
             row.placeholder = "i.e. 3179184040"
-            if let phoneNumber = gig?.phoneNumber, PhoneValidator.isValidPhoneNumber(phoneString: phoneNumber.toString) {
-                row.text = phoneNumber.toString
+            if let phoneNumber = gig?.phoneNumberString, PhoneValidator.isValidPhoneNumber(phoneString: phoneNumber) {
+                row.text = phoneNumber
             }
             //TODO: have the person's phone number saved to their account, so then it will come up automatically, but then you should be able to change the phone number for every gig too.
         }
@@ -108,9 +108,6 @@ extension ContactFormViewController {
         theVenmoRow.configure { (row) in
             row.placeholder = "i.e. Johnny-Bravo"
             row.text = gig?.creator.venmoUsername
-//            if let venmoUsername = gig?.creator.venmoUsername {
-//                row.text = venmoUsername
-//            }
         }
         
         let header = LabelViewFormer<FormLabelHeaderView>()
@@ -127,12 +124,6 @@ extension ContactFormViewController {
         section.set(footerViewFormer: footer)
         former.append(sectionFormer: section)
     }
-    
-//    fileprivate func venmoFooterSetup() -> ViewFormer {
-//        let footer = LabelViewFormer<FormLabelFooterView>()
-//        footer.text = "We use your venmo username to allow customers to be directed to your venmo page. We have no access to any of your venmo payments or accounts. It is merely to allow customers to quickly navigate to your venmo page and pay you."
-//        return footer
-//    }
 }
 
 

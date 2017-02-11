@@ -92,6 +92,13 @@ extension ProfileViewController: EditingGigDelegate {
             tableVC.remove(gig: gig)
         }
     }
+    
+    func update(gig: Gig) {
+        if let selectedIndexPath = theTableView.indexPathForSelectedRow, let tableVC = theTableVC as? PersonalGigsTableViewController {
+            tableVC.gigs[selectedIndexPath.row] = gig
+            theTableView.reloadData()
+        }
+    }
 }
 
 extension ProfileViewController: ProfileDataStoreDelegate {
@@ -99,7 +106,6 @@ extension ProfileViewController: ProfileDataStoreDelegate {
         if let tableVC = theTableVC as? PersonalGigsTableViewController {
             tableVC.gigs = gigs
         }
-        
     }
 }
 
