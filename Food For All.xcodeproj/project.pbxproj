@@ -46,6 +46,7 @@
 		92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C41E42D31400F6358E /* ServiceFormViewController.swift */; };
 		92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C81E43E09900F6358E /* PricingFormViewController.swift */; };
 		92B3E44F1E4ED4A100FD2042 /* CreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */; };
+		92B3E4511E4F716400FD2042 /* RatingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4501E4F716400FD2042 /* RatingItemView.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -138,6 +139,7 @@
 		92B3E4431E4ED28600FD2042 /* Food For AllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food For AllTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B3E4471E4ED28700FD2042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTests.swift; sourceTree = "<group>"; };
+		92B3E4501E4F716400FD2042 /* RatingItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingItemView.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				921C798B1E49853400D9396B /* GigItemView.swift */,
 				921C798D1E4A7B6400D9396B /* VenmoItemView.swift */,
+				92B3E4501E4F716400FD2042 /* RatingItemView.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
 				92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,
+				92B3E4511E4F716400FD2042 /* RatingItemView.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,

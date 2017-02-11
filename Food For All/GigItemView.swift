@@ -24,7 +24,9 @@ class GigItemView: UIView {
     }
     
     func elementViewSetup() {
-        theElementView = UILabel()
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
+        theElementView = label
         elementViewPosition()
     }
     
@@ -36,7 +38,13 @@ class GigItemView: UIView {
         }
     }
     
-    fileprivate func accessoryViewSetup() {
+    func set(title: String) {
+        if let label = theElementView as? UILabel {
+            label.text = title
+        }
+    }
+    
+    func accessoryViewSetup() {
         let coloredImage = #imageLiteral(resourceName: "ArrowHead").withRenderingMode(.alwaysTemplate)
         theAccessoryView = UIImageView(image: coloredImage)
         theAccessoryView.contentMode = .scaleAspectFit

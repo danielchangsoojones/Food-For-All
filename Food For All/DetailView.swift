@@ -25,6 +25,7 @@ class DetailView: CustomScrollerView {
     var theMessageButton: UIButton = UIButton()
     var theExitButton: UIButton = UIButton()
     var theVenmoView: UIView!
+    var theRatingView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,8 +33,10 @@ class DetailView: CustomScrollerView {
         topViewSetup()
         titleSetup()
         descriptionSetup()
+        ratingItemSetup()
         venmoItemSetup()
         bottomViewSetup()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -117,9 +120,19 @@ extension DetailView {
         theContentView.addSubview(theVenmoView)
         theVenmoView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
+            make.top.equalTo(theRatingView.snp.bottom).offset(Constants.spacing)
             make.height.equalTo(70)
             make.bottom.equalTo(theContentView)
+        }
+    }
+    
+    fileprivate func ratingItemSetup() {
+        theRatingView = RatingItemView(numOfReviews: 50, avgStars: 2.5)
+        theContentView.addSubview(theRatingView)
+        theRatingView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theDescriptionLabel)
+            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
+            make.height.equalTo(70)
         }
     }
 }
