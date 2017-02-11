@@ -16,7 +16,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     
     var priceRow: SliderRowFormer<FormSliderCell>!
     var unitsRow: InlinePickerRowFormer<FormInlinePickerCell, String>!
-    var customUnitRow: TextFieldRowFormer<FormTextFieldCell>!
+    var customUnitRow: TextFieldRowFormer<FormTextFieldCell> = TextFieldRowFormer<FormTextFieldCell>()
     
     var isShowingCustomUnitRow: Bool = false
     
@@ -34,8 +34,8 @@ class PricingFormViewController: SuperCreationFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         priceRowSetup()
-        unitsRowSetup()
         customUnitSetup()
+        unitsRowSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,6 +108,16 @@ extension PricingFormViewController {
             row.pickerItems = units.map {
                 InlinePickerItem(title: $0)
             }
+            
+            if let savedUnit = gig?.priceUnit {
+                if let index = units.index(of: savedUnit) {
+                    row.selectedRow = index
+                } else {
+                    //custom row
+                    row.selectedRow = units.count - 1
+                    showCustomUnitRow(text: savedUnit)
+                }
+            }
         }
         unitsRow.onValueChanged { (item: InlinePickerItem) in
             if item.title == Constants.customUnitChoice {
@@ -135,9 +145,16 @@ extension PricingFormViewController {
     }
     
     fileprivate func customUnitSetup() {
-        customUnitRow = TextFieldRowFormer<FormTextFieldCell>()
         customUnitRow.configure { row in
             row.placeholder = "custom pricing unit..."
+        }
+    }
+    
+    fileprivate func showCustomUnitRow(text: String?) {
+        customUnitRow.text = text
+        Timer.runThisAfterDelay(seconds: 1.0) {
+            //giving a delay to wait until view appears, or else it doesn't appear.
+            self.former.insertUpdate(rowFormer: self.customUnitRow, below: self.unitsRow)
         }
     }
 }
