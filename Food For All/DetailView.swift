@@ -13,6 +13,7 @@ class DetailView: CustomScrollerView {
         static let topViewHeight: CGFloat = 100
         static let spacing: CGFloat = 18
         static let sideInset: CGFloat = 10
+        static let cellHeight: CGFloat = 70
     }
     
     var theTopView: UIView = UIView()
@@ -115,24 +116,24 @@ extension DetailView {
 
 //gig items
 extension DetailView {
-    fileprivate func venmoItemSetup() {
-        theVenmoView = VenmoItemView(frame: CGRect.zero)
-        theContentView.addSubview(theVenmoView)
-        theVenmoView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theRatingView.snp.bottom).offset(Constants.spacing)
-            make.height.equalTo(70)
-            make.bottom.equalTo(theContentView)
-        }
-    }
-    
     fileprivate func ratingItemSetup() {
         theRatingView = RatingItemView(numOfReviews: 50, avgStars: 2.5)
         theContentView.addSubview(theRatingView)
         theRatingView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
             make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
-            make.height.equalTo(70)
+            make.height.equalTo(Constants.cellHeight)
+        }
+    }
+    
+    fileprivate func venmoItemSetup() {
+        theVenmoView = VenmoItemView(frame: CGRect.zero)
+        theContentView.addSubview(theVenmoView)
+        theVenmoView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theDescriptionLabel)
+            make.top.equalTo(theRatingView.snp.bottom)
+            make.height.equalTo(Constants.cellHeight)
+            make.bottom.equalTo(theContentView)
         }
     }
 }
