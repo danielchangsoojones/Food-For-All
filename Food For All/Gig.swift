@@ -48,6 +48,7 @@ class Gig {
         self.phoneNumber = gigParse.phoneNumber
         let person = Person(user: gigParse.creator)
         self.creator = person
+        self.tags = gigParse.tags
         setGigImage()
     }
     
