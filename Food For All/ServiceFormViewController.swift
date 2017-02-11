@@ -78,6 +78,12 @@ extension ServiceFormViewController {
             $0.titleLabel.text = "Category"
         })
         tagRow.configure { (row) in
+            if let tags = gig?.tags {
+                let categoryIndex: Int = categories.index(where: { (str: String) -> Bool in
+                    return str.lowercased() == tags.first
+                }) ?? 0
+                row.selectedRow = categoryIndex
+            }
             row.pickerItems = categories.map {
                 InlinePickerItem(title: $0)
             }
