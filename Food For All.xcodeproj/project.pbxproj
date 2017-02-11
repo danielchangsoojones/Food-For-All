@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
 		921C798C1E49853400D9396B /* GigItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798B1E49853400D9396B /* GigItemView.swift */; };
@@ -44,6 +45,7 @@
 		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
 		92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C41E42D31400F6358E /* ServiceFormViewController.swift */; };
 		92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C81E43E09900F6358E /* PricingFormViewController.swift */; };
+		92B3E44F1E4ED4A100FD2042 /* CreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -81,7 +83,19 @@
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		92B3E4481E4ED28700FD2042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925C5F031E25A53E00196504 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 925C5F0A1E25A53E00196504;
+			remoteInfo = "Food For All";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_AllTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		921C798B1E49853400D9396B /* GigItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigItemView.swift; sourceTree = "<group>"; };
@@ -121,6 +135,9 @@
 		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
 		92A843C41E42D31400F6358E /* ServiceFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFormViewController.swift; sourceTree = "<group>"; };
 		92A843C81E43E09900F6358E /* PricingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PricingFormViewController.swift; sourceTree = "<group>"; };
+		92B3E4431E4ED28600FD2042 /* Food For AllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food For AllTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B3E4471E4ED28700FD2042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTests.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +172,9 @@
 		92DD8D3F1E358D8A009EB164 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		92DD8D411E358DC8009EB164 /* Gig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gig.swift; sourceTree = "<group>"; };
 		92DD8D431E358E9F009EB164 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
+		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
 		F07CA4C10A4CDD588A31B1A4 /* Pods-Food For All.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.release.xcconfig"; sourceTree = "<group>"; };
 		F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_All.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAAEA21BCEDAEB1FF959718 /* Pods-Food For All.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +190,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92B3E4401E4ED28600FD2042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -178,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */,
+				1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +217,9 @@
 				F07CA4C10A4CDD588A31B1A4 /* Pods-Food For All.release.xcconfig */,
 				FBAAEA21BCEDAEB1FF959718 /* Pods-Food For All.debug (staging).xcconfig */,
 				FF8D642DCC671B8A96399856 /* Pods-Food For All.debug (production).xcconfig */,
+				EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */,
+				3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */,
+				CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -283,6 +314,7 @@
 				925C5F0D1E25A53F00196504 /* Food For All */,
 				925C5F151E25A53F00196504 /* Assets.xcassets */,
 				925C5F171E25A53F00196504 /* LaunchScreen.storyboard */,
+				92B3E4441E4ED28700FD2042 /* Food For AllTests */,
 				925C5F0C1E25A53F00196504 /* Products */,
 				16FEE1F0702F453DDAEAA40C /* Pods */,
 				0B2CE589FC9A75040C12BEF2 /* Frameworks */,
@@ -293,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				925C5F0B1E25A53F00196504 /* Food For All.app */,
+				92B3E4431E4ED28600FD2042 /* Food For AllTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,6 +455,15 @@
 				92D1998A1E45179C00ABC255 /* ContactFormViewController.swift */,
 			);
 			name = Forms;
+			sourceTree = "<group>";
+		};
+		92B3E4441E4ED28700FD2042 /* Food For AllTests */ = {
+			isa = PBXGroup;
+			children = (
+				92B3E4471E4ED28700FD2042 /* Info.plist */,
+				92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */,
+			);
+			path = "Food For AllTests";
 			sourceTree = "<group>";
 		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
@@ -673,6 +715,27 @@
 			productReference = 925C5F0B1E25A53F00196504 /* Food For All.app */;
 			productType = "com.apple.product-type.application";
 		};
+		92B3E4421E4ED28600FD2042 /* Food For AllTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B3E44D1E4ED28700FD2042 /* Build configuration list for PBXNativeTarget "Food For AllTests" */;
+			buildPhases = (
+				DD58849B8215AB0545C4D985 /* [CP] Check Pods Manifest.lock */,
+				92B3E43F1E4ED28600FD2042 /* Sources */,
+				92B3E4401E4ED28600FD2042 /* Frameworks */,
+				92B3E4411E4ED28600FD2042 /* Resources */,
+				71905FCF19B91F8F0232F634 /* [CP] Embed Pods Frameworks */,
+				B102AAAEA3FED5C0F18EA500 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92B3E4491E4ED28700FD2042 /* PBXTargetDependency */,
+			);
+			name = "Food For AllTests";
+			productName = "Food For AllTests";
+			productReference = 92B3E4431E4ED28600FD2042 /* Food For AllTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -687,6 +750,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KNK3WJA66N;
 						ProvisioningStyle = Manual;
+					};
+					92B3E4421E4ED28600FD2042 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 925C5F0A1E25A53E00196504;
 					};
 				};
 			};
@@ -704,6 +772,7 @@
 			projectRoot = "";
 			targets = (
 				925C5F0A1E25A53E00196504 /* Food For All */,
+				92B3E4421E4ED28600FD2042 /* Food For AllTests */,
 			);
 		};
 /* End PBXProject section */
@@ -715,6 +784,13 @@
 			files = (
 				925C5F191E25A53F00196504 /* LaunchScreen.storyboard in Resources */,
 				925C5F161E25A53F00196504 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B3E4411E4ED28600FD2042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +840,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Food For All/Pods-Food For All-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71905FCF19B91F8F0232F634 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B102AAAEA3FED5C0F18EA500 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD58849B8215AB0545C4D985 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -845,7 +966,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92B3E43F1E4ED28600FD2042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B3E44F1E4ED4A100FD2042 /* CreationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92B3E4491E4ED28700FD2042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 925C5F0A1E25A53E00196504 /* Food For All */;
+			targetProxy = 92B3E4481E4ED28700FD2042 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		925C5F171E25A53F00196504 /* LaunchScreen.storyboard */ = {
@@ -986,6 +1123,135 @@
 			};
 			name = Release;
 		};
+		92B3E44A1E4ED28700FD2042 /* Debug (Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Food For AllTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "chong500.Food-For-AllTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Food For All.app/Food For All";
+			};
+			name = "Debug (Staging)";
+		};
+		92B3E44B1E4ED28700FD2042 /* Debug (Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Food For AllTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "chong500.Food-For-AllTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Food For All.app/Food For All";
+			};
+			name = "Debug (Production)";
+		};
+		92B3E44C1E4ED28700FD2042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Food For AllTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "chong500.Food-For-AllTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Food For All.app/Food For All";
+			};
+			name = Release;
+		};
 		92D12B971E26F7AC009AC99E /* Debug (Production) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1071,6 +1337,16 @@
 				925C5F1E1E25A53F00196504 /* Debug (Staging) */,
 				92D12B981E26F7AC009AC99E /* Debug (Production) */,
 				925C5F1F1E25A53F00196504 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92B3E44D1E4ED28700FD2042 /* Build configuration list for PBXNativeTarget "Food For AllTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B3E44A1E4ED28700FD2042 /* Debug (Staging) */,
+				92B3E44B1E4ED28700FD2042 /* Debug (Production) */,
+				92B3E44C1E4ED28700FD2042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
