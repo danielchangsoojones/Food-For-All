@@ -13,7 +13,12 @@ class Gig {
     var title: String = ""
     var priceUnit: String = ""
     var description: String = ""
+    
     var phoneNumber: Double = 0
+    var phoneNumberString: String {
+        return Int(phoneNumber).toString
+    }
+    
     var creator: Person = Person.current()
     var isDraft: Bool = false
     var tags: [String] = []
