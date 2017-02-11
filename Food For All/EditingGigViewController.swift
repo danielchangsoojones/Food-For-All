@@ -10,6 +10,7 @@ import UIKit
 
 protocol EditingGigDelegate {
     func remove(gig: Gig)
+    func update(gig: Gig)
 }
 
 
@@ -81,5 +82,10 @@ class EditingGigViewController: CreationViewController {
             dataStore.delete(gig: gig)
             delegate?.remove(gig: gig)
         }
+    }
+    
+    override func finishedSaving(gig: Gig) {
+        delegate?.update(gig: gig)
+        super.finishedSaving(gig: gig)
     }
 }

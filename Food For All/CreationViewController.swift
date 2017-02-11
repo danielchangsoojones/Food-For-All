@@ -67,6 +67,10 @@ class CreationViewController: UIViewController {
     func exitTapped() {
         self.navigationController?.dismissVC(completion: nil)
     }
+    
+    func finishedSaving(gig: Gig) {
+        self.navigationController?.dismissVC(completion: nil)
+    }
 }
 
 extension CreationViewController {
@@ -189,10 +193,6 @@ extension CreationViewController: CreationDataStoreDelegate {
     func errorOccurred(description: String) {
         Helpers.showBanner(title: "Error", subtitle: description, bannerType: .error)
         theSpinnerView?.removeFromSuperview()
-    }
-    
-    func finishedSaving(gig: Gig) {
-        self.navigationController?.dismissVC(completion: nil)
     }
 }
 

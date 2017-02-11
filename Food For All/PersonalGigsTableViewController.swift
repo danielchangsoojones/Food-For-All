@@ -28,6 +28,7 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
         let gig = gigs[indexPath.row]
         let cell = PersonalFreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
         cell.editButtonTapped = {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             self.delegate?.edit(gig: gig)
         }
         return cell
