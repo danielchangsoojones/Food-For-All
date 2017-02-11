@@ -40,7 +40,7 @@ class PricingFormViewController: SuperCreationFormViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let savedPrice = gig?.price {
+        if let savedPrice = gig?.price, savedPrice >= 0 {
             //For some reason, I have to set the value in viewDidAppear, doesn't update when it's in viewDidLoad
             let floatPrice = Float(savedPrice)
             priceRow.cell.slider.setValue(floatPrice, animated: false)
@@ -112,8 +112,8 @@ extension PricingFormViewController {
             if let savedUnit = gig?.priceUnit {
                 if let index = units.index(of: savedUnit) {
                     row.selectedRow = index
-                } else {
-                    //custom row
+                } else if savedUnit.isNotEmpty {
+                    //custom row and have never set before
                     row.selectedRow = units.count - 1
                     showCustomUnitRow(text: savedUnit)
                 }
