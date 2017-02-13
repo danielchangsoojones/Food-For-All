@@ -58,6 +58,7 @@ class SuperCreationFormViewController: UIViewController {
         hud.mode = .customView
         hud.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
         delegate?.updateCell(title: passingCellUpdatedTitle, isComplete: isComplete)
+        popVC()
     }
     
     func append(rows: [RowFormer], headerTitle: String) -> SectionFormer? {

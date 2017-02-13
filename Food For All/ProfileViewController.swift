@@ -26,6 +26,11 @@ class ProfileViewController: UIViewController {
         dataStoreSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataStore?.loadPersonalGigs()
+    }
+    
     fileprivate func viewSetup() {
         let profileView = ProfileView(frame: self.view.bounds)
         self.view = profileView
