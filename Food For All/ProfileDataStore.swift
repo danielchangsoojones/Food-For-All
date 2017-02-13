@@ -25,6 +25,7 @@ class ProfileDataStore {
         let query = GigParse.query() as! PFQuery<GigParse>
         query.whereKey("creator", equalTo: User.current() ?? User())
         query.includeKey("creator")
+        query.cachePolicy = .cacheThenNetwork
         query.findObjectsInBackground { (gigParses, error) in
             if let gigParses = gigParses {
                 let gigs = gigParses.map({ (g: GigParse) -> Gig in
