@@ -19,4 +19,14 @@ class DetailDataStore {
         metric.state = messageState
         metric.saveInBackground()
     }
+    
+    func saveVenmoMetric(state: String, gig: Gig) {
+        let metric = VenmoMetric()
+        if let currentUser = User.current() {
+            metric.customer = currentUser
+        }
+        metric.gig = gig.gigParse
+        metric.state = state
+        metric.saveInBackground()
+    }
 }

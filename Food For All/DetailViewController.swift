@@ -115,16 +115,21 @@ extension DetailViewController {
     func venmoTapped() {
         let venmoUsername: String? = gig.creator.venmoUsername
         let headURL = "https://venmo.com/"
+        
+        var venmoState: String = "pressed, but no venmo account attatched"
         if let venmoUsername = venmoUsername {
             if let destinationURL = URL(string: headURL + venmoUsername) {
                 UIApplication.shared.openURL(destinationURL)
             } else {
                 Helpers.showBanner(title: "Error", subtitle: "Venmo could not be loaded", bannerType: .error)
             }
+            venmoState = "success"
         } else {
             //the gig creator never made a username
             Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
         }
+        
+        dataStore.saveVenmoMetric(state: venmoState, gig: gig)
     }
 }
 

@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MessageMetrics.registerSubclass()
         SearchGig.registerSubclass()
         GigImage.registerSubclass()
+        VenmoMetric.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {
