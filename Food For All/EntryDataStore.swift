@@ -25,8 +25,7 @@ class EntryDataStore {
         let query = GigParse.query() as! PFQuery<GigParse>
         query.whereKey("tags", equalTo: tag.lowercased())
         query.includeKey("creator")
-        query.cachePolicy = .cacheElseNetwork
-        query.maxCacheAge = TimeIntervalHelper(minutes: 5.0).timeInterval
+        query.order(byDescending: "updatedAt")
         query.findObjectsInBackground { (gigParses: [GigParse]?, error) in
             if let gigParses = gigParses {
                 let gigs = gigParses.map({ (g: GigParse) -> Gig in
