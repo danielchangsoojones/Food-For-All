@@ -16,7 +16,7 @@ class Person {
     var venmoUsername: String?
     var profileImage: PFFile?
     
-    var user: User = User()
+    private var user: User = User()
     
     var updatedUser: User {
         if let firstName = firstName {
