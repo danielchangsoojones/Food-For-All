@@ -30,9 +30,8 @@ class AllReviewsViewController: UIViewController {
         theTableView = allReviewsView.theTableView
         theTableView.delegate = self
         theTableView.dataSource = self
+        theTableView.tableHeaderView = allReviewsView.theTableHeaderView
     }
-
-
 }
 
 //navigation bar extension
