@@ -14,9 +14,8 @@ class AllReviewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        theTableView.estimatedRowHeight = 100.0
-        theTableView.rowHeight = UITableViewAutomaticDimension
         leftBarButtonSetup()
+        tableViewSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +46,13 @@ extension AllReviewsViewController {
 }
 
 extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        theTableView.tableFooterView = UIView() //makes it so no empty cells get shown
+        theTableView.estimatedRowHeight = 100.0
+        theTableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -55,23 +61,11 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
         let currentRow = indexPath.row
         
         let review = Review()
-        review.description = "heyyy"
+        review.description = "Bacon ipsum dolor amet turkey beef tenderloin tongue, pork capicola flank. Turducken frankfurter meatball ribeye, bacon shankle ground round kielbasa. Sausage rump frankfurter, chicken landjaeger shoulder salami t-bone ball tip bacon meatball. Short ribs tri-tip pork loin prosciutto sirloin, brisket spare ribs frankfurter tongue bresaola boudin picanha. Salami ribeye shank, cupim pork belly brisket sausage ground round pig tri-tip picanha capicola tail ham hock doner. Turducken chicken ground round tenderloin doner leberkas. Brisket pig shank ball tip spare ribs."
         review.stars = 2
         
         let cell = ReviewTableViewCell(review: review)
         
         return cell
-    }
-    
-////    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-////        return 100
-////    }
-//    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
     }
 }
