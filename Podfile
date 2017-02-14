@@ -20,7 +20,6 @@ target 'Food For All' do
   pod "Former"
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'Cosmos', '~> 8.0'
-  pod 'ReadMoreTextView'
 
 end
 

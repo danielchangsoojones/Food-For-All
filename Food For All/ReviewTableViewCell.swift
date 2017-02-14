@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReadMoreTextView
 
 class ReviewTableViewCell: UITableViewCell {
     struct Constants {
@@ -21,11 +20,9 @@ class ReviewTableViewCell: UITableViewCell {
     var theNameLabel: UILabel!
     var theDateLabel: UILabel!
     var theContentView: UIView!
-    var theDescriptionTextView: ReadMoreTextView!
+    var theDescriptionLabel: UILabel!
     
     var review: Review!
-    
-    var less = true
     
     init(review: Review) {
         super.init(style: .default, reuseIdentifier: "allReviewsCell")
@@ -97,38 +94,22 @@ extension ReviewTableViewCell {
         theContentView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theHeaderView)
             make.top.equalTo(theHeaderView.snp.bottom)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(self).inset(20)
         }
         descriptionSetup()
     }
     
     //TODO: the goal is to get the reviews to have a readme and readLess button at the end, but I can't get the cells to grow correctly in accordance with this
     fileprivate func descriptionSetup() {
-        let reviewText = "Bacon ipsum dolor amet tongue salami beef ribs shoulder t-bone, doner kevin jowl pancetta meatloaf tail. Salami pig sausage fatback jowl turkey, tongue kielbasa. Pig tail hamburger shank filet mignon tri-tip boudin chicken turducken rump flank sirloin. Shankle andouille pork chop short ribs drumstick swine tail meatball fatback pancetta.Bacon ipsum dolor amet tongue salami beef ribs shoulder t-bone, doner kevin jowl pancetta meatloaf tail. Salami pig sausage fatback jowl turkey, tongue kielbasa. Pig tail hamburger shank filet mignon tri-tip boudin chicken turducken rump flank sirloin. Shankle andouille pork chop short ribs drumstick swine tail meatball fatback pancetta.Bacon ipsum dolor amet tongue salami beef ribs shoulder t-bone, doner kevin jowl pancetta meatloaf tail. Salami pig sausage fatback jowl turkey, tongue kielbasa. Pig tail hamburger shank filet mignon tri-tip boudin chicken turducken rump flank sirloin. Shankle andouille pork chop short ribs drumstick swine tail meatball fatback pancetta.Bacon ipsum dolor amet tongue salami beef ribs shoulder t-bone, doner kevin jowl pancetta meatloaf tail. Salami pig sausage fatback jowl turkey, tongue kielbasa. Pig tail hamburger shank filet mignon tri-tip boudin chicken turducken rump flank sirloin. Shankle andouille pork chop short ribs drumstick swine tail meatball fatback pancetta."
-        theDescriptionTextView = ReadMoreTextView()
-        theDescriptionTextView.text = reviewText
-        theDescriptionTextView.shouldTrim = true //If I don't use shouldTrim, then no table appears for some reason.
-        theContentView.addSubview(theDescriptionTextView)
-        theDescriptionTextView.snp.makeConstraints { (make) in
-            make.leading.trailing.top.equalToSuperview()
-            make.bottom.equalTo(theContentView)
-            let height: CGFloat = calculateReviewTextHeight(text: reviewText)
-            make.height.equalTo(height)
+        theDescriptionLabel = UILabel()
+        theDescriptionLabel.text = review.description
+        theDescriptionLabel.numberOfLines = 0
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 40
+        theDescriptionLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
+        theContentView.addSubview(theDescriptionLabel)
+        theDescriptionLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
-    }
-    
-    func calculateReviewTextHeight(text: String) -> CGFloat {
-        let height = text.heightWithConstrainedWidth(width: self.frame.width, font: theDescriptionTextView.font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize))
-        let roundedHeight = height.rounded() + 1 //idk why, but for some reason, if I give a constraint with a decimal (i.e. 350.5) then it gets mad about the constraints
-        return roundedHeight
-    }
-}
-
-extension String {
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        
-        return boundingBox.height
     }
 }
