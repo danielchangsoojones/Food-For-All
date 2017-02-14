@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class ReviewTableViewCell: UITableViewCell {
     struct Constants {
@@ -21,6 +22,7 @@ class ReviewTableViewCell: UITableViewCell {
     var theDateLabel: UILabel!
     var theContentView: UIView!
     var theDescriptionLabel: UILabel!
+    var theStarsView: CosmosView!
     
     var review: Review!
     
@@ -49,6 +51,7 @@ extension ReviewTableViewCell {
         profileImageSetup()
         nameSetup()
         dateSetup()
+        starSetup()
     }
     
     fileprivate func profileImageSetup() {
@@ -82,6 +85,18 @@ extension ReviewTableViewCell {
         theDateLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(theNameLabel)
             make.top.equalTo(theNameLabel.snp.bottom).offset(5)
+        }
+    }
+    
+    fileprivate func starSetup() {
+        theStarsView = MyCosmosView(rating: review.stars)
+        self.addSubview(theStarsView)
+        theStarsView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(theNameLabel)
+            make.trailing.equalToSuperview().inset(Constants.headerInset)
+        }
+        theNameLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(theStarsView)
         }
     }
 }

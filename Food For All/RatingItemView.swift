@@ -14,7 +14,7 @@ class RatingItemView: GigItemView {
         static let starSize: Double = 20
     }
     
-    var theStarsView = CosmosView(frame: CGRect.zero)
+    var theStarsView: MyCosmosView!
     
     init(numOfReviews: Int, avgStars: Double) {
         super.init(frame: CGRect.zero)
@@ -36,17 +36,8 @@ class RatingItemView: GigItemView {
     }
     
     fileprivate func ratingConfiguration(avgStars: Double) {
-        theStarsView.settings.fillMode = .full
-        theStarsView.rating = avgStars
-        theStarsView.settings.updateOnTouch = false
-        
+        theStarsView = MyCosmosView(rating: avgStars)
         theStarsView.settings.starSize = Constants.starSize
-        theStarsView.settings.starMargin = 1
-        
-        theStarsView.settings.filledColor = CustomColors.JellyTeal
-        theStarsView.settings.filledBorderColor = CustomColors.JellyTeal
-        theStarsView.settings.emptyBorderColor = CustomColors.JellyTeal
-        theStarsView.settings.emptyBorderWidth = 0.7
     }
     
     fileprivate func titleSetup(numOfReviews: Int) {
