@@ -89,6 +89,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReadMoreTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,11 +112,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0BD3C9A7E8C8043822725A51B999CDAA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1F256073BB374901A9493B7883EFD39F</key>
 		<dict>
 			<key>primary</key>
@@ -123,11 +123,6 @@
 			<true/>
 		</dict>
 		<key>29C18041B449DE70A5234856E149C939</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EE70BFA92048E5158F5ADDAAED82C63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>792B7E1E816F8B3E8031F531EA640726</key>
+		<key>6BE99C3052ACADCCA09AB771A99E131B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,12 +162,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95358995DF058064D7B225C289AF932F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C1122E7F8B03E9C075AE4F23B4203FC</key>
+		<key>9B3B075C179C59FC5A0183E0414502D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -212,17 +202,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA24067EDD54C56C5A60F2DEC6EB7502</key>
+		<key>DD86F69DA55BEB08574133E905D3E99E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB1391C446D8A69DB12958BF02EE5F5A</key>
+		<key>E007066D9B65FD642B44DE4737A69977</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F300381DE4FDAEB9E49DBF3C120EDEAF</key>
+		<key>EE4FD698646E45DF94389CB70920CFF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

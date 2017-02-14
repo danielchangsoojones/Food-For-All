@@ -14,6 +14,8 @@ class AllReviewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        theTableView.estimatedRowHeight = 100.0
+        theTableView.rowHeight = UITableViewAutomaticDimension
         leftBarButtonSetup()
     }
 
@@ -62,7 +64,15 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }
