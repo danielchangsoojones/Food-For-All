@@ -122,7 +122,11 @@ struct Helpers {
     
         
     static func EmptyMessage(message: String, viewController: UITableViewController) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
+        Helpers.EmptyMessage(message: message, tableView: viewController.tableView)
+    }
+    
+    static func EmptyMessage(message: String, tableView: UITableView) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
         messageLabel.text = message
         let bubbleColor = UIColor(red: CGFloat(57)/255, green: CGFloat(81)/255, blue: CGFloat(104)/255, alpha :1)
         
@@ -132,7 +136,7 @@ struct Helpers {
         messageLabel.font = UIFont(name: "TrebuchetMS", size: 18)
         messageLabel.sizeToFit()
         
-        viewController.tableView.backgroundView = messageLabel;
+        tableView.backgroundView = messageLabel
     }
     
     static func stylizeButton(text: String) -> UIButton {

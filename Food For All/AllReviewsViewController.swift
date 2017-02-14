@@ -10,6 +10,8 @@ import UIKit
 
 class AllReviewsViewController: UIViewController {
     var theTableView: UITableView!
+    
+    var reviews: [Review] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,5 +69,14 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = ReviewTableViewCell(review: review)
         
         return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if reviews.isEmpty {
+            Helpers.EmptyMessage(message: "No Reviews Yet", tableView: theTableView)
+            return 0
+        } else {
+            return 1
+        }
     }
 }
