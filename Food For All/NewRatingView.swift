@@ -64,6 +64,7 @@ class NewRatingView: CustomScrollerView {
     
     fileprivate func textViewSetup() {
         theGrowingTextView = NextGrowingTextView()
+        //TODO: for some reason, I need to set the minNumberOfLines to something to allow the placeholder to show, I tried 1 and 0 and it doesn't work, but 5 did.
         theGrowingTextView.minNumberOfLines = 5
         theGrowingTextView.maxNumberOfLines = 100 //needed to set this to a set number, even though I really just want it to constantly grow.
         let placeholderAttributes = [NSFontAttributeName: self.theGrowingTextView.font ?? UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: CustomColors.SilverChalice]

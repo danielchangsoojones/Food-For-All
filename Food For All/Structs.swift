@@ -156,6 +156,14 @@ struct Helpers {
         let tabBarController = CustomTabBarController()
         vc.presentVC(tabBarController)
     }
+    
+    static func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            return keyboardHeight
+        }
+        return 0
+    }
 }
 
 struct PhoneValidator {
