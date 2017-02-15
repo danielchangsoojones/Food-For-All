@@ -14,7 +14,7 @@ class RatingItemView: GigItemView {
         static let starSize: Double = 20
     }
     
-    var theStarsView: MyCosmosView!
+    var theStarsView: MyCosmosView = MyCosmosView(rating: 0)
     
     init(numOfReviews: Int, avgStars: Double) {
         super.init(frame: CGRect.zero)
@@ -36,7 +36,7 @@ class RatingItemView: GigItemView {
     }
     
     fileprivate func ratingConfiguration(avgStars: Double) {
-        theStarsView = MyCosmosView(rating: avgStars)
+        theStarsView.rating = avgStars
         theStarsView.settings.starSize = Constants.starSize
     }
     

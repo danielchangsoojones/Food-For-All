@@ -82,14 +82,11 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        //TODO: commented out for testing purposes
-//        if reviews.isEmpty {
-//            Helpers.EmptyMessage(message: "No Reviews Yet", tableView: theTableView)
-//            return 0
-//        } else {
-//            return 1
-//        }
-        return 1
+        if reviews.isEmpty {
+            Helpers.EmptyMessage(message: "No Reviews Yet", tableView: theTableView)
+            return 0
+        } else {
+            return 1
+        }
     }
 }

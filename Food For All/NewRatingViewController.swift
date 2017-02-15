@@ -22,6 +22,7 @@ class NewRatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardNotifierSetup()
+        leftBarButtonSetup()
         viewSetup()
         dataStoreSetup()
         theTextView.text = "Bacon ipsum dolor amet sed pancetta kielbasa, chuck jowl elit duis. Aliquip ham alcatra cow beef fugiat. Bresaola in sausage incididunt, pastrami eiusmod shoulder ut irure. Elit cupim pancetta tenderloin veniam bresaola eiusmod cupidatat esse. Shankle jerky laboris aliqua labore."
@@ -136,5 +137,17 @@ extension NewRatingViewController {
             let visibleRect = CGRect(x: 0, y: self.theScrollView.contentSize.height - height, w: self.theScrollView.contentSize.width, h: height)
             self.theScrollView.scrollRectToVisible(visibleRect, animated: true)
         }
+    }
+}
+
+//navigation Setup
+extension NewRatingViewController {
+    fileprivate func leftBarButtonSetup() {
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "X"), style: .plain, target: self, action: #selector(exitTapped))
+        navigationItem.leftBarButtonItem = button
+    }
+    
+    func exitTapped() {
+        popVC()
     }
 }
