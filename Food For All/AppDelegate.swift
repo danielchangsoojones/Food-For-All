@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             //already logged in
             setInitialVC(vc: UINavigationController(rootViewController: NewRatingViewController()))
-//            toFrontPageVC()
+            //toFrontPageVC()
         }
         
         return true
@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MessageMetrics.registerSubclass()
         SearchGig.registerSubclass()
         GigImage.registerSubclass()
+        ReviewParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

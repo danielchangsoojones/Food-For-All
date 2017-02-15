@@ -14,5 +14,7 @@ class Review {
     var description: String?
     var stars: Double = 0
     
+    var reviewParse: ReviewParse?
+    
     init() {}
 }

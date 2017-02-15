@@ -18,6 +18,9 @@ class NewRatingView: CustomScrollerView {
     var theTitleLabel: UILabel!
     var theCosmosView: MyCosmosView!
     var theGrowingTextView: NextGrowingTextView!
+    var theInputView: UIView!
+    var theForwardButton: UIButton!
+    var theSpinner: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +28,7 @@ class NewRatingView: CustomScrollerView {
         titleSetup()
         starSetup()
         textViewSetup()
+        inputViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,6 +48,7 @@ class NewRatingView: CustomScrollerView {
     
     fileprivate func starSetup() {
         theCosmosView = MyCosmosView(rating: 0)
+        theCosmosView.settings.updateOnTouch = true
         let starTuple = calculateStarsDimensions()
         theCosmosView.settings.starMargin = Double(starTuple.margin)
         theCosmosView.settings.starSize = Double(starTuple.width)
@@ -78,5 +83,26 @@ class NewRatingView: CustomScrollerView {
             make.trailing.equalTo(theTitleLabel)
             make.bottom.equalToSuperview()
         }
+    }
+}
+
+extension NewRatingView {
+    fileprivate func inputViewSetup() {
+        let forwardView = ForwardAccessoryView(frame: CGRect(x: 0, y: 0, w: self.frame.width, h: 60))
+        theForwardButton = forwardView.theForwardButton
+        forwardButtonSetup()
+        theSpinner = forwardView.theSpinner
+        theSpinner.color = .white
+        theInputView = forwardView
+    }
+    
+    fileprivate func forwardButtonSetup() {
+        theForwardButton.backgroundColor = CustomColors.JellyTeal
+        
+        //change image color
+        let origImage = theForwardButton.imageView?.image
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        theForwardButton.setImage(tintedImage, for: .normal)
+        theForwardButton.tintColor = UIColor.white
     }
 }

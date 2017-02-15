@@ -10,7 +10,7 @@ import UIKit
 import TextFieldEffects
 
 class WelcomeFormView: UIView {
-    fileprivate struct Constants {
+    struct Constants {
         static let trailingInset: CGFloat = 10
     }
     
@@ -21,8 +21,8 @@ class WelcomeFormView: UIView {
     var theScrollView: UIScrollView = UIScrollView()
     var theContentView: UIView = UIView()
     var theKeyboardAccessoryView: UIView!
-    var theForwardButton: UIButton = UIButton()
-    var theSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
+    var theForwardButton: UIButton!
+    var theSpinner: UIActivityIndicatorView!
     
     init(frame: CGRect, title: String, topTextFieldTitle: String? = nil, bottomTextFieldTitle: String? = nil) {
         super.init(frame: frame)
@@ -129,37 +129,9 @@ extension WelcomeFormView {
 //keyboard accessory view
 extension WelcomeFormView {
     fileprivate func keyboardAccessoryViewSetup() {
-        theKeyboardAccessoryView = WelcomeInputAccessoryView(frame: CGRect(x: 0, y: 0, w: self.frame.width, h: 70))
-        theKeyboardAccessoryView.backgroundColor = UIColor.clear
-        forwardButtonSetup()
-    }
-    
-    fileprivate func forwardButtonSetup() {
-        theForwardButton.backgroundColor = UIColor.white
-        let side: CGFloat = 40
-        theForwardButton.layer.cornerRadius = side / 2
-        theForwardButton.setImage(#imageLiteral(resourceName: "ArrowHead"), for: .normal)
-        theForwardButton.setImage(UIImage(), for: .selected) //have no image on the selected state, so we can replace it with an UIActivityIndicator
-        theForwardButton.imageView?.contentMode = .scaleAspectFit
-        let inset = side * 0.25
-        theForwardButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-        theForwardButton.clipsToBounds = true
-        theForwardButton.alpha = 0.8
-        theKeyboardAccessoryView.addSubview(theForwardButton)
-        theForwardButton.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(theKeyboardAccessoryView).inset(Constants.trailingInset)
-            make.width.height.equalTo(side)
-        }
-        spinnerSetup()
-    }
-    
-    fileprivate func spinnerSetup() {
-        theForwardButton.addSubview(theSpinner)
-        theSpinner.color = CustomColors.JellyTeal
-        theSpinner.isHidden = true
-        theSpinner.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(theForwardButton.frame.height * 0.05)
-        }
+        let inputView = ForwardAccessoryView(frame: CGRect(x: 0, y: 0, w: self.frame.width, h: ForwardAccessoryView.Constants.defaultHeight))
+        theForwardButton = inputView.theForwardButton
+        theSpinner = inputView.theSpinner
+        theKeyboardAccessoryView = inputView
     }
 }
