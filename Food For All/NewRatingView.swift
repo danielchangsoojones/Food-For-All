@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBAutoGrowingTextView
 
 class NewRatingView: CustomScrollerView {
     struct Constants {
@@ -15,6 +16,7 @@ class NewRatingView: CustomScrollerView {
     
     var theTitleLabel: UILabel!
     var theCosmosView: MyCosmosView!
+    var theTextView: UITextView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,5 +58,14 @@ class NewRatingView: CustomScrollerView {
         let targetStarWidth: CGFloat = targetWidth * (1 / (numOfStars + 3)) //so 1/5 would become 1/7, so the star size doesn't fill the entire width and leaves space for margins
         let targetStarMargin: CGFloat = (targetWidth - targetStarWidth * numOfStars) / (numOfStars - 1)
         return (targetStarWidth, targetStarMargin)
+    }
+    
+    fileprivate func textViewSetup() {
+        let autoGrowTextView = MBAutoGrowingTextView()
+        autoGrowTextView.associateConstraints
+        theContentView.addSubview(theTextView)
+        theTextView.snp.makeConstraints { (make) in
+            make
+        }
     }
 }
