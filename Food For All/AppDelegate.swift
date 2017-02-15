@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            setInitialVC(vc: UINavigationController(rootViewController: AllReviewsViewController()))
+            setInitialVC(vc: UINavigationController(rootViewController: NewRatingViewController()))
 //            toFrontPageVC()
         }
         

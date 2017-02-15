@@ -17,6 +17,7 @@ class AllReviewsViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
         leftBarButtonSetup()
+        rightBarButtonSetup()
         tableViewSetup()
     }
 
@@ -44,6 +45,15 @@ extension AllReviewsViewController {
     
     func exitTapped() {
         popVC()
+    }
+    
+    fileprivate func rightBarButtonSetup() {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createNewReview))
+        navigationItem.rightBarButtonItem = barButton
+    }
+    
+    func createNewReview() {
+        pushVC(NewRatingViewController())
     }
 }
 
