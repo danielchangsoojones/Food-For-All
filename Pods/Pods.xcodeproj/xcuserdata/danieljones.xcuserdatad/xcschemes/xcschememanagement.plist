@@ -54,12 +54,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MBAutoGrowingTextView.xcscheme</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MBProgressHUD.xcscheme</key>
+		<key>NextGrowingTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -127,6 +127,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>34337B3B501995C29A8B3E7571C3EEB8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>36479FDAD67C1B16E64487D2D7FB3EAD</key>
 		<dict>
 			<key>primary</key>
@@ -142,22 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58D25ED9C27CDAD834BD4FCC9FE7C23A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A125F6E38957953328232D83741A1E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5DB499EB898E52D23FA69E8929CD9D55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6F7D4F0EA6C4DC99AD284D0B089E1B0E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -168,6 +158,16 @@
 			<true/>
 		</dict>
 		<key>891841C3419A52929FB5D16A575798DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9022F428800709A578E29F18DFBD3B34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91C56B6EDB9B1557795CF9189654BA07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -187,11 +187,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A75EE48C1D5DD1EDEB4D3388BBDBF79B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>AB81ADA0D9C9F26DF9B165D1FD7647EB</key>
 		<dict>
 			<key>primary</key>
@@ -207,12 +202,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C942E0F5AD26245C54BEAA555EDCF686</key>
+		<key>C299EC3680066D5ABCC56E880A755465</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D33A971E36C7D614827B65C7112CAB71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEBAB5E47369B2660A3FFC099C94C7FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

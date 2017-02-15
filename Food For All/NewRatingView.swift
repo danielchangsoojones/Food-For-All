@@ -7,22 +7,24 @@
 //
 
 import UIKit
-import MBAutoGrowingTextView
+import NextGrowingTextView
 
 class NewRatingView: CustomScrollerView {
     struct Constants {
         static let sideInset: CGFloat = 10
+        static let verticalOffset: CGFloat = 20
     }
     
     var theTitleLabel: UILabel!
     var theCosmosView: MyCosmosView!
-    var theTextView: UITextView!
+    var theGrowingTextView: NextGrowingTextView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         titleSetup()
         starSetup()
+        textViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,7 +50,7 @@ class NewRatingView: CustomScrollerView {
         theContentView.addSubview(theCosmosView)
         theCosmosView.snp.makeConstraints { (make) in
             make.leading.equalTo(theTitleLabel)
-            make.top.equalTo(theTitleLabel.snp.bottom).offset(20)
+            make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.verticalOffset)
         }
     }
     
@@ -61,11 +63,19 @@ class NewRatingView: CustomScrollerView {
     }
     
     fileprivate func textViewSetup() {
-        let autoGrowTextView = MBAutoGrowingTextView()
-        autoGrowTextView.associateConstraints
-        theContentView.addSubview(theTextView)
-        theTextView.snp.makeConstraints { (make) in
-            make
+        theGrowingTextView = NextGrowingTextView()
+        theGrowingTextView.minNumberOfLines = 5
+        theGrowingTextView.maxNumberOfLines = 100 //needed to set this to a set number, even though I really just want it to constantly grow.
+        let placeholderAttributes = [NSFontAttributeName: self.theGrowingTextView.font ?? UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: CustomColors.SilverChalice]
+        theGrowingTextView.placeholderAttributedText = NSAttributedString(string: "Add a note...", attributes: placeholderAttributes)
+        
+        theContentView.addSubview(theGrowingTextView)
+        theGrowingTextView.snp.makeConstraints { (make) in
+            make.top.equalTo(theCosmosView.snp.bottom).offset(Constants.verticalOffset)
+            //Offsetting by a little because textviews do this weird thing where they slighlty inset their text and things don't align correctly
+            make.leading.equalTo(theTitleLabel).offset(-2)
+            make.trailing.equalTo(theTitleLabel)
+            make.bottom.equalToSuperview()
         }
     }
 }
