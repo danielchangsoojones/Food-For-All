@@ -24,6 +24,8 @@ class NewRatingViewController: UIViewController {
         keyboardNotifierSetup()
         viewSetup()
         dataStoreSetup()
+        theTextView.text = "Bacon ipsum dolor amet sed pancetta kielbasa, chuck jowl elit duis. Aliquip ham alcatra cow beef fugiat. Bresaola in sausage incididunt, pastrami eiusmod shoulder ut irure. Elit cupim pancetta tenderloin veniam bresaola eiusmod cupidatat esse. Shankle jerky laboris aliqua labore."
+        scrollWithTyping()
     }
     
     fileprivate func viewSetup() {
@@ -122,6 +124,17 @@ extension NewRatingViewController: NewRatingDataStoreDelegate {
             theSpinner.startAnimating()
         } else {
             theSpinner.stopAnimating()
+        }
+    }
+}
+
+//scroll view extension
+extension NewRatingViewController {
+    fileprivate func scrollWithTyping() {
+        theTextView.delegates.willChangeHeight = {(height: CGFloat) in
+            let height: CGFloat = 20
+            let visibleRect = CGRect(x: 0, y: self.theScrollView.contentSize.height - height, w: self.theScrollView.contentSize.width, h: height)
+            self.theScrollView.scrollRectToVisible(visibleRect, animated: true)
         }
     }
 }
