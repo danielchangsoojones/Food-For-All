@@ -87,7 +87,7 @@ extension NewRatingViewController: NewRatingDataStoreDelegate {
         }
     }
     
-    fileprivate var isValidData: Bool {
+    var isValidData: Bool {
         var isValidStars: Bool = false
         if theStarsView.rating > 0 {
             isValidStars = true
