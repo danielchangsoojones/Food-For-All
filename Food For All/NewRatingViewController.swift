@@ -18,6 +18,16 @@ class NewRatingViewController: UIViewController {
     var theStarsView: MyCosmosView!
     
     var dataStore: NewRatingDataStore?
+    var gig: Gig!
+    
+    init(gig: Gig) {
+        super.init(nibName: nil, bundle: nil)
+        self.gig = gig
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +69,11 @@ class NewRatingViewController: UIViewController {
         NotificationCenter.default.removeObserver(self);
     }
     
+    //TODO: I want to turn the status bar black, but can't figure out how to do that yet.
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     fileprivate func dataStoreSetup() {
         dataStore = NewRatingDataStore(delegate: self)
     }
@@ -86,6 +101,7 @@ extension NewRatingViewController: NewRatingDataStoreDelegate {
             let review = Review()
             review.description = theTextView.text
             review.stars = theStarsView.rating
+            review.gig = gig
             dataStore?.save(review: review)
         }
     }

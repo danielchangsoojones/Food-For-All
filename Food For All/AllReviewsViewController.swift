@@ -11,14 +11,30 @@ import UIKit
 class AllReviewsViewController: UIViewController {
     var theTableView: UITableView!
     
+    var gig: Gig!
     var reviews: [Review] = []
+    
+    var dataStore: AllReviewsDataStore?
+    
+    init(gig: Gig) {
+        super.init(nibName: nil, bundle: nil)
+        self.gig = gig
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        leftBarButtonSetup()
-        rightBarButtonSetup()
         tableViewSetup()
+        navBarSetup()
+        dataStoreSetup()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,16 +50,38 @@ class AllReviewsViewController: UIViewController {
         theTableView.dataSource = self
         theTableView.tableHeaderView = allReviewsView.theTableHeaderView
     }
+    
+    //TODO: I want to turn the status bar black, but can't figure out how to do that yet.
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = AllReviewsDataStore(delegate: self, gig: gig)
+    }
 }
 
 //navigation bar extension
 extension AllReviewsViewController {
+    fileprivate func navBarSetup() {
+        if let navController = self.navigationController as? WelcomeNavigationController {
+            navController.makeTransparent()
+            navController.navigationBar.tintColor = UIColor.black
+        }
+        
+        leftBarButtonSetup()
+        rightBarButtonSetup()
+    }
+    
     fileprivate func leftBarButtonSetup() {
         let barButton = UIBarButtonItem(image: #imageLiteral(resourceName: "X"), style: .plain, target: self, action: #selector(exitTapped))
         navigationItem.leftBarButtonItem = barButton
     }
     
     func exitTapped() {
+        if let navController = self.navigationController as? WelcomeNavigationController {
+            navController.resetToDefaults()
+        }
         popVC()
     }
     
@@ -53,7 +91,7 @@ extension AllReviewsViewController {
     }
     
     func createNewReview() {
-        pushVC(NewRatingViewController())
+        pushVC(NewRatingViewController(gig: gig))
     }
 }
 
@@ -66,16 +104,11 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentRow = indexPath.row
-        
-        let review = Review()
-        review.description = "Bacon ipsum dolor amet turkey beef tenderloin tongue, pork capicola flank. Turducken frankfurter meatball ribeye, bacon shankle ground round kielbasa. Sausage rump frankfurter, chicken landjaeger shoulder salami t-bone ball tip bacon meatball. Short ribs tri-tip pork loin prosciutto sirloin, brisket spare ribs frankfurter tongue bresaola boudin picanha. Salami ribeye shank, cupim pork belly brisket sausage ground round pig tri-tip picanha capicola tail ham hock doner. Turducken chicken ground round tenderloin doner leberkas. Brisket pig shank ball tip spare ribs."
-        review.stars = 2
-        
+        let review = reviews[indexPath.row]
         let cell = ReviewTableViewCell(review: review)
         
         return cell
@@ -88,5 +121,12 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 1
         }
+    }
+}
+
+extension AllReviewsViewController: AllReviewsDataStoreDelegate {
+    func loaded(reviews: [Review]) {
+        self.reviews = reviews
+        theTableView.reloadData()
     }
 }

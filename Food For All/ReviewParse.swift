@@ -15,6 +15,7 @@ class ReviewParse: PFObject, PFSubclassing {
     }
     
     @NSManaged var creator: User
+    @NSManaged var gig: GigParse
     @NSManaged var detail: String?
     @NSManaged var stars: Double
     
@@ -28,5 +29,8 @@ class ReviewParse: PFObject, PFSubclassing {
         self.creator = review.creator.user
         self.detail = review.description
         self.stars = review.stars
+        if let gig = review.gig {
+            self.gig = gig.gigParse
+        }
     }
 }

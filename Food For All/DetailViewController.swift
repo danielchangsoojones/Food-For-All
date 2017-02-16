@@ -59,6 +59,7 @@ class DetailViewController: UIViewController {
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
         detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
+        detailView.theRatingView.addTapGesture(target: self, action: #selector(reviewCellTapped))
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -125,6 +126,12 @@ extension DetailViewController {
             //the gig creator never made a username
             Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
         }
+    }
+    
+    func reviewCellTapped() {
+        let allReviewsVC = AllReviewsViewController(gig: gig)
+        allReviewsVC.gig = gig
+        pushVC(allReviewsVC)
     }
 }
 

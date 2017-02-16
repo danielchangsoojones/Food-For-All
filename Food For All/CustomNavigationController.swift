@@ -9,10 +9,14 @@
 import UIKit
 
 class CustomNavigationController: UINavigationController {
+    struct Constants {
+        static let navBarTintColor: UIColor = UIColor.white
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.tintColor = UIColor.white //makes the back button a certain color
+        navigationBar.tintColor = Constants.navBarTintColor //makes the back button a certain color
     }
 
     override func didReceiveMemoryWarning() {

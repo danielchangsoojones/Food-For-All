@@ -91,6 +91,7 @@
 		92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B1F1E53679700BF8CF7 /* MyCosmosView.swift */; };
 		92F86B231E53D28700BF8CF7 /* NewRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B221E53D28700BF8CF7 /* NewRatingViewController.swift */; };
 		92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B241E53D31D00BF8CF7 /* NewRatingView.swift */; };
+		92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B271E552DAF00BF8CF7 /* AllReviewsDataStore.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +195,7 @@
 		92F86B1F1E53679700BF8CF7 /* MyCosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCosmosView.swift; sourceTree = "<group>"; };
 		92F86B221E53D28700BF8CF7 /* NewRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRatingViewController.swift; sourceTree = "<group>"; };
 		92F86B241E53D31D00BF8CF7 /* NewRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRatingView.swift; sourceTree = "<group>"; };
+		92F86B271E552DAF00BF8CF7 /* AllReviewsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsDataStore.swift; sourceTree = "<group>"; };
 		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 		92B3E4591E4F88AF00FD2042 /* All Reviews */ = {
 			isa = PBXGroup;
 			children = (
+				92F86B261E552D9400BF8CF7 /* Data Store */,
 				92B3E45A1E4F88B900FD2042 /* Cell */,
 				92B3E4531E4F837B00FD2042 /* AllReviewsViewController.swift */,
 				92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */,
@@ -773,6 +776,14 @@
 			name = "New Review";
 			sourceTree = "<group>";
 		};
+		92F86B261E552D9400BF8CF7 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B271E552DAF00BF8CF7 /* AllReviewsDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1016,6 +1027,7 @@
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				921C798E1E4A7B6400D9396B /* VenmoItemView.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
+				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,

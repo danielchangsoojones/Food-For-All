@@ -22,6 +22,8 @@ class NewRatingView: CustomScrollerView {
     var theForwardButton: UIButton!
     var theSpinner: UIActivityIndicatorView!
     
+    var gig: Gig?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
