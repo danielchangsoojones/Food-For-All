@@ -109,9 +109,21 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let review = reviews[indexPath.row]
-        let cell = ReviewTableViewCell(review: review)
-        
-        return cell
+        if review.creator == Person.current() {
+            let cell = PersonalReviewTableViewCell(review: review)
+            return cell
+        } else {
+            //not created by the current user, so just make a normal cell
+            let cell = ReviewTableViewCell(review: review)
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let review = reviews[indexPath.row]
+        if review.creator == Person.current() {
+            print("go to the editing for the review")
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

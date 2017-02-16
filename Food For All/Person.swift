@@ -51,3 +51,9 @@ class Person {
         return nil
     }
 }
+
+extension Person: Equatable {
+    static func ==(lhs: Person, rhs: Person) -> Bool {
+        return lhs.user.objectId == rhs.user.objectId
+    }
+}

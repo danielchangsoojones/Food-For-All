@@ -35,7 +35,6 @@ class NewRatingViewController: UIViewController {
         leftBarButtonSetup()
         viewSetup()
         dataStoreSetup()
-        theTextView.text = "Bacon ipsum dolor amet sed pancetta kielbasa, chuck jowl elit duis. Aliquip ham alcatra cow beef fugiat. Bresaola in sausage incididunt, pastrami eiusmod shoulder ut irure. Elit cupim pancetta tenderloin veniam bresaola eiusmod cupidatat esse. Shankle jerky laboris aliqua labore."
         scrollWithTyping()
     }
     
