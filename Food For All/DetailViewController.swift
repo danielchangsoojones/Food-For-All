@@ -155,7 +155,12 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
     func sendSMSText(phoneNumber: String) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = ""
+            
+            var firstName: String = gig.creator.firstName ?? ""
+            if firstName.isNotEmpty {
+                firstName = " " + firstName
+            }
+            controller.body = "Hey\(firstName), I found you on Gigio for \(gig.title). Can we arrange something?"
             controller.recipients = [phoneNumber]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: {
