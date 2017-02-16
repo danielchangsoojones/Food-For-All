@@ -2,126 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SchemeUserState</key>
-	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>AlamofireImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>BRYXBanner.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Bolts-Tasks.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Cosmos.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>EZSwiftExtensions.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKCoreKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKLoginKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Former.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MBProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>NextGrowingTextView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Parse-iOS10.2.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Parse-iOS9.0.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ParseFacebookUtilsV4.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ParseUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Food For All.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Food For AllTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SCLAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SnapKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>TextFieldEffects.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Timepiece.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0BD3C9A7E8C8043822725A51B999CDAA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0E4A75C6050D53461E1DBA1391BC4401</key>
 		<dict>
 			<key>primary</key>
@@ -142,13 +24,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29C18041B449DE70A5234856E149C939</key>
-		<key>20432853E598D0CFA3AD5AD7CC0AA071</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EE70BFA92048E5158F5ADDAAED82C63</key>
 		<key>29C18041B449DE70A5234856E149C939</key>
 		<dict>
 			<key>primary</key>
@@ -174,30 +49,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>792B7E1E816F8B3E8031F531EA640726</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
 		<key>62F0B300B245C90B092E13201D2A165C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>891841C3419A52929FB5D16A575798DB</key>
 		<key>64E0E7450CEFB0C9EAB9906531DEE679</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95358995DF058064D7B225C289AF932F</key>
 		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C1122E7F8B03E9C075AE4F23B4203FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -237,24 +99,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D33A971E36C7D614827B65C7112CAB71</key>
 		<key>CF4CA72FCC11D0D910323DAA6DB1D7F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA24067EDD54C56C5A60F2DEC6EB7502</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB1391C446D8A69DB12958BF02EE5F5A</key>
 		<key>D33A971E36C7D614827B65C7112CAB71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F300381DE4FDAEB9E49DBF3C120EDEAF</key>
 		<key>FEBAB5E47369B2660A3FFC099C94C7FA</key>
 		<dict>
 			<key>primary</key>

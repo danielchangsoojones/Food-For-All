@@ -26,7 +26,7 @@ class ReviewParse: PFObject, PFSubclassing {
     
     init(review: Review) {
         super.init()
-        self.creator = review.creator.user
+        self.creator = review.creator.updatedUser
         self.detail = review.description
         self.stars = review.stars
         if let gig = review.gig {
