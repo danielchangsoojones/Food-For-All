@@ -16,6 +16,7 @@ class NewRatingViewController: UIViewController {
     var theForwardButton: UIButton!
     var theTextView: NextGrowingTextView!
     var theStarsView: MyCosmosView!
+    var theTitleLabel: UILabel!
     
     var dataStore: NewRatingDataStore?
     var gig: Gig!
@@ -48,6 +49,7 @@ class NewRatingViewController: UIViewController {
         newRatingView.theForwardButton.addTarget(self, action: #selector(forwardPressed(sender:)), for: .touchUpInside)
         theTextView = newRatingView.theGrowingTextView
         theStarsView = newRatingView.theCosmosView
+        theTitleLabel = newRatingView.theTitleLabel
     }
     
     override var inputAccessoryView: UIView? {
@@ -73,8 +75,20 @@ class NewRatingViewController: UIViewController {
         return true
     }
     
-    fileprivate func dataStoreSetup() {
+    func dataStoreSetup() {
         dataStore = NewRatingDataStore(delegate: self)
+    }
+    
+    var reviewToSave: Review {
+        let review = Review()
+        configure(review: review)
+        return review
+    }
+    
+    func configure(review: Review) {
+        review.description = theTextView.text
+        review.stars = theStarsView.rating
+        review.gig = gig
     }
 }
 
@@ -97,11 +111,7 @@ extension NewRatingViewController {
 extension NewRatingViewController: NewRatingDataStoreDelegate {
     func forwardPressed(sender: UIButton) {
         if isValidData {
-            let review = Review()
-            review.description = theTextView.text
-            review.stars = theStarsView.rating
-            review.gig = gig
-            dataStore?.save(review: review)
+            dataStore?.save(review: reviewToSave)
         }
     }
     

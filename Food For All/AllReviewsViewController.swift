@@ -122,7 +122,8 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let review = reviews[indexPath.row]
         if review.creator == Person.current() {
-            print("go to the editing for the review")
+            let editingVC = EditingRatingViewController(gig: gig, review: review)
+            pushVC(editingVC)
         }
     }
     
