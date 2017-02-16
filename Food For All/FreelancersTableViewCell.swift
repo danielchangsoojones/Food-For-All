@@ -11,14 +11,15 @@ import UIKit
 class FreelancersTableViewCell: UITableViewCell {
     struct Constants {
         static let verticalWordSpacing: CGFloat = 5
+        static let sideInset: CGFloat = 10
     }
 
     var theProfileImageView: CircularImageView!
     var theNameLabel: UILabel = UILabel()
     var theServiceTitleLabel: UILabel = UILabel()
     var thePriceLabel: UILabel = UILabel()
+    var theCosmosView: MyCosmosView!
 
-    
     var gig: Gig?
     
     var cellHeight: CGFloat = 0
@@ -31,6 +32,7 @@ class FreelancersTableViewCell: UITableViewCell {
         nameLabelSetup()
         serviceTitleLabelSetup()
         priceLabelSetup()
+        starsSetup()
         lineSetup()
     }
     
@@ -53,7 +55,7 @@ class FreelancersTableViewCell: UITableViewCell {
         self.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theProfileImageView)
-            make.leading.equalTo(theProfileImageView.snp.trailing).offset(10)
+            make.leading.equalTo(theProfileImageView.snp.trailing).offset(Constants.sideInset)
         }
     }
     
@@ -77,6 +79,43 @@ class FreelancersTableViewCell: UITableViewCell {
                 make.top.equalTo(theServiceTitleLabel.snp.bottom).offset(Constants.verticalWordSpacing)
                 make.leading.equalTo(theNameLabel)
             })
+        }
+    }
+    
+    fileprivate func starsSetup() {
+        theCosmosView = MyCosmosView(rating: 0)
+        theCosmosView.settings.starMargin = 0.5
+        theCosmosView.settings.starSize = 16
+        self.addSubview(theCosmosView)
+        theCosmosView.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview().inset(Constants.sideInset)
+            make.centerY.equalTo(thePriceLabel)
+        }
+        
+        let numOfReviews = gig?.numOfReviews
+        let avgStars = gig?.avgStars
+        if let numOfReviews = numOfReviews,let avgStars = avgStars, numOfReviews > 0, avgStars > 0 {
+            theCosmosView.rating = avgStars
+            setCosmosText(numOfRatings: numOfReviews)
+        } else {
+            theCosmosView.isHidden = true
+        }
+    }
+    
+    //until Cosmos Cocoapod gets updated where I can move the cosmos label to the left hand side, this is a hack around.
+    fileprivate func setCosmosText(numOfRatings: Int) {
+        let cosmosLabel = UILabel()
+        cosmosLabel.text = "(\(numOfRatings))"
+        cosmosLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightLight)
+        cosmosLabel.textColor = CustomColors.SilverChalice
+        self.addSubview(cosmosLabel)
+        cosmosLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(theCosmosView)
+            make.trailing.equalTo(theCosmosView.snp.leading).offset(-2)
+        }
+        //so the price label doesn't overflow
+        thePriceLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(cosmosLabel.snp.leading).priority(250)
         }
     }
 
