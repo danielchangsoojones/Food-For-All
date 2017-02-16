@@ -95,6 +95,7 @@
 		92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B291E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift */; };
 		92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B2C1E55612600BF8CF7 /* EditingRatingViewController.swift */; };
 		92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B2F1E55633700BF8CF7 /* EditRatingDataStore.swift */; };
+		92F86B331E56648700BF8CF7 /* ForwardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B321E56648700BF8CF7 /* ForwardAccessoryView.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,7 +186,6 @@
 		92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingGigDataStore.swift; sourceTree = "<group>"; };
 		92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
-		92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInputAccessoryView.swift; sourceTree = "<group>"; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
 		92DD8D311E350B22009EB164 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		92DD8D331E350B43009EB164 /* FrontPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageView.swift; sourceTree = "<group>"; };
@@ -203,6 +203,7 @@
 		92F86B291E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalReviewTableViewCell.swift; sourceTree = "<group>"; };
 		92F86B2C1E55612600BF8CF7 /* EditingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingRatingViewController.swift; sourceTree = "<group>"; };
 		92F86B2F1E55633700BF8CF7 /* EditRatingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRatingDataStore.swift; sourceTree = "<group>"; };
+		92F86B321E56648700BF8CF7 /* ForwardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardAccessoryView.swift; sourceTree = "<group>"; };
 		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -717,7 +718,7 @@
 		92DD8D2B1E2D1F5A009EB164 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				92DD8D2C1E2D1F93009EB164 /* WelcomeInputAccessoryView.swift */,
+				92F86B321E56648700BF8CF7 /* ForwardAccessoryView.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -1022,6 +1023,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B3E4541E4F837B00FD2042 /* AllReviewsViewController.swift in Sources */,
+				92F86B331E56648700BF8CF7 /* ForwardAccessoryView.swift in Sources */,
 				927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */,
 				92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
