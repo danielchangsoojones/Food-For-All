@@ -22,6 +22,8 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var creator: User
     @NSManaged var tags: [String]
     @NSManaged var frontImage: PFFile?
+    @NSManaged var avgStars: Double
+    @NSManaged var numOfReviews: Int
     
     override init() {
         super.init()
@@ -45,5 +47,7 @@ class GigParse: PFObject, PFSubclassing {
         if let file = Helpers.saveImageAsPFFIle(fileName: "gigImage.jpg", image: gig.frontImage) {
             frontImage = file
         }
+        avgStars = gig.avgStars
+        numOfReviews = gig.numOfReviews
     }
 }

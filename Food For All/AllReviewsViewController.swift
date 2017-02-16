@@ -119,6 +119,7 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
             Helpers.EmptyMessage(message: "No Reviews Yet", tableView: theTableView)
             return 0
         } else {
+            tableView.backgroundView = nil
             return 1
         }
     }
