@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SearchGig.registerSubclass()
         GigImage.registerSubclass()
         VenmoMetric.registerSubclass()
+        ReviewParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

@@ -75,11 +75,9 @@ class WelcomeFormViewController: UIViewController {
 //keyboard/keyboard Accessory view extension
 extension WelcomeFormViewController {
     func keyboardWillShow(_ notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let keyboardHeight = keyboardSize.height
-            //the keyboard accessory view is factored into the keyboardHeight already
-            theScrollView.contentInset.bottom = keyboardHeight
-        }
+        let keyboardHeight = Helpers.getKeyboardHeight(notification: notification)
+        //the keyboard accessory view is factored into the keyboardHeight already
+        theScrollView.contentInset.bottom = keyboardHeight
     }
 }
 

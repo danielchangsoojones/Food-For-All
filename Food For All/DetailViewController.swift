@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     var theTitleLabel: UILabel!
     var thePriceLabel: UILabel!
     var theSpinnerContainer: UIView?
+    var theReviewCell: UIView!
     
     var gig: Gig!
     var dataStore: DetailDataStore!
@@ -59,6 +60,8 @@ class DetailViewController: UIViewController {
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
         detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
+        detailView.theRatingView.addTapGesture(target: self, action: #selector(reviewCellTapped))
+        theReviewCell = detailView.theRatingView
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -84,6 +87,14 @@ extension DetailViewController {
         }
         theTitleLabel.text = gig.title
         theDescriptionLabel.text = gig.description
+        setReviewContent()
+    }
+    
+    fileprivate func setReviewContent() {
+        if let reviewItem = theReviewCell as? RatingItemView {
+            reviewItem.set(numOfReviews: gig.numOfReviews)
+            reviewItem.set(stars: gig.avgStars)
+        }
     }
     
     fileprivate func descriptionSetup() {
@@ -130,6 +141,12 @@ extension DetailViewController {
         }
         
         dataStore.saveVenmoMetric(state: venmoState, gig: gig)
+    }
+    
+    func reviewCellTapped() {
+        let allReviewsVC = AllReviewsViewController(gig: gig)
+        allReviewsVC.gig = gig
+        pushVC(allReviewsVC)
     }
 }
 

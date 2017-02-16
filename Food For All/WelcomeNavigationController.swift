@@ -19,4 +19,8 @@ class WelcomeNavigationController: CustomNavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func resetToDefaults() {
+        navigationBar.tintColor = Constants.navBarTintColor
+    }
 }

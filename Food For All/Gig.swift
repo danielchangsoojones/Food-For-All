@@ -13,10 +13,14 @@ class Gig {
     var title: String = ""
     var priceUnit: String = ""
     var description: String = ""
+    var avgStars: Double = -1
+    var numOfReviews: Int = -1
     
     var phoneNumber: Double = 0
     var phoneNumberString: String {
-        return Int(phoneNumber).toString
+        let str = phoneNumber.toString
+        let phoneString = str.replacingOccurrences(of: ".0", with:"")
+        return phoneString
     }
     
     var creator: Person = Person.current()
@@ -54,6 +58,8 @@ class Gig {
         let person = Person(user: gigParse.creator)
         self.creator = person
         self.tags = gigParse.tags
+        self.avgStars = gigParse.avgStars
+        self.numOfReviews = gigParse.numOfReviews
         setGigImage()
     }
     

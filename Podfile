@@ -19,6 +19,9 @@ target 'Food For All' do
   pod 'Instabug'
   pod "Former"
   pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'Cosmos', '~> 8.0'
+  pod 'NextGrowingTextView'
+  pod 'SCLAlertView'
 
 end
 

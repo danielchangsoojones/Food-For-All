@@ -13,6 +13,7 @@ class DetailView: CustomScrollerView {
         static let topViewHeight: CGFloat = 100
         static let spacing: CGFloat = 18
         static let sideInset: CGFloat = 10
+        static let cellHeight: CGFloat = 70
     }
     
     var theTopView: UIView = UIView()
@@ -25,6 +26,7 @@ class DetailView: CustomScrollerView {
     var theMessageButton: UIButton = UIButton()
     var theExitButton: UIButton = UIButton()
     var theVenmoView: UIView!
+    var theRatingView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,8 +34,10 @@ class DetailView: CustomScrollerView {
         topViewSetup()
         titleSetup()
         descriptionSetup()
+        ratingItemSetup()
         venmoItemSetup()
         bottomViewSetup()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -112,13 +116,23 @@ extension DetailView {
 
 //gig items
 extension DetailView {
+    fileprivate func ratingItemSetup() {
+        theRatingView = RatingItemView(numOfReviews: 0, avgStars: 0)
+        theContentView.addSubview(theRatingView)
+        theRatingView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theDescriptionLabel)
+            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
+            make.height.equalTo(Constants.cellHeight)
+        }
+    }
+    
     fileprivate func venmoItemSetup() {
         theVenmoView = VenmoItemView(frame: CGRect.zero)
         theContentView.addSubview(theVenmoView)
         theVenmoView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
-            make.height.equalTo(70)
+            make.top.equalTo(theRatingView.snp.bottom)
+            make.height.equalTo(Constants.cellHeight)
             make.bottom.equalTo(theContentView)
         }
     }

@@ -9,6 +9,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - BRYXBanner (0.7.1)
+  - Cosmos (8.0.2)
   - EZSwiftExtensions (1.7)
   - FBSDKCoreKit (4.16.1):
     - Bolts (~> 1.7)
@@ -17,6 +18,7 @@ PODS:
   - Former (1.5.1)
   - Instabug (6.4.1)
   - MBProgressHUD (1.0.0)
+  - NextGrowingTextView (0.8.5)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.2):
@@ -28,6 +30,7 @@ PODS:
   - ParseUI (1.2.0):
     - Bolts/Tasks (~> 1.3)
     - Parse (~> 1.9)
+  - SCLAlertView (0.7.0)
   - SnapKit (3.0.2)
   - TextFieldEffects (1.3.0)
   - Timepiece (1.1.0)
@@ -36,13 +39,16 @@ DEPENDENCIES:
   - Alamofire (~> 4.3)
   - AlamofireImage (~> 3.1)
   - BRYXBanner
+  - Cosmos (~> 8.0)
   - EZSwiftExtensions
   - Former
   - Instabug
   - MBProgressHUD (~> 1.0.0)
+  - NextGrowingTextView
   - Parse
   - ParseFacebookUtilsV4 (from `https://github.com/white-rabbit-apps/ParseFacebookUtils-iOS.git`)
   - ParseUI
+  - SCLAlertView
   - SnapKit (~> 3.0)
   - TextFieldEffects
   - Timepiece
@@ -61,19 +67,22 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
+  Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
   FBSDKCoreKit: 6feac4e8921ccd7afa83fb1df6291dc6eec42c7c
   FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
   Former: 0b48a812c0d93b092b908d1b0574d0fd95c6b6f9
   Instabug: f1e8ced2a08618b48aade3ec67b260f92d8fd8a6
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  NextGrowingTextView: 3cc930a03c5979071244af42bcc81360d7453323
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 8ff88d57d9b1fc99d88e42c36958f98edeb06763
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
 
-PODFILE CHECKSUM: 0eb7358206595f4483361e7334a05341bfe127d3
+PODFILE CHECKSUM: 838f0409054330d063f2bc6bc5d684d0e20f53da
 
 COCOAPODS: 1.1.1
