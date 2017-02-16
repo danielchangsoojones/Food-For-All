@@ -20,6 +20,7 @@ class PersonalReviewTableViewCell: ReviewTableViewCell {
     
     fileprivate func editButtonSetup() {
         let editButton = UIButton()
+        editButton.isUserInteractionEnabled = false
         editButton.setTitle("Edit", for: .normal)
         editButton.setTitleColor(CustomColors.JellyTeal, for: .normal)
         editButton.titleLabel?.font = theDateLabel.font

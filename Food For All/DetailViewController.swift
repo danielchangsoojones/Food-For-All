@@ -87,6 +87,10 @@ extension DetailViewController {
         }
         theTitleLabel.text = gig.title
         theDescriptionLabel.text = gig.description
+        setReviewContent()
+    }
+    
+    fileprivate func setReviewContent() {
         if let reviewItem = theReviewCell as? RatingItemView {
             reviewItem.set(numOfReviews: gig.numOfReviews)
             reviewItem.set(stars: gig.avgStars)
