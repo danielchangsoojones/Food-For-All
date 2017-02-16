@@ -21,12 +21,18 @@ class Review {
     
     init(reviewParse r: ReviewParse) {
         creator = Person(user: r.creator)
-//        let gig = Gig(gigParse: r.gig)
-//        gig.creator = creator
-//        self.gig = gig
         updated = r.updatedAt ?? Date()
         description = r.detail
         stars = r.stars
         reviewParse = r
+    }
+}
+
+extension Review: Equatable {
+    static func ==(lhs: Review, rhs: Review) -> Bool {
+        if let leftObjectId = lhs.reviewParse?.objectId, let rightObjectId = rhs.reviewParse?.objectId {
+            return leftObjectId == rightObjectId
+        }
+        return false
     }
 }

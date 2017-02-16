@@ -124,9 +124,14 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let review = reviews[indexPath.row]
         if review.creator == Person.current() {
-            let editingVC = EditingRatingViewController(gig: gig, review: review)
-            pushVC(editingVC)
+            segueToEditRatingVC(review: review)
         }
+    }
+    
+    fileprivate func segueToEditRatingVC(review: Review) {
+        let editingVC = EditingRatingViewController(gig: gig, review: review)
+        editingVC.editDelegate = self
+        pushVC(editingVC)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -140,10 +145,25 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension AllReviewsViewController: NewRatingVCDelegate {
+extension AllReviewsViewController: NewRatingVCDelegate, EditRatingVCDelegate {
     func add(review: Review) {
         self.reviews.insertAsFirst(review)
         theTableView.reloadData()
+    }
+    
+    func update(review: Review) {
+        let index: Int? = reviews.index(where: { (r: Review) -> Bool in
+            return r == review
+        })
+        if let index = index {
+            //move the review to the top
+            reviews.remove(at: index)
+            add(review: review)
+        }
+    }
+    
+    func remove(review: Review) {
+        
     }
 }
 

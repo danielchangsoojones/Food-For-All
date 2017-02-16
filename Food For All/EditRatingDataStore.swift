@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol EditRatingDataStoreDelegate {
+    func remove(review: Review)
+}
+
 class EditRatingDataStore: NewRatingDataStore {
     override func save(review: Review) {
         let r = review.reviewParse

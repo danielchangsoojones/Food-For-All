@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol EditRatingVCDelegate: NewRatingVCDelegate {
+    func update(review: Review)
+    func remove(review: Review)
+}
+
 class EditingRatingViewController: NewRatingViewController {
     var review: Review!
+    
+    var editDelegate: EditRatingVCDelegate?
     
     override var reviewToSave: Review {
         configure(review: review)
@@ -43,5 +50,9 @@ class EditingRatingViewController: NewRatingViewController {
     
     override func dataStoreSetup() {
         dataStore = EditRatingDataStore(delegate: self)
+    }
+    
+    override func updateDelegate(review: Review) {
+        editDelegate?.update(review: review)
     }
 }
