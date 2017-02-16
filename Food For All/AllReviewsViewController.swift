@@ -91,7 +91,9 @@ extension AllReviewsViewController {
     }
     
     func createNewReview() {
-        pushVC(NewRatingViewController(gig: gig))
+        let newRatingVC = NewRatingViewController(gig: gig)
+        newRatingVC.delegate = self
+        pushVC(newRatingVC)
     }
 }
 
@@ -135,6 +137,13 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.backgroundView = nil
             return 1
         }
+    }
+}
+
+extension AllReviewsViewController: NewRatingVCDelegate {
+    func add(review: Review) {
+        self.reviews.insertAsFirst(review)
+        theTableView.reloadData()
     }
 }
 

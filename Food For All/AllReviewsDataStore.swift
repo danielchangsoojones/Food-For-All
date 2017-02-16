@@ -25,6 +25,7 @@ class AllReviewsDataStore {
         let query = ReviewParse.query() as! PFQuery<ReviewParse>
         query.whereKey("gig", equalTo: gig.gigParse)
         query.includeKey("creator")
+        query.order(byDescending: "updatedAt")
         query.findObjectsInBackground { (reviewParses, error) in
             if let reviewParses = reviewParses {
                 let reviews = reviewParses.map({ (r: ReviewParse) -> Review in

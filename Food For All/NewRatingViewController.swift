@@ -9,6 +9,10 @@
 import UIKit
 import NextGrowingTextView
 
+protocol NewRatingVCDelegate {
+    func add(review: Review)
+}
+
 class NewRatingViewController: UIViewController {
     var theScrollView: UIScrollView!
     var theInputView: UIView!
@@ -20,6 +24,7 @@ class NewRatingViewController: UIViewController {
     
     var dataStore: NewRatingDataStore?
     var gig: Gig!
+    var delegate: NewRatingVCDelegate?
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -90,6 +95,10 @@ class NewRatingViewController: UIViewController {
         review.stars = theStarsView.rating
         review.gig = gig
     }
+    
+    func updateDelegate(review: Review) {
+        delegate?.add(review: review)
+    }
 }
 
 extension NewRatingViewController {
@@ -111,6 +120,7 @@ extension NewRatingViewController {
 extension NewRatingViewController: NewRatingDataStoreDelegate {
     func forwardPressed(sender: UIButton) {
         if isValidData {
+            toggleButton(disabled: true)
             dataStore?.save(review: reviewToSave)
         }
     }
@@ -135,7 +145,8 @@ extension NewRatingViewController: NewRatingDataStoreDelegate {
     }
     
     func finishedSaving(review: Review) {
-        toggleButton(disabled: true)
+        updateDelegate(review: review)
+        popVC()
     }
     
     func savingErrorOccurred() {
