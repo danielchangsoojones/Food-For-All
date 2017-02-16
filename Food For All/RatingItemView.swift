@@ -35,15 +35,23 @@ class RatingItemView: GigItemView {
         }
     }
     
+    func set(numOfReviews: Int) {
+        let suffix = " Reviews"
+        let title: String = numOfReviews.toString + suffix
+        set(title: title)
+    }
+    
+    func set(stars: Double) {
+        theStarsView.rating = stars
+    }
+    
     fileprivate func ratingConfiguration(avgStars: Double) {
-        theStarsView.rating = avgStars
+        set(stars: avgStars)
         theStarsView.settings.starSize = Constants.starSize
     }
     
     fileprivate func titleSetup(numOfReviews: Int) {
-        let suffix = " Reviews"
-        let title: String = numOfReviews.toString + suffix
-        set(title: title)
+        set(numOfReviews: numOfReviews)
         if let label = theElementView as? UILabel {
             label.textColor = CustomColors.JellyTeal
         }

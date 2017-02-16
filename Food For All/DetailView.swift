@@ -117,7 +117,7 @@ extension DetailView {
 //gig items
 extension DetailView {
     fileprivate func ratingItemSetup() {
-        theRatingView = RatingItemView(numOfReviews: 50, avgStars: 2.5)
+        theRatingView = RatingItemView(numOfReviews: 0, avgStars: 0)
         theContentView.addSubview(theRatingView)
         theRatingView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theDescriptionLabel)
