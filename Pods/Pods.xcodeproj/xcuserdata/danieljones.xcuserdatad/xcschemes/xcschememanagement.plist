@@ -94,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,6 +117,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0E4A75C6050D53461E1DBA1391BC4401</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>164CDBBA0BD9C30CAAB82943AEFE4B5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1F256073BB374901A9493B7883EFD39F</key>
 		<dict>
 			<key>primary</key>
@@ -123,11 +138,6 @@
 			<true/>
 		</dict>
 		<key>29C18041B449DE70A5234856E149C939</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>34337B3B501995C29A8B3E7571C3EEB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,22 +157,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58D25ED9C27CDAD834BD4FCC9FE7C23A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A125F6E38957953328232D83741A1E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5DB499EB898E52D23FA69E8929CD9D55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F7D4F0EA6C4DC99AD284D0B089E1B0E</key>
+		<key>62F0B300B245C90B092E13201D2A165C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64E0E7450CEFB0C9EAB9906531DEE679</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -173,16 +178,6 @@
 			<true/>
 		</dict>
 		<key>891841C3419A52929FB5D16A575798DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9022F428800709A578E29F18DFBD3B34</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>91C56B6EDB9B1557795CF9189654BA07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,11 +197,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A75EE48C1D5DD1EDEB4D3388BBDBF79B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>AB81ADA0D9C9F26DF9B165D1FD7647EB</key>
 		<dict>
 			<key>primary</key>
@@ -222,12 +212,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C299EC3680066D5ABCC56E880A755465</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C942E0F5AD26245C54BEAA555EDCF686</key>
+		<key>CF4CA72FCC11D0D910323DAA6DB1D7F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -512,7 +512,7 @@
 			children = (
 				92F86B1E1E53677E00BF8CF7 /* Cosmos */,
 				92B3E4591E4F88AF00FD2042 /* All Reviews */,
-				92F86B211E53D25900BF8CF7 /* New Review */,
+				92F86B211E53D25900BF8CF7 /* Review Forms */,
 			);
 			name = Reviews;
 			sourceTree = "<group>";
@@ -773,15 +773,14 @@
 			name = Cosmos;
 			sourceTree = "<group>";
 		};
-		92F86B211E53D25900BF8CF7 /* New Review */ = {
+		92F86B211E53D25900BF8CF7 /* Review Forms */ = {
 			isa = PBXGroup;
 			children = (
 				923A8CE51E54D3B700F1BFCA /* Data Store */,
 				92F86B2B1E55610400BF8CF7 /* Editing */,
-				92F86B221E53D28700BF8CF7 /* NewRatingViewController.swift */,
-				92F86B241E53D31D00BF8CF7 /* NewRatingView.swift */,
+				92F86B311E560DB000BF8CF7 /* New Rating */,
 			);
-			name = "New Review";
+			name = "Review Forms";
 			sourceTree = "<group>";
 		};
 		92F86B261E552D9400BF8CF7 /* Data Store */ = {
@@ -807,6 +806,15 @@
 				92F86B2F1E55633700BF8CF7 /* EditRatingDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		92F86B311E560DB000BF8CF7 /* New Rating */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B221E53D28700BF8CF7 /* NewRatingViewController.swift */,
+				92F86B241E53D31D00BF8CF7 /* NewRatingView.swift */,
+			);
+			name = "New Rating";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

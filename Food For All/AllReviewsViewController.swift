@@ -152,10 +152,7 @@ extension AllReviewsViewController: NewRatingVCDelegate, EditRatingVCDelegate {
     }
     
     func update(review: Review) {
-        let index: Int? = reviews.index(where: { (r: Review) -> Bool in
-            return r == review
-        })
-        if let index = index {
+        if let index = getIndexOf(review: review) {
             //move the review to the top
             reviews.remove(at: index)
             add(review: review)
@@ -163,7 +160,17 @@ extension AllReviewsViewController: NewRatingVCDelegate, EditRatingVCDelegate {
     }
     
     func remove(review: Review) {
-        
+        if let index = getIndexOf(review: review) {
+            reviews.remove(at: index)
+            theTableView.reloadData()
+        }
+    }
+    
+    fileprivate func getIndexOf(review: Review) -> Int? {
+        let index: Int? = reviews.index(where: { (r: Review) -> Bool in
+            return r == review
+        })
+        return index
     }
 }
 

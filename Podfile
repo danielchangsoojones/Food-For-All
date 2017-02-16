@@ -21,6 +21,7 @@ target 'Food For All' do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'Cosmos', '~> 8.0'
   pod 'NextGrowingTextView'
+  pod 'SCLAlertView'
 
 end
 

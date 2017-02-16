@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 protocol EditRatingVCDelegate: NewRatingVCDelegate {
     func update(review: Review)
@@ -35,6 +36,7 @@ class EditingRatingViewController: NewRatingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setContent()
+        rightBarButtonSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,5 +56,25 @@ class EditingRatingViewController: NewRatingViewController {
     
     override func updateDelegate(review: Review) {
         editDelegate?.update(review: review)
+    }
+}
+
+//nav bar extension
+extension EditingRatingViewController {
+    fileprivate func rightBarButtonSetup() {
+        let button = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteReview))
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    func deleteReview() {
+        let alertView = SCLAlertView()
+        alertView.addButton("Delete") {
+            self.editDelegate?.remove(review: self.review)
+            if let dataStore = self.dataStore as? EditRatingDataStore {
+                dataStore.delete(review: self.review)
+            }
+            self.popVC()
+        }
+        alertView.showWarning("Delete Review", subTitle: "Are you sure you want to delete this review?")
     }
 }

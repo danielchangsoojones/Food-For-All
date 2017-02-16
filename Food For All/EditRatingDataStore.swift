@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol EditRatingDataStoreDelegate {
-    func remove(review: Review)
-}
-
 class EditRatingDataStore: NewRatingDataStore {
     override func save(review: Review) {
         let r = review.reviewParse
@@ -25,5 +21,11 @@ class EditRatingDataStore: NewRatingDataStore {
                 self.delegate?.savingErrorOccurred()
             }
         })
+    }
+    
+    func delete(review: Review) {
+        if let r = review.reviewParse {
+            r.deleteInBackground()
+        }
     }
 }
