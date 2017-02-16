@@ -18,7 +18,9 @@ class Gig {
     
     var phoneNumber: Double = 0
     var phoneNumberString: String {
-        return Int(phoneNumber).toString
+        let str = phoneNumber.toString
+        let phoneString = str.replacingOccurrences(of: ".0", with:"")
+        return phoneString
     }
     
     var creator: Person = Person.current()

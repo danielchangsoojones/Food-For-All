@@ -38,7 +38,8 @@ class NewReviewTests: XCTestCase {
     }
     
     fileprivate func getValidData(text: String, rating: Double) -> Bool {
-        let newRatingVC = NewRatingViewController()
+        let gig = Gig()
+        let newRatingVC = NewRatingViewController(gig: gig)
         _ = newRatingVC.view
         newRatingVC.theTextView.text = text
         newRatingVC.theStarsView.rating = rating
