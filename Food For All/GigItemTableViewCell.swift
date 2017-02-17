@@ -1,19 +1,19 @@
 //
-//  GigItemView.swift
+//  GigItemTableViewCell.swift
 //  Food For All
 //
-//  Created by Daniel Jones on 2/6/17.
+//  Created by Daniel Jones on 2/16/17.
 //  Copyright © 2017 Chong500Productions. All rights reserved.
 //
 
 import UIKit
 
-class GigItemView: UIView {
+class GigItemTableViewCell: UITableViewCell {
     var theElementView: UIView!
     var theAccessoryView: UIView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(style: .default, reuseIdentifier: "gigItemCell")
         elementViewSetup()
         accessoryViewSetup()
         bottomLineSetup()
@@ -34,7 +34,7 @@ class GigItemView: UIView {
         self.addSubview(theElementView)
         theElementView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().inset(DetailView.Constants.sideInset)
         }
     }
     
@@ -52,7 +52,7 @@ class GigItemView: UIView {
         self.addSubview(theAccessoryView)
         theAccessoryView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().inset(DetailView.Constants.sideInset)
             make.width.height.equalTo(20)
         }
     }
@@ -67,5 +67,4 @@ class GigItemView: UIView {
             make.height.equalTo(1)
         }
     }
-
 }

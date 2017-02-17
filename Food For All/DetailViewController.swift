@@ -36,7 +36,6 @@ class DetailViewController: UIViewController {
         viewSetup()
         dataStoreSetup()
         setContents()
-        descriptionSetup()
         colorPriceLabel()
     }
     
@@ -55,14 +54,9 @@ class DetailViewController: UIViewController {
         self.view = detailView
         theNameLabel = detailView.theNameLabel
         theProfileImageView = detailView.theProfileImageView
-        theDescriptionLabel = detailView.theDescriptionLabel
-        theTitleLabel = detailView.theTitleLabel
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
-        detailView.theRatingView.addTapGesture(target: self, action: #selector(reviewCellTapped))
-        theReviewCell = detailView.theRatingView
         theTableView = detailView.theTableView
         theTableView.delegate = self
         theTableView.dataSource = self

@@ -10,8 +10,6 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
-		921C798C1E49853400D9396B /* GigItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798B1E49853400D9396B /* GigItemView.swift */; };
-		921C798E1E4A7B6400D9396B /* VenmoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C798D1E4A7B6400D9396B /* VenmoItemView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -49,7 +47,6 @@
 		92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C41E42D31400F6358E /* ServiceFormViewController.swift */; };
 		92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C81E43E09900F6358E /* PricingFormViewController.swift */; };
 		92B3E44F1E4ED4A100FD2042 /* CreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */; };
-		92B3E4511E4F716400FD2042 /* RatingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4501E4F716400FD2042 /* RatingItemView.swift */; };
 		92B3E4541E4F837B00FD2042 /* AllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4531E4F837B00FD2042 /* AllReviewsViewController.swift */; };
 		92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */; };
 		92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */; };
@@ -119,8 +116,6 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-		921C798B1E49853400D9396B /* GigItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigItemView.swift; sourceTree = "<group>"; };
-		921C798D1E4A7B6400D9396B /* VenmoItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoItemView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -162,7 +157,6 @@
 		92B3E4431E4ED28600FD2042 /* Food For AllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food For AllTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B3E4471E4ED28700FD2042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B3E44E1E4ED4A100FD2042 /* CreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTests.swift; sourceTree = "<group>"; };
-		92B3E4501E4F716400FD2042 /* RatingItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingItemView.swift; sourceTree = "<group>"; };
 		92B3E4531E4F837B00FD2042 /* AllReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsViewController.swift; sourceTree = "<group>"; };
 		92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsView.swift; sourceTree = "<group>"; };
 		92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -287,9 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				92F86B3A1E56716F00BF8CF7 /* Data */,
-				921C798B1E49853400D9396B /* GigItemView.swift */,
-				921C798D1E4A7B6400D9396B /* VenmoItemView.swift */,
-				92B3E4501E4F716400FD2042 /* RatingItemView.swift */,
 				92F86B341E56707100BF8CF7 /* GigItemTableViewCell.swift */,
 				92F86B361E5670EC00BF8CF7 /* VenmoTableViewCell.swift */,
 				92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */,
@@ -1090,7 +1081,6 @@
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
-				921C798E1E4A7B6400D9396B /* VenmoItemView.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
@@ -1114,14 +1104,12 @@
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
-				921C798C1E49853400D9396B /* GigItemView.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
 				92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,
-				92B3E4511E4F716400FD2042 /* RatingItemView.swift in Sources */,
 				92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */,
