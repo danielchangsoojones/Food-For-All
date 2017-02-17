@@ -9,9 +9,14 @@
 import UIKit
 
 class FriendCollectionViewCell: UICollectionViewCell {
+    var friend: MutualFriend? {
+        didSet {
+            addProfile(friend: friend!)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addFriendProfile()
     }
     
     static var reuseIdentifier: String = "friendCollectionViewCell"
@@ -20,8 +25,8 @@ class FriendCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func addFriendProfile() {
-        let profileView = CircleProfileView(frame: self.frame, name: "Daniel", imageFile: Person.current().profileImage)
+    fileprivate func addProfile(friend: MutualFriend) {
+        let profileView = CircleProfileView(frame: self.frame, name: friend.firstName, imageFile: friend.profileImage as AnyObject?)
         self.addSubview(profileView)
         profileView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

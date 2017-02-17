@@ -35,8 +35,8 @@ class GigDetailData {
         return RatingTableViewCell(numOfReviews: gig.numOfReviews, avgStars: gig.avgStars)
     }
     
-    func createMutualFriendsCell() -> MutualFriendTableViewCell {
-        return MutualFriendTableViewCell()
+    func createMutualFriendsCell(numOfFriends: Int) -> MutualFriendTableViewCell {
+        return MutualFriendTableViewCell(numOfFriends: numOfFriends)
     }
     
     func createVenmoCell() -> VenmoTableViewCell {
@@ -52,4 +52,9 @@ enum GigItemType: Int {
     case venmo = 3
     
     static let mandatory: [GigItemType] = [.information, .review, .venmo]
+    static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {
+        var arrayCopy = array
+        arrayCopy.insert(type, at: type.rawValue)
+        return arrayCopy
+    }
 }

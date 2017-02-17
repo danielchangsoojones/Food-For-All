@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     var gig: Gig!
     var dataStore: DetailDataStore!
     var cellTypes: [GigItemType] = GigItemType.mandatory
+    var mutualFriends: [MutualFriend] = []
+    var totalMutualFriends: Int = 0
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +40,6 @@ class DetailViewController: UIViewController {
         dataStoreSetup()
         setContents()
         colorPriceLabel()
-        dataStore.getMutualFriends(creator: gig.creator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +71,8 @@ class DetailViewController: UIViewController {
     
     fileprivate func dataStoreSetup() {
         dataStore = DetailDataStore()
+        dataStore.delegate = self
+        dataStore.getMutualFriends(creator: gig.creator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +97,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .review:
             cell = data.createReviewCell(gig: gig)
         case .mutualFriends:
-            cell = data.createMutualFriendsCell()
+            let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
+            friendCell.mutualFriends = self.mutualFriends
+            cell = friendCell
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -181,6 +186,17 @@ extension DetailViewController {
         let allReviewsVC = AllReviewsViewController(gig: gig)
         allReviewsVC.gig = gig
         pushVC(allReviewsVC)
+    }
+}
+
+extension DetailViewController: DetailDataStoreDelegate {
+    func received(mutualFriends: [MutualFriend], totalCount: Int) {
+        if !mutualFriends.isEmpty {
+            self.mutualFriends = mutualFriends
+            self.totalMutualFriends = totalCount
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .mutualFriends) //display the mutual friends cell, since they have them.
+            theTableView.reloadData()
+        }
     }
 }
 

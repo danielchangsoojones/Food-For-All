@@ -12,9 +12,11 @@ class MutualFriendTableViewCell: UITableViewCell {
     var theCollectionView: UICollectionView!
     var theHeadingLabel: UILabel!
     
-    init() {
+    var mutualFriends: [MutualFriend] = []
+    
+    init(numOfFriends: Int) {
         super.init(style: .default, reuseIdentifier: "mutualFriendCell")
-        headingSetup()
+        headingSetup(numOfFriends: numOfFriends)
         collectionViewSetup()
         bottomLineSetup()
     }
@@ -33,9 +35,9 @@ class MutualFriendTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate func headingSetup() {
+    fileprivate func headingSetup(numOfFriends: Int) {
         theHeadingLabel = UILabel()
-        theHeadingLabel.text = "Mutual Friends"
+        theHeadingLabel.text = "\(numOfFriends) Mutual Friends"
         theHeadingLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
         self.addSubview(theHeadingLabel)
         theHeadingLabel.snp.makeConstraints { (make) in
@@ -72,15 +74,12 @@ extension MutualFriendTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return mutualFriends.count
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.reuseIdentifier, for: indexPath) as! FriendCollectionViewCell
+        cell.friend = mutualFriends[indexPath.row]
         return cell
     }
 }

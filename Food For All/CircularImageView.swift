@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
 
 class CircularImageView: CircleView {
     var theImageView = UIImageView()
+    //downloader needs to be global variable, or else the function will deallocate it.
+    let downloader = ImageDownloader()
     
     init(file: AnyObject?, diameter: CGFloat) {
         let noVisibleImageColor : UIColor = CustomColors.Polar.withAlphaComponent(0.75)
@@ -18,6 +21,8 @@ class CircularImageView: CircleView {
         imageViewSetup(diameter)
         if let image = file as? UIImage {
             theImageView.image = image
+        } else if let url = file as? String {
+            loadFrom(urlString: url)
         } else {
             theImageView.loadFromFile(file)
         }
@@ -42,5 +47,16 @@ class CircularImageView: CircleView {
     
     func update(image: UIImage) {
         theImageView.image = image
+    }
+    
+    func loadFrom(urlString: String) {
+        if let url = URL(string: urlString) {
+            let urlRequest = URLRequest(url: url)
+            downloader.download(urlRequest) { response in
+                if let image = response.result.value {
+                    self.theImageView.image = image
+                }
+            }
+        }
     }
 }
