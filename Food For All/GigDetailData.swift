@@ -51,5 +51,5 @@ enum GigItemType: Int {
     case mutualFriends = 2
     case venmo = 3
     
-    static let all: [GigItemType] = [.information, .review, .mutualFriends, .venmo]
+    static let mandatory: [GigItemType] = [.information, .review, .venmo]
 }

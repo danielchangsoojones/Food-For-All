@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     
     var gig: Gig!
     var dataStore: DetailDataStore!
+    var cellTypes: [GigItemType] = GigItemType.mandatory
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -78,12 +79,12 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GigItemType.all.count
+        return cellTypes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentRow = indexPath.row
-        let type = GigItemType.all[currentRow]
+        let type = cellTypes[currentRow]
         let data = GigDetailData(type: type)
         var cell: UITableViewCell = UITableViewCell()
         switch type {
@@ -103,10 +104,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let currentRow = indexPath.row
-        if let type = GigItemType(rawValue: currentRow) {
-            return GigDetailData(type: type).cellHeight
-        }
-        return 0
+        let type = cellTypes[currentRow]
+        return GigDetailData(type: type).cellHeight
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,7 +113,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = GigItemType.all[indexPath.row]
+        let type = cellTypes[indexPath.row]
         switch type {
         case .review:
             reviewCellTapped()
