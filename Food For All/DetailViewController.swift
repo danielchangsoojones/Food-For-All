@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     var thePriceLabel: UILabel!
     var theSpinnerContainer: UIView?
     var theReviewCell: UIView!
+    var theTableView: UITableView!
     
     var gig: Gig!
     var dataStore: DetailDataStore!
@@ -62,6 +63,9 @@ class DetailViewController: UIViewController {
         detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
         detailView.theRatingView.addTapGesture(target: self, action: #selector(reviewCellTapped))
         theReviewCell = detailView.theRatingView
+        theTableView = detailView.theTableView
+        theTableView.delegate = self
+        theTableView.dataSource = self
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -78,6 +82,54 @@ class DetailViewController: UIViewController {
     }
 }
 
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return GigItemType.all.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentRow = indexPath.row
+        let type = GigItemType.all[currentRow]
+        let data = GigDetailData(type: type)
+        var cell: UITableViewCell = UITableViewCell()
+        switch type {
+        case .information:
+            cell = data.createInformationCell(gig: gig)
+        case .review:
+            cell = data.createReviewCell(gig: gig)
+        case .venmo:
+            cell = data.createVenmoCell()
+        }
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let currentRow = indexPath.row
+        if let type = GigItemType(rawValue: currentRow) {
+            return GigDetailData(type: type).cellHeight
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = GigItemType.all[indexPath.row]
+        switch type {
+        case .review:
+            reviewCellTapped()
+        case .venmo:
+            venmoTapped()
+        default:
+            break
+        }
+    }
+}
+
 //set contents
 extension DetailViewController {
     fileprivate func setContents() {
@@ -85,20 +137,6 @@ extension DetailViewController {
         if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
         }
-        theTitleLabel.text = gig.title
-        theDescriptionLabel.text = gig.description
-        setReviewContent()
-    }
-    
-    fileprivate func setReviewContent() {
-        if let reviewItem = theReviewCell as? RatingItemView {
-            reviewItem.set(numOfReviews: gig.numOfReviews)
-            reviewItem.set(stars: gig.avgStars)
-        }
-    }
-    
-    fileprivate func descriptionSetup() {
-        theDescriptionLabel.numberOfLines = 0
     }
     
     fileprivate func colorPriceLabel() {

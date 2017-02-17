@@ -17,6 +17,7 @@ class DetailView: CustomScrollerView {
     }
     
     var theTopView: UIView = UIView()
+    var theTableView: UITableView!
     var theNameLabel: UILabel = UILabel()
     var theProfileImageView: CircularImageView!
     var theTitleLabel: UILabel = UILabel()
@@ -37,7 +38,7 @@ class DetailView: CustomScrollerView {
         ratingItemSetup()
         venmoItemSetup()
         bottomViewSetup()
-        
+        tableViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -92,8 +93,20 @@ extension DetailView {
     }
 }
 
-//the details of the gig
+//the tableView
 extension DetailView {
+    func tableViewSetup() {
+        theTableView = UITableView()
+        theTableView.separatorStyle = .none
+        self.addSubview(theTableView)
+        theTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(theTopView.snp.bottom)
+            make.bottom.equalTo(theBottomView.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    
     fileprivate func titleSetup() {
         theTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         theContentView.addSubview(theTitleLabel)
