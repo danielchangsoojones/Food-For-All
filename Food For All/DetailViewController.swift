@@ -91,6 +91,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell = data.createInformationCell(gig: gig)
         case .review:
             cell = data.createReviewCell(gig: gig)
+        case .mutualFriends:
+            cell = data.createMutualFriendsCell()
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -147,7 +149,7 @@ extension DetailViewController {
 //button extensions
 extension DetailViewController {
     func exitButtonPressed(sender: UIButton) {
-        _ = self.navigationController?.popViewController(animated: true)
+        popVC()
     }
     
     func messageButtonPressed(sender: UIButton) {

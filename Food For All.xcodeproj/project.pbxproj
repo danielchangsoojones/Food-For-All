@@ -98,6 +98,9 @@
 		92F86B391E5670FA00BF8CF7 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */; };
 		92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B3B1E56718C00BF8CF7 /* GigDetailData.swift */; };
 		92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B3D1E5676F100BF8CF7 /* InformationTableViewCell.swift */; };
+		92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B411E568A9D00BF8CF7 /* CircleProfileView.swift */; };
+		92F86B441E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B431E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift */; };
+		92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B471E5693D000BF8CF7 /* FriendCollectionViewCell.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +211,9 @@
 		92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		92F86B3B1E56718C00BF8CF7 /* GigDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigDetailData.swift; sourceTree = "<group>"; };
 		92F86B3D1E5676F100BF8CF7 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		92F86B411E568A9D00BF8CF7 /* CircleProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProfileView.swift; sourceTree = "<group>"; };
+		92F86B431E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendTableViewCell.swift; sourceTree = "<group>"; };
+		92F86B471E5693D000BF8CF7 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				92F86B3A1E56716F00BF8CF7 /* Data */,
+				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
 				92F86B341E56707100BF8CF7 /* GigItemTableViewCell.swift */,
 				92F86B361E5670EC00BF8CF7 /* VenmoTableViewCell.swift */,
 				92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */,
@@ -834,6 +841,24 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B401E568A5800BF8CF7 /* Subviews */,
+				92F86B431E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift */,
+			);
+			name = "Mutual Friends";
+			sourceTree = "<group>";
+		};
+		92F86B401E568A5800BF8CF7 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B411E568A9D00BF8CF7 /* CircleProfileView.swift */,
+				92F86B471E5693D000BF8CF7 /* FriendCollectionViewCell.swift */,
+			);
+			name = Subviews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1047,7 +1072,9 @@
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */,
+				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B391E5670FA00BF8CF7 /* RatingTableViewCell.swift in Sources */,
+				92F86B441E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift in Sources */,
 				927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */,
 				92D12BB41E3066BD009AC99E /* AdmissionFormViewController.swift in Sources */,
 				92D199981E4586F700ABC255 /* ProfileViewController.swift in Sources */,
@@ -1105,6 +1132,7 @@
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
+				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
