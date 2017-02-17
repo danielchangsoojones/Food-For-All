@@ -41,7 +41,7 @@ class CircleProfileView: UIView {
         theNameLabel.font = UIFont.systemFont(ofSize: 15)
         self.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(circleView.snp.bottom)
+            make.top.equalTo(circleView.snp.bottom).offset(1)
             make.centerX.equalTo(self)
             make.width.lessThanOrEqualTo(circleView)
         }

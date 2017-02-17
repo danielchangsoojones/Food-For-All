@@ -20,6 +20,8 @@ class GigDetailData {
         switch type {
         case .information:
             return UITableViewAutomaticDimension
+        case .mutualFriends:
+            return 155
         default:
             return 70
         }
