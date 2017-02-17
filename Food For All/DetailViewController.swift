@@ -38,6 +38,7 @@ class DetailViewController: UIViewController {
         dataStoreSetup()
         setContents()
         colorPriceLabel()
+        dataStore.getMutualFriends(creator: gig.creator)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //already logged in
             toFrontPageVC()
         }
+        let detailDataStore = DetailDataStore()
+        detailDataStore.getMutualFriends(creator: Person.current())
         
         return true
     }

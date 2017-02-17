@@ -28,8 +28,9 @@ extension WelcomeDataStore {
         case publicProfile = "public_profile"
         case email
         case birthday = "user_birthday"
+        case friends = "user_friends"
         
-        static var all: [String] = [FBReadPermissions.publicProfile.rawValue, FBReadPermissions.email.rawValue, FBReadPermissions.birthday.rawValue]
+        static var all: [String] = [FBReadPermissions.publicProfile.rawValue, FBReadPermissions.email.rawValue, FBReadPermissions.birthday.rawValue, FBReadPermissions.friends.rawValue]
     }
     
     func accessFaceBook() {

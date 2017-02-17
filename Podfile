@@ -22,6 +22,7 @@ target 'Food For All' do
   pod 'Cosmos', '~> 8.0'
   pod 'NextGrowingTextView'
   pod 'SCLAlertView'
+  pod 'SwiftyJSON'
 
 end
 
