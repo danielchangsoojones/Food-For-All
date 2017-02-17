@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailView: CustomScrollerView {
+class DetailView: UIView {
     struct Constants {
         static let topViewHeight: CGFloat = 100
         static let spacing: CGFloat = 18
@@ -27,7 +27,6 @@ class DetailView: CustomScrollerView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
         topViewSetup()
         bottomViewSetup()
         tableViewSetup()
@@ -43,7 +42,7 @@ extension DetailView {
     fileprivate func topViewSetup() {
         theTopView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: Constants.topViewHeight)
         CustomColors.addGradient(colors: CustomColors.searchBarGradientColors, to: theTopView)
-        theContentView.addSubview(theTopView)
+        self.addSubview(theTopView)
         theTopView.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(Constants.topViewHeight)
@@ -109,7 +108,6 @@ extension DetailView {
         priceLabelSetup()
         messageButtonSetup()
         addLineToBottomView()
-        theScrollView.contentInset.bottom = height
         theBottomView.backgroundColor = UIColor.white
     }
     
