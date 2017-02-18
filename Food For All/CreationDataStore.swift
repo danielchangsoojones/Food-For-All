@@ -44,7 +44,7 @@ class CreationDataStore {
         PFObject.saveAll(inBackground: objects)
     }
     
-    fileprivate func saveDetailPhotos(gig: Gig) -> [GigDetailPhoto] {
+    func saveDetailPhotos(gig: Gig) -> [GigDetailPhoto] {
         let detailPhotos: [GigDetailPhoto] = gig.photos.map { (photo: GigPhoto) -> GigDetailPhoto in
             let detailPhoto = photo.gigDetailPhoto
             detailPhoto.update(from: photo)

@@ -13,6 +13,10 @@ class EditingGigDataStore: CreationDataStore {
     override func save(gig: Gig) {
         let g = gig.gigParse
         g.updateFrom(gig: gig)
+        let photos = saveDetailPhotos(gig: gig)
+        var objects: [PFObject] = [g]
+        objects.append(contentsOf: photos as [PFObject])
+        PFObject.saveAll(inBackground: objects)
         g.saveInBackground()
         delegate?.finishedSaving(gig: gig)
     }
