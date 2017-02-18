@@ -120,7 +120,7 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
 extension PhotosFormViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isCreationCell(row: indexPath.row) {
-            Helpers.showNewPhotoChoices(vc: self)
+            Helpers.showNewPhotoChoices(vc: self, shouldCrop: true)
         } else {
             showExistingPhotoAlert(row: indexPath.row)
         }
@@ -141,5 +141,26 @@ extension PhotosFormViewController {
     
     fileprivate func deletePhoto(at: Int) {
         
+    }
+}
+
+extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if picture == nil {
+            picture = info[UIImagePickerControllerEditedImage] as? UIImage
+        } else if let picture = picture {
+            var image: UIImage = picture
+            let divider: CGFloat = picture.size.width / 300 //how big we want the resized image to be
+            if divider > 1 {
+                image = Camera.resize(image: picture, targetSize: CGSize(width: picture.size.width / divider, height: picture.size.height / divider)) //resize the image if it is massive. divider > 1 because if it is a small image, then we don't want to resize it. Only big images.
+                print(image.size)
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imageWasPicked(image: UIImage) {
+        print("successfully passed iamge")
     }
 }

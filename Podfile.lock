@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.3.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - ALCameraViewController (1.2.7)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -40,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - AlamofireImage (~> 3.1)
+  - ALCameraViewController
   - BRYXBanner
   - Cosmos (~> 8.0)
   - EZSwiftExtensions
@@ -69,6 +71,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
@@ -89,6 +92,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
 
-PODFILE CHECKSUM: fbe24b6371574a405e072101f896dea67d573862
+PODFILE CHECKSUM: 750fd0e60bc4cacd9289e48968941a8702879559
 
 COCOAPODS: 1.1.1

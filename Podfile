@@ -24,6 +24,7 @@ target 'Food For All' do
   pod 'SCLAlertView'
   pod 'SwiftyJSON'
   pod 'RAReorderableLayout'
+  pod 'ALCameraViewController'
 
 end
 

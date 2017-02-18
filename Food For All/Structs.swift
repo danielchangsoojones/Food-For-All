@@ -165,16 +165,28 @@ struct Helpers {
         return 0
     }
     
-    static func showNewPhotoChoices(vc: UIViewController) {
+    static func showNewPhotoChoices(vc: UIViewController, shouldCrop: Bool = false) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (alertAction: UIAlertAction) in
-            _ = Camera.shouldStartPhotoLibrary(target: vc as AnyObject, canEdit: false)
+            if shouldCrop {
+                if let delegate = vc as? CameraDelegate {
+                    Camera(delegate: delegate).presentCroppingPhotoLibraryVC(target: vc)
+                }
+            } else {
+                _ = Camera.shouldStartPhotoLibrary(target: vc as AnyObject, canEdit: false)
+            }
         }
         
         let cameraAction = UIAlertAction(title: "Take Photo", style: .default) { (alertAction: UIAlertAction) in
             //If you are on mac simulator, then the camera crashes because mac doesn't have a camera on simulator, only photo library.
-            _ = Camera.shouldStartCamera(target: vc, canEdit: false, frontFacing: true)
+            if shouldCrop {
+                if let delegate = vc as? CameraDelegate {
+                    Camera(delegate: delegate).presentCroppingCameraVC(target: vc)
+                }
+            } else {
+                _ = Camera.shouldStartCamera(target: vc, canEdit: false, frontFacing: true)
+            }
         }
         
         alert.addAction(photoLibraryAction)
