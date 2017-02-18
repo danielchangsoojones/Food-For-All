@@ -108,7 +108,6 @@
 		92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B561E58963F00BF8CF7 /* GigPhoto.swift */; };
 		92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */; };
 		92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B5E1E58A34500BF8CF7 /* HintCollectionViewFooter.swift */; };
-		92F86B621E58C60300BF8CF7 /* PhotosFormDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B611E58C60300BF8CF7 /* PhotosFormDataStore.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -229,7 +228,6 @@
 		92F86B561E58963F00BF8CF7 /* GigPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhoto.swift; sourceTree = "<group>"; };
 		92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigDetailPhoto.swift; sourceTree = "<group>"; };
 		92F86B5E1E58A34500BF8CF7 /* HintCollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintCollectionViewFooter.swift; sourceTree = "<group>"; };
-		92F86B611E58C60300BF8CF7 /* PhotosFormDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosFormDataStore.swift; sourceTree = "<group>"; };
 		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -878,7 +876,6 @@
 		92F86B4C1E57FF4C00BF8CF7 /* Detail Photos */ = {
 			isa = PBXGroup;
 			children = (
-				92F86B601E58C5EF00BF8CF7 /* Data Store */,
 				92F86B511E5804C800BF8CF7 /* Cell */,
 				92F86B4D1E57FF8500BF8CF7 /* PhotosFormViewController.swift */,
 			);
@@ -921,14 +918,6 @@
 				92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */,
 			);
 			name = Photos;
-			sourceTree = "<group>";
-		};
-		92F86B601E58C5EF00BF8CF7 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				92F86B611E58C60300BF8CF7 /* PhotosFormDataStore.swift */,
-			);
-			name = "Data Store";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1202,7 +1191,6 @@
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
-				92F86B621E58C60300BF8CF7 /* PhotosFormDataStore.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,

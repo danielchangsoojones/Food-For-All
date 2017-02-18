@@ -95,7 +95,7 @@ extension CreationData {
             let lastNameExists: Bool = gig.creator.lastName?.isNotEmpty ?? false
             isComplete = PhoneValidator.isValidPhoneNumber(phoneString: phoneString) && firstNameExists && lastNameExists
         case .photos:
-            break
+            isComplete = true
         }
         
         return isComplete

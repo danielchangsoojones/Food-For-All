@@ -15,8 +15,6 @@ class PhotosFormViewController: UIViewController {
     var photos: [GigPhoto] = []
     var gig: Gig?
     
-    var dataStore: PhotosFormDataStore = PhotosFormDataStore()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewSetup()
@@ -172,6 +170,12 @@ extension PhotosFormViewController {
         photos.remove(at: index)
         reloadCollection()
     }
+    
+    fileprivate func decrementPositions() {
+        for photo in photos {
+            photo.position -= 1
+        }
+    }
 }
 
 extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraDelegate {
@@ -204,12 +208,6 @@ extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigati
     fileprivate func incrementPositions() {
         for photo in photos {
             photo.position += 1
-        }
-    }
-    
-    fileprivate func decrementPositions() {
-        for photo in photos {
-            photo.position -= 1
         }
     }
     
