@@ -158,7 +158,10 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
             case .contact:
                 destinationVC = CreationData().contact.destinationVC
             case .photos:
-                destinationVC = CreationData().photos.destinationVC
+                if let photosVC = CreationData().photos.destinationVC as? PhotosFormViewController {
+                    photosVC.gig = self.gig
+                    destinationVC = photosVC
+                }
             }
         }
         

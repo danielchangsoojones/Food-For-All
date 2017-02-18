@@ -15,10 +15,15 @@ class GigPhoto {
     var fullImageFile: Any?
     
     var smallImage: UIImage?
+    private var _fullImage: UIImage?
     var fullImage: UIImage? {
-        didSet {
-            if let fullImage = fullImage {
-                smallImage = Camera.resize(image: fullImage, targetSize: CGSize(width: 100, height: 100))
+        get {
+            return _fullImage
+        }
+        set (newValue) {
+            if let newValue = newValue {
+                _fullImage = Camera.resize(image: newValue, targetSize: CGSize(width: 150, height: 150))
+                smallImage = Camera.resize(image: newValue, targetSize: CGSize(width: 50, height: 50))
             }
         }
     }

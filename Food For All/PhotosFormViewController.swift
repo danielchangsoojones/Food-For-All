@@ -10,11 +10,12 @@ import UIKit
 import RAReorderableLayout
 
 class PhotosFormViewController: UIViewController {
-    
     var collectionView: UICollectionView!
     
     var photos: [GigPhoto] = []
     var gig: Gig?
+    
+    var dataStore: PhotosFormDataStore = PhotosFormDataStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,6 +193,7 @@ extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigati
             photo.wasEdited = true
             photos.insertAsFirst(photo)
             reloadCollection()
+            dataStore.saveNew(photo: photo)
         }
     }
     
