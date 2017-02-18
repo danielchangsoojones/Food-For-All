@@ -32,6 +32,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         imageView.image = image
     }
     
+    func update(file: Any?) {
+        imageView.loadFromFile(file as AnyObject?)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds

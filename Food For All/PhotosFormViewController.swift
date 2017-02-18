@@ -124,6 +124,8 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
             let photo = photos[indexPath.row - 1] //acounting for the initial creation cell
             if let image = photo.smallImage {
                 photoCell.update(image: image)
+            } else if let file = photo.smallImageFile {
+                photoCell.update(file: file)
             }
             cell = photoCell
         }
