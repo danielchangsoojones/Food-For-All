@@ -38,6 +38,7 @@ class GigPhoto {
     }
     
     init(gigDetailPhoto p: GigDetailPhoto, gig: Gig) {
+        gigDetailPhoto = p
         smallImageFile = p.smallImageFile
         fullImageFile = p.fullImageFile
         position = p.position
