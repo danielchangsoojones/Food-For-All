@@ -13,16 +13,13 @@ class PhotosFormViewController: UIViewController {
     
     var collectionView: UICollectionView!
     
-    var imagesForSection0: [UIImage] = []
+    var photos: [GigPhoto] = []
+    var gig: Gig?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewSetup()
-        
-        for _ in 0..<18 {
-            let image = #imageLiteral(resourceName: "EmptyStar")
-            imagesForSection0.append(image)
-        }
+        self.view.backgroundColor = UIColor.white
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,6 +32,7 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     fileprivate func collectionViewSetup() {
         let layout = RAReorderableLayout()
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = CustomColors.BombayGray.withAlphaComponent(0.22)
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.cellIdentifier)
         collectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: NewPhotoCollectionViewCell.identifier)
         collectionView.delegate = self
@@ -66,7 +64,7 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagesForSection0.count
+        return photos.count + 1 //acount for initial creation cell
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,7 +73,10 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewPhotoCollectionViewCell.identifier, for: indexPath) as! NewPhotoCollectionViewCell
         } else {
             let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.cellIdentifier, for: indexPath) as! PhotoCollectionViewCell
-            photoCell.imageView.image = imagesForSection0[(indexPath as NSIndexPath).item]
+            let photo = photos[indexPath.row - 1] //acounting for the initial creation cell
+            if let image = photo.smallImage {
+                photoCell.update(image: image)
+            }
             cell = photoCell
         }
         
@@ -100,8 +101,11 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     }
     
     func collectionView(_ collectionView: UICollectionView, at atIndexPath: IndexPath, didMoveTo toIndexPath: IndexPath) {
-        let photo = imagesForSection0.remove(at: (atIndexPath as NSIndexPath).item)
-        imagesForSection0.insert(photo, at: (toIndexPath as NSIndexPath).item)
+        //Acount for the creation cell
+        let toIndex = toIndexPath.row - 1
+        let fromIndex = atIndexPath.row - 1
+        let photo = photos.remove(at: fromIndex)
+        photos.insert(photo, at: toIndex)
     }
     
     func scrollTrigerEdgeInsetsInCollectionView(_ collectionView: UICollectionView) -> UIEdgeInsets {
@@ -140,7 +144,10 @@ extension PhotosFormViewController {
     }
     
     fileprivate func deletePhoto(at: Int) {
-        
+        //TODO: delete with datastore
+        let index = at - 1 //Account for creation cell
+        photos.remove(at: index)
+        reloadCollection()
     }
 }
 
@@ -161,6 +168,18 @@ extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigati
     }
     
     func imageWasPicked(image: UIImage) {
-        print("successfully passed iamge")
+        if let gig = gig {
+            let photo = GigPhoto(parent: gig)
+            photo.position = 0
+            photo.fullImage = image
+            photo.wasEdited = true
+            photos.insertAsFirst(photo)
+            reloadCollection()
+        }
+    }
+    
+    func reloadCollection() {
+        //reloading a single section gives a nice animation, and I only have 1 anyway
+        collectionView.reloadSections(IndexSet(integer: 0))
     }
 }

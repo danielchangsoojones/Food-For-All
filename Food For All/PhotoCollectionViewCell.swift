@@ -28,6 +28,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         configure()
     }
     
+    func update(image: UIImage) {
+        imageView.image = image
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds
