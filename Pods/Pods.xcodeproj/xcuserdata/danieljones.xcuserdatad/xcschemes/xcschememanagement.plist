@@ -2,14 +2,127 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BRYXBanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Bolts-Tasks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EZSwiftExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Former.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NextGrowingTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse-iOS10.2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse-iOS9.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ParseFacebookUtilsV4.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ParseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Food For All.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Food For AllTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Timepiece.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E4A75C6050D53461E1DBA1391BC4401</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>164CDBBA0BD9C30CAAB82943AEFE4B5E</key>
+		<key>076615EAD9E2FF1606746F894E6054F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -25,11 +138,6 @@
 			<true/>
 		</dict>
 		<key>29C18041B449DE70A5234856E149C939</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EE70BFA92048E5158F5ADDAAED82C63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -54,16 +162,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62F0B300B245C90B092E13201D2A165C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64E0E7450CEFB0C9EAB9906531DEE679</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
 		<dict>
 			<key>primary</key>
@@ -74,7 +172,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95358995DF058064D7B225C289AF932F</key>
+		<key>8B475CBCE98A60CCD0A21539CA35DFF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F23FFFBBC0128FB06B3A794576D9A63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -99,6 +202,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>ABFB5C05180658F16D5ABAAE0331295C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BB5A97D8F6B074BA2676782097620F9B</key>
 		<dict>
 			<key>primary</key>
@@ -109,7 +217,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF4CA72FCC11D0D910323DAA6DB1D7F9</key>
+		<key>C2CD7AB2BA271C2FE2FE83B9B337D4AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -119,12 +227,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB1391C446D8A69DB12958BF02EE5F5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F300381DE4FDAEB9E49DBF3C120EDEAF</key>
+		<key>F3C4ADD551AD9FF8B7FD9FFA4A534F75</key>
 		<dict>
 			<key>primary</key>
 			<true/>

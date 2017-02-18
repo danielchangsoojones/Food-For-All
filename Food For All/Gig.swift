@@ -63,9 +63,9 @@ class Gig {
         setGigImage()
     }
     
-    convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
-        self.init(gigParse: gigParse)
-    }
+//    convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
+//        self.init(gigParse: gigParse)
+//    }
     
     fileprivate func setGigImage() {
         //Either set the image as the gig image, but if non-existent, then use their profile image

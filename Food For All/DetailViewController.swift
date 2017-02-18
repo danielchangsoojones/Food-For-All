@@ -17,9 +17,13 @@ class DetailViewController: UIViewController {
     var thePriceLabel: UILabel!
     var theSpinnerContainer: UIView?
     var theReviewCell: UIView!
+    var theTableView: UITableView!
     
     var gig: Gig!
     var dataStore: DetailDataStore!
+    var cellTypes: [GigItemType] = GigItemType.mandatory
+    var mutualFriends: [MutualFriend] = []
+    var totalMutualFriends: Int = 0
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +39,6 @@ class DetailViewController: UIViewController {
         viewSetup()
         dataStoreSetup()
         setContents()
-        descriptionSetup()
         colorPriceLabel()
     }
     
@@ -54,14 +57,12 @@ class DetailViewController: UIViewController {
         self.view = detailView
         theNameLabel = detailView.theNameLabel
         theProfileImageView = detailView.theProfileImageView
-        theDescriptionLabel = detailView.theDescriptionLabel
-        theTitleLabel = detailView.theTitleLabel
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theVenmoView.addTapGesture(target: self, action: #selector(venmoTapped))
-        detailView.theRatingView.addTapGesture(target: self, action: #selector(reviewCellTapped))
-        theReviewCell = detailView.theRatingView
+        theTableView = detailView.theTableView
+        theTableView.delegate = self
+        theTableView.dataSource = self
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -70,11 +71,63 @@ class DetailViewController: UIViewController {
     
     fileprivate func dataStoreSetup() {
         dataStore = DetailDataStore()
+        dataStore.delegate = self
+        dataStore.getMutualFriends(creator: gig.creator)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellTypes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentRow = indexPath.row
+        let type = cellTypes[currentRow]
+        let data = GigDetailData(type: type)
+        var cell: UITableViewCell = UITableViewCell()
+        switch type {
+        case .information:
+            cell = data.createInformationCell(gig: gig)
+        case .review:
+            cell = data.createReviewCell(gig: gig)
+        case .mutualFriends:
+            let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
+            friendCell.mutualFriends = self.mutualFriends
+            cell = friendCell
+        case .venmo:
+            cell = data.createVenmoCell()
+        }
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let currentRow = indexPath.row
+        let type = cellTypes[currentRow]
+        return GigDetailData(type: type).cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = cellTypes[indexPath.row]
+        switch type {
+        case .review:
+            reviewCellTapped()
+        case .venmo:
+            venmoTapped()
+        default:
+            break
+        }
     }
 }
 
@@ -85,20 +138,6 @@ extension DetailViewController {
         if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
         }
-        theTitleLabel.text = gig.title
-        theDescriptionLabel.text = gig.description
-        setReviewContent()
-    }
-    
-    fileprivate func setReviewContent() {
-        if let reviewItem = theReviewCell as? RatingItemView {
-            reviewItem.set(numOfReviews: gig.numOfReviews)
-            reviewItem.set(stars: gig.avgStars)
-        }
-    }
-    
-    fileprivate func descriptionSetup() {
-        theDescriptionLabel.numberOfLines = 0
     }
     
     fileprivate func colorPriceLabel() {
@@ -115,7 +154,7 @@ extension DetailViewController {
 //button extensions
 extension DetailViewController {
     func exitButtonPressed(sender: UIButton) {
-        _ = self.navigationController?.popViewController(animated: true)
+        popVC()
     }
     
     func messageButtonPressed(sender: UIButton) {
@@ -147,6 +186,17 @@ extension DetailViewController {
         let allReviewsVC = AllReviewsViewController(gig: gig)
         allReviewsVC.gig = gig
         pushVC(allReviewsVC)
+    }
+}
+
+extension DetailViewController: DetailDataStoreDelegate {
+    func received(mutualFriends: [MutualFriend], totalCount: Int) {
+        if !mutualFriends.isEmpty {
+            self.mutualFriends = mutualFriends
+            self.totalMutualFriends = totalCount
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .mutualFriends) //display the mutual friends cell, since they have them.
+            theTableView.reloadData()
+        }
     }
 }
 

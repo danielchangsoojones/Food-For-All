@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailView: CustomScrollerView {
+class DetailView: UIView {
     struct Constants {
         static let topViewHeight: CGFloat = 100
         static let spacing: CGFloat = 18
@@ -17,27 +17,19 @@ class DetailView: CustomScrollerView {
     }
     
     var theTopView: UIView = UIView()
+    var theTableView: UITableView!
     var theNameLabel: UILabel = UILabel()
     var theProfileImageView: CircularImageView!
-    var theTitleLabel: UILabel = UILabel()
-    var theDescriptionLabel: UILabel = UILabel()
     var theBottomView: UIView = UIView()
     var thePriceLabel: UILabel = UILabel()
     var theMessageButton: UIButton = UIButton()
     var theExitButton: UIButton = UIButton()
-    var theVenmoView: UIView!
-    var theRatingView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
         topViewSetup()
-        titleSetup()
-        descriptionSetup()
-        ratingItemSetup()
-        venmoItemSetup()
         bottomViewSetup()
-        
+        tableViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,7 +42,7 @@ extension DetailView {
     fileprivate func topViewSetup() {
         theTopView.frame = CGRect(x: 0, y: 0, w: self.frame.width, h: Constants.topViewHeight)
         CustomColors.addGradient(colors: CustomColors.searchBarGradientColors, to: theTopView)
-        theContentView.addSubview(theTopView)
+        self.addSubview(theTopView)
         theTopView.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(Constants.topViewHeight)
@@ -81,9 +73,7 @@ extension DetailView {
     }
     
     fileprivate func exitButtonSetup() {
-        theExitButton.setTitleColor(UIColor.white, for: .normal)
-        theExitButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
-        theExitButton.setTitle("X", for: .normal)
+        theExitButton.setImage(#imageLiteral(resourceName: "X"), for: .normal)
         theTopView.addSubview(theExitButton)
         theExitButton.snp.makeConstraints { (make) in
             make.top.equalTo(theTopView).inset(10)
@@ -92,48 +82,16 @@ extension DetailView {
     }
 }
 
-//the details of the gig
+//the tableView
 extension DetailView {
-    fileprivate func titleSetup() {
-        theTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        theContentView.addSubview(theTitleLabel)
-        theTitleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(theTopView.snp.bottom).offset(Constants.spacing)
-            make.leading.equalTo(theNameLabel)
-        }
-    }
-    
-    fileprivate func descriptionSetup() {
-        theDescriptionLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-        theContentView.addSubview(theDescriptionLabel)
-        theDescriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.spacing)
-            make.leading.equalTo(theTitleLabel)
-            make.trailing.equalToSuperview().inset(Constants.sideInset)
-        }
-    }
-}
-
-//gig items
-extension DetailView {
-    fileprivate func ratingItemSetup() {
-        theRatingView = RatingItemView(numOfReviews: 0, avgStars: 0)
-        theContentView.addSubview(theRatingView)
-        theRatingView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theDescriptionLabel.snp.bottom).offset(Constants.spacing)
-            make.height.equalTo(Constants.cellHeight)
-        }
-    }
-    
-    fileprivate func venmoItemSetup() {
-        theVenmoView = VenmoItemView(frame: CGRect.zero)
-        theContentView.addSubview(theVenmoView)
-        theVenmoView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalTo(theDescriptionLabel)
-            make.top.equalTo(theRatingView.snp.bottom)
-            make.height.equalTo(Constants.cellHeight)
-            make.bottom.equalTo(theContentView)
+    func tableViewSetup() {
+        theTableView = UITableView()
+        theTableView.separatorStyle = .none
+        self.insertSubview(theTableView, at: 0)
+        theTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(theTopView.snp.bottom)
+            make.bottom.equalTo(theBottomView.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
 }
@@ -150,7 +108,6 @@ extension DetailView {
         priceLabelSetup()
         messageButtonSetup()
         addLineToBottomView()
-        theScrollView.contentInset.bottom = height
         theBottomView.backgroundColor = UIColor.white
     }
     
@@ -175,7 +132,7 @@ extension DetailView {
         theBottomView.addSubview(theMessageButton)
         theMessageButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(theDescriptionLabel)
+            make.trailing.equalTo(theProfileImageView)
             make.height.equalTo(theBottomView).multipliedBy(0.5)
         }
     }
