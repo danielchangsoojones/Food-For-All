@@ -29,8 +29,8 @@ class ReviewParse: PFObject, PFSubclassing {
         self.creator = review.creator.updatedUser
         self.detail = review.description
         self.stars = review.stars
-        if let gig = review.gig {
-            self.gig = gig.gigParse
+        if let gig = review.gig, let g = gig.gigParse {
+            self.gig = g
         }
     }
 }

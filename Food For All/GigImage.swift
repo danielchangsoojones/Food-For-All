@@ -15,7 +15,7 @@ class GigImage: PFObject, PFSubclassing {
     }
     
     @NSManaged var fullFrontImage: PFFile?
-    @NSManaged var parent: GigParse
+    @NSManaged var parent: GigParse!
     
     override init() {
         super.init()
@@ -26,6 +26,8 @@ class GigImage: PFObject, PFSubclassing {
         if let fullImage = gig.fullSizeFrontImage as? UIImage {
             self.fullFrontImage = Helpers.saveImageAsPFFIle(fileName: "frontImage.jpg", image: fullImage)
         }
-        self.parent = gig.gigParse
+        if let g = gig.gigParse {
+            self.parent = g
+        }
     }
 }

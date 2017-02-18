@@ -33,12 +33,17 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
         let layout = RAReorderableLayout()
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = CustomColors.BombayGray.withAlphaComponent(0.22)
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.cellIdentifier)
-        collectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: NewPhotoCollectionViewCell.identifier)
+        registerCells()
         collectionView.delegate = self
         collectionView.dataSource = self
         
         self.view.addSubview(collectionView)
+    }
+    
+    fileprivate func registerCells() {
+        collectionView.register(HintCollectionViewFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: HintCollectionViewFooter.identifier)
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.cellIdentifier)
+        collectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: NewPhotoCollectionViewCell.identifier)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -118,6 +123,18 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     
     func scrollTrigerPaddingInCollectionView(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
+    }
+}
+
+//collection footer
+extension PhotosFormViewController {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: HintCollectionViewFooter.identifier, for: indexPath as IndexPath)
+        return view
     }
 }
 
