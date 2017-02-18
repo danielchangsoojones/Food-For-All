@@ -19,7 +19,7 @@ class PhotosFormViewController: UIViewController {
         super.viewDidLoad()
         collectionViewSetup()
         
-        for index in 0..<18 {
+        for _ in 0..<18 {
             let image = #imageLiteral(resourceName: "EmptyStar")
             imagesForSection0.append(image)
         }
@@ -36,6 +36,7 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
         let layout = RAReorderableLayout()
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.cellIdentifier)
+        collectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: NewPhotoCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -69,8 +70,14 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.cellIdentifier, for: indexPath) as! PhotoCollectionViewCell
-        cell.imageView.image = imagesForSection0[(indexPath as NSIndexPath).item]
+        var cell: UICollectionViewCell = UICollectionViewCell()
+        if indexPath.row == 0 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewPhotoCollectionViewCell.identifier, for: indexPath) as! NewPhotoCollectionViewCell
+        } else {
+            let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.cellIdentifier, for: indexPath) as! PhotoCollectionViewCell
+            photoCell.imageView.image = imagesForSection0[(indexPath as NSIndexPath).item]
+            cell = photoCell
+        }
         
         return cell
     }
@@ -80,10 +87,6 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
             return false
         }
         return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, at: IndexPath, willMoveTo toIndexPath: IndexPath) {
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, at atIndexPath: IndexPath, didMoveTo toIndexPath: IndexPath) {
