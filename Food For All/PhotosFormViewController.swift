@@ -15,9 +15,12 @@ class PhotosFormViewController: UIViewController {
     var photos: [GigPhoto] = []
     var gig: Gig?
     
+    var dataStore: PhotoFormDataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewSetup()
+        dataStoreSetup()
         self.view.backgroundColor = UIColor.white
     }
     
@@ -47,10 +50,24 @@ class PhotosFormViewController: UIViewController {
         return true
     }
     
+    fileprivate func dataStoreSetup() {
+        dataStore = PhotoFormDataStore(delegate: self)
+        if let gig = gig {
+            dataStore?.loadPhotos(for: gig)
+        }
+    }
+    
     fileprivate func updatePositions() {
         for (i, photo) in photos.enumerated() {
             photo.position = i
         }
+    }
+}
+
+extension PhotosFormViewController: PhotoFormDelegate {
+    func recieved(photos: [GigPhoto]) {
+        self.photos = photos
+        reloadCollection()
     }
 }
 
@@ -187,8 +204,8 @@ extension PhotosFormViewController {
     }
     
     fileprivate func deletePhoto(at: Int) {
-        //TODO: delete with datastore
         let index = at - 1 //Account for creation cell
+        dataStore?.delete(photo: photos[index])
         photos.remove(at: index)
         reloadCollection()
     }

@@ -36,4 +36,11 @@ class GigPhoto {
     init(parent: Gig) {
         self.parent = parent
     }
+    
+    init(gigDetailPhoto p: GigDetailPhoto, gig: Gig) {
+        smallImageFile = p.smallImageFile
+        fullImageFile = p.fullImageFile
+        position = p.position
+        parent = gig
+    }
 }
