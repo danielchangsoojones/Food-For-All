@@ -21,14 +21,36 @@ class PhotosFormViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBar?.backgroundColor = CustomColors.AquamarineBlue
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        updatePositions()
         gig?.photos = photos
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        super.viewDidDisappear(animated)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, 0, 0)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        //TODO: for some reason, the nav bar background color will only cover the navigation bar, but not the status bar background. Haven't figured out how to fix, so just hiding the status bar here until I figure out what is going on.
+        return true
+    }
+    
+    fileprivate func updatePositions() {
+        for (i, photo) in photos.enumerated() {
+            photo.position = i
+        }
     }
 }
 
@@ -170,12 +192,6 @@ extension PhotosFormViewController {
         photos.remove(at: index)
         reloadCollection()
     }
-    
-    fileprivate func decrementPositions() {
-        for photo in photos {
-            photo.position -= 1
-        }
-    }
 }
 
 extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraDelegate {
@@ -199,15 +215,8 @@ extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigati
             let photo = GigPhoto(parent: gig)
             photo.position = 0
             photo.fullImage = image
-            incrementPositions()
             photos.insertAsFirst(photo)
             reloadCollection()
-        }
-    }
-    
-    fileprivate func incrementPositions() {
-        for photo in photos {
-            photo.position += 1
         }
     }
     

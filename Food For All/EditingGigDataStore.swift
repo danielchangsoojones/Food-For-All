@@ -17,7 +17,6 @@ class EditingGigDataStore: CreationDataStore {
         var objects: [PFObject] = [g]
         objects.append(contentsOf: photos as [PFObject])
         PFObject.saveAll(inBackground: objects)
-        g.saveInBackground()
         delegate?.finishedSaving(gig: gig)
     }
     
