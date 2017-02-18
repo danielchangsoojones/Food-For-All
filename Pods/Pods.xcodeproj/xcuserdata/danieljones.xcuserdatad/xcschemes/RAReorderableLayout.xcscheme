@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7D2226B20E6180A0389E99E42469C44E'
-               BlueprintName = 'Timepiece'
+               BlueprintIdentifier = '4937E12D441F0F4F034C758C60982AE0'
+               BlueprintName = 'RAReorderableLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Timepiece.framework'>
+               BuildableName = 'RAReorderableLayout.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

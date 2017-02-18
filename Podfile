@@ -23,6 +23,7 @@ target 'Food For All' do
   pod 'NextGrowingTextView'
   pod 'SCLAlertView'
   pod 'SwiftyJSON'
+  pod 'RAReorderableLayout'
 
 end
 
