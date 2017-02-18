@@ -85,8 +85,18 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
     func collectionView(_ collectionView: UICollectionView, allowMoveAt indexPath: IndexPath) -> Bool {
         if collectionView.numberOfItems(inSection: (indexPath as NSIndexPath).section) <= 1 {
             return false
+        } else if isCreationCell(row: indexPath.row) {
+            return false
         }
         return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, at: IndexPath, canMoveTo: IndexPath) -> Bool {
+        return !isCreationCell(row: canMoveTo.row)
+    }
+    
+    fileprivate func isCreationCell(row: Int) -> Bool {
+        return row == 0
     }
     
     func collectionView(_ collectionView: UICollectionView, at atIndexPath: IndexPath, didMoveTo toIndexPath: IndexPath) {
