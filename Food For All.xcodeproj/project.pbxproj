@@ -518,7 +518,7 @@
 		92A843C01E42D05B00F6358E /* Forms */ = {
 			isa = PBXGroup;
 			children = (
-				92F86B4C1E57FF4C00BF8CF7 /* Photos */,
+				92F86B4C1E57FF4C00BF8CF7 /* Detail Photos */,
 				92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */,
 				92A843C41E42D31400F6358E /* ServiceFormViewController.swift */,
 				92A843C81E43E09900F6358E /* PricingFormViewController.swift */,
@@ -873,13 +873,13 @@
 			name = Subviews;
 			sourceTree = "<group>";
 		};
-		92F86B4C1E57FF4C00BF8CF7 /* Photos */ = {
+		92F86B4C1E57FF4C00BF8CF7 /* Detail Photos */ = {
 			isa = PBXGroup;
 			children = (
 				92F86B511E5804C800BF8CF7 /* Cell */,
 				92F86B4D1E57FF8500BF8CF7 /* PhotosFormViewController.swift */,
 			);
-			name = Photos;
+			name = "Detail Photos";
 			sourceTree = "<group>";
 		};
 		92F86B511E5804C800BF8CF7 /* Cell */ = {

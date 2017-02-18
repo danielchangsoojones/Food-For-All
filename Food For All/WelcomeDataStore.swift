@@ -88,7 +88,7 @@ extension WelcomeDataStore {
                             if code == PFErrorCode.errorUserEmailTaken.rawValue {
                                 //need to make the email a random string with @random.com email address because parse is being stupid. If a user made a facebook account and normal account with the same email address, then it throws this error, and nothing will save for the user. This really only has happened to me in testing because most production users wouldn't create two accounts. But, this will be a temporary fix for now.
                                 //TODO: don't let users create a facebook account and normal email address account with same email address.
-                                currentUser.email = self.randomString(length: 10) + "@random.com"
+                                currentUser.email = Helpers.randomString(length: 10) + "@random.com"
                                 currentUser.saveInBackground()
                             }
                         }
@@ -116,20 +116,5 @@ extension WelcomeDataStore {
                 }
             })
         }
-    }
-    
-    private func randomString(length: Int) -> String {
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return randomString
     }
 }

@@ -26,8 +26,6 @@ class GigImage: PFObject, PFSubclassing {
         if let fullImage = gig.fullSizeFrontImage as? UIImage {
             self.fullFrontImage = Helpers.saveImageAsPFFIle(fileName: "frontImage.jpg", image: fullImage)
         }
-        if let g = gig.gigParse {
-            self.parent = g
-        }
+        self.parent = gig.gigParse
     }
 }

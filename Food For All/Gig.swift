@@ -24,7 +24,6 @@ class Gig {
     }
     
     var creator: Person = Person.current()
-    var isDraft: Bool = false
     var tags: [String] = []
     
     var fullSizeFrontImage: AnyObject?
@@ -44,7 +43,7 @@ class Gig {
         return Int(_price.getRoundedByPlaces(0)).toString + "$ " + priceUnit
     }
     
-    var gigParse: GigParse?
+    var gigParse: GigParse = GigParse.createEmptyDataObject()
     
     init() {}
     
@@ -65,7 +64,7 @@ class Gig {
     
     fileprivate func setGigImage() {
         //Either set the image as the gig image, but if non-existent, then use their profile image
-        if let gigImage = gigParse?.frontImage {
+        if let gigImage = gigParse.frontImage {
             self.frontImage = gigImage
         } else if let profileImage = creator.profileImage {
             self.frontImage = profileImage
