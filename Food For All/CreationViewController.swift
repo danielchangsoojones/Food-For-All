@@ -122,6 +122,8 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
                 cell = CreationData().pricingCell
             case .contact:
                 cell = CreationData().contactCell
+            case .photos:
+                cell = CreationData().photosCell
             }
         }
         
@@ -146,7 +148,7 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var destinationVC = SuperCreationFormViewController()
+        var destinationVC = UIViewController()
         if let creation = Creation(rawValue: indexPath.row) {
             switch creation {
             case .service:
@@ -155,11 +157,17 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
                 destinationVC = CreationData().pricing.destinationVC
             case .contact:
                 destinationVC = CreationData().contact.destinationVC
+            case .photos:
+                destinationVC = CreationData().photos.destinationVC
             }
         }
         
-        destinationVC.delegate = self
-        destinationVC.gig = self.gig
+        if let creationVC = destinationVC as? SuperCreationFormViewController {
+            creationVC.delegate = self
+            creationVC.gig = self.gig
+            destinationVC = creationVC
+        }
+        
         pushVC(destinationVC)
     }
 }

@@ -41,7 +41,6 @@ class GigParse: PFObject, PFSubclassing {
         detailDescription = gig.description
         phoneNumber = gig.phoneNumber
         creator = gig.creator.updatedUser
-        self.isDraft = gig.isDraft
         tags = gig.tags.map({ (tag: String) -> String in
             return tag.lowercased()
         })

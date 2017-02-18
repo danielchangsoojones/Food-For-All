@@ -58,6 +58,7 @@ class CreationTableViewCell: UITableViewCell {
     fileprivate func iconSetup(image: UIImage) {
         theIconImageView.setContentHuggingPriority(1000, for: .horizontal)
         theIconImageView.image = image
+        theIconImageView.tintColor = CustomColors.BombayGray
         theIconImageView.contentMode = .scaleAspectFit
         theContentView.addSubview(theIconImageView)
         theIconImageView.snp.makeConstraints { (make) in

@@ -11,7 +11,7 @@ import UIKit
 
 struct CellData {
     var cell: CreationTableViewCell
-    var destinationVC: SuperCreationFormViewController
+    var destinationVC: UIViewController
 }
 
 class CreationData {
@@ -53,8 +53,16 @@ class CreationData {
         return cell
     }
     
-    var cellDatas: [CellData] {
-        return [service, pricing, contact]
+    var photos: CellData {
+        let cell = photosCell
+        let destinationVC = PhotosFormViewController()
+        return CellData(cell: cell, destinationVC: destinationVC)
+    }
+    
+    var photosCell: CreationTableViewCell {
+        let image = #imageLiteral(resourceName: "Camera").withRenderingMode(.alwaysTemplate)
+        let cell = CreationTableViewCell(iconImage: image, titleText: "Photos")
+        return cell
     }
 }
 
@@ -63,8 +71,14 @@ enum Creation: Int {
     case service = 0
     case pricing = 1
     case contact = 2
+    case photos = 3
     
-    static var count: Int = 3
+    static var count: Int {
+        // starting at zero, verify whether the enum can be instantiated from the Int and increment until it cannot
+        var count = 0
+        while let _ = Creation(rawValue: count) { count += 1 }
+        return count
+    }
 }
 
 extension CreationData {
@@ -80,6 +94,8 @@ extension CreationData {
             let firstNameExists: Bool = gig.creator.firstName?.isNotEmpty ?? false
             let lastNameExists: Bool = gig.creator.lastName?.isNotEmpty ?? false
             isComplete = PhoneValidator.isValidPhoneNumber(phoneString: phoneString) && firstNameExists && lastNameExists
+        case .photos:
+            break
         }
         
         return isComplete
@@ -101,6 +117,8 @@ extension CreationData {
             if PhoneValidator.isValidPhoneNumber(phoneString: phoneString) {
                 title = PhoneValidator.format(phoneNumber: phoneString)
             }
+        case .photos:
+            break
         }
         
         return title

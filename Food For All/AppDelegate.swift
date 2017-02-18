@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-//            toFrontPageVC()
+            toFrontPageVC()
             
             
-            let navController = UINavigationController(rootViewController: PhotosFormViewController())
-            setInitialVC(vc: navController)
+//            let navController = UINavigationController(rootViewController: PhotosFormViewController())
+//            setInitialVC(vc: navController)
         }
         
         return true
