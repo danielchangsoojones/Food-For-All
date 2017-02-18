@@ -15,7 +15,7 @@ class CircleProfileView: UIView {
     }
     
     let theNameLabel = UILabel()
-    var circleView: CircleView!
+    var circleView: CircularImageView!
     
     init(frame: CGRect, name: String, imageFile: AnyObject?) {
         super.init(frame: frame)
@@ -45,6 +45,14 @@ class CircleProfileView: UIView {
             make.centerX.equalTo(self)
             make.width.lessThanOrEqualTo(circleView)
         }
+    }
+    
+    func update(name: String) {
+        theNameLabel.text = name
+    }
+    
+    func update(image: Any?) {
+        circleView.update(file: image as AnyObject?)
     }
     
     required init?(coder aDecoder: NSCoder) {

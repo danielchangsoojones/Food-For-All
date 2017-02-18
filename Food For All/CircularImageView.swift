@@ -19,13 +19,7 @@ class CircularImageView: CircleView {
         let noVisibleImageColor : UIColor = CustomColors.Polar.withAlphaComponent(0.75)
         super.init(diameter: diameter, color: noVisibleImageColor)
         imageViewSetup(diameter)
-        if let image = file as? UIImage {
-            theImageView.image = image
-        } else if let url = file as? String {
-            loadFrom(urlString: url)
-        } else {
-            theImageView.loadFromFile(file)
-        }
+        update(file: file)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +35,17 @@ class CircularImageView: CircleView {
         }
     }
     
-    func add(file: AnyObject) {
+    func update(file: AnyObject?) {
+        if let image = file as? UIImage {
+            update(image: image)
+        } else if let url = file as? String {
+            loadFrom(urlString: url)
+        } else {
+            add(file: file)
+        }
+    }
+    
+    func add(file: AnyObject?) {
         theImageView.loadFromFile(file)
     }
     
