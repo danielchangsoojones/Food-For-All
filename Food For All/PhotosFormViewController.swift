@@ -116,3 +116,30 @@ extension PhotosFormViewController: RAReorderableLayoutDelegate, RAReorderableLa
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
     }
 }
+
+extension PhotosFormViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isCreationCell(row: indexPath.row) {
+            Helpers.showNewPhotoChoices(vc: self)
+        } else {
+            showExistingPhotoAlert(row: indexPath.row)
+        }
+    }
+    
+    fileprivate func showExistingPhotoAlert(row: Int) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (alertAction: UIAlertAction) in
+            self.deletePhoto(at: row)
+        }
+        
+        alert.addAction(deleteAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func deletePhoto(at: Int) {
+        
+    }
+}

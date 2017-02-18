@@ -164,6 +164,25 @@ struct Helpers {
         }
         return 0
     }
+    
+    static func showNewPhotoChoices(vc: UIViewController) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (alertAction: UIAlertAction) in
+            _ = Camera.shouldStartPhotoLibrary(target: vc as AnyObject, canEdit: false)
+        }
+        
+        let cameraAction = UIAlertAction(title: "Take Photo", style: .default) { (alertAction: UIAlertAction) in
+            //If you are on mac simulator, then the camera crashes because mac doesn't have a camera on simulator, only photo library.
+            _ = Camera.shouldStartCamera(target: vc, canEdit: false, frontFacing: true)
+        }
+        
+        alert.addAction(photoLibraryAction)
+        alert.addAction(cameraAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        vc.present(alert, animated: true, completion: nil)
+    }
 }
 
 struct PhoneValidator {
