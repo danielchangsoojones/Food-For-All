@@ -52,7 +52,6 @@ extension WelcomeView {
     fileprivate func facebookButtonSetup() {
         //TODO: add f logo to the button like the Airbnb page
         theFacebookButton = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
-        
     }
     
     private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {
