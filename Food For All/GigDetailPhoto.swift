@@ -15,6 +15,7 @@ class GigDetailPhoto: PFObject, PFSubclassing {
         return "GigDetailPhoto"
     }
     
+    @NSManaged var position: Int
     @NSManaged var fullImageFile: PFFile?
     @NSManaged var smallImageFile: PFFile?
     @NSManaged var parent: GigParse?
@@ -23,8 +24,8 @@ class GigDetailPhoto: PFObject, PFSubclassing {
         super.init()
     }
     
-    init(photo: GigPhoto) {
-        super.init()
+    func update(from photo: GigPhoto) {
+        position = photo.position
         if let fullImage = photo.fullImage {
             fullImageFile = Helpers.saveImageAsPFFIle(fileName: "fullImage.jpg", image: fullImage)
         }

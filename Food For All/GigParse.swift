@@ -50,10 +50,4 @@ class GigParse: PFObject, PFSubclassing {
         avgStars = gig.avgStars
         numOfReviews = gig.numOfReviews
     }
-    
-    //creating an empty data object is when we need to save a pointer, but haven't actually saved the object yet. Like when we save gigPhotos, we save the photos in a join table, and we need to set the pointer, even though we haven't yet saved the actual gig.
-    static func createEmptyDataObject() -> GigParse {
-        let g = PFObject(withoutDataWithClassName: "GigParse", objectId: Helpers.createParseObjectID()) as! GigParse
-        return g
-    }
 }

@@ -196,10 +196,6 @@ struct Helpers {
         vc.present(alert, animated: true, completion: nil)
     }
     
-    static func createParseObjectID() -> String {
-        return randomString(length: 10)
-    }
-    
     static func randomString(length: Int) -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len = UInt32(letters.length)

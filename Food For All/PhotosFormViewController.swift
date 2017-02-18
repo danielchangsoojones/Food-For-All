@@ -23,6 +23,11 @@ class PhotosFormViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        gig?.photos = photos
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, 0, 0)
@@ -190,10 +195,21 @@ extension PhotosFormViewController:  UIImagePickerControllerDelegate, UINavigati
             let photo = GigPhoto(parent: gig)
             photo.position = 0
             photo.fullImage = image
-            photo.wasEdited = true
+            incrementPositions()
             photos.insertAsFirst(photo)
             reloadCollection()
-            dataStore.saveNew(photo: photo)
+        }
+    }
+    
+    fileprivate func incrementPositions() {
+        for photo in photos {
+            photo.position += 1
+        }
+    }
+    
+    fileprivate func decrementPositions() {
+        for photo in photos {
+            photo.position -= 1
         }
     }
     

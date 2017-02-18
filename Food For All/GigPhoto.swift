@@ -29,10 +29,9 @@ class GigPhoto {
     }
     
     var position: Int = 0
-    var wasEdited: Bool = false
     var parent: Gig
     
-    var gigDetailPhoto: GigDetailPhoto?
+    var gigDetailPhoto: GigDetailPhoto = GigDetailPhoto()
     
     init(parent: Gig) {
         self.parent = parent

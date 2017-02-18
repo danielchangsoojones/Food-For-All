@@ -28,6 +28,7 @@ class Gig {
     
     var fullSizeFrontImage: AnyObject?
     var frontImage: AnyObject?
+    var photos: [GigPhoto] = []
     
     private var _price: Double = -1
     var price: Double {
@@ -43,7 +44,7 @@ class Gig {
         return Int(_price.getRoundedByPlaces(0)).toString + "$ " + priceUnit
     }
     
-    var gigParse: GigParse = GigParse.createEmptyDataObject()
+    var gigParse: GigParse = GigParse()
     
     init() {}
     
