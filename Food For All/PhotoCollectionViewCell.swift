@@ -21,6 +21,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
