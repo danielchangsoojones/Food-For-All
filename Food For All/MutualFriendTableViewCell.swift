@@ -11,10 +11,11 @@ import UIKit
 class MutualFriendTableViewCell: HorizontalTableViewCell {
     var theHeadingLabel: UILabel!
     
-    var mutualFriends: [MutualFriend] = [MutualFriend(firstName: "bododod", profileImage: #imageLiteral(resourceName: "FullStar"))]
+    var mutualFriends: [MutualFriend] = []
     
     init(numOfFriends: Int) {
         super.init(frame: CGRect.zero, identifier: "mutualFriendCell")
+        theCollectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.reuseIdentifier)
         theCollectionView.delegate = self
         theCollectionView.dataSource = self
         headingSetup(numOfFriends: numOfFriends)
@@ -38,6 +39,7 @@ class MutualFriendTableViewCell: HorizontalTableViewCell {
     
     fileprivate func updateCollectionViewConstraints() {
         theCollectionView.snp.remakeConstraints { (make) in
+            make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(theHeadingLabel.snp.bottom)
         }
     }
@@ -46,12 +48,12 @@ class MutualFriendTableViewCell: HorizontalTableViewCell {
 //collection view
 extension MutualFriendTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return mutualFriends.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.reuseIdentifier, for: indexPath) as! FriendCollectionViewCell
-        cell.friend = MutualFriend(firstName: "bododod", profileImage: #imageLiteral(resourceName: "FullStar"))
+        cell.friend = mutualFriends[indexPath.row]
         return cell
     }
 }

@@ -34,7 +34,6 @@ class HorizontalTableViewCell: UITableViewCell {
     fileprivate func collectionViewSetup() {
         let layout = createCollectionViewFlowLayout()
         theCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        theCollectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.reuseIdentifier)
         theCollectionView.backgroundColor = UIColor.clear
         theCollectionView.showsHorizontalScrollIndicator = false
         self.addSubview(theCollectionView)
