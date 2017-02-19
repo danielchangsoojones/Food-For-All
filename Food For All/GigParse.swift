@@ -40,7 +40,7 @@ class GigParse: PFObject, PFSubclassing {
         priceUnit = gig.priceUnit
         detailDescription = gig.description
         phoneNumber = gig.phoneNumber
-        creator = gig.creator.updatedUser
+        creator = gig.creator
         tags = gig.tags.map({ (tag: String) -> String in
             return tag.lowercased()
         })

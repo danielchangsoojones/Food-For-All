@@ -9,7 +9,7 @@
 import Foundation
 
 class Review {
-    var creator: Person = Person.current()
+    var creator: User = User.current() ?? User()
     var gig: Gig?
     var updated: Date = Date()
     var description: String?
@@ -20,7 +20,7 @@ class Review {
     init() {}
     
     init(reviewParse r: ReviewParse) {
-        creator = Person(user: r.creator)
+        creator = r.creator
         updated = r.updatedAt ?? Date()
         description = r.detail
         stars = r.stars

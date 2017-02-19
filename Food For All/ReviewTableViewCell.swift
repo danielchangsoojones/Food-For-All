@@ -67,7 +67,7 @@ extension ReviewTableViewCell {
     //TODO: the name and date should probably be better calculated on height, like maybe stick into a stack view and then fit to size or something. Right now, it is just hard coded.
     fileprivate func nameSetup() {
         theNameLabel = UILabel()
-        theNameLabel.text = review.creator.firstName
+        theNameLabel.text = review.creator.theFirstName
         theNameLabel.font = UIFont.systemFont(ofSize: Constants.headerFontSize, weight: UIFontWeightMedium)
         theHeaderView.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in

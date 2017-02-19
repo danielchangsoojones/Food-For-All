@@ -23,7 +23,7 @@ class Gig {
         return phoneString
     }
     
-    var creator: Person = Person.current()
+    var creator: User = User.current() ?? User()
     var tags: [String] = []
     
     var fullSizeFrontImage: AnyObject?
@@ -55,8 +55,7 @@ class Gig {
         self.priceUnit = gigParse.priceUnit
         self.description = gigParse.detailDescription
         self.phoneNumber = gigParse.phoneNumber
-        let person = Person(user: gigParse.creator)
-        self.creator = person
+        self.creator = gigParse.creator
         self.tags = gigParse.tags
         self.avgStars = gigParse.avgStars
         self.numOfReviews = gigParse.numOfReviews

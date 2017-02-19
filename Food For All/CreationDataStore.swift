@@ -23,7 +23,7 @@ class CreationDataStore {
     
     func save(gig: Gig) {
         let g = GigParse(gig: gig)
-        let creator = gig.creator.updatedUser
+        let creator = gig.creator
         PFObject.saveAll(inBackground: [creator, g]) { (success, error) in
             if success {
                 gig.gigParse = g

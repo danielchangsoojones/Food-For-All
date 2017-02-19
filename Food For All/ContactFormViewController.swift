@@ -41,8 +41,8 @@ class ContactFormViewController: SuperCreationFormViewController {
     }
     
     override func save(sender: UIBarButtonItem) {
-        gig?.creator.firstName = theFirstNameRow.text
-        gig?.creator.lastName = theLastNameRow.text
+        gig?.creator.theFirstName = theFirstNameRow.text ?? ""
+        gig?.creator.theLastName = theLastNameRow.text ?? ""
         if let phoneNumber = thePhoneNumberRow.text?.toInt() {
             gig?.phoneNumber = Double(phoneNumber)
         }
@@ -60,10 +60,10 @@ extension ContactFormViewController {
         theFirstNameRow = TextFieldRowFormer<FormTextFieldCell>()
         theFirstNameRow.configure { (row) in
             row.placeholder = "first name..."
-            if let firstName = gig?.creator.firstName {
+            if let firstName = gig?.creator.theFirstName {
                 //check if they have already saved a first name for this gig
                 row.text = firstName
-            }else if let firstName = Person.current().firstName {
+            }else if let firstName = User.current()?.theFirstName {
                 //if not, then check if they even already have one
                 row.text = firstName
             }
@@ -78,7 +78,7 @@ extension ContactFormViewController {
             if let lastName = gig?.creator.lastName {
                 //check if they have already saved a first name for this gig
                 row.text = lastName
-            } else if let lastName = Person.current().lastName {
+            } else if let lastName = User.current()?.theLastName {
                 row.text = lastName
             }
         }

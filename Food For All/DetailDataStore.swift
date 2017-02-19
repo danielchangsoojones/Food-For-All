@@ -40,8 +40,8 @@ class DetailDataStore {
 }
 
 extension DetailDataStore {
-    func getMutualFriends(creator: Person) {
-        if let creatorFBID = creator.updatedUser.facebookId {
+    func getMutualFriends(creator: User) {
+        if let creatorFBID = creator.facebookId {
             PFCloud.callFunction(inBackground: "findMutualFriends", withParameters: ["targetUserFacebookID": creatorFBID], block: {
                 (result: Any?, error: Error?) -> Void in
                 if let result = result {

@@ -78,7 +78,7 @@ extension CreationViewController {
         if let gigPhotoFile = gig.frontImage {
             theProfileCircleView.add(file: gigPhotoFile)
             completions[0] = true
-        } else if let profileImage = Person.current().profileImage {
+        } else if let profileImage = User.current()?.profileImage {
             theProfileCircleView.add(file: profileImage)
             completions[0] = true
         }

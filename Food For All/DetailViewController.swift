@@ -220,7 +220,7 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             
-            var firstName: String = gig.creator.firstName ?? ""
+            var firstName: String = gig.creator.theFirstName
             if firstName.isNotEmpty {
                 firstName = " " + firstName
             }

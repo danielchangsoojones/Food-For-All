@@ -74,10 +74,10 @@ class ProfileViewController: UIViewController {
     }
     
     fileprivate func setContent() {
-        if let profileImage = Person.current().profileImage {
+        if let profileImage = User.current()?.profileImage {
             theProfileCircleView.add(file: profileImage)
         }
-        theNameLabel.text = Person.current().fullName
+        theNameLabel.text = User.current()?.fullName
     }
 }
 

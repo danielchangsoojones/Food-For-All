@@ -111,7 +111,7 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let review = reviews[indexPath.row]
-        if review.creator == Person.current() {
+        if review.creator == User.current() {
             let cell = PersonalReviewTableViewCell(review: review)
             return cell
         } else {
@@ -123,7 +123,7 @@ extension AllReviewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let review = reviews[indexPath.row]
-        if review.creator == Person.current() {
+        if review.creator == User.current() {
             segueToEditRatingVC(review: review)
         }
     }
