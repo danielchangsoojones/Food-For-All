@@ -8,31 +8,20 @@
 
 import UIKit
 
-class MutualFriendTableViewCell: UITableViewCell {
-    var theCollectionView: UICollectionView!
+class MutualFriendTableViewCell: HorizontalTableViewCell {
     var theHeadingLabel: UILabel!
     
-    var mutualFriends: [MutualFriend] = []
+    var mutualFriends: [MutualFriend] = [MutualFriend(firstName: "bododod", profileImage: #imageLiteral(resourceName: "FullStar"))]
     
     init(numOfFriends: Int) {
-        super.init(style: .default, reuseIdentifier: "mutualFriendCell")
+        super.init(frame: CGRect.zero, identifier: "mutualFriendCell")
+        theCollectionView.delegate = self
+        theCollectionView.dataSource = self
         headingSetup(numOfFriends: numOfFriends)
-        collectionViewSetup()
-        bottomLineSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate func bottomLineSetup() {
-        let line = Helpers.line
-        self.addSubview(line)
-        line.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(DetailView.Constants.sideInset)
-            make.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
     }
     
     fileprivate func headingSetup(numOfFriends: Int) {
@@ -44,42 +33,25 @@ class MutualFriendTableViewCell: UITableViewCell {
             make.leading.equalToSuperview().inset(DetailView.Constants.sideInset)
             make.top.equalToSuperview().offset(5)
         }
+        updateCollectionViewConstraints()
+    }
+    
+    fileprivate func updateCollectionViewConstraints() {
+        theCollectionView.snp.remakeConstraints { (make) in
+            make.top.equalTo(theHeadingLabel.snp.bottom)
+        }
     }
 }
 
 //collection view
-extension MutualFriendTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    fileprivate func collectionViewSetup() {
-        let layout = createCollectionViewFlowLayout()
-        theCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        theCollectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.reuseIdentifier)
-        theCollectionView.delegate = self
-        theCollectionView.dataSource = self
-        theCollectionView.backgroundColor = UIColor.clear
-        theCollectionView.showsHorizontalScrollIndicator = false
-        self.addSubview(theCollectionView)
-        theCollectionView.snp.makeConstraints { (make) in
-            make.trailing.leading.bottom.equalToSuperview()
-            make.top.equalTo(theHeadingLabel.snp.bottom)
-        }
-    }
-    
-    fileprivate func createCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: DetailView.Constants.sideInset, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 80, height: 103)
-        return layout
-    }
-    
+extension MutualFriendTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mutualFriends.count
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.reuseIdentifier, for: indexPath) as! FriendCollectionViewCell
-        cell.friend = mutualFriends[indexPath.row]
+        cell.friend = MutualFriend(firstName: "bododod", profileImage: #imageLiteral(resourceName: "FullStar"))
         return cell
     }
 }

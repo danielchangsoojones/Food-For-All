@@ -10,6 +10,8 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
+		9230BA4D1E59114C00B77A56 /* GigPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotoTableViewCell.swift */; };
+		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -127,6 +129,8 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		9230BA4C1E59114C00B77A56 /* GigPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,13 +307,31 @@
 			isa = PBXGroup;
 			children = (
 				92F86B3A1E56716F00BF8CF7 /* Data */,
-				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
+				9230BA4E1E59119200B77A56 /* Horizontal Collection View */,
 				92F86B341E56707100BF8CF7 /* GigItemTableViewCell.swift */,
 				92F86B361E5670EC00BF8CF7 /* VenmoTableViewCell.swift */,
 				92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */,
 				92F86B3D1E5676F100BF8CF7 /* InformationTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		9230BA4B1E5910F900B77A56 /* Detail Photos */ = {
+			isa = PBXGroup;
+			children = (
+				9230BA4C1E59114C00B77A56 /* GigPhotoTableViewCell.swift */,
+			);
+			name = "Detail Photos";
+			sourceTree = "<group>";
+		};
+		9230BA4E1E59119200B77A56 /* Horizontal Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
+				9230BA4B1E5910F900B77A56 /* Detail Photos */,
+				9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */,
+			);
+			name = "Horizontal Collection View";
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -1165,10 +1187,12 @@
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
+				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */,
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
+				9230BA4D1E59114C00B77A56 /* GigPhotoTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
