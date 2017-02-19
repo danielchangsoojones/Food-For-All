@@ -24,6 +24,7 @@ class PhotoFormDataStore {
         if gig.gigParse.objectId != nil {
             let query = GigDetailPhoto.query()! as! PFQuery<GigDetailPhoto>
             query.whereKey("parent", equalTo: gig.gigParse)
+            query.order(byAscending: "position")
             query.findObjectsInBackground { (gigDetailPhotos, error) in
                 if let gigDetailPhotos = gigDetailPhotos {
                     let photos: [GigPhoto] = gigDetailPhotos.map({ (p: GigDetailPhoto) -> GigPhoto in

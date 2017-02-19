@@ -37,12 +37,6 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //For testing
-        cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
-        
-        
-        
         viewSetup()
         dataStoreSetup()
         setContents()
@@ -212,9 +206,9 @@ extension DetailViewController: DetailDataStoreDelegate {
 
 extension DetailViewController: PhotoFormDelegate {
     func recieved(photos: [GigPhoto]) {
-        //TODO: have it insert the photo cell because we only show it if we have something
         if !photos.isEmpty {
             self.photos = photos
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
             theTableView.reloadData()
         }
     }
