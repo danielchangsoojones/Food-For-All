@@ -36,6 +36,12 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //For testing
+        cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
+        
+        
+        
         viewSetup()
         dataStoreSetup()
         setContents()
@@ -94,6 +100,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .information:
             cell = data.createInformationCell(gig: gig)
+        case .photos:
+            
+            
+            
+            cell = data.createPhotosCell(photos: [])
         case .review:
             cell = data.createReviewCell(gig: gig)
         case .mutualFriends:
