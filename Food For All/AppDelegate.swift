@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             //already logged in
             toFrontPageVC()
+            
+            
+//            let navController = UINavigationController(rootViewController: PhotosFormViewController())
+//            setInitialVC(vc: navController)
         }
         
         return true
@@ -51,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GigImage.registerSubclass()
         VenmoMetric.registerSubclass()
         ReviewParse.registerSubclass()
+        GigDetailPhoto.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

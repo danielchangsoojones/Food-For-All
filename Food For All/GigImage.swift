@@ -15,7 +15,7 @@ class GigImage: PFObject, PFSubclassing {
     }
     
     @NSManaged var fullFrontImage: PFFile?
-    @NSManaged var parent: GigParse
+    @NSManaged var parent: GigParse!
     
     override init() {
         super.init()

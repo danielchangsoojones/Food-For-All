@@ -27,7 +27,7 @@ class CreationDataStore {
         PFObject.saveAll(inBackground: [creator, g]) { (success, error) in
             if success {
                 gig.gigParse = g
-                self.saveFullGigImage(gig: gig)
+                self.saveDependents(gig: gig)
                 self.delegate?.finishedSaving(gig: gig)
             } else if let error = error {
                 self.delegate?.errorOccurred(description: error.localizedDescription)
@@ -36,8 +36,25 @@ class CreationDataStore {
         }
     }
     
-    fileprivate func saveFullGigImage(gig: Gig) {
+    fileprivate func saveDependents(gig: Gig) {
+        let photos = saveDetailPhotos(gig: gig)
+        let fullImage = saveFullGigImage(gig: gig)
+        var objects: [PFObject] = [fullImage]
+        objects.append(contentsOf: photos as [PFObject])
+        PFObject.saveAll(inBackground: objects)
+    }
+    
+    func saveDetailPhotos(gig: Gig) -> [GigDetailPhoto] {
+        let detailPhotos: [GigDetailPhoto] = gig.photos.map { (photo: GigPhoto) -> GigDetailPhoto in
+            let detailPhoto = photo.gigDetailPhoto
+            detailPhoto.update(from: photo)
+            return detailPhoto
+        }
+        return detailPhotos
+    }
+    
+    fileprivate func saveFullGigImage(gig: Gig) -> GigImage {
         let gigImage = GigImage(gig: gig)
-        gigImage.saveInBackground()
+        return gigImage
     }
 }

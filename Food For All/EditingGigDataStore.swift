@@ -11,18 +11,19 @@ import Parse
 
 class EditingGigDataStore: CreationDataStore {
     override func save(gig: Gig) {
-        if let g = gig.gigParse {
-            g.updateFrom(gig: gig)
-            g.saveInBackground()
-            delegate?.finishedSaving(gig: gig)
-        }
+        let g = gig.gigParse
+        g.updateFrom(gig: gig)
+        let photos = saveDetailPhotos(gig: gig)
+        var objects: [PFObject] = [g]
+        objects.append(contentsOf: photos as [PFObject])
+        PFObject.saveAll(inBackground: objects)
+        delegate?.finishedSaving(gig: gig)
     }
     
     func delete(gig: Gig) {
-        if let g = gig.gigParse {
-            g.deleteInBackground()
-            //TODO: make a function for when we finish deleting the gig.
-            delegate?.finishedSaving(gig: gig)
-        }
+        let g = gig.gigParse
+        g.deleteInBackground()
+        //TODO: make a function for when we finish deleting the gig.
+        delegate?.finishedSaving(gig: gig)
     }
 }

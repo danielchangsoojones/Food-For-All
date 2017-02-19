@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ALCameraViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -94,6 +99,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RAReorderableLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -122,11 +132,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>076615EAD9E2FF1606746F894E6054F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1F256073BB374901A9493B7883EFD39F</key>
 		<dict>
 			<key>primary</key>
@@ -138,6 +143,11 @@
 			<true/>
 		</dict>
 		<key>29C18041B449DE70A5234856E149C939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>33091D486E3BBE06B2FDDD7D22D150A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +167,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>511389765EB5EBE4AD21D3B633BDCC04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5DB499EB898E52D23FA69E8929CD9D55</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79AE0384B92265DC6568245F09370598</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7DB401EF1E26E25147F9519CDA065315</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,12 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B475CBCE98A60CCD0A21539CA35DFF3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F23FFFBBC0128FB06B3A794576D9A63</key>
+		<key>9E62C6C882D6CDBC4792E90175A7B1DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,11 +222,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABFB5C05180658F16D5ABAAE0331295C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BB5A97D8F6B074BA2676782097620F9B</key>
 		<dict>
 			<key>primary</key>
@@ -217,7 +232,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2CD7AB2BA271C2FE2FE83B9B337D4AB</key>
+		<key>C015179A773D3BE8A9CEF833BFBA99FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE928FFE1B06EFFA7E70D3EA7102A7F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -227,7 +247,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3C4ADD551AD9FF8B7FD9FFA4A534F75</key>
+		<key>DFA7732477ABF4A2EE07B0CD6FB73D15</key>
 		<dict>
 			<key>primary</key>
 			<true/>

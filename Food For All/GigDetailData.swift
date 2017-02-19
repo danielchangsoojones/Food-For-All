@@ -20,6 +20,8 @@ class GigDetailData {
         switch type {
         case .information:
             return UITableViewAutomaticDimension
+        case .photos:
+            return 155
         case .mutualFriends:
             return 155
         default:
@@ -29,6 +31,10 @@ class GigDetailData {
     
     func createInformationCell(gig: Gig) -> InformationTableViewCell {
         return InformationTableViewCell(title: gig.title, description: gig.description)
+    }
+    
+    func createPhotosCell(photos: [GigPhoto]) -> GigPhotosTableViewCell {
+        return GigPhotosTableViewCell(photos: photos)
     }
     
     func createReviewCell(gig: Gig) -> RatingTableViewCell {
@@ -47,9 +53,10 @@ class GigDetailData {
 //anytime you add a new cell type, it needs to be ordered correctly in the array and in the cases.
 enum GigItemType: Int {
     case information = 0
-    case review = 1
-    case mutualFriends = 2
-    case venmo = 3
+    case photos = 1
+    case review = 2
+    case mutualFriends = 3
+    case venmo = 4
     
     static let mandatory: [GigItemType] = [.information, .review, .venmo]
     static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {

@@ -10,6 +10,9 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
+		9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */; };
+		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
+		9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -102,6 +105,13 @@
 		92F86B441E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B431E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift */; };
 		92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B471E5693D000BF8CF7 /* FriendCollectionViewCell.swift */; };
 		92F86B4B1E57843D00BF8CF7 /* MutualFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */; };
+		92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B4D1E57FF8500BF8CF7 /* PhotosFormViewController.swift */; };
+		92F86B501E58049D00BF8CF7 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B4F1E58049D00BF8CF7 /* PhotoCollectionViewCell.swift */; };
+		92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B521E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift */; };
+		92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B561E58963F00BF8CF7 /* GigPhoto.swift */; };
+		92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */; };
+		92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B5E1E58A34500BF8CF7 /* HintCollectionViewFooter.swift */; };
+		92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86B641E58FFAF00BF8CF7 /* PhotoFormDataStore.swift */; };
 		9AA0CA93D77D1805959FB060 /* Pods_Food_For_All.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40F2139F54393F1E8117908 /* Pods_Food_For_All.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +130,9 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotosTableViewCell.swift; sourceTree = "<group>"; };
+		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
+		9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +229,13 @@
 		92F86B431E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendTableViewCell.swift; sourceTree = "<group>"; };
 		92F86B471E5693D000BF8CF7 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriend.swift; sourceTree = "<group>"; };
+		92F86B4D1E57FF8500BF8CF7 /* PhotosFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosFormViewController.swift; sourceTree = "<group>"; };
+		92F86B4F1E58049D00BF8CF7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		92F86B521E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		92F86B561E58963F00BF8CF7 /* GigPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhoto.swift; sourceTree = "<group>"; };
+		92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigDetailPhoto.swift; sourceTree = "<group>"; };
+		92F86B5E1E58A34500BF8CF7 /* HintCollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintCollectionViewFooter.swift; sourceTree = "<group>"; };
+		92F86B641E58FFAF00BF8CF7 /* PhotoFormDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFormDataStore.swift; sourceTree = "<group>"; };
 		CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.release.xcconfig"; sourceTree = "<group>"; };
 		E086122F188E07595A06E562 /* Pods-Food For All.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For All.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food For All/Pods-Food For All.debug.xcconfig"; sourceTree = "<group>"; };
 		EF43C707146B8287441E4337 /* Pods-Food For AllTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -289,13 +309,40 @@
 			isa = PBXGroup;
 			children = (
 				92F86B3A1E56716F00BF8CF7 /* Data */,
-				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
+				9230BA4E1E59119200B77A56 /* Horizontal Collection View */,
 				92F86B341E56707100BF8CF7 /* GigItemTableViewCell.swift */,
 				92F86B361E5670EC00BF8CF7 /* VenmoTableViewCell.swift */,
 				92F86B381E5670FA00BF8CF7 /* RatingTableViewCell.swift */,
 				92F86B3D1E5676F100BF8CF7 /* InformationTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		9230BA4B1E5910F900B77A56 /* Detail Photos */ = {
+			isa = PBXGroup;
+			children = (
+				9230BA511E59253800B77A56 /* Cell */,
+				9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */,
+			);
+			name = "Detail Photos";
+			sourceTree = "<group>";
+		};
+		9230BA4E1E59119200B77A56 /* Horizontal Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
+				9230BA4B1E5910F900B77A56 /* Detail Photos */,
+				9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */,
+			);
+			name = "Horizontal Collection View";
+			sourceTree = "<group>";
+		};
+		9230BA511E59253800B77A56 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -506,6 +553,7 @@
 		92A843C01E42D05B00F6358E /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				92F86B4C1E57FF4C00BF8CF7 /* Detail Photos */,
 				92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */,
 				92A843C41E42D31400F6358E /* ServiceFormViewController.swift */,
 				92A843C81E43E09900F6358E /* PricingFormViewController.swift */,
@@ -597,6 +645,7 @@
 				92DD8D431E358E9F009EB164 /* Person.swift */,
 				92B3E45B1E4F88FB00FD2042 /* Review.swift */,
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
+				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
 			);
 			name = "Internal Models";
 			sourceTree = "<group>";
@@ -604,13 +653,10 @@
 		92D12BAA1E3058EF009AC99E /* Database Models */ = {
 			isa = PBXGroup;
 			children = (
+				92F86B591E589E8E00BF8CF7 /* Metrics */,
+				92F86B581E589E7A00BF8CF7 /* Gig */,
 				92D12BAB1E30592D009AC99E /* User.swift */,
-				9254B7161E37E2780034F6D0 /* GigParse.swift */,
-				927E2F501E3DA40500B24D40 /* SearchGig.swift */,
-				9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */,
-				92D199941E45748500ABC255 /* GigImage.swift */,
 				923A8CE81E54D42900F1BFCA /* ReviewParse.swift */,
-				92F86B1C1E51633E00BF8CF7 /* VenmoMetric.swift */,
 			);
 			name = "Database Models";
 			sourceTree = "<group>";
@@ -862,6 +908,62 @@
 			name = Subviews;
 			sourceTree = "<group>";
 		};
+		92F86B4C1E57FF4C00BF8CF7 /* Detail Photos */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B631E58FFA000BF8CF7 /* Data Store */,
+				92F86B511E5804C800BF8CF7 /* Cell */,
+				92F86B4D1E57FF8500BF8CF7 /* PhotosFormViewController.swift */,
+			);
+			name = "Detail Photos";
+			sourceTree = "<group>";
+		};
+		92F86B511E5804C800BF8CF7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B4F1E58049D00BF8CF7 /* PhotoCollectionViewCell.swift */,
+				92F86B521E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift */,
+				92F86B5E1E58A34500BF8CF7 /* HintCollectionViewFooter.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		92F86B581E589E7A00BF8CF7 /* Gig */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B5A1E589E9D00BF8CF7 /* Photos */,
+				9254B7161E37E2780034F6D0 /* GigParse.swift */,
+				927E2F501E3DA40500B24D40 /* SearchGig.swift */,
+			);
+			name = Gig;
+			sourceTree = "<group>";
+		};
+		92F86B591E589E8E00BF8CF7 /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */,
+				92F86B1C1E51633E00BF8CF7 /* VenmoMetric.swift */,
+			);
+			name = Metrics;
+			sourceTree = "<group>";
+		};
+		92F86B5A1E589E9D00BF8CF7 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				92D199941E45748500ABC255 /* GigImage.swift */,
+				92F86B5B1E589EAF00BF8CF7 /* GigDetailPhoto.swift */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		92F86B631E58FFA000BF8CF7 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92F86B641E58FFAF00BF8CF7 /* PhotoFormDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1073,10 +1175,12 @@
 				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				92D199951E45748500ABC255 /* GigImage.swift in Sources */,
 				92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */,
+				92F86B501E58049D00BF8CF7 /* PhotoCollectionViewCell.swift in Sources */,
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
+				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
 				92F86B391E5670FA00BF8CF7 /* RatingTableViewCell.swift in Sources */,
 				92F86B441E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift in Sources */,
 				927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */,
@@ -1089,13 +1193,17 @@
 				92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */,
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
+				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
+				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
+				92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */,
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
+				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
@@ -1113,6 +1221,7 @@
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
+				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
@@ -1131,6 +1240,7 @@
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
+				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
@@ -1145,6 +1255,8 @@
 				92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */,
+				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
+				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,

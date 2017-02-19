@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     var cellTypes: [GigItemType] = GigItemType.mandatory
     var mutualFriends: [MutualFriend] = []
     var totalMutualFriends: Int = 0
+    var photos: [GigPhoto] = []
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -73,6 +74,7 @@ class DetailViewController: UIViewController {
         dataStore = DetailDataStore()
         dataStore.delegate = self
         dataStore.getMutualFriends(creator: gig.creator)
+        dataStore.getPhotos(gig: gig, photoDelegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +96,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .information:
             cell = data.createInformationCell(gig: gig)
+        case .photos:
+            cell = data.createPhotosCell(photos: photos)
         case .review:
             cell = data.createReviewCell(gig: gig)
         case .mutualFriends:
@@ -195,6 +199,16 @@ extension DetailViewController: DetailDataStoreDelegate {
             self.mutualFriends = mutualFriends
             self.totalMutualFriends = totalCount
             cellTypes = GigItemType.insertInto(array: cellTypes, type: .mutualFriends) //display the mutual friends cell, since they have them.
+            theTableView.reloadData()
+        }
+    }
+}
+
+extension DetailViewController: PhotoFormDelegate {
+    func recieved(photos: [GigPhoto]) {
+        if !photos.isEmpty {
+            self.photos = photos
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
             theTableView.reloadData()
         }
     }

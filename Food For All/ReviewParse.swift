@@ -30,7 +30,8 @@ class ReviewParse: PFObject, PFSubclassing {
         self.detail = review.description
         self.stars = review.stars
         if let gig = review.gig {
-            self.gig = gig.gigParse
+            let g = gig.gigParse
+            self.gig = g
         }
     }
 }

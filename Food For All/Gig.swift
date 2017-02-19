@@ -24,11 +24,11 @@ class Gig {
     }
     
     var creator: Person = Person.current()
-    var isDraft: Bool = false
     var tags: [String] = []
     
     var fullSizeFrontImage: AnyObject?
     var frontImage: AnyObject?
+    var photos: [GigPhoto] = []
     
     private var _price: Double = -1
     var price: Double {
@@ -44,7 +44,7 @@ class Gig {
         return Int(_price.getRoundedByPlaces(0)).toString + "$ " + priceUnit
     }
     
-    var gigParse: GigParse!
+    var gigParse: GigParse = GigParse()
     
     init() {}
     
@@ -62,10 +62,6 @@ class Gig {
         self.numOfReviews = gigParse.numOfReviews
         setGigImage()
     }
-    
-//    convenience init(title: String, price: Double, description: String, phoneNumber: Int, creator: Person, gigParse: GigParse) {
-//        self.init(gigParse: gigParse)
-//    }
     
     fileprivate func setGigImage() {
         //Either set the image as the gig image, but if non-existent, then use their profile image

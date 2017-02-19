@@ -164,6 +164,52 @@ struct Helpers {
         }
         return 0
     }
+    
+    static func showNewPhotoChoices(vc: UIViewController, shouldCrop: Bool = false) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (alertAction: UIAlertAction) in
+            if shouldCrop {
+                if let delegate = vc as? CameraDelegate {
+                    Camera(delegate: delegate).presentCroppingPhotoLibraryVC(target: vc)
+                }
+            } else {
+                _ = Camera.shouldStartPhotoLibrary(target: vc as AnyObject, canEdit: false)
+            }
+        }
+        
+        let cameraAction = UIAlertAction(title: "Take Photo", style: .default) { (alertAction: UIAlertAction) in
+            //If you are on mac simulator, then the camera crashes because mac doesn't have a camera on simulator, only photo library.
+            if shouldCrop {
+                if let delegate = vc as? CameraDelegate {
+                    Camera(delegate: delegate).presentCroppingCameraVC(target: vc)
+                }
+            } else {
+                _ = Camera.shouldStartCamera(target: vc, canEdit: false, frontFacing: true)
+            }
+        }
+        
+        alert.addAction(photoLibraryAction)
+        alert.addAction(cameraAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
+    static func randomString(length: Int) -> String {
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
 }
 
 struct PhoneValidator {
