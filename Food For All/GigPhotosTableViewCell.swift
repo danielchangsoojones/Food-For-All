@@ -13,7 +13,8 @@ class GigPhotosTableViewCell: HorizontalTableViewCell {
     
     init(photos: [GigPhoto]) {
         super.init(frame: CGRect.zero, identifier: "gigPhotosCell")
-        theCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.cellIdentifier)
+        self.photos = photos
+        theCollectionView.register(PhotoDetailCollectionViewCell.self, forCellWithReuseIdentifier: PhotoDetailCollectionViewCell.identifier)
         theCollectionView.delegate = self
         theCollectionView.dataSource = self
     }
@@ -23,26 +24,24 @@ class GigPhotosTableViewCell: HorizontalTableViewCell {
     }
 }
 
-extension GigPhotosTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension GigPhotosTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return photos.count
-        return 20
+        return photos.count
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.cellIdentifier, for: indexPath) as! PhotoCollectionViewCell
-//        if let file = photos[indexPath.row].smallImageFile {
-//            cell.update(file: file)
-//        }
-        
-        
-        
-        //Testing Purposes
-        cell.update(image: #imageLiteral(resourceName: "FullStar"))
-        
-        
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoDetailCollectionViewCell.identifier, for: indexPath) as! PhotoDetailCollectionViewCell
+        if let file = photos[indexPath.row].smallImageFile {
+            cell.update(file: file)
+        }
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 120)
+    }
+
 }

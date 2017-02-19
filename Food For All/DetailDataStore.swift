@@ -67,4 +67,11 @@ extension DetailDataStore {
     }
 }
 
+extension DetailDataStore {
+    func getPhotos(gig: Gig, photoDelegate: PhotoFormDelegate) {
+        let photoDataStore = PhotoFormDataStore(delegate: photoDelegate)
+        photoDataStore.loadPhotos(for: gig)
+    }
+}
+
 
