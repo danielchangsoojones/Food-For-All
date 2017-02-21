@@ -18,7 +18,6 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var price: Double
     @NSManaged var priceUnit: String
     @NSManaged var detailDescription: String
-    @NSManaged var phoneNumber: Double
     @NSManaged var creator: User
     @NSManaged var tags: [String]
     @NSManaged var frontImage: PFFile?
@@ -39,8 +38,8 @@ class GigParse: PFObject, PFSubclassing {
         price = gig.price
         priceUnit = gig.priceUnit
         detailDescription = gig.description
-        phoneNumber = gig.phoneNumber
         creator = gig.creator
+        creator.phoneNumber = gig.phoneNumber
         tags = gig.tags.map({ (tag: String) -> String in
             return tag.lowercased()
         })

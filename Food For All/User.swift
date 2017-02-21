@@ -20,6 +20,7 @@ class User: PFUser {
     @NSManaged var location: PFGeoPoint
     @NSManaged var venmoUsername: String?
     @NSManaged var profileImage: PFFile?
+    @NSManaged var phoneNumber: Double
 
     var age : Int? {
         if let birthDate = birthDate {

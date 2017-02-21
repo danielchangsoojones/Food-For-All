@@ -43,7 +43,7 @@ class ContactFormViewController: SuperCreationFormViewController {
     override func save(sender: UIBarButtonItem) {
         gig?.creator.theFirstName = theFirstNameRow.text ?? ""
         gig?.creator.theLastName = theLastNameRow.text ?? ""
-        if let phoneNumber = thePhoneNumberRow.text?.toInt() {
+        if let phoneNumber = thePhoneNumberRow.text?.toDouble() {
             gig?.phoneNumber = Double(phoneNumber)
         }
         gig?.creator.venmoUsername = theVenmoRow.text
@@ -94,8 +94,10 @@ extension ContactFormViewController {
             row.placeholder = "i.e. 3179184040"
             if let phoneNumber = gig?.phoneNumberString, PhoneValidator.isValidPhoneNumber(phoneString: phoneNumber) {
                 row.text = phoneNumber
+            } else if let phoneNumber = User.current()?.phoneNumber {
+                gig?.phoneNumber = phoneNumber
+                row.text = gig?.phoneNumberString
             }
-            //TODO: have the person's phone number saved to their account, so then it will come up automatically, but then you should be able to change the phone number for every gig too.
         }
         _ = append(rows: [thePhoneNumberRow], headerTitle: "Phone Number")
     }
