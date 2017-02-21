@@ -53,7 +53,11 @@ class PhotosFormViewController: UIViewController {
     fileprivate func dataStoreSetup() {
         dataStore = PhotoFormDataStore(delegate: self)
         if let gig = gig {
-            dataStore?.loadPhotos(for: gig)
+            if !gig.photos.isEmpty {
+                recieved(photos: gig.photos)
+            } else {
+                dataStore?.loadPhotos(for: gig)
+            }
         }
     }
     
