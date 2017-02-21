@@ -65,6 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialVC(vc: tabBarController)
     }
     
+    fileprivate func setTestingVC() {
+        let destinationVC = NameViewController()
+        let navController = UINavigationController(rootViewController: destinationVC)
+        setInitialVC(vc: navController)
+    }
+    
     fileprivate func setInitialVC(vc: UIViewController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = vc

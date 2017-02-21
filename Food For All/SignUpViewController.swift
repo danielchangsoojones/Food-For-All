@@ -32,4 +32,9 @@ class SignUpViewController: AdmissionFormViewController {
             dataStore.signUp(email: theTopTextField?.text ?? "", password: theBottomTextField?.text ?? "")
         }
     }
+    
+    override func segueIntoApplication() {
+        let nameVC = NameViewController()
+        pushVC(nameVC)
+    }
 }
