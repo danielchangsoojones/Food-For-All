@@ -54,7 +54,7 @@ extension MainSearchingView {
     }
     
     fileprivate func searchBarSetup() {
-        theSearchBar.placeholder = "What Class?"
+        theSearchBar.placeholder = "What Do You Need?"
         theSearchAreaView.addSubview(theSearchBar)
         theSearchBar.snp.makeConstraints { (make) in
             let verticalInset: CGFloat = 5.0
