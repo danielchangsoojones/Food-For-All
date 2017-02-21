@@ -18,9 +18,14 @@ lane :beta do
 
   # build your iOS app
   gym(
-    # scheme: "YourScheme"
+    # scheme: "Configurations Release"
+  )
+  
+  ifttt(
+    event_name: "testflight-submitted",
+    api_key: "bmku_IppapnZ3eewT54mzi"
   )
 
   # upload to Testflight
-  pilot(skip_waiting_for_build_processing: true)
+  pilot(skip_waiting_for_build_processing: false)
 end
