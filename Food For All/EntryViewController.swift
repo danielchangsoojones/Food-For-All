@@ -11,11 +11,15 @@ import UIKit
 class EntryViewController: UIViewController {
     var theStackView: UIStackView = UIStackView()
     var theSpinnerView: UIView?
+    var theTableView: UITableView!
+    
+    var categories: [String] = Helpers.categories
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradient()
-        stackViewSetup()
+        createTableView()
+//        stackViewSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,48 +43,46 @@ class EntryViewController: UIViewController {
         self.view.layer.insertSublayer(gradient, at: 0)
     }
     
-    fileprivate func stackViewSetup() {
-        theStackView.axis = .vertical
-        theStackView.alignment = .fill
-        theStackView.distribution = .equalCentering
-        theStackView.spacing = 10
-        
-        //If I change the name of a button, make sure that I update the necessary tags, because it searches tags based upon their button name.
-        let _ = createButton(title: "Tutoring", backgroundColor: UIColor.clear, textColor: UIColor.white)
-        let _ = createButton(title: "Laundry", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
-        let _ = createButton(title: "Haircuts", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
-        _ = createButton(title: "Other", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
-        self.view.addSubview(theStackView)
-        theStackView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(self.view.frame.width * 0.05)
-        }
-    }
-    
-    private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {
-        let button = UIButton()
-        button.layer.cornerRadius = 25
-        button.addBorder(width: 2, color: textColor)
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(textColor, for: .normal)
-        button.layer.borderColor = textColor.cgColor
-        button.backgroundColor = backgroundColor
-        button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
-        theStackView.addArrangedSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.height.equalTo(50)
-        }
-        return button
-    }
-    
-    func buttonTapped(sender: UIButton) {
-        theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
-        let dataStore = EntryDataStore(delegate: self)
-        dataStore.findGigsWith(tag: sender.titleLabel?.text ?? "")
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension EntryViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func createTableView() {
+        theTableView = UITableView(frame: self.view.bounds)
+        theTableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifier)
+        theTableView.backgroundColor = UIColor.clear
+        theTableView.separatorStyle = .none
+        self.view.addSubview(theTableView)
+        theTableView.delegate = self
+        theTableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier) as! CategoryTableViewCell
+        let category = categories[indexPath.row]
+        cell.setButton(title: category)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        categoryTapped(tag: category)
+    }
+    
+    func categoryTapped(tag: String) {
+        theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
+        let dataStore = EntryDataStore(delegate: self)
+        dataStore.findGigsWith(tag: tag)
     }
 }
 

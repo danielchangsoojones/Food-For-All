@@ -31,6 +31,7 @@
 		925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F211E25AA1A00196504 /* WelcomeView.swift */; };
 		925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F231E25AA9C00196504 /* WelcomeViewController.swift */; };
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
+		926427881E5BE13C009EDDF3 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -152,6 +153,7 @@
 		925C5F211E25AA1A00196504 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		925C5F231E25AA9C00196504 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				921C79891E46C35500D9396B /* Data Store */,
+				926427861E5BE117009EDDF3 /* Cells */,
 				921C79851E46C33A00D9396B /* EntryViewController.swift */,
 			);
 			name = "Entry Page";
@@ -477,6 +480,14 @@
 				92589D411E414DF800EFEF61 /* DataInput.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		926427861E5BE117009EDDF3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
@@ -1218,6 +1229,7 @@
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,
+				926427881E5BE13C009EDDF3 /* CategoryTableViewCell.swift in Sources */,
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
