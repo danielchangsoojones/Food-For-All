@@ -13,6 +13,7 @@
 		9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */; };
 		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
 		9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */; };
+		923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60CC1E5CC72C00C56471 /* EnlargedPhoto.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -24,7 +25,6 @@
 		9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7191E3940F70034F6D0 /* DetailViewController.swift */; };
 		9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B71B1E3942DB0034F6D0 /* DetailView.swift */; };
 		9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B71E1E396ADB0034F6D0 /* CustomScrollerView.swift */; };
-		92589D421E414DF800EFEF61 /* DataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92589D411E414DF800EFEF61 /* DataInput.swift */; };
 		925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F0E1E25A53F00196504 /* AppDelegate.swift */; };
 		925C5F161E25A53F00196504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C5F151E25A53F00196504 /* Assets.xcassets */; };
 		925C5F191E25A53F00196504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C5F171E25A53F00196504 /* LaunchScreen.storyboard */; };
@@ -136,6 +136,7 @@
 		9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		923A60CC1E5CC72C00C56471 /* EnlargedPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargedPhoto.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		9254B7191E3940F70034F6D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9254B71B1E3942DB0034F6D0 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9254B71E1E396ADB0034F6D0 /* CustomScrollerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollerView.swift; sourceTree = "<group>"; };
-		92589D411E414DF800EFEF61 /* DataInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataInput.swift; sourceTree = "<group>"; };
 		925C5F0B1E25A53F00196504 /* Food For All.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food For All.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C5F0E1E25A53F00196504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925C5F151E25A53F00196504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Food For All/Assets.xcassets"; sourceTree = "<group>"; };
@@ -328,6 +328,7 @@
 		9230BA4B1E5910F900B77A56 /* Detail Photos */ = {
 			isa = PBXGroup;
 			children = (
+				923A60CB1E5CC6F900C56471 /* NYTPhoto */,
 				9230BA511E59253800B77A56 /* Cell */,
 				9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */,
 			);
@@ -350,6 +351,14 @@
 				9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		923A60CB1E5CC6F900C56471 /* NYTPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				923A60CC1E5CC72C00C56471 /* EnlargedPhoto.swift */,
+			);
+			name = NYTPhoto;
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -483,7 +492,6 @@
 				92DD8D391E358D10009EB164 /* Circle Views */,
 				927BE0AD1E26F4BF00220168 /* Configurations */,
 				925C5F261E25BD4600196504 /* Structs.swift */,
-				92589D411E414DF800EFEF61 /* DataInput.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1252,6 +1260,7 @@
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
+				923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */,
 				92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */,
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
 				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
@@ -1274,7 +1283,6 @@
 				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,
 				926427881E5BE13C009EDDF3 /* CategoryTableViewCell.swift in Sources */,
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
-				92589D421E414DF800EFEF61 /* DataInput.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,

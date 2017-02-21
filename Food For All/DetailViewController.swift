@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import NYTPhotoViewer
 
 class DetailViewController: UIViewController {
     var theNameLabel: UILabel!
@@ -18,6 +19,7 @@ class DetailViewController: UIViewController {
     var theSpinnerContainer: UIView?
     var theReviewCell: UIView!
     var theTableView: UITableView!
+    var nytPhotoVC: NYTPhotosViewController?
     
     var gig: Gig!
     var dataStore: DetailDataStore!
@@ -97,7 +99,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .information:
             cell = data.createInformationCell(gig: gig)
         case .photos:
-            cell = data.createPhotosCell(photos: photos)
+            cell = data.createPhotosCell(photos: photos, delegate: self)
         case .review:
             cell = data.createReviewCell(gig: gig)
         case .mutualFriends:
@@ -193,6 +195,26 @@ extension DetailViewController {
         let allReviewsVC = AllReviewsViewController(gig: gig)
         allReviewsVC.gig = gig
         pushVC(allReviewsVC)
+    }
+}
+
+extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate {
+    func showPhotoViewer(selectedIndexPath: IndexPath) {
+        let enlargedPhotos: [EnlargedPhoto] = photos.map { (gigPhoto: GigPhoto) -> EnlargedPhoto in
+            let enlargedPhoto = EnlargedPhoto(file: gigPhoto.fullImageFile, delegate: self)
+            enlargedPhoto.delegate = self
+            return enlargedPhoto
+        }
+        let selectedPhoto = enlargedPhotos[selectedIndexPath.row]
+        nytPhotoVC = NYTPhotosViewController(photos: enlargedPhotos, initialPhoto: selectedPhoto)
+        if let nytPhotoVC = nytPhotoVC {
+            nytPhotoVC.navigationItem.rightBarButtonItem = nil //hide share button in corner
+            presentVC(nytPhotoVC)
+        }
+    }
+    
+    func loaded(photo: EnlargedPhoto) {
+        nytPhotoVC?.updateImage(for: photo)
     }
 }
 

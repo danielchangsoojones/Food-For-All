@@ -25,6 +25,7 @@ target 'Food For All' do
   pod 'SwiftyJSON'
   pod 'RAReorderableLayout'
   pod 'ALCameraViewController'
+  pod 'NYTPhotoViewer', '~> 1.1.0'
 
 end
 

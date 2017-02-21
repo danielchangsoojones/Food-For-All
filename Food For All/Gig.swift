@@ -54,7 +54,7 @@ class Gig {
         self.price = gigParse.price
         self.priceUnit = gigParse.priceUnit
         self.description = gigParse.detailDescription
-        self.phoneNumber = gigParse.phoneNumber
+        self.phoneNumber = gigParse.creator.phoneNumber
         self.creator = gigParse.creator
         self.tags = gigParse.tags
         self.avgStars = gigParse.avgStars
