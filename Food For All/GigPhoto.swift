@@ -22,7 +22,7 @@ class GigPhoto {
         }
         set (newValue) {
             if let newValue = newValue {
-                _fullImage = Camera.resize(image: newValue, targetSize: CGSize(width: 200, height: 200))
+                _fullImage = Camera.resize(image: newValue, targetSize: CGSize(width: 420, height: 420))
                 smallImage = Camera.resize(image: newValue, targetSize: CGSize(width: 150, height: 150))
             }
         }

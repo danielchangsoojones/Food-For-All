@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol GigPhotosCellDelegate {
+    func showPhotoViewer(selectedIndexPath: IndexPath)
+}
+
 class GigPhotosTableViewCell: HorizontalTableViewCell {
     var photos: [GigPhoto] = []
     
-    init(photos: [GigPhoto]) {
+    var delegate: GigPhotosCellDelegate?
+    
+    init(photos: [GigPhoto], delegate: GigPhotosCellDelegate) {
         super.init(frame: CGRect.zero, identifier: "gigPhotosCell")
         self.photos = photos
+        self.delegate = delegate
         theCollectionView.register(PhotoDetailCollectionViewCell.self, forCellWithReuseIdentifier: PhotoDetailCollectionViewCell.identifier)
         theCollectionView.delegate = self
         theCollectionView.dataSource = self
@@ -29,8 +36,6 @@ extension GigPhotosTableViewCell: UICollectionViewDelegate, UICollectionViewData
         return photos.count
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoDetailCollectionViewCell.identifier, for: indexPath) as! PhotoDetailCollectionViewCell
         if let file = photos[indexPath.row].smallImageFile {
@@ -43,5 +48,8 @@ extension GigPhotosTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.showPhotoViewer(selectedIndexPath: indexPath)
+    }
 }

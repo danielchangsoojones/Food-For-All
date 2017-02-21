@@ -33,8 +33,8 @@ class GigDetailData {
         return InformationTableViewCell(title: gig.title, description: gig.description)
     }
     
-    func createPhotosCell(photos: [GigPhoto]) -> GigPhotosTableViewCell {
-        return GigPhotosTableViewCell(photos: photos)
+    func createPhotosCell(photos: [GigPhoto], delegate: GigPhotosCellDelegate) -> GigPhotosTableViewCell {
+        return GigPhotosTableViewCell(photos: photos, delegate: delegate)
     }
     
     func createReviewCell(gig: Gig) -> RatingTableViewCell {
