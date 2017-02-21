@@ -61,7 +61,7 @@ class CreationData {
     
     var photosCell: CreationTableViewCell {
         let image = #imageLiteral(resourceName: "Camera").withRenderingMode(.alwaysTemplate)
-        let cell = CreationTableViewCell(iconImage: image, titleText: "Photos")
+        let cell = CreationTableViewCell(iconImage: image, titleText: "Add Photos")
         return cell
     }
 }

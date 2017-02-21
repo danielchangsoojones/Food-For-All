@@ -13,6 +13,10 @@ struct MainSearchingViewConstants {
     static let leadingInset: CGFloat = 15
 }
 
+protocol SearchVCDelegate {
+    func pass(gigs: [Gig])
+}
+
 class MainSearchingViewController: UIViewController {
     var theSearchBar: CustomSearchBar!
     var theTableView: UITableView!
@@ -25,13 +29,17 @@ class MainSearchingViewController: UIViewController {
     }
     var hasLoadedDatabaseOnce: Bool = false
     
+    var searchCategory: SearchCategory = .other
+    
     var dataStore: MainSearchingDataStore?
+    var delegate: SearchVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         dataStoreSetup()
         navBarSetup()
+        setExampleResults()
     }
     
     fileprivate func viewSetup() {
@@ -111,6 +119,10 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
         let result = results[indexPath.row]
         dataStore?.findGigs(title: result)
     }
+    
+    fileprivate func setExampleResults() {
+        results = searchCategory.searchTips
+    }
 }
 
 extension MainSearchingViewController: UISearchBarDelegate {
@@ -126,10 +138,8 @@ extension MainSearchingViewController: MainSearchingDelegate {
     }
     
     func pass(gigs: [Gig]) {
-        let destinationVC = FrontPageViewController()
-        destinationVC.gigs = gigs
-        let navController = CustomNavigationController(rootViewController: destinationVC)
-        presentVC(navController)
+        delegate?.pass(gigs: gigs)
+        popVC()
     }
     
     func getMostCurrentSearchText() -> String? {
