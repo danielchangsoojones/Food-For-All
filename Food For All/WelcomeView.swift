@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 
 class WelcomeView: UIView {
+    struct Constants {
+        static let topCornerInset: CGFloat = 10
+        static let sideCornerInset: CGFloat = 10
+    }
+    
     var theStackView = UIStackView()
     var theLogInButton = UIButton()
     var theFacebookButton = UIButton()
@@ -21,6 +26,7 @@ class WelcomeView: UIView {
         addBackgroundGradient()
         stackViewSetup()
         logInButtonSetup()
+        signInButtonSetup()
         logoSetup()
     }
     
@@ -41,7 +47,6 @@ extension WelcomeView {
         theStackView.distribution = .equalCentering
         theStackView.spacing = 10
         facebookButtonSetup()
-        theSignUpButton = createButton(title: "Create Account", backgroundColor: UIColor.clear, textColor: UIColor.white)
         self.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
@@ -70,14 +75,28 @@ extension WelcomeView {
     }
     
     fileprivate func logInButtonSetup() {
-        theLogInButton.setTitle("Log In", for: .normal)
-        theLogInButton.setTitleColor(UIColor.white, for: .normal)
-        theLogInButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        self.addSubview(theLogInButton)
+        theLogInButton = createCornerButton(title: "Log In")
         theLogInButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(10)
-            make.trailing.equalTo(self).inset(10)
+            make.top.equalToSuperview().inset(Constants.topCornerInset)
+            make.trailing.equalTo(self).inset(Constants.sideCornerInset)
         }
+    }
+    
+    fileprivate func signInButtonSetup() {
+        theSignUpButton = createCornerButton(title: "Email")
+        theSignUpButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(Constants.topCornerInset)
+            make.leading.equalTo(self).inset(Constants.sideCornerInset)
+        }
+    }
+    
+    fileprivate func createCornerButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.addSubview(button)
+        return button
     }
 }
 

@@ -148,6 +148,7 @@ extension PricingFormViewController {
         customUnitRow.configure { row in
             row.placeholder = "custom pricing unit..."
         }
+        customUnitRow.cell.textField.delegate = self
     }
     
     fileprivate func showCustomUnitRow(text: String?) {
@@ -156,5 +157,14 @@ extension PricingFormViewController {
             //giving a delay to wait until view appears, or else it doesn't appear.
             self.former.insertUpdate(rowFormer: self.customUnitRow, below: self.unitsRow)
         }
+    }
+}
+
+extension PricingFormViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        let limitLength = 20
+        return newLength <= limitLength // Bool
     }
 }

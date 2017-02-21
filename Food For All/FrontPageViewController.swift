@@ -21,7 +21,7 @@ class FrontPageViewController: UIViewController {
         viewSetup()
         dataStoreSetup()
         addTableViewVC()
-        searchBarSetup()
+        searchButtonSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +65,7 @@ class FrontPageViewController: UIViewController {
 
 //search bar extension
 extension FrontPageViewController: MainSearchViewDelegate {
-    fileprivate func searchBarSetup() {
+//    fileprivate func searchBarSetup() {
 //        let frame: CGRect = navBar?.bounds ?? CGRect.zero
 //        let insetFrame = frame.insetBy(dx: 10, dy: 6)
 //        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
@@ -73,15 +73,24 @@ extension FrontPageViewController: MainSearchViewDelegate {
 //        if let searchView = theSearchView {
 //            self.navBar?.addSubview(searchView)
 //        }
-    }
+//    }
     
 //    func resetSearch() {
 //        dataStore?.loadDefaultGigs()
 //        theSearchView?.reset()
 //    }
     
+    fileprivate func searchButtonSetup() {
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleTap))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
     func handleTap() {
         let searchVC = MainSearchingViewController()
+        searchVC.delegate = self
+        if let category = SearchCategory(rawValue: title ?? "") {
+            searchVC.searchCategory = category
+        }
         pushVC(searchVC)
     }
     
@@ -110,7 +119,7 @@ extension FrontPageViewController: MainSearchViewDelegate {
     }
 }
 
-extension FrontPageViewController: FrontPageDataStoreDelegate {
+extension FrontPageViewController: FrontPageDataStoreDelegate, SearchVCDelegate {
     func pass(gigs: [Gig]) {
         self.gigs = gigs
         tableVC.gigs = gigs

@@ -23,7 +23,7 @@ class AdmissionFormViewController: WelcomeFormViewController {
 }
 
 //extension for commonality between login/signup
-extension WelcomeFormViewController: AdmissionFormDataStoreDelegate {
+extension AdmissionFormViewController: AdmissionFormDataStoreDelegate {
     func displayError(title: String, subtitle: String) {
         Helpers.showBanner(title: title, subtitle: subtitle)
     }

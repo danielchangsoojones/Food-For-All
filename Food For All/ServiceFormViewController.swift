@@ -70,7 +70,7 @@ extension ServiceFormViewController {
     }
     
     var categories: [String] {
-        return ["Tutoring", "Laundry", "Other"]
+        return Helpers.categories
     }
     
     fileprivate func tagFormSetup() {

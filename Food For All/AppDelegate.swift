@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             //already logged in
             toFrontPageVC()
-            
-            
-//            let navController = UINavigationController(rootViewController: PhotosFormViewController())
-//            setInitialVC(vc: navController)
         }
         
         return true
@@ -67,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func toFrontPageVC() {
         let tabBarController = CustomTabBarController()
         setInitialVC(vc: tabBarController)
+    }
+    
+    fileprivate func setTestingVC() {
+        let destinationVC = NameViewController()
+        let navController = UINavigationController(rootViewController: destinationVC)
+        setInitialVC(vc: navController)
     }
     
     fileprivate func setInitialVC(vc: UIViewController) {

@@ -26,7 +26,7 @@ class MainSearchingDataStore {
     
     func findGigs(title: String) {
         let query = SearchGig.query()! as! PFQuery<SearchGig>
-        query.whereKey("lowercaseTitle", equalTo: title.lowercased())
+        query.whereKey("lowercaseTitle", contains: title.lowercased())
         query.includeKey("gigParse")
         query.includeKey("gigParse.creator")
         query.findObjectsInBackground { (searchGigs, error) in

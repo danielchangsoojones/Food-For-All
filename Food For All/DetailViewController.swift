@@ -163,7 +163,10 @@ extension DetailViewController {
     
     func messageButtonPressed(sender: UIButton) {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
-        sendSMSText(phoneNumber: gig.phoneNumberString)
+        Timer.runThisAfterDelay(seconds: 0.01) {
+            //the spinner was taking a while to show up because sendSMS was somehow taking up the processing, so it felt like the user had not pressed the button. This fixed it.
+            self.sendSMSText(phoneNumber: self.gig.phoneNumberString)
+        }
     }
     
     func venmoTapped() {

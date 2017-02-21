@@ -210,6 +210,8 @@ struct Helpers {
         
         return randomString
     }
+    
+    static var categories: [String] = ["Tutoring", "Laundry", "Haircuts", "Photography", "Other"]
 }
 
 struct PhoneValidator {

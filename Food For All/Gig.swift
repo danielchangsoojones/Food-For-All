@@ -13,8 +13,8 @@ class Gig {
     var title: String = ""
     var priceUnit: String = ""
     var description: String = ""
-    var avgStars: Double = -1
-    var numOfReviews: Int = -1
+    var avgStars: Double = 0
+    var numOfReviews: Int = 0
     
     var phoneNumber: Double = 0
     var phoneNumberString: String {
