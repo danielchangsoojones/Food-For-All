@@ -52,4 +52,8 @@ extension CategoryTableViewCell {
     static var identifier: String {
         return "categoryCell"
     }
+    
+    static var cellHeight: CGFloat {
+        return 60
+    }
 }

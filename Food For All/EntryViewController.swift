@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
 class EntryViewController: UIViewController {
     var theStackView: UIStackView = UIStackView()
@@ -19,7 +20,6 @@ class EntryViewController: UIViewController {
         super.viewDidLoad()
         addGradient()
         createTableView()
-//        stackViewSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +52,11 @@ extension EntryViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func createTableView() {
         theTableView = UITableView(frame: self.view.bounds)
         theTableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifier)
+        let allCellsHeight: CGFloat = CategoryTableViewCell.cellHeight * CGFloat(categories.count)
+        if allCellsHeight <= self.view.frame.height {
+            //For centering the cells while we don't cover the whole screen, once we get enough categories, then we can get rid of this, just to keep things nice and neat
+            theTableView.contentInset = UIEdgeInsets(top: ((self.view.frame.height - allCellsHeight - tabBarHeight) / 2) - navigationBarHeight  , left: 0, bottom: 0, right: 0)
+        }
         theTableView.backgroundColor = UIColor.clear
         theTableView.separatorStyle = .none
         self.view.addSubview(theTableView)
@@ -71,7 +76,7 @@ extension EntryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return CategoryTableViewCell.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
