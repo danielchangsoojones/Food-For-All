@@ -14,7 +14,13 @@ class NameDataStore {
         if let currentUser = User.current() {
             currentUser.theFirstName = firstName
             currentUser.theLastName = lastName
+            sendMessageToGroupMe(firstName: firstName, lastName: lastName)
             currentUser.saveInBackground()
         }
+    }
+    
+    fileprivate func sendMessageToGroupMe(firstName: String, lastName: String) {
+        let dataStore = WelcomeDataStore()
+        dataStore.sendNewUserIntoGroupMe()
     }
 }

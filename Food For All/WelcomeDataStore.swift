@@ -20,6 +20,8 @@ class WelcomeDataStore {
     init(delegate: WelcomeDataStoreDelegate) {
         self.delegate = delegate
     }
+    
+    init() {}
 }
 
 //facebook extension
@@ -38,6 +40,7 @@ extension WelcomeDataStore {
             if let currentUser = user as? User {
                 if currentUser.isNew {
                     print("this is a new user that just signed up")
+                    self.sendNewUserIntoGroupMe()
                     self.updateProfileFromFacebook(true)
                 } else {
                     //let the facebook user sign-in
@@ -116,5 +119,26 @@ extension WelcomeDataStore {
                 }
             })
         }
+    }
+    
+    func sendNewUserIntoGroupMe() {
+        getTotalUsersCount()
+    }
+    
+    fileprivate func getTotalUsersCount() {
+        let query = User.query() as! PFQuery<User>
+        query.countObjectsInBackground { (count: Int32, error) in
+            self.sendMessage(count: Int(count))
+        }
+    }
+    
+    fileprivate func sendMessage(count: Int) {
+        let url = "https://maker.ifttt.com/trigger/new-user-signup/with/key/bmku_IppapnZ3eewT54mzi"
+        let fullName = User.current()?.fullName ?? ""
+        let userCount: Int = count
+        let parameters: Parameters = ["value1" : fullName, "value2" : userCount]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
+            print(response)
+        })
     }
 }
