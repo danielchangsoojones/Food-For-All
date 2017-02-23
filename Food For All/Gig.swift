@@ -41,7 +41,7 @@ class Gig {
         }
     }
     var priceString: String {
-        return Int(_price.getRoundedByPlaces(0)).toString + "$ " + priceUnit
+        return "$" + Int(_price.getRoundedByPlaces(0)).toString + " " + priceUnit
     }
     
     var gigParse: GigParse = GigParse()

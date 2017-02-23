@@ -23,9 +23,11 @@ enum SearchCategory: String {
     var searchTips: [String] {
         switch self {
         case .tutoring:
-            return ["Finite", "M119", "K201", "M118", "A100", "Spanish", "K303", "S301", "A201", "K303", "C104", "G202"]
+            let subjects = ["M119", "K201", "M118", "A100", "Spanish", "K303", "S301", "A201", "K303", "C104", "G202"]
+            return subjects.sorted { $0 < $1 } //alphabetize
         default:
-            return ["barber", "laundry", "headshots", "tutoring"]
+            let arr = ["barber", "laundry", "headshots", "tutoring"]
+            return arr.sorted { $0 < $1 }
         }
     }
 }
