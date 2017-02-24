@@ -17,12 +17,14 @@ class AgreementView: UIView {
     var theTitleLabel: UILabel!
     var theStackView: UIStackView!
     var theAgreementLabel: TTTAttributedLabel!
+    var theAgreeButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         titleSetup()
         stackViewSetup()
         agreeingLabelSetup()
+        agreeButtonSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,7 +91,16 @@ class AgreementView: UIView {
         self.addSubview(theAgreementLabel)
         theAgreementLabel.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(theStackView)
-            make.bottom.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(10)
+        }
+    }
+    
+    fileprivate func agreeButtonSetup() {
+        theAgreeButton = Helpers.stylizeButton(text: "Agree")
+        self.addSubview(theAgreeButton)
+        theAgreeButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(theAgreementLabel.snp.top).offset(-10)
         }
     }
 }
