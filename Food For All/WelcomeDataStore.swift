@@ -11,7 +11,7 @@ import ParseFacebookUtilsV4
 import Alamofire
 
 protocol WelcomeDataStoreDelegate {
-    func segueIntoApplication()
+    func segueIntoApplication(isNew: Bool)
 }
 
 class WelcomeDataStore {
@@ -96,7 +96,7 @@ extension WelcomeDataStore {
                             }
                         }
                     })
-                    self.updateFacebookImage()
+                    self.updateFacebookImage(isNew: isNew)
                 } else if let error = error {
                     print(error)
                 }
@@ -104,7 +104,7 @@ extension WelcomeDataStore {
         }
     }
     
-    private func updateFacebookImage() {
+    private func updateFacebookImage(isNew: Bool) {
         let currentUser = User.current()!
         if let facebookId = currentUser.facebookId {
             let pictureURL = "https://graph.facebook.com/" + facebookId + "/picture?type=square&width=600&height=600"
@@ -113,7 +113,7 @@ extension WelcomeDataStore {
                     let data = response.result.value
                     currentUser.profileImage = PFFile(name: "profileImage.jpg", data: data!)
                     currentUser.saveInBackground()
-                    self.delegate?.segueIntoApplication()
+                    self.delegate?.segueIntoApplication(isNew: isNew)
                 } else {
                     print("Failed to update profile image from facebook: \(response.result.error)")
                 }

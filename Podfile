@@ -26,6 +26,7 @@ target 'Food For All' do
   pod 'RAReorderableLayout'
   pod 'ALCameraViewController'
   pod 'NYTPhotoViewer', '~> 1.1.0'
+  pod 'TTTAttributedLabel'
 
 end
 

@@ -14,6 +14,9 @@
 		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
 		9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */; };
 		923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60CC1E5CC72C00C56471 /* EnlargedPhoto.swift */; };
+		923A60D11E5FDC8700C56471 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D01E5FDC8700C56471 /* AgreementViewController.swift */; };
+		923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D21E5FDD8A00C56471 /* AgreementView.swift */; };
+		923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D51E5FF36A00C56471 /* BulletLabel.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -137,6 +140,9 @@
 		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		923A60CC1E5CC72C00C56471 /* EnlargedPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargedPhoto.swift; sourceTree = "<group>"; };
+		923A60D01E5FDC8700C56471 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
+		923A60D21E5FDD8A00C56471 /* AgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
+		923A60D51E5FF36A00C56471 /* BulletLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletLabel.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -361,6 +367,24 @@
 			name = NYTPhoto;
 			sourceTree = "<group>";
 		};
+		923A60CF1E5FDC4700C56471 /* Agreement */ = {
+			isa = PBXGroup;
+			children = (
+				923A60D41E5FF35600C56471 /* Subview */,
+				923A60D01E5FDC8700C56471 /* AgreementViewController.swift */,
+				923A60D21E5FDD8A00C56471 /* AgreementView.swift */,
+			);
+			name = Agreement;
+			sourceTree = "<group>";
+		};
+		923A60D41E5FF35600C56471 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				923A60D51E5FF36A00C56471 /* BulletLabel.swift */,
+			);
+			name = Subview;
+			sourceTree = "<group>";
+		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +498,7 @@
 		925C5F201E25A55900196504 /* Login/SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				923A60CF1E5FDC4700C56471 /* Agreement */,
 				92D12B991E282F3A009AC99E /* Welcome */,
 				92DD8D2A1E295F19009EB164 /* Forms */,
 				92D12BA21E303B4D009AC99E /* Login */,
@@ -1262,6 +1287,7 @@
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */,
 				92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */,
+				923A60D11E5FDC8700C56471 /* AgreementViewController.swift in Sources */,
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
 				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
@@ -1271,6 +1297,8 @@
 				921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
+				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
+				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
@@ -1458,7 +1486,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1477,7 +1505,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1673,7 +1701,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

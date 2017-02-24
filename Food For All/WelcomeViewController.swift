@@ -74,7 +74,12 @@ extension WelcomeViewController {
 }
 
 extension WelcomeViewController: WelcomeDataStoreDelegate {
-    func segueIntoApplication() {
-        Helpers.enterApplication(from: self)
+    func segueIntoApplication(isNew: Bool) {
+        if isNew {
+            let agreementVC = AgreementViewController()
+            presentVC(agreementVC)
+        } else {
+            Helpers.enterApplication(from: self)
+        }
     }
 }
