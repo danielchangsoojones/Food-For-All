@@ -21,7 +21,7 @@ class BulletLabel: UILabel {
     }
     
     fileprivate func createBulletPoint(text: String) {
-        let attributesDictionary = [NSFontAttributeName : UIFont.systemFont(ofSize: 35, weight: UIFontWeightLight)]
+        let attributesDictionary = [NSFontAttributeName : UIFont.systemFont(ofSize: 35, weight: UIFontWeightThin)]
         let fullAttributedString = NSMutableAttributedString(string: "", attributes: attributesDictionary)
         
         let bulletPoint: String = "\u{2022}"

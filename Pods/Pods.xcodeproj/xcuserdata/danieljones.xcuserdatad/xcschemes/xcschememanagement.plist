@@ -134,6 +134,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -147,6 +152,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>01CD3BA0DE1708A73CB3BC5440D84D9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04EF0AEBE543EFD7FA9956B476AEA4A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1D793E0D1B62F97985F69EAEC7F0C9D3</key>
 		<dict>
 			<key>primary</key>
@@ -162,12 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>272EAD2F85491C5ACAC6537D0C06640C</key>
+		<key>29C18041B449DE70A5234856E149C939</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29C18041B449DE70A5234856E149C939</key>
+		<key>2D3D358676A8775172C98D48DC0A88B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -183,11 +198,6 @@
 			<true/>
 		</dict>
 		<key>3DBAEBA17F31A2EC0E763FC4F12489F4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>44038FB9F447BB7FCA6536FF20748DE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -237,21 +247,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC99571ADF0A8092BB09DC6EC07D97BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ADC859F357EB0B99F971E81A9FD92CEE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B3A3EEDF923B60AC8440193EFD001D1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BB5A97D8F6B074BA2676782097620F9B</key>
 		<dict>
 			<key>primary</key>
@@ -262,7 +257,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D12B2E2014D345C9A9E06FBBE71F9A0A</key>
+		<key>CE98430BAFA00934DE1E531BA8DC5E76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -272,12 +267,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9333C74ADB658C61E458C12B9B982CD</key>
+		<key>DA611E63FE5E80558A32E1E4B991DC29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E00311318D3052CB3429E9B5303B854B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E55FBC23B6A75D6A6F3EE98B4262E8DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E619EE519606FDDD6899623AF0D891D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6DDC15155E69B05E7D01C30C43C79C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

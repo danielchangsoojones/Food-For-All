@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 class AgreementView: UIView {
     struct Constants {
@@ -15,15 +16,13 @@ class AgreementView: UIView {
     
     var theTitleLabel: UILabel!
     var theStackView: UIStackView!
-    
-    var sideInset: CGFloat {
-        return self.frame.width * 0.05
-    }
+    var theAgreementLabel: TTTAttributedLabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         titleSetup()
         stackViewSetup()
+        agreeingLabelSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,7 +37,7 @@ class AgreementView: UIView {
         theStackView.spacing = Constants.verticalSpacing
         self.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(sideInset)
+            make.leading.trailing.equalToSuperview().inset(self.frame.width * 0.1)
             make.top.equalTo(theTitleLabel.snp.bottom).offset(40)
         }
         let bullet1 = BulletLabel(text: "I am a Bloomington student")
@@ -59,6 +58,38 @@ class AgreementView: UIView {
         theTitleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(self.frame.height * 0.1)
+        }
+    }
+    
+    fileprivate func agreeingLabelSetup() {
+        let tLabel = TTTAttributedLabel(frame: CGRect.zero)
+        let termsOfServiceString = "terms of service"
+        let privacyPolicyString = "privacy policy"
+        let str = "By agreeing, you agree to our \(termsOfServiceString) and \(privacyPolicyString)"
+        let nsString: NSString = NSString(string: str)
+        
+        tLabel.numberOfLines = 2
+        tLabel.textColor = UIColor.white
+        tLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightBold)
+        //You have to make sure that you set the attributes of the text before we set the text, just a bug in TTLabel, and that is the workaround
+        tLabel.text = str
+        tLabel.textAlignment = .center
+        tLabel.linkAttributes = [kCTForegroundColorAttributeName as AnyHashable: UIColor.white, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+        
+        let termsRange = nsString.range(of: termsOfServiceString)
+        let termsURL = URL(string: "https://www.google.com/")
+        tLabel.addLink(to: termsURL, with: termsRange)
+        
+        
+        let privacyRange = nsString.range(of: privacyPolicyString)
+        let privacyURL = URL(string: "https://www.google.com/")
+        tLabel.addLink(to: privacyURL, with: privacyRange)
+        
+        theAgreementLabel = tLabel
+        self.addSubview(theAgreementLabel)
+        theAgreementLabel.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theStackView)
+            make.bottom.equalToSuperview().inset(5)
         }
     }
 }

@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 class AgreementViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -19,6 +19,7 @@ class AgreementViewController: UIViewController {
     fileprivate func viewSetup() {
         let agreementView = AgreementView(frame: self.view.bounds)
         self.view = agreementView
+        agreementView.theAgreementLabel.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,5 +29,11 @@ class AgreementViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension AgreementViewController: TTTAttributedLabelDelegate {
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        UIApplication.shared.openURL(url)
     }
 }
