@@ -79,12 +79,12 @@ class AgreementView: UIView {
         tLabel.linkAttributes = [kCTForegroundColorAttributeName as AnyHashable: UIColor.white, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
         
         let termsRange = nsString.range(of: termsOfServiceString)
-        let termsURL = URL(string: "https://www.google.com/")
+        let termsURL = URL(string: "https://gigio804.wordpress.com/terms-and-conditions")
         tLabel.addLink(to: termsURL, with: termsRange)
         
         
         let privacyRange = nsString.range(of: privacyPolicyString)
-        let privacyURL = URL(string: "https://www.google.com/")
+        let privacyURL = URL(string: "https://gigio804.wordpress.com/privacy-policy")
         tLabel.addLink(to: privacyURL, with: privacyRange)
         
         theAgreementLabel = tLabel

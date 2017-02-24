@@ -50,7 +50,7 @@ class NameViewController: WelcomeFormViewController {
         super.forwardButtonPressed(sender: sender)
         if isComplete {
             dataStore.save(firstName: theTopTextField?.text ?? "", lastName: theBottomTextField?.text ?? "")
-            Helpers.enterApplication(from: self)
+            presentVC(AgreementViewController())
         }
     }
 }

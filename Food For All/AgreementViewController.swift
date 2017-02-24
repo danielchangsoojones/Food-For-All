@@ -20,6 +20,7 @@ class AgreementViewController: UIViewController {
         let agreementView = AgreementView(frame: self.view.bounds)
         self.view = agreementView
         agreementView.theAgreementLabel.delegate = self
+        agreementView.theAgreeButton.addTarget(self, action: #selector(agreePressed), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +30,10 @@ class AgreementViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func agreePressed() {
+        Helpers.enterApplication(from: self)
     }
 }
 
