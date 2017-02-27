@@ -27,6 +27,7 @@ target 'Food For All' do
   pod 'ALCameraViewController'
   pod 'NYTPhotoViewer', '~> 1.1.0'
   pod 'TTTAttributedLabel'
+  pod "CalendarLib"
 
 end
 

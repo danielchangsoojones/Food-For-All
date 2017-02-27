@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             //already logged in
 //            toFrontPageVC()
-            setInitialVC(vc: AgreementViewController())
+            setInitialVC(vc: SchedulingViewController())
         }
         
         return true

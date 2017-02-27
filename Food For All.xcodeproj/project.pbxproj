@@ -17,6 +17,10 @@
 		923A60D11E5FDC8700C56471 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D01E5FDC8700C56471 /* AgreementViewController.swift */; };
 		923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D21E5FDD8A00C56471 /* AgreementView.swift */; };
 		923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D51E5FF36A00C56471 /* BulletLabel.swift */; };
+		923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E01E63EE5800C56471 /* SchedulingViewController.swift */; };
+		923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */; };
+		923A60E51E6496B600C56471 /* DateSectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */; };
+		923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -143,6 +147,10 @@
 		923A60D01E5FDC8700C56471 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		923A60D21E5FDD8A00C56471 /* AgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		923A60D51E5FF36A00C56471 /* BulletLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletLabel.swift; sourceTree = "<group>"; };
+		923A60E01E63EE5800C56471 /* SchedulingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingViewController.swift; sourceTree = "<group>"; };
+		923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewLayout.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -385,6 +393,17 @@
 			name = Subview;
 			sourceTree = "<group>";
 		};
+		923A60DF1E63EE3800C56471 /* Scheduling */ = {
+			isa = PBXGroup;
+			children = (
+				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
+				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
+				923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */,
+				923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */,
+			);
+			name = Scheduling;
+			sourceTree = "<group>";
+		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +500,7 @@
 				921C79881E46C34200D9396B /* Entry Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
+				923A60DF1E63EE3800C56471 /* Scheduling */,
 				92B3E4521E4F835300FD2042 /* Reviews */,
 				9279DA241E3D02D600E2CCA1 /* Search */,
 				923A8CDD1E425D1300F1BFCA /* Creation */,
@@ -1291,6 +1311,7 @@
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
 				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
+				923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */,
@@ -1326,11 +1347,13 @@
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
+				923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
+				923A60E51E6496B600C56471 /* DateSectionHeaderReusableView.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
@@ -1341,6 +1364,7 @@
 				926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,
 				92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */,
+				923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */,
 				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
