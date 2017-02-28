@@ -21,6 +21,7 @@
 		923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */; };
 		923A60E51E6496B600C56471 /* DateSectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */; };
 		923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */; };
+		923A60E91E6513BA00C56471 /* ScheduleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -151,6 +152,7 @@
 		923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSectionHeaderReusableView.swift; sourceTree = "<group>"; };
 		923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewLayout.swift; sourceTree = "<group>"; };
+		923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -396,12 +398,21 @@
 		923A60DF1E63EE3800C56471 /* Scheduling */ = {
 			isa = PBXGroup;
 			children = (
+				923A60EA1E66380D00C56471 /* Cells */,
 				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
-				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
 				923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */,
 				923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */,
+				923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */,
 			);
 			name = Scheduling;
+			sourceTree = "<group>";
+		};
+		923A60EA1E66380D00C56471 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -1345,6 +1356,7 @@
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
+				923A60E91E6513BA00C56471 /* ScheduleCollectionView.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
 				923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */,

@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
 class SchedulingViewController: UIViewController {
+    var theCollectionView: UICollectionView!
+    
+    var initialContentOffset: CGPoint = CGPoint.zero
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         let layout = ScheduleCollectionViewLayout()
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.red
-        self.view.addSubview(collectionView)
+        theCollectionView = ScheduleCollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        theCollectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
+        theCollectionView.dataSource = self
+        theCollectionView.delegate = self
+        theCollectionView.backgroundColor = UIColor.red
+        
+        theCollectionView.isDirectionalLockEnabled = true
+        theCollectionView.alwaysBounceVertical = true
+        theCollectionView.alwaysBounceHorizontal = true
+        self.view.addSubview(theCollectionView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,4 +59,21 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        initialContentOffset = scrollView.contentOffset
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isDragging {
+            let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
+            
+            if abs(velocity.y) > abs(velocity.x) {
+                scrollView.contentOffset = CGPoint(x: initialContentOffset.x, y: scrollView.contentOffset.y)
+            } else if abs(velocity.x) > abs(velocity.y) {
+                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: initialContentOffset.y)
+            }
+        }
+    }
+    
+
 }

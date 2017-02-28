@@ -10,9 +10,6 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - BRYXBanner (0.7.1)
-  - CalendarLib (2.0):
-    - OrderedDictionary (~> 1.2)
-    - OSCache (~> 1.2)
   - Cosmos (8.0.2)
   - EZSwiftExtensions (1.7)
   - FBSDKCoreKit (4.16.1):
@@ -31,8 +28,6 @@ PODS:
     - FLAnimatedImage (~> 1.0.8)
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.1.0)
-  - OrderedDictionary (1.4)
-  - OSCache (1.2.1)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.2):
@@ -57,7 +52,6 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.1)
   - ALCameraViewController
   - BRYXBanner
-  - CalendarLib
   - Cosmos (~> 8.0)
   - EZSwiftExtensions
   - Former
@@ -91,7 +85,6 @@ SPEC CHECKSUMS:
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
-  CalendarLib: 040a8a655376581d8dc7c3c63196ddcf5223f471
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
   FBSDKCoreKit: 6feac4e8921ccd7afa83fb1df6291dc6eec42c7c
@@ -102,8 +95,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NextGrowingTextView: 3cc930a03c5979071244af42bcc81360d7453323
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
-  OrderedDictionary: 138c8d2e358d3a0c9adda15c6c7db24e8e3b09e6
-  OSCache: 826996b68e8542a8a3d8af1ab0a0fc3070d8f357
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 8ff88d57d9b1fc99d88e42c36958f98edeb06763
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
@@ -115,6 +106,6 @@ SPEC CHECKSUMS:
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: ce2c17ed7e5c901c00f743ba4c791750383fabbf
+PODFILE CHECKSUM: 4fa4787e894b6005bcf0ab8317746425203be0f2
 
 COCOAPODS: 1.1.1
