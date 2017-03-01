@@ -26,7 +26,6 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
     
     fileprivate func labelSetup() {
         theTimeLabel = UILabel()
-        theTimeLabel.text = "Hiii"
         theTimeLabel.textColor = CustomColors.SilverChalice
         self.addSubview(theTimeLabel)
         theTimeLabel.snp.makeConstraints { (make) in
@@ -35,8 +34,9 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
-
+    func setTime(title: String?) {
+        theTimeLabel.text = title
+    }
 }
 
 extension HourUnitCollectionViewCell {

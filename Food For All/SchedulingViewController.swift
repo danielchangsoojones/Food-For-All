@@ -10,6 +10,10 @@ import UIKit
 import EZSwiftExtensions
 
 class SchedulingViewController: UIViewController {
+    struct Constants {
+        static let numberOfSections: Int = 25
+    }
+    
     var theCollectionView: UICollectionView!
     
     var initialContentOffset: CGPoint = CGPoint.zero
@@ -42,7 +46,7 @@ class SchedulingViewController: UIViewController {
 
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 50
+        return Constants.numberOfSections
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,9 +54,12 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
+//        let section = indexPath.section
+        let item = indexPath.item
+        
+        if item == 0 {
             //the y axis hour unit cells
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourUnitCollectionViewCell.identifier, for: indexPath) as! HourUnitCollectionViewCell
+            let cell = createHourUnitCell(indexPath: indexPath, collectionView: collectionView)
             return cell
         } else {
             // get a reference to our storyboard cell
@@ -80,6 +87,38 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
             }
         }
     }
-    
-
 }
+
+//the y axis of times
+extension SchedulingViewController {
+    fileprivate func createHourUnitCell(indexPath: IndexPath, collectionView: UICollectionView) -> HourUnitCollectionViewCell {
+        let section = indexPath.section
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourUnitCollectionViewCell.identifier, for: indexPath) as! HourUnitCollectionViewCell
+        
+        if section > 0 && section != Constants.numberOfSections - 1 {
+            //add times to any cells, but the top left corner cell, the first time cell and the last time cell. Trying to copy the look of Vantage calender on the App Store
+            let timeString = convertNumToTime(num: section)
+            cell.setTime(title: timeString)
+        } else {
+            cell.setTime(title: nil)
+        }
+        
+        return cell
+    }
+    
+    fileprivate func convertNumToTime(num: Int) -> String {
+        var suffix: String = "Am"
+        var numString: String = num.toString
+        
+        if num >= 12 {
+            suffix = "Pm"
+            if num > 12 {
+                numString = (num - 12).toString
+            }
+        }
+        
+        return "\(numString) \(suffix)"
+    }
+}
+
+
