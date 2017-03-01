@@ -106,13 +106,25 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                 if collectionView!.numberOfItems(inSection: section) > 0 {
                     for item in 0...collectionView!.numberOfItems(inSection: section)-1 {
                         
+                        
                         // Build the UICollectionVieLayoutAttributes for the cell.
                         let cellIndex = IndexPath(item: item, section: section)
-                        let xPos = Double(item) * CELL_WIDTH
+                        var yAxisCellWidth: Double = CELL_WIDTH / 2
+                        var cellWidth: Double = CELL_WIDTH
+                        var xPos: Double = 0
+                        
+                        if item == 0 {
+                            //the y axis cells
+                            cellWidth = yAxisCellWidth
+                        } else {
+                            //all other cells
+                            xPos = Double(item) * CELL_WIDTH - yAxisCellWidth
+                        }
+        
                         let yPos = Double(section) * CELL_HEIGHT
                         
                         let cellAttributes = UICollectionViewLayoutAttributes(forCellWith: cellIndex)
-                        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: CELL_HEIGHT)
+                        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: CELL_HEIGHT)
                         
                         // Determine zIndex based on cell type.
                         if section == 0 && item == 0 {
@@ -130,7 +142,6 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         
                     }
                 }
-                
             }
         }
         

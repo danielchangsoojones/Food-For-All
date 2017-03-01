@@ -16,13 +16,13 @@ class SchedulingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
         let layout = ScheduleCollectionViewLayout()
         theCollectionView = ScheduleCollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         theCollectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
+        theCollectionView.register(HourUnitCollectionViewCell.self, forCellWithReuseIdentifier: HourUnitCollectionViewCell.identifier)
         theCollectionView.dataSource = self
         theCollectionView.delegate = self
-        theCollectionView.backgroundColor = UIColor.red
+        theCollectionView.backgroundColor = UIColor(r: 33, g: 34, b: 36)
         
         theCollectionView.isDirectionalLockEnabled = true
         theCollectionView.alwaysBounceVertical = true
@@ -50,13 +50,19 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCollectionViewCell.identifier, for: indexPath) as! ScheduleCollectionViewCell
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.label.text = "Sec \(indexPath.section)/Item \(indexPath.item)"
-        
-        return cell
+        if indexPath.row == 0 {
+            //the y axis hour unit cells
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourUnitCollectionViewCell.identifier, for: indexPath) as! HourUnitCollectionViewCell
+            return cell
+        } else {
+            // get a reference to our storyboard cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCollectionViewCell.identifier, for: indexPath) as! ScheduleCollectionViewCell
+            
+            // Use the outlet in our custom class to get a reference to the UILabel in the cell
+            cell.label.text = "Sec \(indexPath.section)/Item \(indexPath.item)"
+            
+            return cell
+        }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
