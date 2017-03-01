@@ -19,10 +19,10 @@
 		923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D51E5FF36A00C56471 /* BulletLabel.swift */; };
 		923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E01E63EE5800C56471 /* SchedulingViewController.swift */; };
 		923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */; };
-		923A60E51E6496B600C56471 /* DateSectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */; };
 		923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */; };
 		923A60E91E6513BA00C56471 /* ScheduleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */; };
 		923A60EC1E6638BA00C56471 /* HourUnitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */; };
+		923A60EE1E66622200C56471 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -151,10 +151,10 @@
 		923A60D51E5FF36A00C56471 /* BulletLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletLabel.swift; sourceTree = "<group>"; };
 		923A60E01E63EE5800C56471 /* SchedulingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingViewController.swift; sourceTree = "<group>"; };
 		923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
-		923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSectionHeaderReusableView.swift; sourceTree = "<group>"; };
 		923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewLayout.swift; sourceTree = "<group>"; };
 		923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionView.swift; sourceTree = "<group>"; };
 		923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourUnitCollectionViewCell.swift; sourceTree = "<group>"; };
+		923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -400,11 +400,8 @@
 		923A60DF1E63EE3800C56471 /* Scheduling */ = {
 			isa = PBXGroup;
 			children = (
-				923A60EA1E66380D00C56471 /* Cells */,
+				923A60EF1E66629B00C56471 /* Collection View */,
 				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
-				923A60E41E6496B600C56471 /* DateSectionHeaderReusableView.swift */,
-				923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */,
-				923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */,
 			);
 			name = Scheduling;
 			sourceTree = "<group>";
@@ -414,8 +411,19 @@
 			children = (
 				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
 				923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */,
+				923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		923A60EF1E66629B00C56471 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				923A60EA1E66380D00C56471 /* Cells */,
+				923A60E81E6513BA00C56471 /* ScheduleCollectionView.swift */,
+				923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */,
+			);
+			name = "Collection View";
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -1306,6 +1314,7 @@
 				92D199981E4586F700ABC255 /* ProfileViewController.swift in Sources */,
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
+				923A60EE1E66622200C56471 /* DateCollectionViewCell.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */,
@@ -1369,7 +1378,6 @@
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
-				923A60E51E6496B600C56471 /* DateSectionHeaderReusableView.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,

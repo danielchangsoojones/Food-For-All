@@ -12,6 +12,9 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     let CELL_HEIGHT = 30.0
     let CELL_WIDTH = 100.0
+    var yAxisCellWidth: Double {
+        return CELL_WIDTH / 2
+    }
     
     var cellAttrsDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
     var contentSize = CGSize.zero
@@ -109,9 +112,9 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         
                         // Build the UICollectionVieLayoutAttributes for the cell.
                         let cellIndex = IndexPath(item: item, section: section)
-                        var yAxisCellWidth: Double = CELL_WIDTH / 2
                         var cellWidth: Double = CELL_WIDTH
                         var xPos: Double = 0
+                        let yPos = Double(section) * CELL_HEIGHT
                         
                         if item == 0 {
                             //the y axis cells
@@ -121,7 +124,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                             xPos = Double(item) * CELL_WIDTH - yAxisCellWidth
                         }
         
-                        let yPos = Double(section) * CELL_HEIGHT
+                        
                         
                         let cellAttributes = UICollectionViewLayoutAttributes(forCellWith: cellIndex)
                         cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: CELL_HEIGHT)
@@ -146,7 +149,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         }
         
         // Update content size.
-        let contentWidth = Double(collectionView!.numberOfItems(inSection: 0)) * CELL_WIDTH
+        let contentWidth = Double(collectionView!.numberOfItems(inSection: 0) - 1) * CELL_WIDTH + yAxisCellWidth
         let contentHeight = Double(collectionView!.numberOfSections) * CELL_HEIGHT
         self.contentSize = CGSize(width: contentWidth, height: contentHeight)
     }

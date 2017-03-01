@@ -17,6 +17,7 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = CustomColors.CalendarGrey
         labelSetup()
     }
     
@@ -27,10 +28,12 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
     fileprivate func labelSetup() {
         theTimeLabel = UILabel()
         theTimeLabel.textColor = CustomColors.SilverChalice
+        theTimeLabel.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightLight)
         self.addSubview(theTimeLabel)
+        //TODO: make the timeLabel line up perfectly witht the other cells, like the Vantage Calendar
         theTimeLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalTo(self.snp.bottom)
+            make.bottom.equalTo(self.snp.bottom)
         }
     }
     
