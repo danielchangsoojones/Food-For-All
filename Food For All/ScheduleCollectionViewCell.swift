@@ -9,8 +9,6 @@
 import UIKit
 
 class ScheduleCollectionViewCell: UICollectionViewCell {
-    var label: UILabel = UILabel()
-    
     override var reuseIdentifier: String? {
         return ScheduleCollectionViewCell.identifier
     }
@@ -25,13 +23,7 @@ class ScheduleCollectionViewCell: UICollectionViewCell {
     }
     
     func setup() {
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.cornerRadius = 5.0
-        self.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-        }
+        addBorder(width: SchedulingViewController.Constants.borderWidth, color: SchedulingViewController.Constants.borderColor)
     }
 }
 

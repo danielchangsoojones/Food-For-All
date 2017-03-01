@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
 class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
-    let CELL_HEIGHT = 30.0
-    let CELL_WIDTH = 100.0
+    let CELL_HEIGHT = 45.0
+    var CELL_WIDTH: Double = 0
     var yAxisCellWidth: Double {
         return CELL_WIDTH / 2
     }
@@ -26,6 +27,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     override init() {
         super.init()
+        CELL_WIDTH = Double(ez.screenWidth / 3.5)
     }
     
     required init?(coder aDecoder: NSCoder) {

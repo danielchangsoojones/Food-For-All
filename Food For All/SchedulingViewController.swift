@@ -13,6 +13,10 @@ class SchedulingViewController: UIViewController {
     struct Constants {
         static let numberOfSections: Int = 25
         static let numberOfColumns: Int = 7 //show a week's worth
+        static let borderColor: UIColor = UIColor.black
+        static let borderWidth: CGFloat = 0.3
+        static let calendarGrey: UIColor = UIColor(r: 33, g: 34, b: 36)
+        static let alternateCalendarGrey: UIColor = UIColor(r: 40, g: 41, b: 43)
     }
     
     var theCollectionView: UICollectionView!
@@ -41,11 +45,13 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         registerCells()
         theCollectionView.dataSource = self
         theCollectionView.delegate = self
-        theCollectionView.backgroundColor = CustomColors.CalendarGrey //grey color from vantage calender on App Store
+        theCollectionView.backgroundColor = Constants.calendarGrey //grey color from vantage calender on App Store
         
         theCollectionView.isDirectionalLockEnabled = true
         theCollectionView.alwaysBounceVertical = true
         theCollectionView.alwaysBounceHorizontal = true
+        theCollectionView.showsVerticalScrollIndicator = false
+        theCollectionView.showsHorizontalScrollIndicator = false
         
         self.view.addSubview(theCollectionView)
     }
@@ -77,15 +83,11 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
             return createDateCell(indexPath: indexPath)
         } else {
             // get a reference to our storyboard cell
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCollectionViewCell.identifier, for: indexPath) as! ScheduleCollectionViewCell
-            
-            // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.label.text = "Sec \(indexPath.section)/Item \(indexPath.item)"
-            
-            return cell
+            return createScheduleCell(indexPath: indexPath)
         }
     }
     
+    //TODO: these scroll functions don't work perfectly, my goal was to totally stop an diagonal movement, they seem to be doing something, but if you try hard enough, you can get weird diagonal movements.
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         initialContentOffset = scrollView.contentOffset
     }
@@ -100,6 +102,21 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
                 scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: initialContentOffset.y)
             }
         }
+    }
+}
+
+//the schedule cells
+extension SchedulingViewController {
+    fileprivate func createScheduleCell(indexPath: IndexPath) -> ScheduleCollectionViewCell {
+        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCollectionViewCell.identifier, for: indexPath) as! ScheduleCollectionViewCell
+//        if indexPath.item % 2 == 0 {
+//            cell.backgroundColor = UIColor.clear
+//        } else {
+//            cell.backgroundColor = Constants.alternateCalendarGrey
+//        }
+        setAlternatingBackground(cell: cell, indexPath: indexPath)
+        
+        return cell
     }
 }
 
@@ -141,7 +158,17 @@ extension SchedulingViewController {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.identifier, for: indexPath) as! DateCollectionViewCell
         let date = getDateFrom(item: indexPath.item)
         cell.set(day: date.day, weekDay: date.weekDay, month: date.month)
+        
+        setAlternatingBackground(cell: cell, indexPath: indexPath)
         return cell
+    }
+    
+    fileprivate func setAlternatingBackground(cell: UICollectionViewCell, indexPath: IndexPath) {
+        if indexPath.item % 2 == 0 {
+            cell.backgroundColor = Constants.calendarGrey
+        } else {
+            cell.backgroundColor = Constants.alternateCalendarGrey
+        }
     }
     
     fileprivate func getDateFrom(item: Int) -> (day: Int, weekDay: String, month: String) {

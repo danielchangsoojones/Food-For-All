@@ -19,7 +19,6 @@ struct CustomColors {
     static let BombayGray: UIColor = UIColor(r: 212, g: 213, b: 215)
     static let AquamarineBlue: UIColor = UIColor(r: 108, g: 223, b: 214)
     static let GrannySmithGreen: UIColor = UIColor(r: 165, g: 223, b: 160)
-    static let CalendarGrey: UIColor = UIColor(r: 33, g: 34, b: 36)
     
     static let welcomeGradientColors: [CGColor] = [CustomColors.JellyTeal.cgColor, CustomColors.Polar.cgColor]
     static let searchBarGradientColors: [CGColor] = [CustomColors.AquamarineBlue.cgColor, CustomColors.JellyTeal.cgColor]

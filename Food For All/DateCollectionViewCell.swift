@@ -30,7 +30,7 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = CustomColors.CalendarGrey
+        addBorder(width: SchedulingViewController.Constants.borderWidth, color: SchedulingViewController.Constants.borderColor)
         dayLabelSetup()
         weekDayLabelSetup()
         monthLabelSetup()
@@ -54,7 +54,6 @@ class DateCollectionViewCell: UICollectionViewCell {
         theDayLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(sideOffset)
-            make.height.equalToSuperview().multipliedBy(0.8)
         }
     }
     
@@ -64,7 +63,7 @@ class DateCollectionViewCell: UICollectionViewCell {
         theWeekDayLabel.font = UIFont.systemFont(ofSize: 10, weight: Constants.fontWeight)
         self.addSubview(theWeekDayLabel)
         theWeekDayLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(theDayLabel)
+            make.top.equalTo(theDayLabel).offset(3)
             make.trailing.equalToSuperview().inset(sideOffset)
         }
     }

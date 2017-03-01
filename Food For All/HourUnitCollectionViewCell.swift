@@ -17,7 +17,7 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = CustomColors.CalendarGrey
+        self.backgroundColor = SchedulingViewController.Constants.calendarGrey
         labelSetup()
     }
     
