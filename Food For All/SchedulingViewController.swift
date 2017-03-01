@@ -87,7 +87,7 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
-    //TODO: these scroll functions don't work perfectly, my goal was to totally stop an diagonal movement, they seem to be doing something, but if you try hard enough, you can get weird diagonal movements.
+    //TODO: these scroll functions don't work perfectly, my goal was to totally stop an diagonal movement, they seem to be doing something, but if you try hard enough, you can get weird diagonal movements. I don't totally understand how they're working, but it seems to help.
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         initialContentOffset = scrollView.contentOffset
     }
@@ -109,11 +109,6 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
 extension SchedulingViewController {
     fileprivate func createScheduleCell(indexPath: IndexPath) -> ScheduleCollectionViewCell {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCollectionViewCell.identifier, for: indexPath) as! ScheduleCollectionViewCell
-//        if indexPath.item % 2 == 0 {
-//            cell.backgroundColor = UIColor.clear
-//        } else {
-//            cell.backgroundColor = Constants.alternateCalendarGrey
-//        }
         setAlternatingBackground(cell: cell, indexPath: indexPath)
         
         return cell
