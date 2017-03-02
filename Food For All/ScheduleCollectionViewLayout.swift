@@ -19,6 +19,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     var cellAttrsDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
     var contentSize = CGSize.zero
+    var events: [CustomEvent] = [CustomEvent(start: Date().changed(day: 3)!, end: Date()), CustomEvent(start: Date(), end: Date())]
     
     // Used to determine if a data source update has occured.
     // Note: The data source would be responsible for updating
@@ -129,7 +130,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                             cellWidth = yAxisCellWidth
                         } else {
                             //all other cells
-                            xPos = Double(item) * CELL_WIDTH - yAxisCellWidth
+                            xPos = calculateXPos(item: item)
                         }
         
                         
@@ -170,6 +171,10 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         self.contentSize = CGSize(width: contentWidth, height: contentHeight)
     }
     
+    fileprivate func calculateXPos(item: Int) -> Double {
+        return Double(item) * CELL_WIDTH - yAxisCellWidth
+    }
+    
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attribute = cellAttrsDictionary[indexPath]
         return attribute
@@ -197,6 +202,19 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 
 extension ScheduleCollectionViewLayout {
     fileprivate func getCustomEventOrigin(item: Int) -> CGPoint {
+        let event = events[item]
+        getEventPosX(event: event)
         return CGPoint(x: 100, y: item * 100)
+    }
+    
+    fileprivate func getEventPosX(event: CustomEvent) {
+        //TODO: jsut for testing, don't need to change day
+        //For some reason, to change 1 day, you have to change by 2
+        let eventWeekDay = event.start.weekday
+        let currentWeekDay = Date().weekday
+        let diff = currentWeekDay - eventWeekDay
+        if diff < 0 {
+            
+        }
     }
 }

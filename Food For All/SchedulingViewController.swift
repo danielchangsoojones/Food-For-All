@@ -13,7 +13,7 @@ class SchedulingViewController: UIViewController {
     struct Constants {
         static let numberOfSections: Int = 25
         static let customEventSection: Int = 1
-        static let numberOfColumns: Int = 7 //show a week's worth
+        static let numberOfColumns: Int = 8 //show a week's worth
         static let borderColor: UIColor = UIColor.black
         static let borderWidth: CGFloat = 0.3
         static let calendarGrey: UIColor = UIColor(r: 33, g: 34, b: 36)
@@ -69,7 +69,7 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == Constants.numberOfSections + Constants.customEventSection {
+        if section == Constants.numberOfSections {
             //custom event section
             return events.count
         }
