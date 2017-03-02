@@ -19,7 +19,11 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     var cellAttrsDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
     var contentSize = CGSize.zero
-    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date().changed(hour: 15)!), CustomEvent(start: Date().changed(day: 3)!, end: Date().changed(day: 3, hour: 15)!)]
+    var events: [CustomEvent] = [] {
+        didSet {
+            addEventCellAttributes()
+        }
+    }
     
     // Used to determine if a data source update has occured.
     // Note: The data source would be responsible for updating
@@ -108,58 +112,10 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         // Cycle through each section of the data source.
         if collectionView!.numberOfSections > 0 {
             for section in 0...collectionView!.numberOfSections-1 {
-                
                 // Cycle through each item in the section.
                 if collectionView!.numberOfItems(inSection: section) > 0 {
                     for item in 0...collectionView!.numberOfItems(inSection: section)-1 {
-                        
-                        
-                        // Build the UICollectionVieLayoutAttributes for the cell.
-                        let cellIndex = IndexPath(item: item, section: section)
-                        var cellWidth: Double = CELL_WIDTH
-                        var cellHeight: Double = CELL_HEIGHT
-                        var xPos: Double = 0
-                        var yPos = Double(section) * CELL_HEIGHT
-                        
-                        if section == collectionView!.numberOfSections - 1 {
-                            //custom event items
-                            let rect = getCustomEventOrigin(item: item)
-                            xPos = Double(rect.x)
-                            yPos = Double(rect.y)
-                            cellHeight = Double(rect.height)
-                            cellWidth = Double(rect.width)
-                        } else if item == 0 {
-                            //the y axis cells
-                            cellWidth = yAxisCellWidth
-                        } else {
-                            //all other cells
-                            xPos = calculateXPos(item: item)
-                        }
-        
-                        let cellAttributes = UICollectionViewLayoutAttributes(forCellWith: cellIndex)
-                        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: cellHeight)
-                        
-                        // Determine zIndex based on cell type.
-                        if section == 0 && item == 0 {
-                            //top left corner cell
-                            cellAttributes.zIndex = 5
-                        } else if section == 0 {
-                            //y axis cells
-                            cellAttributes.zIndex = 4
-                        } else if section == collectionView!.numberOfSections - 1 {
-                            //custom event cells
-                            cellAttributes.zIndex = 2
-                        } else if item == 0 {
-                            //top x axis cells
-                            cellAttributes.zIndex = 3
-                        }  else {
-                            //all background schedule cells
-                            cellAttributes.zIndex = 1
-                        }
-                        
-                        // Save the attributes.
-                        cellAttrsDictionary[cellIndex] = cellAttributes
-                        
+                        setCellAttributes(item: item, section: section)
                     }
                 }
             }
@@ -170,6 +126,54 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         //sections - 1 because the custom event cells are not factored into the height, they go on top of the current grid system
         let contentHeight = Double(collectionView!.numberOfSections - 1) * CELL_HEIGHT
         self.contentSize = CGSize(width: contentWidth, height: contentHeight)
+    }
+    
+    fileprivate func setCellAttributes(item: Int, section: Int) {
+        // Build the UICollectionVieLayoutAttributes for the cell.
+        let cellIndex = IndexPath(item: item, section: section)
+        var cellWidth: Double = CELL_WIDTH
+        var cellHeight: Double = CELL_HEIGHT
+        var xPos: Double = 0
+        var yPos = Double(section) * CELL_HEIGHT
+        
+        if section == collectionView!.numberOfSections - 1 {
+            //custom event items
+            let rect = getCustomEventOrigin(item: item)
+            xPos = Double(rect.x)
+            yPos = Double(rect.y)
+            cellHeight = Double(rect.height)
+            cellWidth = Double(rect.width)
+        } else if item == 0 {
+            //the y axis cells
+            cellWidth = yAxisCellWidth
+        } else {
+            //all other cells
+            xPos = calculateXPos(item: item)
+        }
+        
+        let cellAttributes = UICollectionViewLayoutAttributes(forCellWith: cellIndex)
+        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: cellHeight)
+        
+        // Determine zIndex based on cell type.
+        if section == 0 && item == 0 {
+            //top left corner cell
+            cellAttributes.zIndex = 5
+        } else if section == 0 {
+            //y axis cells
+            cellAttributes.zIndex = 4
+        } else if section == collectionView!.numberOfSections - 1 {
+            //custom event cells
+            cellAttributes.zIndex = 2
+        } else if item == 0 {
+            //top x axis cells
+            cellAttributes.zIndex = 3
+        }  else {
+            //all background schedule cells
+            cellAttributes.zIndex = 1
+        }
+        
+        // Save the attributes.
+        cellAttrsDictionary[cellIndex] = cellAttributes
     }
     
     fileprivate func calculateXPos(item: Int) -> Double {
@@ -202,15 +206,21 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 }
 
 extension ScheduleCollectionViewLayout {
-    //TODO: change this to a cgrect
+    fileprivate func addEventCellAttributes() {
+        setCellAttributes(item: events.count - 1, section: collectionView!.numberOfSections - 1)
+    }
+    
     fileprivate func getCustomEventOrigin(item: Int) -> CGRect {
-        let event = events[item]
-        let xPos = getEventPosX(event: event)
-        let yPos = getEventPosY(event: event)
-        let height = getEventHeight(event: event)
-        let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: height)
-        //inset a tiny bit, so not jammed against the calender edges
-        return rect.insetBy(dx: 1, dy: 0)
+        if !events.isEmpty {
+            let event = events[item]
+            let xPos = getEventPosX(event: event)
+            let yPos = getEventPosY(event: event)
+            let height = getEventHeight(event: event)
+            let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: height)
+            //inset a tiny bit, so not jammed against the calender edges
+            return rect.insetBy(dx: 1, dy: 0)
+        }
+        return CGRect.zero
     }
     
     fileprivate func getEventPosX(event: CustomEvent) -> Double {
