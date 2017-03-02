@@ -22,7 +22,7 @@ class SchedulingViewController: UIViewController {
     
     var theCollectionView: UICollectionView!
     
-    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date()), CustomEvent(start: Date(), end: Date())] {
+    var events: [CustomEvent] = [] {
         didSet {
             if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
                 layout.events = events
@@ -139,10 +139,9 @@ extension SchedulingViewController {
             let startDate = Date(year: selectedDate.year, month: selectedDate.month, day: selectedDate.day, hour: selectedHour, minute: 0, second: 0, nanosecond: 0)
             let endDate: Date = (startDate + 1.hour) ?? startDate
             let event = CustomEvent(start: startDate, end: endDate)
-            events.append(event)            
+            events.append(event)
             theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
         }
-        
     }
 }
 
