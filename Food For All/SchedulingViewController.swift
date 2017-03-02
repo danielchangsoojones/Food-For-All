@@ -12,6 +12,7 @@ import Timepiece
 class SchedulingViewController: UIViewController {
     struct Constants {
         static let numberOfSections: Int = 25
+        static let customEventSection: Int = 1
         static let numberOfColumns: Int = 7 //show a week's worth
         static let borderColor: UIColor = UIColor.black
         static let borderWidth: CGFloat = 0.3
@@ -21,7 +22,7 @@ class SchedulingViewController: UIViewController {
     
     var theCollectionView: UICollectionView!
     
-    var initialContentOffset: CGPoint = CGPoint.zero
+    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date()), CustomEvent(start: Date(), end: Date())]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class SchedulingViewController: UIViewController {
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionViewSetup() {
         let layout = ScheduleCollectionViewLayout()
-        theCollectionView = ScheduleCollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        theCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         registerCells()
         theCollectionView.dataSource = self
         theCollectionView.delegate = self
@@ -60,13 +61,20 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         theCollectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
         theCollectionView.register(HourUnitCollectionViewCell.self, forCellWithReuseIdentifier: HourUnitCollectionViewCell.identifier)
         theCollectionView.register(DateCollectionViewCell.self, forCellWithReuseIdentifier: DateCollectionViewCell.identifier)
+        theCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: EventCollectionViewCell.identifier)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Constants.numberOfSections
+        return Constants.numberOfSections + Constants.customEventSection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == Constants.numberOfSections + Constants.customEventSection {
+            //custom event section
+            return events.count
+        }
+        
+        //calender grid items
         return Constants.numberOfColumns
     }
     
@@ -74,7 +82,10 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         let section = indexPath.section
         let item = indexPath.item
         
-        if item == 0 {
+        if section == collectionView.numberOfSections - 1 {
+            //custom events section
+            return createCustomEventCell(indexPath: indexPath)
+        } else if item == 0 {
             //the sticky y axis hour unit cells
             let cell = createHourUnitCell(indexPath: indexPath, collectionView: collectionView)
             return cell
@@ -83,25 +94,17 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
             return createDateCell(indexPath: indexPath)
         } else {
             // get a reference to our storyboard cell
-            return createScheduleCell(indexPath: indexPath)
+            let cell = createScheduleCell(indexPath: indexPath)
+            return cell
         }
     }
-    
-    //TODO: these scroll functions don't work perfectly, my goal was to totally stop an diagonal movement, they seem to be doing something, but if you try hard enough, you can get weird diagonal movements. I don't totally understand how they're working, but it seems to help.
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        initialContentOffset = scrollView.contentOffset
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.isDragging {
-            let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
-            
-            if abs(velocity.y) > abs(velocity.x) {
-                scrollView.contentOffset = CGPoint(x: initialContentOffset.x, y: scrollView.contentOffset.y)
-            } else if abs(velocity.x) > abs(velocity.y) {
-                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: initialContentOffset.y)
-            }
-        }
+}
+
+//custom even cells
+extension SchedulingViewController {
+    fileprivate func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
+        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
+        return cell
     }
 }
 

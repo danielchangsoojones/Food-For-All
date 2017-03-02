@@ -47,7 +47,8 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
             let yOffset = collectionView!.contentOffset.y
             
             if collectionView!.numberOfSections > 0 {
-                for section in 0...collectionView!.numberOfSections-1 {
+                //subtracting one because the final custom event section is not calculated with this. Its cells get placed above the current grid.
+                for section in 0..<collectionView!.numberOfSections-1 {
                     
                     // Confirm the section has items.
                     if collectionView!.numberOfItems(inSection: section) > 0 {
@@ -116,9 +117,14 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         let cellIndex = IndexPath(item: item, section: section)
                         var cellWidth: Double = CELL_WIDTH
                         var xPos: Double = 0
-                        let yPos = Double(section) * CELL_HEIGHT
+                        var yPos = Double(section) * CELL_HEIGHT
                         
-                        if item == 0 {
+                        if section == collectionView!.numberOfSections - 1 {
+                            //custom event items
+                            let origin = getCustomEventOrigin(item: item)
+                            xPos = Double(origin.x)
+                            yPos = Double(origin.y)
+                        } else if item == 0 {
                             //the y axis cells
                             cellWidth = yAxisCellWidth
                         } else {
@@ -133,12 +139,19 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         
                         // Determine zIndex based on cell type.
                         if section == 0 && item == 0 {
-                            cellAttributes.zIndex = 4
+                            //top left corner cell
+                            cellAttributes.zIndex = 5
                         } else if section == 0 {
-                            cellAttributes.zIndex = 3
+                            //y axis cells
+                            cellAttributes.zIndex = 4
                         } else if item == 0 {
+                            //top x axis cells
+                            cellAttributes.zIndex = 3
+                        } else if section == collectionView!.numberOfSections - 1 {
+                            //custom event cells
                             cellAttributes.zIndex = 2
                         } else {
+                            //all background schedule cells
                             cellAttributes.zIndex = 1
                         }
                         
@@ -152,7 +165,8 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         
         // Update content size.
         let contentWidth = Double(collectionView!.numberOfItems(inSection: 0) - 1) * CELL_WIDTH + yAxisCellWidth
-        let contentHeight = Double(collectionView!.numberOfSections) * CELL_HEIGHT
+        //sections - 1 because the custom event cells are not factored into the height, they go on top of the current grid system
+        let contentHeight = Double(collectionView!.numberOfSections - 1) * CELL_HEIGHT
         self.contentSize = CGSize(width: contentWidth, height: contentHeight)
     }
     
@@ -178,5 +192,11 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
+    }
+}
+
+extension ScheduleCollectionViewLayout {
+    fileprivate func getCustomEventOrigin(item: Int) -> CGPoint {
+        return CGPoint(x: 100, y: item * 100)
     }
 }
