@@ -19,7 +19,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     var cellAttrsDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
     var contentSize = CGSize.zero
-    var events: [CustomEvent] = [CustomEvent(start: Date().changed(day: 4, hour: 15)!, end: Date()), CustomEvent(start: Date(), end: Date())]
+    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date().changed(hour: 15)!), CustomEvent(start: Date().changed(day: 3)!, end: Date().changed(day: 3, hour: 15)!)]
     
     // Used to determine if a data source update has occured.
     // Note: The data source would be responsible for updating
@@ -117,6 +117,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         // Build the UICollectionVieLayoutAttributes for the cell.
                         let cellIndex = IndexPath(item: item, section: section)
                         var cellWidth: Double = CELL_WIDTH
+                        var cellHeight: Double = CELL_HEIGHT
                         var xPos: Double = 0
                         var yPos = Double(section) * CELL_HEIGHT
                         
@@ -125,6 +126,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                             let rect = getCustomEventOrigin(item: item)
                             xPos = Double(rect.x)
                             yPos = Double(rect.y)
+                            cellHeight = Double(rect.height)
                             cellWidth = Double(rect.width)
                         } else if item == 0 {
                             //the y axis cells
@@ -134,10 +136,8 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                             xPos = calculateXPos(item: item)
                         }
         
-                        
-                        
                         let cellAttributes = UICollectionViewLayoutAttributes(forCellWith: cellIndex)
-                        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: CELL_HEIGHT)
+                        cellAttributes.frame = CGRect(x: xPos, y: yPos, width: cellWidth, height: cellHeight)
                         
                         // Determine zIndex based on cell type.
                         if section == 0 && item == 0 {
@@ -207,7 +207,8 @@ extension ScheduleCollectionViewLayout {
         let event = events[item]
         let xPos = getEventPosX(event: event)
         let yPos = getEventPosY(event: event)
-        let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: 0)
+        let height = getEventHeight(event: event)
+        let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: height)
         //inset a tiny bit, so not jammed against the calender edges
         return rect.insetBy(dx: 1, dy: 0)
     }
@@ -229,5 +230,11 @@ extension ScheduleCollectionViewLayout {
         let xAxisHeight: Double = CELL_HEIGHT
         let minutes = event.start.hour * 60 + event.start.minute
         return minuteHeight * Double(minutes) + xAxisHeight
+    }
+    
+    fileprivate func getEventHeight(event: CustomEvent) -> Double {
+        let minuteHeight: Double = CELL_HEIGHT / 60
+        let minuteDifference = event.start.minutesInBetweenDate(event.end)
+        return minuteDifference * minuteHeight
     }
 }

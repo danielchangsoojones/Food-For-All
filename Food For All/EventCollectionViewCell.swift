@@ -18,9 +18,14 @@ class EventCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(r: 49, g: 62, b: 70)
-        addBorderLeft(size: 4.0, color: CustomColors.AquamarineBlue)
         setCornerRadius(radius: 5)
         labelSetup()
+        addBorderLeft(size: 4.0, color: CustomColors.AquamarineBlue)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        addBorderLeft(size: 4.0, color: CustomColors.AquamarineBlue)
     }
     
     required init?(coder aDecoder: NSCoder) {
