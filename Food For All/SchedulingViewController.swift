@@ -22,7 +22,13 @@ class SchedulingViewController: UIViewController {
     
     var theCollectionView: UICollectionView!
     
-    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date()), CustomEvent(start: Date(), end: Date())]
+    var events: [CustomEvent] = [CustomEvent(start: Date(), end: Date()), CustomEvent(start: Date(), end: Date())] {
+        didSet {
+            if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+                layout.events = events
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
