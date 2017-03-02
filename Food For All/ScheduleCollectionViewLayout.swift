@@ -19,7 +19,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
     var cellAttrsDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
     var contentSize = CGSize.zero
-    var events: [CustomEvent] = [CustomEvent(start: Date().changed(day: 3)!, end: Date()), CustomEvent(start: Date(), end: Date())]
+    var events: [CustomEvent] = [CustomEvent(start: Date().changed(day: 4, hour: 15)!, end: Date()), CustomEvent(start: Date(), end: Date())]
     
     // Used to determine if a data source update has occured.
     // Note: The data source would be responsible for updating
@@ -122,9 +122,10 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         
                         if section == collectionView!.numberOfSections - 1 {
                             //custom event items
-                            let origin = getCustomEventOrigin(item: item)
-                            xPos = Double(origin.x)
-                            yPos = Double(origin.y)
+                            let rect = getCustomEventOrigin(item: item)
+                            xPos = Double(rect.x)
+                            yPos = Double(rect.y)
+                            cellWidth = Double(rect.width)
                         } else if item == 0 {
                             //the y axis cells
                             cellWidth = yAxisCellWidth
@@ -145,13 +146,13 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                         } else if section == 0 {
                             //y axis cells
                             cellAttributes.zIndex = 4
-                        } else if item == 0 {
-                            //top x axis cells
-                            cellAttributes.zIndex = 3
                         } else if section == collectionView!.numberOfSections - 1 {
                             //custom event cells
                             cellAttributes.zIndex = 2
-                        } else {
+                        } else if item == 0 {
+                            //top x axis cells
+                            cellAttributes.zIndex = 3
+                        }  else {
                             //all background schedule cells
                             cellAttributes.zIndex = 1
                         }
@@ -201,20 +202,32 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 }
 
 extension ScheduleCollectionViewLayout {
-    fileprivate func getCustomEventOrigin(item: Int) -> CGPoint {
+    //TODO: change this to a cgrect
+    fileprivate func getCustomEventOrigin(item: Int) -> CGRect {
         let event = events[item]
-        getEventPosX(event: event)
-        return CGPoint(x: 100, y: item * 100)
+        let xPos = getEventPosX(event: event)
+        let yPos = getEventPosY(event: event)
+        let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: 0)
+        //inset a tiny bit, so not jammed against the calender edges
+        return rect.insetBy(dx: 1, dy: 0)
     }
     
-    fileprivate func getEventPosX(event: CustomEvent) {
-        //TODO: jsut for testing, don't need to change day
-        //For some reason, to change 1 day, you have to change by 2
+    fileprivate func getEventPosX(event: CustomEvent) -> Double {
         let eventWeekDay = event.start.weekday
         let currentWeekDay = Date().weekday
-        let diff = currentWeekDay - eventWeekDay
-        if diff < 0 {
-            
+        //+1 because the items in the grid are 1 item over because the first item is the yaxis
+        var targetColumn = eventWeekDay - currentWeekDay + 1
+        if targetColumn < 0 {
+            targetColumn = currentWeekDay + abs(targetColumn)
         }
+        let xPos = calculateXPos(item: targetColumn)
+        return xPos
+    }
+    
+    fileprivate func getEventPosY(event: CustomEvent) -> Double {
+        let minuteHeight: Double = CELL_HEIGHT / 60
+        let xAxisHeight: Double = CELL_HEIGHT
+        let minutes = event.start.hour * 60 + event.start.minute
+        return minuteHeight * Double(minutes) + xAxisHeight
     }
 }
