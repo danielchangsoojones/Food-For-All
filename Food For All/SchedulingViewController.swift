@@ -8,6 +8,7 @@
 
 import UIKit
 import Timepiece
+import STPopup
 
 class SchedulingViewController: UIViewController {
     struct Constants {
@@ -109,9 +110,10 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         if let cell = collectionView.cellForItem(at: indexPath) {
             if cell is ScheduleCollectionViewCell {
                 scheduleCellPressed(indexPath: indexPath)
+            } else if cell is EventCollectionViewCell {
+                eventCellPressed(indexPath: indexPath)
             }
         }
-        
     }
 }
 
@@ -120,6 +122,14 @@ extension SchedulingViewController {
     fileprivate func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
         return cell
+    }
+    
+    fileprivate func eventCellPressed(indexPath: IndexPath) {
+        let event = events[indexPath.row]
+        let popUpVC = CalendarPopUpViewController(start: event.start, end: event.end, delegate: self)
+        let popUpController = STPopupController(rootViewController: popUpVC)
+        popUpController.style = .bottomSheet
+        popUpController.present(in: self)
     }
 }
 
@@ -213,6 +223,16 @@ extension SchedulingViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: date).capitalized 
+    }
+}
+
+extension SchedulingViewController: CalendarPopUpDelegate {
+    func deleteEvent() {
+        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            events.remove(at: selectedIndexPath.row)
+            layout.removeEventCell(at: selectedIndexPath)
+            theCollectionView.deleteItems(at: [selectedIndexPath])
+        }
     }
 }
 

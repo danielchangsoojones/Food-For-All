@@ -21,7 +21,9 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     var contentSize = CGSize.zero
     var events: [CustomEvent] = [] {
         didSet {
-            addEventCellAttributes()
+            if oldValue.count < events.count {
+                addEventCellAttributes()
+            }
         }
     }
     
@@ -206,6 +208,10 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 }
 
 extension ScheduleCollectionViewLayout {
+    func removeEventCell(at indexPath: IndexPath) {
+        cellAttrsDictionary.removeValue(forKey: indexPath)
+    }
+    
     fileprivate func addEventCellAttributes() {
         setCellAttributes(item: events.count - 1, section: collectionView!.numberOfSections - 1)
     }
@@ -218,7 +224,8 @@ extension ScheduleCollectionViewLayout {
             let height = getEventHeight(event: event)
             let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: height)
             //inset a tiny bit, so not jammed against the calender edges
-            return rect.insetBy(dx: 1, dy: 0)
+            let inset: CGFloat = 1
+            return rect.insetBy(dx: inset, dy: inset)
         }
         return CGRect.zero
     }
