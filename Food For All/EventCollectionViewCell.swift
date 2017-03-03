@@ -32,9 +32,12 @@ class EventCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(title: String) {
+        theLabel.text = title
+    }
+    
     fileprivate func labelSetup() {
         theLabel = UILabel()
-        theLabel.text = "4:30 - 7:30"
         theLabel.textColor = UIColor.white
         theLabel.font = UIFont.systemFont(ofSize: 12, weight: DateCollectionViewCell.Constants.fontWeight)
         self.addSubview(theLabel)

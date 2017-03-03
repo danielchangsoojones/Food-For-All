@@ -121,7 +121,17 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
 extension SchedulingViewController {
     fileprivate func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
+        let event = events[indexPath.row]
+        let title = convertToString(event: event)
+        cell.set(title: title)
         return cell
+    }
+    
+    fileprivate func convertToString(event: CustomEvent) -> String {
+        let format = "h:mm"
+        let start = event.start.toString(format: format)
+        let end = event.end.toString(format: format)
+        return start + " - " + end
     }
     
     fileprivate func eventCellPressed(indexPath: IndexPath) {
