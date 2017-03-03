@@ -231,7 +231,7 @@ extension SchedulingViewController: CalendarPopUpDelegate {
         if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
             events.remove(at: selectedIndexPath.row)
             layout.removeEventCell(at: selectedIndexPath)
-            theCollectionView.deleteItems(at: [selectedIndexPath])
+            theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
         }
     }
 }

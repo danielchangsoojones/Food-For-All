@@ -209,7 +209,20 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 
 extension ScheduleCollectionViewLayout {
     func removeEventCell(at indexPath: IndexPath) {
-        cellAttrsDictionary.removeValue(forKey: indexPath)
+        let eventSection: Int = collectionView!.numberOfSections - 1
+        let totalEventItems: Int = collectionView!.numberOfItems(inSection: eventSection)
+        
+        //decrementing all indexPaths above the deleted event cell, so the attribute dictionary will be up to date, when reloadSections is run by the collectionView.
+        for item in 0..<totalEventItems where item > indexPath.item {
+            let targetIndexPath = IndexPath(item: item - 1, section: eventSection)
+            let cellAttr = cellAttrsDictionary[IndexPath(item: item, section: eventSection)]
+            cellAttr?.indexPath = targetIndexPath
+            cellAttrsDictionary[targetIndexPath] = cellAttr
+            
+        }
+        
+        let lastIndexPath = IndexPath(item: totalEventItems - 1, section: eventSection)
+        cellAttrsDictionary.removeValue(forKey: lastIndexPath)
     }
     
     fileprivate func addEventCellAttributes() {
