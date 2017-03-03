@@ -227,6 +227,22 @@ extension SchedulingViewController {
 }
 
 extension SchedulingViewController: CalendarPopUpDelegate {
+    func updateTime(start: Date?, end: Date?) {
+        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            let event = events[selectedIndexPath.item]
+            if let start = start {
+                event.start = start
+            }
+            if let end = end {
+                event.end = end
+            }
+            layout.updateEventCell(at: selectedIndexPath)
+            theCollectionView.reloadSections([selectedIndexPath.section])
+            let cell = theCollectionView.cellForItem(at: selectedIndexPath)
+            cell?.isSelected = true
+        }
+    }
+
     func deleteEvent() {
         if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
             events.remove(at: selectedIndexPath.row)

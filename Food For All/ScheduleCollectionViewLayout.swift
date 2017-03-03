@@ -208,6 +208,10 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
 }
 
 extension ScheduleCollectionViewLayout {
+    func updateEventCell(at indexPath: IndexPath) {
+        setCellAttributes(item: indexPath.item, section: indexPath.section)
+    }
+    
     func removeEventCell(at indexPath: IndexPath) {
         let eventSection: Int = collectionView!.numberOfSections - 1
         let totalEventItems: Int = collectionView!.numberOfItems(inSection: eventSection)

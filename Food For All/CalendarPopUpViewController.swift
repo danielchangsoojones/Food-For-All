@@ -13,6 +13,7 @@ import ActionSheetPicker_3_0
 
 protocol CalendarPopUpDelegate {
     func deleteEvent()
+    func updateTime(start: Date?, end: Date?)
 }
 
 class CalendarPopUpViewController: UIViewController {
@@ -80,7 +81,7 @@ extension CalendarPopUpViewController {
     }
     
     func timePressed(sender: UIButton) {
-        let datePicker = ActionSheetDatePicker(title: "Time", datePickerMode: .time, selectedDate: Date(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "Time", datePickerMode: .time, selectedDate: start, doneBlock: {
             picker, value, index in
             if let date = value as? Date {
                 if sender == self.theStartTimeButton {
@@ -88,6 +89,7 @@ extension CalendarPopUpViewController {
                 } else if sender == self.theEndTimeButton {
                     self.picked(newEnd: date)
                 }
+                self.delegate?.updateTime(start: self.start, end: self.end)
             }
         }, cancel: {_ in
             return
