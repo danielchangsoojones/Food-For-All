@@ -21,7 +21,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     var contentSize = CGSize.zero
     var events: [CustomEvent] = [] {
         didSet {
-            if oldValue.count < events.count {
+            if oldValue.count <= events.count {
                 addEventCellAttributes()
             }
         }

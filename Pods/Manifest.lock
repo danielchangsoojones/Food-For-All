@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
   - Alamofire (4.3.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
@@ -49,6 +50,7 @@ PODS:
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Alamofire (~> 4.3)
   - AlamofireImage (~> 3.1)
   - ALCameraViewController
@@ -82,6 +84,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/white-rabbit-apps/ParseFacebookUtils-iOS.git
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
@@ -109,6 +112,6 @@ SPEC CHECKSUMS:
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 9bd088a27902ddbc266d7c234a0646f6ab844976
+PODFILE CHECKSUM: d0d1f7e4a5511ecc857e1a9ae2a52bb3a65932c0
 
 COCOAPODS: 1.1.1

@@ -28,6 +28,7 @@ target 'Food For All' do
   pod 'NYTPhotoViewer', '~> 1.1.0'
   pod 'TTTAttributedLabel'
   pod 'STPopup'
+  pod 'ActionSheetPicker-3.0'
 
 end
 

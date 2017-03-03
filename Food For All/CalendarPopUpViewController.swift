@@ -9,6 +9,7 @@
 import UIKit
 import STPopup
 import EZSwiftExtensions
+import ActionSheetPicker_3_0
 
 protocol CalendarPopUpDelegate {
     func deleteEvent()
@@ -67,16 +68,45 @@ class CalendarPopUpViewController: UIViewController {
         self.popupController?.dismiss()
     }
     
-    func timePressed(sender: UIButton) {
-        
-    }
+    
 }
 
 //time extension
 extension CalendarPopUpViewController {
     fileprivate func setContent() {
         theDayLabel.text = start?.toString(format: "EEE, MMM d")
-        theStartTimeButton.setTitle(start?.timeString(in: .short), for: .normal)
-        theEndTimeButton.setTitle(end?.timeString(in: .short), for: .normal)
+        setTitleFor(button: theStartTimeButton, date: start)
+        setTitleFor(button: theEndTimeButton, date: end)
+    }
+    
+    func timePressed(sender: UIButton) {
+        let datePicker = ActionSheetDatePicker(title: "Time", datePickerMode: .time, selectedDate: Date(), doneBlock: {
+            picker, value, index in
+            if let date = value as? Date {
+                if sender == self.theStartTimeButton {
+                    self.picked(newStart: date)
+                } else if sender == self.theEndTimeButton {
+                    self.picked(newEnd: date)
+                }
+            }
+        }, cancel: {_ in
+            return
+        }, origin: sender)
+        datePicker?.minuteInterval = 20
+        datePicker?.show()
+    }
+    
+    fileprivate func picked(newStart: Date) {
+        start = newStart
+        setTitleFor(button: theStartTimeButton, date: newStart)
+    }
+    
+    func picked(newEnd: Date) {
+        end = newEnd
+        setTitleFor(button: theEndTimeButton, date: newEnd)
+    }
+    
+    fileprivate func setTitleFor(button: UIButton, date: Date?) {
+        button.setTitle(date?.timeString(in: .short), for: .normal)
     }
 }
