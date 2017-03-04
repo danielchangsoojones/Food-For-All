@@ -29,6 +29,7 @@
 		923A60FB1E6B39C000C56471 /* ProviderScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60FA1E6B39C000C56471 /* ProviderScheduleViewController.swift */; };
 		923A61001E6B435E00C56471 /* ScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60FF1E6B435E00C56471 /* ScheduleDataStore.swift */; };
 		923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */; };
+		923A61041E6B468900C56471 /* EventParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61031E6B468900C56471 /* EventParse.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -167,6 +168,7 @@
 		923A60FA1E6B39C000C56471 /* ProviderScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderScheduleViewController.swift; sourceTree = "<group>"; };
 		923A60FF1E6B435E00C56471 /* ScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataStore.swift; sourceTree = "<group>"; };
 		923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderScheduleDataStore.swift; sourceTree = "<group>"; };
+		923A61031E6B468900C56471 /* EventParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventParse.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -830,6 +832,7 @@
 				92F86B581E589E7A00BF8CF7 /* Gig */,
 				92D12BAB1E30592D009AC99E /* User.swift */,
 				923A8CE81E54D42900F1BFCA /* ReviewParse.swift */,
+				923A61031E6B468900C56471 /* EventParse.swift */,
 			);
 			name = "Database Models";
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
+				923A61041E6B468900C56471 /* EventParse.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,

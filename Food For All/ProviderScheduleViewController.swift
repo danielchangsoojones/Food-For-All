@@ -8,8 +8,10 @@
 
 import UIKit
 import Timepiece
+import STPopup
 
 class ProviderScheduleViewController: SchedulingViewController {
+    var providerDataStore: ProviderScheduleDataStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,19 @@ class ProviderScheduleViewController: SchedulingViewController {
             scheduleCellPressed(indexPath: indexPath)
         }
     }
+    
+    override func eventCellPressed(indexPath: IndexPath) {
+        let event = events[indexPath.row]
+        let popUpVC = CalendarPopUpViewController(start: event.start, end: event.end, delegate: self)
+        let popUpController = STPopupController(rootViewController: popUpVC)
+        popUpController.style = .bottomSheet
+        popUpController.present(in: self)
+    }
+    
+    override func dataStoreSetup() {
+        super.dataStoreSetup()
+        providerDataStore = ProviderScheduleDataStore()
+    }
 }
 
 extension ProviderScheduleViewController {
@@ -37,6 +52,37 @@ extension ProviderScheduleViewController {
             let endDate: Date = (startDate + 1.hour) ?? startDate
             let event = CustomEvent(start: startDate, end: endDate)
             events.append(event)
+            save(event: event)
+        }
+    }
+    
+    fileprivate func save(event: CustomEvent) {
+        providerDataStore?.save(event: event)
+        theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+    }
+}
+
+extension ProviderScheduleViewController: CalendarPopUpDelegate {
+    func updateTime(start: Date?, end: Date?) {
+        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            let event = events[selectedIndexPath.item]
+            if let start = start {
+                event.start = start
+            }
+            if let end = end {
+                event.end = end
+            }
+            layout.updateEventCell(at: selectedIndexPath)
+            save(event: event)
+            let cell = theCollectionView.cellForItem(at: selectedIndexPath)
+            cell?.isSelected = true
+        }
+    }
+    
+    func deleteEvent() {
+        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            events.remove(at: selectedIndexPath.row)
+            layout.removeEventCell(at: selectedIndexPath)
             theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
         }
     }

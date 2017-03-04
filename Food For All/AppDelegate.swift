@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VenmoMetric.registerSubclass()
         ReviewParse.registerSubclass()
         GigDetailPhoto.registerSubclass()
+        EventParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

@@ -8,7 +8,6 @@
 
 import UIKit
 import Timepiece
-import STPopup
 import EZSwiftExtensions
 
 class SchedulingViewController: UIViewController {
@@ -24,6 +23,8 @@ class SchedulingViewController: UIViewController {
     
     var theCollectionView: UICollectionView!
     
+    var dateStore: ScheduleDataStore?
+    
     var events: [CustomEvent] = [] {
         didSet {
             if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
@@ -36,6 +37,7 @@ class SchedulingViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = Constants.calendarGrey
         collectionViewSetup()
+        dataStoreSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +53,14 @@ class SchedulingViewController: UIViewController {
         if cell is EventCollectionViewCell {
             eventCellPressed(indexPath: indexPath)
         }
+    }
+    
+    func eventCellPressed(indexPath: IndexPath) {
+        print("override in subclasses")
+    }
+    
+    func dataStoreSetup() {
+        dateStore = ScheduleDataStore(delegate: self)
     }
 }
 
@@ -138,14 +148,6 @@ extension SchedulingViewController {
         let end = event.end.toString(format: format)
         return start + " - " + end
     }
-    
-    fileprivate func eventCellPressed(indexPath: IndexPath) {
-        let event = events[indexPath.row]
-        let popUpVC = CalendarPopUpViewController(start: event.start, end: event.end, delegate: self)
-        let popUpController = STPopupController(rootViewController: popUpVC)
-        popUpController.style = .bottomSheet
-        popUpController.present(in: self)
-    }
 }
 
 //the schedule cells
@@ -229,30 +231,8 @@ extension SchedulingViewController {
     }
 }
 
-extension SchedulingViewController: CalendarPopUpDelegate {
-    func updateTime(start: Date?, end: Date?) {
-        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
-            let event = events[selectedIndexPath.item]
-            if let start = start {
-                event.start = start
-            }
-            if let end = end {
-                event.end = end
-            }
-            layout.updateEventCell(at: selectedIndexPath)
-            theCollectionView.reloadSections([selectedIndexPath.section])
-            let cell = theCollectionView.cellForItem(at: selectedIndexPath)
-            cell?.isSelected = true
-        }
-    }
-
-    func deleteEvent() {
-        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
-            events.remove(at: selectedIndexPath.row)
-            layout.removeEventCell(at: selectedIndexPath)
-            theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
-        }
-    }
+//TODO: implement loading
+extension SchedulingViewController: ScheduleDataStoreDelegate {
 }
 
 
