@@ -18,16 +18,6 @@ protocol DetailDataStoreDelegate {
 class DetailDataStore {
     var delegate: DetailDataStoreDelegate?
     
-    func saveMessageMetric(messageState: String, gig: Gig) {
-        let metric = MessageMetrics()
-        if let currentUser = User.current() {
-            metric.customer = currentUser
-        }
-        metric.gig = gig.gigParse
-        metric.state = messageState
-        metric.saveInBackground()
-    }
-    
     func saveVenmoMetric(state: String, gig: Gig) {
         let metric = VenmoMetric()
         if let currentUser = User.current() {

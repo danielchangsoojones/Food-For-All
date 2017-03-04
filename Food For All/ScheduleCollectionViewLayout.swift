@@ -223,7 +223,6 @@ extension ScheduleCollectionViewLayout {
             let cellAttr = cellAttrsDictionary[IndexPath(item: item, section: eventSection)]
             cellAttr?.indexPath = targetIndexPath
             cellAttrsDictionary[targetIndexPath] = cellAttr
-            
         }
         
         let lastIndexPath = IndexPath(item: totalEventItems - 1, section: eventSection)

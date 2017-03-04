@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
         theProfileImageView = detailView.theProfileImageView
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
         theTableView = detailView.theTableView
         theTableView.delegate = self
         theTableView.dataSource = self
@@ -163,12 +163,10 @@ extension DetailViewController {
         popVC()
     }
     
-    func messageButtonPressed(sender: UIButton) {
-        theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
-        Timer.runThisAfterDelay(seconds: 0.01) {
-            //the spinner was taking a while to show up because sendSMS was somehow taking up the processing, so it felt like the user had not pressed the button. This fixed it.
-            self.sendSMSText(phoneNumber: self.gig.phoneNumberString)
-        }
+    func bookButtonPressed(sender: UIButton) {
+        let scheduleVC = CustomerScheduleViewController()
+        scheduleVC.gig = self.gig
+        pushVC(scheduleVC)
     }
     
     func venmoTapped() {
@@ -236,48 +234,5 @@ extension DetailViewController: PhotoFormDelegate {
             cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
             theTableView.reloadData()
         }
-    }
-}
-
-//Text messaging extension
-extension DetailViewController: MFMessageComposeViewControllerDelegate {
-    func sendSMSText(phoneNumber: String) {
-        if (MFMessageComposeViewController.canSendText()) {
-            let controller = MFMessageComposeViewController()
-            
-            var firstName: String = gig.creator.theFirstName
-            if firstName.isNotEmpty {
-                firstName = " " + firstName
-            }
-            controller.body = "Hey\(firstName), I found you on Gigio for \(gig.title). Can we arrange something?"
-            controller.recipients = [phoneNumber]
-            controller.messageComposeDelegate = self
-            self.present(controller, animated: true, completion: {
-                self.theSpinnerContainer?.removeFromSuperview()
-            })
-        } else {
-            theSpinnerContainer?.removeFromSuperview()
-            Helpers.showBanner(title: "Message Error", subtitle: "Can not send messages currently")
-        }
-    }
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        //... handle sms screen actions
-        var messageState: String = "defualt"
-        
-        switch result {
-        case .cancelled:
-            messageState = "clicked, but then cancelled"
-        case .failed:
-            messageState = "failure to send"
-        case .sent:
-            messageState = "successfully sent"
-        }
-        
-        dataStore.saveMessageMetric(messageState: messageState, gig: gig)
-        
-        self.dismiss(animated: true, completion: {
-            Helpers.showBanner(title: "Succesful Message", subtitle: "You have succesfully texted the tutor", bannerType: .success)
-        })
     }
 }
