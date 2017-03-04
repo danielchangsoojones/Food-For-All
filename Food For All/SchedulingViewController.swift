@@ -46,6 +46,10 @@ class SchedulingViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func pressed(cell: UICollectionViewCell) {
+        
+    }
 }
 
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {

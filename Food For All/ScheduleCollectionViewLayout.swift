@@ -140,7 +140,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
         
         if section == collectionView!.numberOfSections - 1 {
             //custom event items
-            let rect = getCustomEventOrigin(item: item)
+            let rect = getCustomEventRect(item: item)
             xPos = Double(rect.x)
             yPos = Double(rect.y)
             cellHeight = Double(rect.height)
@@ -233,7 +233,7 @@ extension ScheduleCollectionViewLayout {
         setCellAttributes(item: events.count - 1, section: collectionView!.numberOfSections - 1)
     }
     
-    fileprivate func getCustomEventOrigin(item: Int) -> CGRect {
+    fileprivate func getCustomEventRect(item: Int) -> CGRect {
         if !events.isEmpty {
             let event = events[item]
             let xPos = getEventPosX(event: event)
@@ -248,14 +248,10 @@ extension ScheduleCollectionViewLayout {
     }
     
     fileprivate func getEventPosX(event: CustomEvent) -> Double {
-        let eventWeekDay = event.start.weekday
-        let currentWeekDay = Date().weekday
+        let currentStartOfDay: Date = Date().changed(hour: 0, minute: 0, second: 0, nanosecond: 0) ?? Date()
+        let dayDifference: Int = Int(currentStartOfDay.daysInBetweenDate(event.start))
         //+1 because the items in the grid are 1 item over because the first item is the yaxis
-        var targetColumn = eventWeekDay - currentWeekDay + 1
-        if targetColumn < 0 {
-            targetColumn = currentWeekDay + abs(targetColumn)
-        }
-        let xPos = calculateXPos(item: targetColumn)
+        let xPos = calculateXPos(item: dayDifference + 1)
         return xPos
     }
     
