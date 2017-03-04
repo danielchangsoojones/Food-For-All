@@ -21,8 +21,9 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
     var contentSize = CGSize.zero
     var events: [CustomEvent] = [] {
         didSet {
-            if oldValue.count <= events.count {
-                addEventCellAttributes()
+            let numOfEventsChanged = events.count - oldValue.count
+            if numOfEventsChanged > 0 {
+                addEventCellAttributes(numOfEventsToAdd: numOfEventsChanged)
             }
         }
     }
@@ -229,8 +230,10 @@ extension ScheduleCollectionViewLayout {
         cellAttrsDictionary.removeValue(forKey: lastIndexPath)
     }
     
-    fileprivate func addEventCellAttributes() {
-        setCellAttributes(item: events.count - 1, section: collectionView!.numberOfSections - 1)
+    fileprivate func addEventCellAttributes(numOfEventsToAdd: Int) {
+        for num in 1...numOfEventsToAdd {
+            setCellAttributes(item: events.count - num, section: collectionView!.numberOfSections - 1)
+        }
     }
     
     fileprivate func getCustomEventRect(item: Int) -> CGRect {

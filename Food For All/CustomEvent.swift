@@ -17,4 +17,9 @@ class CustomEvent {
         self.start = start
         self.end = end
     }
+    
+    convenience init(eventParse: EventParse) {
+        self.init(start: eventParse.start, end: eventParse.end)
+        self.eventParse = eventParse
+    }
 }

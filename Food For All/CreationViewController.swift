@@ -160,7 +160,10 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
             case .contact:
                 destinationVC = CreationData().contact.destinationVC
             case .schedule:
-                destinationVC = CreationData().schedule.destinationVC
+                if let scheduleVC = CreationData().schedule.destinationVC as? ProviderScheduleViewController {
+                    scheduleVC.gig = self.gig
+                    destinationVC = scheduleVC
+                }
             case .photos:
                 if let photosVC = CreationData().photos.destinationVC as? PhotosFormViewController {
                     photosVC.gig = self.gig

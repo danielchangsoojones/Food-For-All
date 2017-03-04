@@ -24,6 +24,7 @@ class SchedulingViewController: UIViewController {
     var theCollectionView: UICollectionView!
     
     var dateStore: ScheduleDataStore?
+    var gig: Gig!
     
     var events: [CustomEvent] = [] {
         didSet {
@@ -60,7 +61,7 @@ class SchedulingViewController: UIViewController {
     }
     
     func dataStoreSetup() {
-        dateStore = ScheduleDataStore(delegate: self)
+        dateStore = ScheduleDataStore(delegate: self, gig: self.gig)
     }
 }
 
@@ -231,8 +232,11 @@ extension SchedulingViewController {
     }
 }
 
-//TODO: implement loading
 extension SchedulingViewController: ScheduleDataStoreDelegate {
+    func loaded(events: [CustomEvent]) {
+        self.events = events
+        theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+    }
 }
 
 
