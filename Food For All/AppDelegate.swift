@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-//            toFrontPageVC()
-            setInitialVC(vc: SchedulingViewController())
+            toFrontPageVC()
+//            setInitialVC(vc: SchedulingViewController())
         }
         
         return true

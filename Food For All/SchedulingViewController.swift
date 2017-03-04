@@ -9,6 +9,7 @@
 import UIKit
 import Timepiece
 import STPopup
+import EZSwiftExtensions
 
 class SchedulingViewController: UIViewController {
     struct Constants {
@@ -33,6 +34,7 @@ class SchedulingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = Constants.calendarGrey
         collectionViewSetup()
     }
 
@@ -49,6 +51,7 @@ class SchedulingViewController: UIViewController {
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionViewSetup() {
         let layout = ScheduleCollectionViewLayout()
+        edgesForExtendedLayout = [] //for the top x sticky axis to be in the correct placement with a nav bar
         theCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         registerCells()
         theCollectionView.dataSource = self
