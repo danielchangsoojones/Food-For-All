@@ -81,6 +81,7 @@ extension ProviderScheduleViewController: CalendarPopUpDelegate {
     
     func deleteEvent() {
         if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            providerDataStore?.delete(event: events[selectedIndexPath.row])
             events.remove(at: selectedIndexPath.row)
             layout.removeEventCell(at: selectedIndexPath)
             theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])

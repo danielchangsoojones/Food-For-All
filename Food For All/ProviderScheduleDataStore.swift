@@ -19,6 +19,7 @@ class ProviderScheduleDataStore {
     }
     
     func delete(event: CustomEvent) {
-        
+        let e = event.eventParse
+        e.deleteInBackground()
     }
 }
