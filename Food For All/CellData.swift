@@ -55,7 +55,7 @@ class CreationData {
     
     var schedule: CellData {
         let cell = scheduleCell
-        let destinationVC = SchedulingViewController()
+        let destinationVC = ProviderScheduleViewController()
         return CellData(cell: cell, destinationVC: destinationVC)
     }
     
