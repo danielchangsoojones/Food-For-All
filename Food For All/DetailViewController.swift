@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     var theTitleLabel: UILabel!
     var thePriceLabel: UILabel!
     var theSpinnerContainer: UIView?
-    var theReviewCell: UIView!
     var theTableView: UITableView!
     var nytPhotoVC: NYTPhotosViewController?
     
@@ -27,6 +26,7 @@ class DetailViewController: UIViewController {
     var mutualFriends: [MutualFriend] = []
     var totalMutualFriends: Int = 0
     var photos: [GigPhoto] = []
+    var messageHelper: MessageHelper?
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -106,6 +106,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
             friendCell.mutualFriends = self.mutualFriends
             cell = friendCell
+        case .message:
+            cell = data.createMessageCell()
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -129,6 +131,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .review:
             reviewCellTapped()
+        case .message:
+            messageTapped()
         case .venmo:
             venmoTapped()
         default:
@@ -167,6 +171,11 @@ extension DetailViewController {
         let scheduleVC = CustomerScheduleViewController()
         scheduleVC.gig = self.gig
         pushVC(scheduleVC)
+    }
+    
+    func messageTapped() {
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        messageHelper?.send(type: .blank)
     }
     
     func venmoTapped() {

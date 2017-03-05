@@ -38,7 +38,7 @@ class MessageHelper: NSObject {
         }
     }
     
-    func sendSMSText(phoneNumber: String) {
+    fileprivate func sendSMSText(phoneNumber: String) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             
