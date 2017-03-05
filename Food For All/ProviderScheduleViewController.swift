@@ -31,7 +31,7 @@ class ProviderScheduleViewController: SchedulingViewController {
     
     override func eventCellPressed(indexPath: IndexPath) {
         let event = events[indexPath.row]
-        let popUpVC = CalendarPopUpViewController(start: event.start, end: event.end, delegate: self)
+        let popUpVC = ProviderPopUpViewController(start: event.start, end: event.end, delegate: self)
         let popUpController = STPopupController(rootViewController: popUpVC)
         popUpController.style = .bottomSheet
         popUpController.present(in: self)
@@ -62,7 +62,7 @@ extension ProviderScheduleViewController {
     }
 }
 
-extension ProviderScheduleViewController: CalendarPopUpDelegate {
+extension ProviderScheduleViewController: ProviderPopUpDelegate {
     func updateTime(start: Date?, end: Date?) {
         if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
             let event = events[selectedIndexPath.item]

@@ -9,7 +9,7 @@
 import Foundation
 import MessageUI
 
-class Message: NSObject {
+class MessageHelper: NSObject {
     enum MessageType {
         case blank
         case withoutTime
@@ -79,7 +79,7 @@ class Message: NSObject {
     }
 }
 
-extension Message: MFMessageComposeViewControllerDelegate {
+extension MessageHelper: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //... handle sms screen actions
         var messageState: String = "defualt"

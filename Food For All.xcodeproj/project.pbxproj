@@ -31,8 +31,12 @@
 		923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */; };
 		923A61041E6B468900C56471 /* EventParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61031E6B468900C56471 /* EventParse.swift */; };
 		923A61071E6B7F0400C56471 /* CustomerScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */; };
-		923A610A1E6B838200C56471 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61091E6B838200C56471 /* Message.swift */; };
+		923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61091E6B838200C56471 /* MessageHelper.swift */; };
 		923A610D1E6B893400C56471 /* MessageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A610C1E6B893400C56471 /* MessageDataStore.swift */; };
+		923A61101E6B981500C56471 /* CustomerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */; };
+		923A61131E6B98ED00C56471 /* ProviderPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */; };
+		923A61151E6B992E00C56471 /* CustomerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61141E6B992E00C56471 /* CustomerPopUpView.swift */; };
+		923A61171E6B9ADC00C56471 /* ProviderPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
@@ -173,8 +177,12 @@
 		923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderScheduleDataStore.swift; sourceTree = "<group>"; };
 		923A61031E6B468900C56471 /* EventParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventParse.swift; sourceTree = "<group>"; };
 		923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerScheduleViewController.swift; sourceTree = "<group>"; };
-		923A61091E6B838200C56471 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		923A61091E6B838200C56471 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		923A610C1E6B893400C56471 /* MessageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDataStore.swift; sourceTree = "<group>"; };
+		923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPopUpViewController.swift; sourceTree = "<group>"; };
+		923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderPopUpViewController.swift; sourceTree = "<group>"; };
+		923A61141E6B992E00C56471 /* CustomerPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPopUpView.swift; sourceTree = "<group>"; };
+		923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderPopUpView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
@@ -453,6 +461,8 @@
 		923A60F51E68D70400C56471 /* Pop Up */ = {
 			isa = PBXGroup;
 			children = (
+				923A61111E6B98D400C56471 /* Customer */,
+				923A610E1E6B97E800C56471 /* Provider */,
 				923A60F61E68D78F00C56471 /* CalendarPopUpViewController.swift */,
 				923A60F81E68DA1500C56471 /* CalendarPopUpView.swift */,
 			);
@@ -496,7 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				923A610B1E6B892200C56471 /* Data Store */,
-				923A61091E6B838200C56471 /* Message.swift */,
+				923A61091E6B838200C56471 /* MessageHelper.swift */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -507,6 +517,24 @@
 				923A610C1E6B893400C56471 /* MessageDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		923A610E1E6B97E800C56471 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */,
+				923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */,
+			);
+			name = Provider;
+			sourceTree = "<group>";
+		};
+		923A61111E6B98D400C56471 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */,
+				923A61141E6B992E00C56471 /* CustomerPopUpView.swift */,
+			);
+			name = Customer;
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -1388,8 +1416,10 @@
 				92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */,
 				92F86B501E58049D00BF8CF7 /* PhotoCollectionViewCell.swift in Sources */,
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
+				923A61171E6B9ADC00C56471 /* ProviderPopUpView.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* WelcomeNavigationController.swift in Sources */,
+				923A61131E6B98ED00C56471 /* ProviderPopUpViewController.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
 				9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */,
@@ -1410,6 +1440,7 @@
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
+				923A61101E6B981500C56471 /* CustomerPopUpViewController.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
@@ -1422,6 +1453,7 @@
 				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */,
+				923A61151E6B992E00C56471 /* CustomerPopUpView.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				923A60F41E67C11D00C56471 /* EventCollectionViewCell.swift in Sources */,
@@ -1459,7 +1491,7 @@
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				923A60EC1E6638BA00C56471 /* HourUnitCollectionViewCell.swift in Sources */,
-				923A610A1E6B838200C56471 /* Message.swift in Sources */,
+				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
 				923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */,
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,

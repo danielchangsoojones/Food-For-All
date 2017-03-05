@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import STPopup
 
 class CustomerScheduleViewController: SchedulingViewController {
+    //need to hold the message helper in global variable because it is a long-running operation, so we don't want the variable to get disposed of when it is called in a function.
+    var messageHelper: MessageHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,11 @@ class CustomerScheduleViewController: SchedulingViewController {
     }
     
     override func eventCellPressed(indexPath: IndexPath) {
-        print("event presssed")
+        let event = events[indexPath.row]
+        let popUpVC = CustomerPopUpViewController(start: event.start, end: event.end, gig: gig, delegate: self)
+        let popUpController = STPopupController(rootViewController: popUpVC)
+        popUpController.style = .bottomSheet
+        popUpController.present(in: self)
     }
     
     fileprivate func navBarSetup() {
@@ -29,6 +36,14 @@ class CustomerScheduleViewController: SchedulingViewController {
     }
     
     func skipPressed() {
-        Message(currentVC: self, gig: self.gig).send(type: .withoutTime)
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        messageHelper?.send(type: .withoutTime)
+    }
+}
+
+extension CustomerScheduleViewController: CustomerPopUpDelegate {
+    func segueToMessage(time: String) {
+        self.messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        self.messageHelper?.send(type: .withTime, time: time)
     }
 }

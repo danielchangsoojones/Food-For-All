@@ -12,18 +12,15 @@ import TTTAttributedLabel
 class CalendarPopUpView: UIView {
     struct Constants {
         static let font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        static let textColor: UIColor = UIColor.black
+        static let verticalSpacing: CGFloat = 13
     }
     
     var theDayLabel: UILabel!
-    var theStackView: UIStackView!
-    var theStartTimeButton: UIButton!
-    var theEndTimeButton: UIButton!
-    var theHyphenLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         dayLabelSetup()
-        stackViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,37 +33,7 @@ class CalendarPopUpView: UIView {
         self.addSubview(theDayLabel)
         theDayLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(Constants.verticalSpacing)
         }
-    }
-    
-    fileprivate func stackViewSetup() {
-        hyphenLabelSetup()
-        theStartTimeButton = createTimeButton(title: "start")
-        theEndTimeButton = createTimeButton(title: "end")
-        theStackView = UIStackView(arrangedSubviews: [theStartTimeButton, theHyphenLabel, theEndTimeButton])
-        theStackView.axis = .horizontal
-        theStackView.alignment = .center
-        theStackView.spacing = 10
-        theStackView.distribution = .equalCentering
-        self.addSubview(theStackView)
-        theStackView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(theDayLabel.snp.bottom).offset(10)
-        }
-    }
-    
-    fileprivate func createTimeButton(title: String) -> UIButton {
-        let button = UIButton()
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.font = Constants.font
-        return button
-    }
-    
-    fileprivate func hyphenLabelSetup() {
-        theHyphenLabel = UILabel()
-        theHyphenLabel.font = Constants.font
-        theHyphenLabel.text = "-"
     }
 }
