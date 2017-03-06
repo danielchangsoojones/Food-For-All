@@ -58,10 +58,21 @@ class ProviderPopUpViewController: CalendarPopUpViewController {
     
     override func choseNew(date: Date, sender: UIButton) {
         if sender == self.theStartTimeButton {
-            self.picked(newStart: date)
+            if let end = self.end, end < date {
+                Helpers.showBanner(title: "Invalid Time", subtitle: "You inputted a start time that occurs after the end time", bannerType: .error)
+                return
+            } else {
+                self.picked(newStart: date)
+            }
         } else if sender == self.theEndTimeButton {
-            self.picked(newEnd: date)
+            if let start = self.start, start > date {
+                Helpers.showBanner(title: "Invalid Time", subtitle: "You inputted an end time that occurs before your start time", bannerType: .error)
+                return
+            } else {
+                self.picked(newEnd: date)
+            }
         }
+        
         self.delegate?.updateTime(start: self.start, end: self.end)
     }
 }
