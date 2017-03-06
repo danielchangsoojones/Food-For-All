@@ -12,7 +12,13 @@ import EZSwiftExtensions
 
 class SchedulingViewController: UIViewController {
     struct Constants {
-        static let numberOfSections: Int = 25
+        //add 1 to ending time, to get it to be accurate on the screen
+        static let numberOfSections: Int = Constants.endingTime + 1 - Constants.startingTime + Constants.customEventSection
+        
+        //in army time
+        static let startingTime: Int = 8
+        static let endingTime: Int = 22
+        
         static let customEventSection: Int = 1
         static let numberOfColumns: Int = 8 //show a week's worth
         static let borderColor: UIColor = UIColor.black
@@ -167,9 +173,10 @@ extension SchedulingViewController {
         let section = indexPath.section
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourUnitCollectionViewCell.identifier, for: indexPath) as! HourUnitCollectionViewCell
         
+        //add times to any cells, but the top left corner cell, the first time cell and the last time cell. Trying to copy the look of Vantage calender on the App Store
         if section > 0 && section != Constants.numberOfSections - 1 {
-            //add times to any cells, but the top left corner cell, the first time cell and the last time cell. Trying to copy the look of Vantage calender on the App Store
-            let timeString = convertNumToTime(num: section)
+            let time = Constants.startingTime + section
+            let timeString = convertNumToTime(num: time)
             cell.setTime(title: timeString)
         } else {
             cell.setTime(title: nil)
