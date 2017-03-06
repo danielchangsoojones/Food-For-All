@@ -13,12 +13,17 @@ class DateCollectionViewCell: UICollectionViewCell {
         static let fontWeight: CGFloat = UIFontWeightBold
     }
     
-    
     var theDayLabel: UILabel!
     var theWeekDayLabel: UILabel!
     var theMonthLabel: UILabel!
     
-    var textColor: UIColor = UIColor.white
+    var textColor: UIColor = UIColor.black {
+        didSet {
+            theDayLabel.textColor = textColor
+            theWeekDayLabel.textColor = textColor
+            theMonthLabel.textColor = textColor
+        }
+    }
     
     var sideOffset: CGFloat {
         return self.frame.width * 0.1
@@ -34,6 +39,7 @@ class DateCollectionViewCell: UICollectionViewCell {
         dayLabelSetup()
         weekDayLabelSetup()
         monthLabelSetup()
+        textColor = UIColor.black
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,7 +54,6 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     fileprivate func dayLabelSetup() {
         theDayLabel = UILabel()
-        theDayLabel.textColor = textColor
         theDayLabel.font = UIFont.systemFont(ofSize: 25, weight: Constants.fontWeight)
         self.addSubview(theDayLabel)
         theDayLabel.snp.makeConstraints { (make) in
@@ -59,7 +64,6 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     fileprivate func weekDayLabelSetup() {
         theWeekDayLabel = UILabel()
-        theWeekDayLabel.textColor = textColor
         theWeekDayLabel.font = UIFont.systemFont(ofSize: 10, weight: Constants.fontWeight)
         self.addSubview(theWeekDayLabel)
         theWeekDayLabel.snp.makeConstraints { (make) in
@@ -70,7 +74,6 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     fileprivate func monthLabelSetup() {
         theMonthLabel = UILabel()
-        theMonthLabel.textColor = textColor
         theMonthLabel.font = UIFont.systemFont(ofSize: 10, weight: Constants.fontWeight)
         self.addSubview(theMonthLabel)
         theMonthLabel.snp.makeConstraints { (make) in

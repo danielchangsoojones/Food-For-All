@@ -21,10 +21,10 @@ class SchedulingViewController: UIViewController {
         
         static let customEventSection: Int = 1
         static let numberOfColumns: Int = 8 //show a week's worth
-        static let borderColor: UIColor = UIColor.black
+        static let borderColor: UIColor = CustomColors.BombayGray
         static let borderWidth: CGFloat = 0.3
-        static let calendarGrey: UIColor = UIColor(r: 33, g: 34, b: 36)
-        static let alternateCalendarGrey: UIColor = UIColor(r: 40, g: 41, b: 43)
+        static let calendarGrey: UIColor = UIColor(r: 244, g: 248, b: 251)
+        static let alternateCalendarGrey: UIColor = UIColor(r: 242, g: 246, b: 249)
     }
     
     var theCollectionView: UICollectionView!
@@ -209,7 +209,17 @@ extension SchedulingViewController {
         cell.set(day: date.day, weekDay: date.weekDay, month: date.month)
         
         setAlternatingBackground(cell: cell, indexPath: indexPath)
+        setAlternatingTextColor(cell: cell, indexPath: indexPath)
         return cell
+    }
+    
+    func setAlternatingTextColor(cell: DateCollectionViewCell, indexPath: IndexPath) {
+        if indexPath.row - 1 == 0 {
+            //current day column
+            cell.textColor = CustomColors.JellyTeal
+        } else {
+            cell.textColor = UIColor.black
+        }
     }
     
     fileprivate func setAlternatingBackground(cell: UICollectionViewCell, indexPath: IndexPath) {
@@ -235,7 +245,7 @@ extension SchedulingViewController {
     
     func dayOfWeek(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "EEE"
         return dateFormatter.string(from: date).capitalized 
     }
 }

@@ -27,7 +27,6 @@ class HourUnitCollectionViewCell: UICollectionViewCell {
     
     fileprivate func labelSetup() {
         theTimeLabel = UILabel()
-        theTimeLabel.textColor = CustomColors.SilverChalice
         theTimeLabel.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightLight)
         self.addSubview(theTimeLabel)
         //TODO: make the timeLabel line up perfectly witht the other cells, like the Vantage Calendar
