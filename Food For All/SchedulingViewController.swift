@@ -76,6 +76,7 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         let layout = ScheduleCollectionViewLayout()
         edgesForExtendedLayout = [] //for the top x sticky axis to be in the correct placement with a nav bar
         theCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        theCollectionView.contentInset.bottom = navigationBarHeight
         registerCells()
         theCollectionView.dataSource = self
         theCollectionView.delegate = self
