@@ -60,6 +60,7 @@ class DetailViewController: UIViewController {
         self.view = detailView
         theNameLabel = detailView.theNameLabel
         theProfileImageView = detailView.theProfileImageView
+        theProfileImageView.addTapGesture(target: self, action: #selector(profileImageTapped))
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
@@ -167,6 +168,16 @@ extension DetailViewController {
         popVC()
     }
     
+    func profileImageTapped() {
+        nytPhotoVC = NYTPhotosViewController()
+        nytPhotoVC?.delegate = self
+        dataStore.getEnlargedProfileImage(enlargedPhotoDelegate: self, gig: gig)
+        if let nytPhotoVC = nytPhotoVC {
+            nytPhotoVC.navigationItem.rightBarButtonItem = nil //hide share button in corner
+            presentVC(nytPhotoVC)
+        }
+    }
+    
     func bookButtonPressed(sender: UIButton) {
         let scheduleVC = CustomerScheduleViewController()
         scheduleVC.gig = self.gig
@@ -205,7 +216,7 @@ extension DetailViewController {
     }
 }
 
-extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate {
+extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate, NYTPhotosViewControllerDelegate {
     func showPhotoViewer(selectedIndexPath: IndexPath) {
         let enlargedPhotos: [EnlargedPhoto] = photos.map { (gigPhoto: GigPhoto) -> EnlargedPhoto in
             let enlargedPhoto = EnlargedPhoto(file: gigPhoto.fullImageFile, delegate: self)
@@ -222,6 +233,19 @@ extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate {
     
     func loaded(photo: EnlargedPhoto) {
         nytPhotoVC?.updateImage(for: photo)
+        nytPhotoVC?.display(photo, animated: true)
+    }
+    
+    var numberOfPhotos: UInt {
+        return 1
+    }
+    
+    func photo(at photoIndex: UInt) -> NYTPhoto! {
+        return EnlargedPhoto(file: User.current()!.profileImage, delegate: self)
+    }
+    
+    func contains(_ photo: NYTPhoto!) -> Bool {
+        return true
     }
 }
 

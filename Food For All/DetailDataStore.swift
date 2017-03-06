@@ -62,6 +62,18 @@ extension DetailDataStore {
         let photoDataStore = PhotoFormDataStore(delegate: photoDelegate)
         photoDataStore.loadPhotos(for: gig)
     }
+    
+    func getEnlargedProfileImage(enlargedPhotoDelegate: EnlargedPhotoDelegate, gig: Gig) {
+        let query = GigDetailPhoto.query()! as! PFQuery<GigDetailPhoto>
+        query.whereKey("parent", equalTo: gig.gigParse)
+        query.getFirstObjectInBackground { (gigDetailPhoto, error) in
+            if let gigDetailPhoto = gigDetailPhoto {
+                let photo: EnlargedPhoto = EnlargedPhoto(file: gigDetailPhoto.fullImageFile, delegate: enlargedPhotoDelegate)
+            } else if let error = error {
+                print(error)
+            }
+        }
+    }
 }
 
 

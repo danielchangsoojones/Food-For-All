@@ -25,7 +25,7 @@ target 'Food For All' do
   pod 'SwiftyJSON'
   pod 'RAReorderableLayout'
   pod 'ALCameraViewController'
-  pod 'NYTPhotoViewer', '~> 1.1.0'
+  pod 'NYTPhotoViewer'
   pod 'TTTAttributedLabel'
   pod 'STPopup'
   pod 'ActionSheetPicker-3.0'
