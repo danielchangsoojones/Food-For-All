@@ -50,6 +50,7 @@ class CustomerPopUpViewController: CalendarPopUpViewController {
     override func setContent() {
         super.setContent()
         theTimeButton.setTitle(start?.timeString(in: .short), for: .normal)
+        theTimeButton.tag = DateType.start.rawValue
     }
     
     override func choseNew(date: Date, sender: UIButton) {

@@ -52,6 +52,8 @@ class ProviderPopUpViewController: CalendarPopUpViewController {
         super.setContent()
         setTitleFor(button: theStartTimeButton, date: start)
         setTitleFor(button: theEndTimeButton, date: end)
+        theStartTimeButton.tag = DateType.start.rawValue
+        theEndTimeButton.tag = DateType.end.rawValue
     }
     
     override func choseNew(date: Date, sender: UIButton) {

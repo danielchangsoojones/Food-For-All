@@ -12,6 +12,11 @@ import EZSwiftExtensions
 import ActionSheetPicker_3_0
 
 class CalendarPopUpViewController: UIViewController {
+    enum DateType: Int {
+        case start
+        case end
+    }
+    
     var theDayLabel: UILabel!
     
     var start: Date?
@@ -55,16 +60,19 @@ class CalendarPopUpViewController: UIViewController {
 //time extension
 extension CalendarPopUpViewController {
     func timePressed(sender: UIButton) {
-        let datePicker = ActionSheetDatePicker(title: "Time", datePickerMode: .time, selectedDate: start, doneBlock: {
-            picker, value, index in
-            if let date = value as? Date {
-                self.choseNew(date: date, sender: sender)
-            }
-        }, cancel: {_ in
-            return
-        }, origin: sender)
-        datePicker?.minuteInterval = 20
-        datePicker?.show()
+        if let type = DateType(rawValue: sender.tag) {
+            let initialDate = type == .start ? start : end
+            let datePicker = ActionSheetDatePicker(title: "Time", datePickerMode: .time, selectedDate: initialDate, doneBlock: {
+                picker, value, index in
+                if let date = value as? Date {
+                    self.choseNew(date: date, sender: sender)
+                }
+            }, cancel: {_ in
+                return
+            }, origin: sender)
+            datePicker?.minuteInterval = 20
+            datePicker?.show()
+        }
     }
     
     func setTitleFor(button: UIButton, date: Date?) {
