@@ -9,6 +9,11 @@
 import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
+    struct Constants {
+        static let borderWidth: CGFloat = 2.0
+        static let borderColor: UIColor = CustomColors.JellyTeal
+    }
+    
     override var reuseIdentifier: String? {
         return EventCollectionViewCell.identifier
     }
@@ -20,12 +25,12 @@ class EventCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = UIColor(r: 49, g: 62, b: 70)
         setCornerRadius(radius: 5)
         labelSetup()
-        addBorderLeft(size: 4.0, color: CustomColors.AquamarineBlue)
+        addBorderLeft(size: Constants.borderWidth, color: Constants.borderColor)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        addBorderLeft(size: 4.0, color: CustomColors.AquamarineBlue)
+        addBorderLeft(size: Constants.borderWidth, color: Constants.borderColor)
     }
     
     required init?(coder aDecoder: NSCoder) {
