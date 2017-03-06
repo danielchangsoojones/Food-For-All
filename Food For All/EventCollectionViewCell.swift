@@ -9,11 +9,6 @@
 import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
-    struct Constants {
-        static let borderWidth: CGFloat = 2.0
-        static let borderColor: UIColor = CustomColors.JellyTeal
-    }
-    
     override var reuseIdentifier: String? {
         return EventCollectionViewCell.identifier
     }
@@ -25,12 +20,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = UIColor(r: 49, g: 62, b: 70)
         setCornerRadius(radius: 5)
         labelSetup()
-        addBorderLeft(size: Constants.borderWidth, color: Constants.borderColor)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        addBorderLeft(size: Constants.borderWidth, color: Constants.borderColor)
+        leftBorderSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +40,17 @@ class EventCollectionViewCell: UICollectionViewCell {
             let inset = 10
             make.leading.equalToSuperview().inset(inset)
             make.top.equalToSuperview().inset(inset)
+        }
+    }
+    
+    fileprivate func leftBorderSetup() {
+        let line = Helpers.line
+        line.alpha = 1
+        line.backgroundColor = CustomColors.JellyTeal
+        self.addSubview(line)
+        line.snp.makeConstraints { (make) in
+            make.top.bottom.leading.equalToSuperview()
+            make.width.equalTo(3)
         }
     }
 }

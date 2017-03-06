@@ -441,9 +441,9 @@
 		923A60EA1E66380D00C56471 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				924D26F31E6DEE9B00413CDE /* Date Cells */,
 				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
 				923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */,
-				923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */,
 				923A60F31E67C11D00C56471 /* EventCollectionViewCell.swift */,
 			);
 			name = Cells;
@@ -565,6 +565,14 @@
 				923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		924D26F31E6DEE9B00413CDE /* Date Cells */ = {
+			isa = PBXGroup;
+			children = (
+				923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */,
+			);
+			name = "Date Cells";
 			sourceTree = "<group>";
 		};
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {

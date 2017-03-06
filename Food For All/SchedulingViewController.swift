@@ -84,6 +84,16 @@ class SchedulingViewController: UIViewController {
     func dataStoreSetup() {
         dateStore = ScheduleDataStore(delegate: self, gig: self.gig)
     }
+    
+    func createDateCell(indexPath: IndexPath) -> DateCollectionViewCell {
+        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.identifier, for: indexPath) as! DateCollectionViewCell
+        let date = getDateFrom(item: indexPath.item)
+        cell.set(day: date.day, weekDay: date.weekDay, month: date.month)
+        
+        setAlternatingBackground(cell: cell, indexPath: indexPath)
+        setAlternatingTextColor(cell: cell, indexPath: indexPath)
+        return cell
+    }
 }
 
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -218,16 +228,6 @@ extension SchedulingViewController {
 
 //the top x axis of dates
 extension SchedulingViewController {
-    fileprivate func createDateCell(indexPath: IndexPath) -> DateCollectionViewCell {
-        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.identifier, for: indexPath) as! DateCollectionViewCell
-        let date = getDateFrom(item: indexPath.item)
-        cell.set(day: date.day, weekDay: date.weekDay, month: date.month)
-        
-        setAlternatingBackground(cell: cell, indexPath: indexPath)
-        setAlternatingTextColor(cell: cell, indexPath: indexPath)
-        return cell
-    }
-    
     func setAlternatingTextColor(cell: DateCollectionViewCell, indexPath: IndexPath) {
         if indexPath.row - 1 == 0 {
             //current day column

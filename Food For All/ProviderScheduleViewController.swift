@@ -41,6 +41,13 @@ class ProviderScheduleViewController: SchedulingViewController {
         super.dataStoreSetup()
         providerDataStore = ProviderScheduleDataStore()
     }
+    
+    override func createDateCell(indexPath: IndexPath) -> DateCollectionViewCell {
+        let cell = super.createDateCell(indexPath: indexPath)
+        cell.theDayLabel.isHidden = true
+        cell.theMonthLabel.isHidden = true
+        return cell
+    }
 }
 
 extension ProviderScheduleViewController {
