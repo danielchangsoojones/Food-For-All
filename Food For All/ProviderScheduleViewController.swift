@@ -48,6 +48,12 @@ class ProviderScheduleViewController: SchedulingViewController {
         cell.theMonthLabel.isHidden = true
         return cell
     }
+    
+    override func dayOfWeek(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: date)
+    }
 }
 
 extension ProviderScheduleViewController {

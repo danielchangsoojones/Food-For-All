@@ -94,6 +94,12 @@ class SchedulingViewController: UIViewController {
         setAlternatingTextColor(cell: cell, indexPath: indexPath)
         return cell
     }
+    
+    func dayOfWeek(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        return dateFormatter.string(from: date).capitalized
+    }
 }
 
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -256,12 +262,6 @@ extension SchedulingViewController {
         let weekDayString: String = dayOfWeek(date: date)
         let monthName: String = DateFormatter().monthSymbols[month - 1]
         return (day, weekDayString, monthName)
-    }
-    
-    func dayOfWeek(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE"
-        return dateFormatter.string(from: date).capitalized 
     }
 }
 
