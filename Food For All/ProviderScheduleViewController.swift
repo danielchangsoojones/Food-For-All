@@ -45,7 +45,7 @@ class ProviderScheduleViewController: SchedulingViewController {
 
 extension ProviderScheduleViewController {
     fileprivate func scheduleCellPressed(indexPath: IndexPath) {
-        let selectedHour = indexPath.section - 1 //accounting for the top x axis as section 0
+        let selectedHour = indexPath.section - 1 + Constants.startingTime//accounting for the top x axis as section 0
         //acounting for the left y axis as item 0
         if let selectedDate: Date = Date() + (indexPath.row - 1).day {
             let startDate = Date(year: selectedDate.year, month: selectedDate.month, day: selectedDate.day, hour: selectedHour, minute: 0, second: 0, nanosecond: 0)

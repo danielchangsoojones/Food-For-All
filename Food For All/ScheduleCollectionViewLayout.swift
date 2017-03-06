@@ -262,7 +262,7 @@ extension ScheduleCollectionViewLayout {
     fileprivate func getEventPosY(event: CustomEvent) -> Double {
         let minuteHeight: Double = CELL_HEIGHT / 60
         let xAxisHeight: Double = CELL_HEIGHT
-        let minutes = event.start.hour * 60 + event.start.minute
+        let minutes = event.start.hour * 60 + event.start.minute - (SchedulingViewController.Constants.startingTime * 60)
         return minuteHeight * Double(minutes) + xAxisHeight
     }
     
