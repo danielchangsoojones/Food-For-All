@@ -42,10 +42,13 @@ class SchedulingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavBar()
         collectionViewSetup()
         dataStoreSetup()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
