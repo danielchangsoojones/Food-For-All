@@ -22,5 +22,15 @@ class WelcomeNavigationController: CustomNavigationController {
     
     func resetToDefaults() {
         navigationBar.tintColor = Constants.navBarTintColor
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+    }
+    
+    func change(color: UIColor) {
+        navigationBar.barTintColor = color
+        navigationBar.setBackgroundImage(nil, for: .default)
+        navigationBar.shadowImage = nil
+        navigationBar.isTranslucent = false
     }
 }

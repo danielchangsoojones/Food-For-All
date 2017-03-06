@@ -42,9 +42,17 @@ class SchedulingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = Constants.calendarGrey
+        setNavBar()
         collectionViewSetup()
         dataStoreSetup()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let nav = navigationController as? WelcomeNavigationController {
+            nav.resetToDefaults()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +62,13 @@ class SchedulingViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func setNavBar() {
+        if let nav = navigationController as? WelcomeNavigationController {
+            nav.change(color: Constants.calendarGrey)
+            nav.navigationBar.tintColor = UIColor.black
+        }
     }
     
     func pressed(cell: UICollectionViewCell, indexPath: IndexPath) {

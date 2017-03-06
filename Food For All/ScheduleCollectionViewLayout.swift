@@ -77,6 +77,7 @@ class ScheduleCollectionViewLayout: UICollectionViewLayout {
                                         frame.origin.x = xOffset
                                     }
                                     
+                                    
                                     frame.origin.y = yOffset
                                     attrs.frame = frame
                                 }
