@@ -65,9 +65,15 @@ class Gig {
     fileprivate func setGigImage() {
         //Either set the image as the gig image, but if non-existent, then use their profile image
         if let gigImage = gigParse.frontImage {
-            self.frontImage = gigImage
+            setImages(file: gigImage)
         } else if let profileImage = creator.profileImage {
-            self.frontImage = profileImage
+            setImages(file: profileImage)
         }
+    }
+    
+    //TODO: actually start saving the full size image and mini image for the profiles, so we can have an icon pic and a blown up pic
+    fileprivate func setImages(file: AnyObject?) {
+        self.frontImage = file
+        self.fullSizeFrontImage = file
     }
 }

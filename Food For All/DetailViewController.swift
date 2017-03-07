@@ -169,10 +169,7 @@ extension DetailViewController {
     }
     
     func profileImageTapped() {
-//        let placeholderPhoto = EnlargedPhoto(file: nil, delegate: self)
-//        photoVC = NYTPhotosViewController(photos: [])
-//        dataStore.getEnlargedProfileImage(enlargedPhotoDelegate: self, gig: gig)
-//        presentVC(photoVC!)
+        //We need to have a placeholder image because NYTPhotoViewController is being annoying and it will only update photos that are inputted during initialization. So, we pass a blank file EnlargedPhoto, and then when we get the data from the server, we just update the file on this photo, and then update this placeholder photo, which makes the functionality work. best workaround I could find.
         let placeholderPhoto = EnlargedPhoto(file: nil, delegate: self)
         nytPhotoVC = NYTPhotosViewController(photos: [placeholderPhoto])
         dataStore.getEnlargedProfileImage(enlargedPhoto: placeholderPhoto, gig: gig)

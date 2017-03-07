@@ -64,13 +64,26 @@ extension DetailDataStore {
     }
     
     func getEnlargedProfileImage(enlargedPhoto: EnlargedPhoto, gig: Gig) {
-        let query = GigDetailPhoto.query()! as! PFQuery<GigDetailPhoto>
+        let query = GigImage.query()! as! PFQuery<GigImage>
         query.whereKey("parent", equalTo: gig.gigParse)
-        query.getFirstObjectInBackground { (gigDetailPhoto, error) in
-            if let gigDetailPhoto = gigDetailPhoto {
-                enlargedPhoto.set(file: gigDetailPhoto.fullImageFile)
+        query.getFirstObjectInBackground { (photo, error) in
+            if let photo = photo {
+                //We have to set the file on this enlargedPhoto, rather than creating a new instance because NYTPhotoViewController requires that photos be at initialization, so we had to add a placeholder photo, and then we just update the file on that image. It's hacky, but it's a workaround. 
+                if let file = photo.fullFrontImage {
+                    enlargedPhoto.set(file: file)
+                } else {
+                    //no enlarged photo file exists for the gig currently
+                    enlargedPhoto.set(file: gig.fullSizeFrontImage)
+                }
             } else if let error = error {
-                print(error)
+                if let code = PFErrorCode(rawValue: error._code) {
+                    switch code {
+                    case .errorObjectNotFound:
+                        enlargedPhoto.set(file: gig.fullSizeFrontImage)
+                    default:
+                        print(error)
+                    }
+                }
             }
         }
     }
