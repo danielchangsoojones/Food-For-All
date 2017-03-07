@@ -65,8 +65,7 @@ class DetailViewController: UIViewController {
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
         detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
         theTableView = detailView.theTableView
-        theTableView.delegate = self
-        theTableView.dataSource = self
+        tableViewSetup()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -87,6 +86,12 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        theTableView.showsVerticalScrollIndicator = false
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellTypes.count
     }
