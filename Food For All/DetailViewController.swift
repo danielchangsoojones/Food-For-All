@@ -169,9 +169,13 @@ extension DetailViewController {
     }
     
     func profileImageTapped() {
-        nytPhotoVC = NYTPhotosViewController()
-        nytPhotoVC?.delegate = self
-        dataStore.getEnlargedProfileImage(enlargedPhotoDelegate: self, gig: gig)
+//        let placeholderPhoto = EnlargedPhoto(file: nil, delegate: self)
+//        photoVC = NYTPhotosViewController(photos: [])
+//        dataStore.getEnlargedProfileImage(enlargedPhotoDelegate: self, gig: gig)
+//        presentVC(photoVC!)
+        let placeholderPhoto = EnlargedPhoto(file: nil, delegate: self)
+        nytPhotoVC = NYTPhotosViewController(photos: [placeholderPhoto])
+        dataStore.getEnlargedProfileImage(enlargedPhoto: placeholderPhoto, gig: gig)
         if let nytPhotoVC = nytPhotoVC {
             nytPhotoVC.navigationItem.rightBarButtonItem = nil //hide share button in corner
             presentVC(nytPhotoVC)
@@ -216,7 +220,7 @@ extension DetailViewController {
     }
 }
 
-extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate, NYTPhotosViewControllerDelegate {
+extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate {
     func showPhotoViewer(selectedIndexPath: IndexPath) {
         let enlargedPhotos: [EnlargedPhoto] = photos.map { (gigPhoto: GigPhoto) -> EnlargedPhoto in
             let enlargedPhoto = EnlargedPhoto(file: gigPhoto.fullImageFile, delegate: self)
@@ -233,19 +237,6 @@ extension DetailViewController: EnlargedPhotoDelegate, GigPhotosCellDelegate, NY
     
     func loaded(photo: EnlargedPhoto) {
         nytPhotoVC?.updateImage(for: photo)
-        nytPhotoVC?.display(photo, animated: true)
-    }
-    
-    var numberOfPhotos: UInt {
-        return 1
-    }
-    
-    func photo(at photoIndex: UInt) -> NYTPhoto! {
-        return EnlargedPhoto(file: User.current()!.profileImage, delegate: self)
-    }
-    
-    func contains(_ photo: NYTPhoto!) -> Bool {
-        return true
     }
 }
 

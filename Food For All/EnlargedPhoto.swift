@@ -27,11 +27,19 @@ class EnlargedPhoto: NSObject, NYTPhoto {
     init(file: Any?, delegate: EnlargedPhotoDelegate) {
         super.init()
         self.delegate = delegate
+        load(file: file)
+    }
+    
+    func set(file: Any?) {
+        load(file: file)
+    }
+    
+    fileprivate func load(file: Any?) {
         if let file = file as? PFFile {
             file.getDataInBackground { (data, error) in
                 if let data = data {
                     self.imageData = data
-                    delegate.loaded(photo: self)
+                    self.delegate?.loaded(photo: self)
                 } else if let error = error {
                     print(error)
                 }
