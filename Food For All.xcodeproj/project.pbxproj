@@ -431,9 +431,7 @@
 				923A60FE1E6B434800C56471 /* Data Store */,
 				923A60F51E68D70400C56471 /* Pop Up */,
 				923A60EF1E66629B00C56471 /* Collection View */,
-				923A60FC1E6B433300C56471 /* Provider Scheduling */,
-				923A61051E6B7EDA00C56471 /* Customer Scheduling */,
-				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
+				924D26F61E6FB12400413CDE /* View Controller */,
 			);
 			name = Scheduling;
 			sourceTree = "<group>";
@@ -573,6 +571,16 @@
 				923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */,
 			);
 			name = "Date Cells";
+			sourceTree = "<group>";
+		};
+		924D26F61E6FB12400413CDE /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				923A60FC1E6B433300C56471 /* Provider Scheduling */,
+				923A61051E6B7EDA00C56471 /* Customer Scheduling */,
+				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {
@@ -1670,7 +1678,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1689,7 +1697,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1885,7 +1893,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
