@@ -50,7 +50,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         self.addSubview(line)
         line.snp.makeConstraints { (make) in
             make.top.bottom.leading.equalToSuperview()
-            make.width.equalTo(3)
+            make.width.equalTo(2)
         }
     }
 }
