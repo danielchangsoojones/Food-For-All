@@ -70,7 +70,7 @@ extension CalendarPopUpViewController {
             }, cancel: {_ in
                 return
             }, origin: sender)
-            datePicker?.minuteInterval = 20
+            datePicker?.minuteInterval = 15
             datePicker?.show()
         }
     }
