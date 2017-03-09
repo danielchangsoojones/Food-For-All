@@ -39,6 +39,19 @@ class CustomerScheduleViewController: SchedulingViewController {
         messageHelper = MessageHelper(currentVC: self, gig: self.gig)
         messageHelper?.send(type: .withoutTime)
     }
+    
+    override func registerCells() {
+        super.registerCells()
+        theCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: EventCollectionViewCell.identifier)
+    }
+    
+    override func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
+        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
+        let event = events[indexPath.row]
+        let title = convertToString(event: event)
+        cell.set(title: title)
+        return cell
+    }
 }
 
 extension CustomerScheduleViewController: CustomerPopUpDelegate {

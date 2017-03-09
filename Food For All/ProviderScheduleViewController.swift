@@ -54,6 +54,18 @@ class ProviderScheduleViewController: SchedulingViewController {
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: date)
     }
+    
+    override func registerCells() {
+        super.registerCells()
+        theCollectionView.register(EditableEventCollectionViewCell.self, forCellWithReuseIdentifier: EditableEventCollectionViewCell.editIdentifier)
+    }
+    
+    override func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
+        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EditableEventCollectionViewCell.editIdentifier, for: indexPath) as! EditableEventCollectionViewCell
+        setPanAttributes(pan: cell.theUpPan)
+        setPanAttributes(pan: cell.theDownPan)
+        return cell
+    }
 }
 
 extension ProviderScheduleViewController {
@@ -72,6 +84,39 @@ extension ProviderScheduleViewController {
     fileprivate func save(event: CustomEvent) {
         providerDataStore?.save(event: event)
         theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+    }
+}
+
+extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
+    func draggingCell(pan: UIPanGestureRecognizer) {
+        if let handle = pan.view, let eventCell = handle.superview {
+            
+            
+            UIView.animate(withDuration: 0.05, animations: {
+                if let orientation = DragDirection(rawValue: handle.tag), pan.state == .began || pan.state == .changed {
+                    let translation = pan.translation(in: self.view)
+                    
+                    switch orientation {
+                    case .up:
+                        eventCell.y += translation.y
+                        eventCell.h += -translation.y
+                    case .down:
+                        eventCell.h += translation.y
+                    }
+                    
+                    //the handlePan handler gets called repeatedly as the user moves their finger. By default the translation tells you how far you have moved since the touch started. Since we are using the gestureRecognizer to drag the view and we have already accounted for the translation, we set it back to zero so that the next time handlePan gets called it will report how far the touch has moved from the previous call to handlePan.
+                    pan.setTranslation(CGPoint.zero, in: self.view)
+                    
+                    //makes sure that all subviews of the cell update as we drag, without layoutIfNeeded, the subviews will move around while the cell is being dragged
+                    eventCell.layoutIfNeeded()
+                }
+            })
+        }
+    }
+    
+    fileprivate func setPanAttributes(pan: UIPanGestureRecognizer) {
+        pan.addTarget(self, action: #selector(draggingCell(pan:)))
+        pan.delegate = self
     }
 }
 

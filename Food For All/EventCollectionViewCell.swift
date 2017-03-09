@@ -9,6 +9,10 @@
 import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
+    struct Constants {
+        static let inset: CGFloat = 5
+    }
+    
     override var reuseIdentifier: String? {
         return EventCollectionViewCell.identifier
     }
@@ -37,9 +41,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         theLabel.font = UIFont.systemFont(ofSize: 12, weight: DateCollectionViewCell.Constants.fontWeight)
         self.addSubview(theLabel)
         theLabel.snp.makeConstraints { (make) in
-            let inset = 10
-            make.leading.equalToSuperview().inset(inset)
-            make.top.equalToSuperview().inset(inset)
+            make.leading.equalToSuperview().inset(Constants.inset)
+            make.top.equalToSuperview().inset(Constants.inset)
         }
     }
     

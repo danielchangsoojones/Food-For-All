@@ -103,6 +103,18 @@ class SchedulingViewController: UIViewController {
         dateFormatter.dateFormat = "EEE"
         return dateFormatter.string(from: date).capitalized
     }
+    
+    func registerCells() {
+        theCollectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
+        theCollectionView.register(HourUnitCollectionViewCell.self, forCellWithReuseIdentifier: HourUnitCollectionViewCell.identifier)
+        theCollectionView.register(DateCollectionViewCell.self, forCellWithReuseIdentifier: DateCollectionViewCell.identifier)
+    }
+    
+    func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
+        print("should override this method in subclasses")
+        let cell = EventCollectionViewCell()
+        return cell
+    }
 }
 
 extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -123,13 +135,6 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
         theCollectionView.showsHorizontalScrollIndicator = false
         
         self.view.addSubview(theCollectionView)
-    }
-    
-    fileprivate func registerCells() {
-        theCollectionView.register(ScheduleCollectionViewCell.self, forCellWithReuseIdentifier: ScheduleCollectionViewCell.identifier)
-        theCollectionView.register(HourUnitCollectionViewCell.self, forCellWithReuseIdentifier: HourUnitCollectionViewCell.identifier)
-        theCollectionView.register(DateCollectionViewCell.self, forCellWithReuseIdentifier: DateCollectionViewCell.identifier)
-        theCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: EventCollectionViewCell.identifier)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -176,15 +181,6 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 //custom event cells
 extension SchedulingViewController {
-    fileprivate func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
-        let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
-        let event = events[indexPath.row]
-        let title = convertToString(event: event)
-        cell.set(title: title)
-        cell.addPanGesture(target: self, action: #selector(eventCellDragged(gesture:)))
-        return cell
-    }
-    
     func eventCellDragged(gesture: UIPanGestureRecognizer) {
         if let eventCell = gesture.view {
             UIView.animate(withDuration: 0.3, animations: {
@@ -201,7 +197,7 @@ extension SchedulingViewController {
         }
     }
     
-    fileprivate func convertToString(event: CustomEvent) -> String {
+    func convertToString(event: CustomEvent) -> String {
         let format = "h:mm"
         let start = event.start.toString(format: format)
         let end = event.end.toString(format: format)
