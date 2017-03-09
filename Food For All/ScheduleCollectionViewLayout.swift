@@ -12,6 +12,7 @@ import EZSwiftExtensions
 class ScheduleCollectionViewLayout: UICollectionViewLayout {
     struct Constants {
         static let cellHeight: Double = 45.0
+        static let eventCellInset: CGFloat = 1
     }
     
     let CELL_HEIGHT: Double = Constants.cellHeight
@@ -247,8 +248,7 @@ extension ScheduleCollectionViewLayout {
             let height = getEventHeight(event: event)
             let rect = CGRect(x: xPos, y: yPos, width: CELL_WIDTH, height: height)
             //inset a tiny bit, so not jammed against the calender edges
-            let inset: CGFloat = 1
-            return rect.insetBy(dx: inset, dy: inset)
+            return rect.insetBy(dx: Constants.eventCellInset, dy: Constants.eventCellInset)
         }
         return CGRect.zero
     }

@@ -123,25 +123,24 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
     fileprivate func endHandleDragging(eventCell: UIView) {
         let targetMinY = self.getTarget(y: eventCell.frame.minY)
         let targetMaxY = self.getTarget(y: eventCell.frame.maxY)
-        updateAndSaveEvent(eventCell: eventCell, targetMinY: targetMinY, targetMaxY: targetMaxY)
-        //TODO: we want to inset the block by 1 because we don't want the cells running over the grid lines
         UIView.animate(withDuration: 0.5, animations: {
-            let targetFrame = CGRect(x: eventCell.x, y: targetMinY, w: eventCell.w, h: targetMaxY - targetMinY)
+            let targetFrame = CGRect(x: eventCell.x, y: targetMinY, w: eventCell.w, h: targetMaxY - targetMinY).insetBy(dx: 0, dy: ScheduleCollectionViewLayout.Constants.eventCellInset)
             eventCell.frame = targetFrame
             eventCell.layoutIfNeeded()
+        }, completion: { _ in
+            self.updateAndSaveEvent(eventCell: eventCell, targetMinY: targetMinY, targetMaxY: targetMaxY)
         })
     }
     
     fileprivate func updateAndSaveEvent(eventCell: UIView, targetMinY: CGFloat, targetMaxY: CGFloat) {
         if let eventCell = eventCell as? UICollectionViewCell, let indexPath = self.theCollectionView.indexPath(for: eventCell)  {
-            let event = self.events[indexPath.item]
+            let event = events[indexPath.item]
             let startTime = self.getTimeFrom(position: targetMinY)
-            event.start = event.start.changed(hour: startTime.hours, minute: startTime.minutes) ?? event.start
+            let start = event.start.changed(hour: startTime.hours, minute: startTime.minutes) ?? event.start
             let endTime = self.getTimeFrom(position: targetMaxY)
-            event.end = event.end.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
-            if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
-                layout.updateEventCell(at: indexPath)
-            }
+            let end = event.end.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
+            updateEventUI(indexPath: indexPath, start: start, end: end)
+            providerDataStore?.save(event: event)
         }
     }
     
@@ -169,18 +168,25 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
 
 extension ProviderScheduleViewController: ProviderPopUpDelegate {
     func updateTime(start: Date?, end: Date?) {
-        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last, let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+        if let selectedIndexPath = theCollectionView.indexPathsForSelectedItems?.last {
             let event = events[selectedIndexPath.item]
-            if let start = start {
-                event.start = start
-            }
-            if let end = end {
-                event.end = end
-            }
-            layout.updateEventCell(at: selectedIndexPath)
-            save(event: event)
+            updateEventUI(indexPath: selectedIndexPath, start: start, end: end)
             let cell = theCollectionView.cellForItem(at: selectedIndexPath)
             cell?.isSelected = true
+            save(event: event)
+        }
+    }
+    
+    fileprivate func updateEventUI(indexPath: IndexPath, start: Date?, end: Date?) {
+        let event = events[indexPath.item]
+        if let start = start {
+            event.start = start
+        }
+        if let end = end {
+            event.end = end
+        }
+        if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+            layout.updateEventCell(at: indexPath)
         }
     }
     
