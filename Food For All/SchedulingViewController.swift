@@ -181,22 +181,6 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 //custom event cells
 extension SchedulingViewController {
-    func eventCellDragged(gesture: UIPanGestureRecognizer) {
-        if let eventCell = gesture.view {
-            UIView.animate(withDuration: 0.3, animations: {
-                if gesture.state == .began || gesture.state == .changed {
-                    
-                    let translation = gesture.translation(in: self.view)
-                    // note: 'view' is optional and need to be unwrapped
-                    eventCell.y += translation.y
-                    eventCell.h += -translation.y
-                    //the handlePan handler gets called repeatedly as the user moves their finger. By default the translation tells you how far you have moved since the touch started. Since we are using the gestureRecognizer to drag the view and we have already accounted for the translation, we set it back to zero so that the next time handlePan gets called it will report how far the touch has moved from the previous call to handlePan.
-                    gesture.setTranslation(CGPoint.zero, in: self.view)
-                }
-            })
-        }
-    }
-    
     func convertToString(event: CustomEvent) -> String {
         let format = "h:mm"
         let start = event.start.toString(format: format)

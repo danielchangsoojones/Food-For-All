@@ -90,28 +90,74 @@ extension ProviderScheduleViewController {
 extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
     func draggingCell(pan: UIPanGestureRecognizer) {
         if let handle = pan.view, let eventCell = handle.superview {
-            
-            
-            UIView.animate(withDuration: 0.05, animations: {
-                if let orientation = DragDirection(rawValue: handle.tag), pan.state == .began || pan.state == .changed {
-                    let translation = pan.translation(in: self.view)
-                    
-                    switch orientation {
-                    case .up:
-                        eventCell.y += translation.y
-                        eventCell.h += -translation.y
-                    case .down:
-                        eventCell.h += translation.y
-                    }
-                    
-                    //the handlePan handler gets called repeatedly as the user moves their finger. By default the translation tells you how far you have moved since the touch started. Since we are using the gestureRecognizer to drag the view and we have already accounted for the translation, we set it back to zero so that the next time handlePan gets called it will report how far the touch has moved from the previous call to handlePan.
-                    pan.setTranslation(CGPoint.zero, in: self.view)
-                    
-                    //makes sure that all subviews of the cell update as we drag, without layoutIfNeeded, the subviews will move around while the cell is being dragged
-                    eventCell.layoutIfNeeded()
-                }
-            })
+            if pan.state == .began || pan.state == .changed {
+                animateCellChange(pan: pan, handle: handle, eventCell: eventCell)
+            } else if pan.state == .ended {
+                endHandleDragging(eventCell: eventCell)
+            }
         }
+    }
+    
+    fileprivate func animateCellChange(pan: UIPanGestureRecognizer, handle: UIView, eventCell: UIView) {
+        UIView.animate(withDuration: 0.05, animations: {
+            if let orientation = DragDirection(rawValue: handle.tag) {
+                let translation = pan.translation(in: self.view)
+                
+                switch orientation {
+                case .up:
+                    eventCell.y += translation.y
+                    eventCell.h += -translation.y
+                case .down:
+                    eventCell.h += translation.y
+                }
+                
+                //the handlePan handler gets called repeatedly as the user moves their finger. By default the translation tells you how far you have moved since the touch started. Since we are using the gestureRecognizer to drag the view and we have already accounted for the translation, we set it back to zero so that the next time handlePan gets called it will report how far the touch has moved from the previous call to handlePan.
+                pan.setTranslation(CGPoint.zero, in: self.view)
+                
+                //makes sure that all subviews of the cell update as we drag, without layoutIfNeeded, the subviews will move around while the cell is being dragged
+                eventCell.layoutIfNeeded()
+            }
+        })
+    }
+    
+    fileprivate func endHandleDragging(eventCell: UIView) {
+        let targetMinY = self.getTarget(y: eventCell.frame.minY)
+        let targetMaxY = self.getTarget(y: eventCell.frame.maxY)
+        updateAndSaveEvent(eventCell: eventCell)
+        //TODO: we want to inset the block by 1 because we don't want the cells running over the grid lines
+        UIView.animate(withDuration: 0.5, animations: {
+            let targetFrame = CGRect(x: eventCell.x, y: targetMinY, w: eventCell.w, h: targetMaxY - targetMinY)
+            eventCell.frame = targetFrame
+            eventCell.layoutIfNeeded()
+        })
+    }
+    
+    fileprivate func updateAndSaveEvent(eventCell: UIView) {
+        if let eventCell = eventCell as? UICollectionViewCell, let indexPath = self.theCollectionView.indexPath(for: eventCell)  {
+            let event = self.events[indexPath.item]
+            let startTime = self.getTimeFrom(position: eventCell.frame.minY)
+            event.start = event.start.changed(hour: startTime.hours, minute: startTime.minutes) ?? event.start
+            let endTime = self.getTimeFrom(position: eventCell.frame.maxY)
+            event.end = event.start.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
+            print(event.start)
+            print(event.end)
+        }
+    }
+    
+    fileprivate func getTarget(y: CGFloat) -> CGFloat {
+        let minute: CGFloat = CGFloat(ScheduleCollectionViewLayout.Constants.cellHeight / 60)
+        let dragUnit: CGFloat = 15 * minute
+        let surplus = y / dragUnit
+        let targetY = surplus.rounded() * dragUnit
+        return targetY
+    }
+    
+    func getTimeFrom(position: CGFloat) -> (minutes: Int, hours: Int) {
+        let hourUnit: CGFloat = CGFloat(ScheduleCollectionViewLayout.Constants.cellHeight)
+        let minuteUnit: CGFloat = hourUnit / 60
+        let hours: CGFloat = floor(position / hourUnit) + CGFloat(Constants.startingTime)
+        let minutes = position.truncatingRemainder(dividingBy: hourUnit) / minuteUnit
+        return (Int(minutes), Int(hours))
     }
     
     fileprivate func setPanAttributes(pan: UIPanGestureRecognizer) {

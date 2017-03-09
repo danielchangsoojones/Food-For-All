@@ -10,8 +10,11 @@ import UIKit
 import EZSwiftExtensions
 
 class ScheduleCollectionViewLayout: UICollectionViewLayout {
+    struct Constants {
+        static let cellHeight: Double = 45.0
+    }
     
-    let CELL_HEIGHT = 45.0
+    let CELL_HEIGHT: Double = Constants.cellHeight
     var CELL_WIDTH: Double = 0
     var yAxisCellWidth: Double {
         return CELL_WIDTH / 2
