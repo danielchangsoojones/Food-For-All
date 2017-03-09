@@ -123,7 +123,7 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
     fileprivate func endHandleDragging(eventCell: UIView) {
         let targetMinY = self.getTarget(y: eventCell.frame.minY)
         let targetMaxY = self.getTarget(y: eventCell.frame.maxY)
-        updateAndSaveEvent(eventCell: eventCell)
+        updateAndSaveEvent(eventCell: eventCell, targetMinY: targetMinY, targetMaxY: targetMaxY)
         //TODO: we want to inset the block by 1 because we don't want the cells running over the grid lines
         UIView.animate(withDuration: 0.5, animations: {
             let targetFrame = CGRect(x: eventCell.x, y: targetMinY, w: eventCell.w, h: targetMaxY - targetMinY)
@@ -132,15 +132,16 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
         })
     }
     
-    fileprivate func updateAndSaveEvent(eventCell: UIView) {
+    fileprivate func updateAndSaveEvent(eventCell: UIView, targetMinY: CGFloat, targetMaxY: CGFloat) {
         if let eventCell = eventCell as? UICollectionViewCell, let indexPath = self.theCollectionView.indexPath(for: eventCell)  {
             let event = self.events[indexPath.item]
-            let startTime = self.getTimeFrom(position: eventCell.frame.minY)
+            let startTime = self.getTimeFrom(position: targetMinY)
             event.start = event.start.changed(hour: startTime.hours, minute: startTime.minutes) ?? event.start
-            let endTime = self.getTimeFrom(position: eventCell.frame.maxY)
-            event.end = event.start.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
-            print(event.start)
-            print(event.end)
+            let endTime = self.getTimeFrom(position: targetMaxY)
+            event.end = event.end.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
+            if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+                layout.updateEventCell(at: indexPath)
+            }
         }
     }
     
@@ -155,7 +156,7 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
     func getTimeFrom(position: CGFloat) -> (minutes: Int, hours: Int) {
         let hourUnit: CGFloat = CGFloat(ScheduleCollectionViewLayout.Constants.cellHeight)
         let minuteUnit: CGFloat = hourUnit / 60
-        let hours: CGFloat = floor(position / hourUnit) + CGFloat(Constants.startingTime)
+        let hours: CGFloat = floor(position / hourUnit) + CGFloat(Constants.startingTime - 1)
         let minutes = position.truncatingRemainder(dividingBy: hourUnit) / minuteUnit
         return (Int(minutes), Int(hours))
     }
