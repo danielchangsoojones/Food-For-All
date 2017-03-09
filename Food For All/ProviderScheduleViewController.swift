@@ -116,8 +116,12 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
                 
                 switch orientation {
                 case .up:
-                    eventCell.y += translation.y
-                    eventCell.h += -translation.y
+                    let targetY: Double = Double(eventCell.y + translation.y)
+                    if targetY > ScheduleCollectionViewLayout.Constants.cellHeight {
+                        //don't let the user drag beyond the x axis top header
+                        eventCell.y += translation.y
+                        eventCell.h += -translation.y
+                    }
                 case .down:
                     eventCell.h += translation.y
                 }
@@ -140,7 +144,7 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
             eventCell.layoutIfNeeded()
         }, completion: { _ in
             self.updateAndSaveEvent(eventCell: eventCell, targetMinY: targetMinY, targetMaxY: targetMaxY)
-            self.toggleStateFor(eventCell: eventCell)
+            self.hideHandles(eventCell: eventCell)
         })
     }
     
@@ -156,10 +160,18 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
         }
     }
     
-    fileprivate func toggleStateFor(eventCell: UIView) {
+    fileprivate func hideHandles(eventCell: UIView) {
         if let eventCell = eventCell as? EditableEventCollectionViewCell, let indexPath = self.theCollectionView.indexPath(for: eventCell) {
             self.setTitleFor(event: self.events[indexPath.item], cell: eventCell)
             eventCell.toggleHandles(hide: true)
+            if let recognizers = eventCell.gestureRecognizers {
+                let tap = recognizers.first(where: { (recognizer) -> Bool in
+                    return recognizer is UITapGestureRecognizer
+                })
+                if let tap = tap {
+                    eventCell.removeGestureRecognizer(tap)
+                }
+            }
         }
     }
     
@@ -188,8 +200,7 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
         if let eventCell = longPress.view as? EditableEventCollectionViewCell, longPress.state == .began {
             eventCell.toggleHandles(hide: false)
             eventCell.addTapGesture(action: { (tap) in
-                eventCell.toggleHandles(hide: true)
-                eventCell.removeGestureRecognizer(tap)
+                self.hideHandles(eventCell: eventCell)
             })
         }
     }
