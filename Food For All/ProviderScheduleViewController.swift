@@ -65,6 +65,12 @@ class ProviderScheduleViewController: SchedulingViewController {
         setPanAttributes(pan: cell.theUpPan)
         setPanAttributes(pan: cell.theDownPan)
         cell.addLongPressGesture(target: self, action: #selector(eventCellLongPressed(longPress:)))
+        let event = events[indexPath.item]
+        if event.isNew {
+            cell.toggleHandles(hide: false, duration: 0)
+        } else {
+            setTitleFor(event: events[indexPath.item], cell: cell)
+        }
         return cell
     }
 }
@@ -77,6 +83,7 @@ extension ProviderScheduleViewController {
             let startDate = Date(year: selectedDate.year, month: selectedDate.month, day: selectedDate.day, hour: selectedHour, minute: 0, second: 0, nanosecond: 0)
             let endDate: Date = (startDate + 1.hour) ?? startDate
             let event = CustomEvent(start: startDate, end: endDate)
+            event.isNew = true
             events.append(event)
             save(event: event)
         }
@@ -85,6 +92,9 @@ extension ProviderScheduleViewController {
     fileprivate func save(event: CustomEvent) {
         providerDataStore?.save(event: event)
         theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+        if let newCell = theCollectionView.cellForItem(at: IndexPath(item: events.count - 1, section: theCollectionView.numberOfSections - 1)) as? EditableEventCollectionViewCell {
+           newCell.toggleHandles(hide: false)
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import Foundation
 class CustomEvent {
     var start: Date
     var end: Date
+    var isNew: Bool = false
     var eventParse: EventParse = EventParse()
     
     init(start: Date, end: Date) {
