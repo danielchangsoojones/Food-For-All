@@ -181,6 +181,11 @@ extension SchedulingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 //custom event cells
 extension SchedulingViewController {
+    func setTitleFor(event: CustomEvent, cell: EventCollectionViewCell) {
+        let title = convertToString(event: event)
+        cell.set(title: title)
+    }
+    
     func convertToString(event: CustomEvent) -> String {
         let format = "h:mm"
         let start = event.start.toString(format: format)

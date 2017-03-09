@@ -64,6 +64,7 @@ class ProviderScheduleViewController: SchedulingViewController {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EditableEventCollectionViewCell.editIdentifier, for: indexPath) as! EditableEventCollectionViewCell
         setPanAttributes(pan: cell.theUpPan)
         setPanAttributes(pan: cell.theDownPan)
+        cell.addLongPressGesture(target: self, action: #selector(eventCellLongPressed(longPress:)))
         return cell
     }
 }
@@ -129,6 +130,7 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
             eventCell.layoutIfNeeded()
         }, completion: { _ in
             self.updateAndSaveEvent(eventCell: eventCell, targetMinY: targetMinY, targetMaxY: targetMaxY)
+            self.toggleStateFor(eventCell: eventCell)
         })
     }
     
@@ -141,6 +143,13 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
             let end = event.end.changed(hour: endTime.hours, minute: endTime.minutes) ?? event.end
             updateEventUI(indexPath: indexPath, start: start, end: end)
             providerDataStore?.save(event: event)
+        }
+    }
+    
+    fileprivate func toggleStateFor(eventCell: UIView) {
+        if let eventCell = eventCell as? EditableEventCollectionViewCell, let indexPath = self.theCollectionView.indexPath(for: eventCell) {
+            self.setTitleFor(event: self.events[indexPath.item], cell: eventCell)
+            eventCell.toggleHandles(hide: true)
         }
     }
     
@@ -163,6 +172,16 @@ extension ProviderScheduleViewController: UIGestureRecognizerDelegate {
     fileprivate func setPanAttributes(pan: UIPanGestureRecognizer) {
         pan.addTarget(self, action: #selector(draggingCell(pan:)))
         pan.delegate = self
+    }
+    
+    func eventCellLongPressed(longPress: UILongPressGestureRecognizer) {
+        if let eventCell = longPress.view as? EditableEventCollectionViewCell, longPress.state == .began {
+            eventCell.toggleHandles(hide: false)
+            eventCell.addTapGesture(action: { (tap) in
+                eventCell.toggleHandles(hide: true)
+                eventCell.removeGestureRecognizer(tap)
+            })
+        }
     }
 }
 

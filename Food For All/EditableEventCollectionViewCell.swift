@@ -26,12 +26,28 @@ class EditableEventCollectionViewCell: EventCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         theLabel.isHidden = true
+        theLabel.alpha = 0 //so we can animate it's appearance
         setUpDragHandle()
         setDownDragHandle()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func toggleHandles(hide: Bool) {
+        theUpDragHandle.isHidden = false
+        theDownDragHandle.isHidden = false
+        theLabel.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.theUpDragHandle.alpha = hide ? 0 : 1
+            self.theDownDragHandle.alpha = hide ? 0 : 1
+            self.theLabel.alpha = hide ? 1 : 0
+        }, completion: { _ in
+            self.theUpDragHandle.isHidden = hide
+            self.theDownDragHandle.isHidden = hide
+            self.theLabel.isHidden = !hide
+        })
     }
     
     fileprivate func setUpDragHandle() {

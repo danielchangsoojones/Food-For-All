@@ -48,8 +48,7 @@ class CustomerScheduleViewController: SchedulingViewController {
     override func createCustomEventCell(indexPath: IndexPath) -> EventCollectionViewCell {
         let cell = theCollectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.identifier, for: indexPath) as! EventCollectionViewCell
         let event = events[indexPath.row]
-        let title = convertToString(event: event)
-        cell.set(title: title)
+        setTitleFor(event: event, cell: cell)
         return cell
     }
 }
