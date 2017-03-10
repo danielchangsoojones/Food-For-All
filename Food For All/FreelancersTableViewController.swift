@@ -38,7 +38,6 @@ class FreelancersTableViewController: UITableViewController {
         let gig = gigs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: FreelancersTableViewCell.identifier) as! FreelancersTableViewCell
         cell.gig = gig
-//        let cell = FreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
 
         return cell
     }
