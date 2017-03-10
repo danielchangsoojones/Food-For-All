@@ -67,6 +67,7 @@ class ProviderScheduleViewController: SchedulingViewController {
         cell.addLongPressGesture(target: self, action: #selector(eventCellLongPressed(longPress:)))
         let event = events[indexPath.item]
         if event.isNew {
+            event.isNew = false
             cell.toggleHandles(hide: false, duration: 0)
         } else {
             setTitleFor(event: events[indexPath.item], cell: cell)
