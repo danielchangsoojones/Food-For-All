@@ -25,7 +25,9 @@ class CustomerPopUpView: CalendarPopUpView {
     fileprivate func timeButtonSetup() {
         theTimeButton = UIButton()
         theTimeButton.titleLabel?.font = Constants.font
-        theTimeButton.setTitleColor(Constants.textColor, for: .normal)
+        theTimeButton.setTitleColor(CustomColors.SilverChalice, for: .normal)
+        theTimeButton.backgroundColor = CustomColors.Polar
+        theTimeButton.setCornerRadius(radius: 10)
         self.addSubview(theTimeButton)
         theTimeButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()

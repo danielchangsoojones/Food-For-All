@@ -12,6 +12,11 @@ class FreelancersTableViewCell: UITableViewCell {
     struct Constants {
         static let verticalWordSpacing: CGFloat = 5
         static let sideInset: CGFloat = 10
+        static let cellHeight: CGFloat = 100
+    }
+    
+    override var reuseIdentifier: String? {
+        return FreelancersTableViewCell.identifier
     }
 
     var theProfileImageView: CircularImageView!
@@ -19,15 +24,18 @@ class FreelancersTableViewCell: UITableViewCell {
     var theServiceTitleLabel: UILabel = UILabel()
     var thePriceLabel: UILabel = UILabel()
     var theCosmosView: MyCosmosView!
+    var theCosmosLabel: UILabel!
 
-    var gig: Gig?
+    var gig: Gig? {
+        didSet {
+            if let gig = gig {
+                setContent(gig: gig)
+            }
+        }
+    }
     
-    var cellHeight: CGFloat = 0
-    
-    init(gig: Gig, height: CGFloat) {
-        super.init(style: .default, reuseIdentifier: "freelancerCell")
-        self.cellHeight = height
-        self.gig = gig
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         profileViewSetup()
         nameLabelSetup()
         serviceTitleLabelSetup()
@@ -40,8 +48,26 @@ class FreelancersTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    fileprivate func setContent(gig: Gig) {
+        theProfileImageView.add(file: gig.frontImage)
+        theNameLabel.text = gig.creator.fullName
+        theServiceTitleLabel.text = gig.title
+        thePriceLabel.text = gig.priceString
+        let numOfReviews = gig.numOfReviews
+        let avgStars = gig.avgStars
+        if numOfReviews > 0 && avgStars > 0 {
+            theCosmosView.rating = avgStars
+            theCosmosLabel.text = "(\(numOfReviews))"
+            theCosmosView.isHidden = false
+            theCosmosLabel.isHidden = false
+        } else {
+            theCosmosView.isHidden = true
+            theCosmosLabel.isHidden = true
+        }
+    }
+    
     fileprivate func profileViewSetup() {
-        theProfileImageView = CircularImageView(file: gig?.frontImage, diameter: cellHeight * 0.75)
+        theProfileImageView = CircularImageView(file: nil, diameter: Constants.cellHeight * 0.75)
         self.addSubview(theProfileImageView)
         theProfileImageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
@@ -50,7 +76,6 @@ class FreelancersTableViewCell: UITableViewCell {
     }
     
     fileprivate func nameLabelSetup() {
-        theNameLabel.text = gig?.creator.fullName
         theNameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
         self.addSubview(theNameLabel)
         theNameLabel.snp.makeConstraints { (make) in
@@ -60,7 +85,6 @@ class FreelancersTableViewCell: UITableViewCell {
     }
     
     fileprivate func serviceTitleLabelSetup() {
-        theServiceTitleLabel.text = gig?.title
         theServiceTitleLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
         self.addSubview(theServiceTitleLabel)
         theServiceTitleLabel.snp.makeConstraints { (make) in
@@ -70,16 +94,13 @@ class FreelancersTableViewCell: UITableViewCell {
     }
 
     fileprivate func priceLabelSetup() {
-        if let priceText = gig?.priceString {
-            thePriceLabel.text = priceText
-            thePriceLabel.textColor = CustomColors.JellyTeal
-            thePriceLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
-            self.addSubview(thePriceLabel)
-            thePriceLabel.snp.makeConstraints({ (make) in
-                make.top.equalTo(theServiceTitleLabel.snp.bottom).offset(Constants.verticalWordSpacing)
-                make.leading.equalTo(theNameLabel)
-            })
-        }
+        thePriceLabel.textColor = CustomColors.JellyTeal
+        thePriceLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
+        self.addSubview(thePriceLabel)
+        thePriceLabel.snp.makeConstraints({ (make) in
+            make.top.equalTo(theServiceTitleLabel.snp.bottom).offset(Constants.verticalWordSpacing)
+            make.leading.equalTo(theNameLabel)
+        })
     }
     
     fileprivate func starsSetup() {
@@ -91,31 +112,22 @@ class FreelancersTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().inset(Constants.sideInset)
             make.centerY.equalTo(thePriceLabel)
         }
-        
-        let numOfReviews = gig?.numOfReviews
-        let avgStars = gig?.avgStars
-        if let numOfReviews = numOfReviews,let avgStars = avgStars, numOfReviews > 0, avgStars > 0 {
-            theCosmosView.rating = avgStars
-            setCosmosText(numOfRatings: numOfReviews)
-        } else {
-            theCosmosView.isHidden = true
-        }
+        cosmosTextSetup()
     }
     
     //until Cosmos Cocoapod gets updated where I can move the cosmos label to the left hand side, this is a hack around.
-    fileprivate func setCosmosText(numOfRatings: Int) {
-        let cosmosLabel = UILabel()
-        cosmosLabel.text = "(\(numOfRatings))"
-        cosmosLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightLight)
-        cosmosLabel.textColor = CustomColors.SilverChalice
-        self.addSubview(cosmosLabel)
-        cosmosLabel.snp.makeConstraints { (make) in
+    fileprivate func cosmosTextSetup() {
+        theCosmosLabel = UILabel()
+        theCosmosLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightLight)
+        theCosmosLabel.textColor = CustomColors.SilverChalice
+        self.addSubview(theCosmosLabel)
+        theCosmosLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(theCosmosView)
             make.trailing.equalTo(theCosmosView.snp.leading).offset(-2)
         }
         //so the price label doesn't overflow
         thePriceLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(cosmosLabel.snp.leading).priority(250)
+            make.trailing.equalTo(theCosmosLabel.snp.leading).priority(250)
         }
     }
 
@@ -128,4 +140,8 @@ class FreelancersTableViewCell: UITableViewCell {
             make.height.equalTo(1)
         }
     }
+}
+
+extension FreelancersTableViewCell {
+    static let identifier = "freelancerTableCell"
 }

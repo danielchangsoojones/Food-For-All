@@ -16,9 +16,8 @@ protocol ScheduleDataStoreDelegate {
 class ScheduleDataStore {
     var delegate: ScheduleDataStoreDelegate?
     
-    init(delegate: ScheduleDataStoreDelegate, gig: Gig) {
+    init(delegate: ScheduleDataStoreDelegate) {
         self.delegate = delegate
-        load(from: gig)
     }
     
     func load(from gig: Gig) {

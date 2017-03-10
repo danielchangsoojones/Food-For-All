@@ -89,4 +89,11 @@ extension DetailDataStore {
     }
 }
 
+extension DetailDataStore {
+    func getSchedule(gig: Gig, scheduleDelegate: ScheduleDataStoreDelegate) {
+        let scheduleDataStore = ScheduleDataStore(delegate: scheduleDelegate)
+        scheduleDataStore.load(from: gig)
+    }
+}
+
 

@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-//            toFrontPageVC()
-            setInitialVC(vc: ProfileViewController())
+            toFrontPageVC()
         }
         
         return true

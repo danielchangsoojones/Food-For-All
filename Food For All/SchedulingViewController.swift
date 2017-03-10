@@ -29,13 +29,15 @@ class SchedulingViewController: UIViewController {
     
     var theCollectionView: UICollectionView!
     
-    var dateStore: ScheduleDataStore?
+    var dataStore: ScheduleDataStore?
     var gig: Gig!
     
     var events: [CustomEvent] = [] {
         didSet {
-            if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
-                layout.events = events
+            if isViewLoaded {
+                if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+                    layout.events = events
+                }
             }
         }
     }
@@ -86,7 +88,15 @@ class SchedulingViewController: UIViewController {
     }
     
     func dataStoreSetup() {
-        dateStore = ScheduleDataStore(delegate: self, gig: self.gig)
+        dataStore = ScheduleDataStore(delegate: self)
+        if events.isEmpty {
+            dataStore?.load(from: self.gig)
+        } else {
+            //the previous vc passed us the events, so we just want to have it update the layout according to the events we were passed.
+            if let layout = theCollectionView.collectionViewLayout as? ScheduleCollectionViewLayout {
+                layout.events = events
+            }
+        }
     }
     
     func createDateCell(indexPath: IndexPath) -> DateCollectionViewCell {

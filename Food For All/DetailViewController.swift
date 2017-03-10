@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
     var totalMutualFriends: Int = 0
     var photos: [GigPhoto] = []
     var messageHelper: MessageHelper?
+    var events: [CustomEvent] = []
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -77,6 +78,7 @@ class DetailViewController: UIViewController {
         dataStore.delegate = self
         dataStore.getMutualFriends(creator: gig.creator)
         dataStore.getPhotos(gig: gig, photoDelegate: self)
+        dataStore.getSchedule(gig: gig, scheduleDelegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -185,8 +187,17 @@ extension DetailViewController {
     }
     
     func bookButtonPressed(sender: UIButton) {
+        if events.isEmpty {
+            messageTapped()
+        } else {
+            segueToSchedule()
+        }
+    }
+    
+    fileprivate func segueToSchedule() {
         let scheduleVC = CustomerScheduleViewController()
         scheduleVC.gig = self.gig
+        scheduleVC.events = self.events
         pushVC(scheduleVC)
     }
     
@@ -260,5 +271,11 @@ extension DetailViewController: PhotoFormDelegate {
             cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
             theTableView.reloadData()
         }
+    }
+}
+
+extension DetailViewController: ScheduleDataStoreDelegate {
+    func loaded(events: [CustomEvent]) {
+        self.events = events
     }
 }
