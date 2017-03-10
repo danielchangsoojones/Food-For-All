@@ -53,7 +53,8 @@ class SchedulingViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let nav = navigationController as? WelcomeNavigationController {
+        if let nav = navigationController as? WelcomeNavigationController, isMovingFromParentViewController {
+            //we want to reset to defaults when vc is getting popped  back to previous ViewController
             nav.resetToDefaults()
         }
     }

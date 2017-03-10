@@ -44,6 +44,7 @@ class ProviderScheduleViewController: SchedulingViewController {
     
     override func createDateCell(indexPath: IndexPath) -> DateCollectionViewCell {
         let cell = super.createDateCell(indexPath: indexPath)
+        cell.theWeekDayLabel.font = cell.theWeekDayLabel.font.withSize(15)
         cell.theDayLabel.isHidden = true
         cell.theMonthLabel.isHidden = true
         return cell
