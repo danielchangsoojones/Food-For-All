@@ -93,7 +93,8 @@ extension ProviderScheduleViewController {
     
     fileprivate func save(event: CustomEvent) {
         providerDataStore?.save(event: event)
-        theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+        //Can not use collectionView.reloadSections here or else it will produce random crashes, getting mad about layoutAttributes IndexPath. I (Daniel Jones) have no idea why reloadData works instead, but it does.
+        theCollectionView.reloadData()
         if let newCell = theCollectionView.cellForItem(at: IndexPath(item: events.count - 1, section: theCollectionView.numberOfSections - 1)) as? EditableEventCollectionViewCell {
            newCell.toggleHandles(hide: false)
         }
