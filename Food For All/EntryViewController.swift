@@ -24,7 +24,7 @@ class EntryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let navController = self.navigationController as? WelcomeNavigationController {
+        if let navController = self.navigationController as? ClearNavigationController {
             navController.makeTransparent()
         }
     }

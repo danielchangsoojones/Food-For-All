@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            toFrontPageVC()
+//            toFrontPageVC()
+            toContractVC()
         }
         
         return true
@@ -57,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func toWelcomeVC() {
         let rootVC = WelcomeViewController()
-        let navController = WelcomeNavigationController(rootViewController: rootVC)
+        let navController = ClearNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     
@@ -66,10 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialVC(vc: tabBarController)
     }
     
-    fileprivate func setTestingVC() {
-        let destinationVC = NameViewController()
-        let navController = UINavigationController(rootViewController: destinationVC)
-        setInitialVC(vc: navController)
+    fileprivate func toContractVC() {
+        let contractVC = ContractViewController()
+        let clearNavController = ClearNavigationController(rootViewController: contractVC)
+        setInitialVC(vc: clearNavController)
     }
     
     fileprivate func setInitialVC(vc: UIViewController) {

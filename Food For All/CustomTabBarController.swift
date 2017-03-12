@@ -54,7 +54,7 @@ extension CustomTabBarController {
     var firstVC: UIViewController {
         let vc = EntryViewController()
         vc.tabBarItem = firstTabBarItem
-        let navController = WelcomeNavigationController(rootViewController: vc)
+        let navController = ClearNavigationController(rootViewController: vc)
         return navController
     }
 }
@@ -75,7 +75,7 @@ extension CustomTabBarController {
     
     var creationNavController: UINavigationController {
         let rootVC = CreationViewController()
-        let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
+        let clearNavController = ClearNavigationController(rootViewController: rootVC)
         return clearNavController
     }
 }
@@ -88,7 +88,7 @@ extension CustomTabBarController {
     var thirdVC: UIViewController {
         let vc = ProfileViewController()
         vc.tabBarItem = thirdTabBarItem
-        let clearNavController = WelcomeNavigationController(rootViewController: vc)
+        let clearNavController = ClearNavigationController(rootViewController: vc)
         return clearNavController
     }
 }

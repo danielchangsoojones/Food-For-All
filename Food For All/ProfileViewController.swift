@@ -86,7 +86,7 @@ extension ProfileViewController: PersonalGigsTableDelegate {
         let rootVC = EditingGigViewController()
         rootVC.gig = gig
         rootVC.delegate = self
-        let clearNavController = WelcomeNavigationController(rootViewController: rootVC)
+        let clearNavController = ClearNavigationController(rootViewController: rootVC)
         presentVC(clearNavController)
     }
 }
