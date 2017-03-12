@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-//            toFrontPageVC()
-            setInitialVC(vc: AgreementViewController())
+            toFrontPageVC()
         }
         
         return true
@@ -53,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VenmoMetric.registerSubclass()
         ReviewParse.registerSubclass()
         GigDetailPhoto.registerSubclass()
+        EventParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

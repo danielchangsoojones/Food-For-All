@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -124,6 +129,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>STPopup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -152,12 +162,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01CD3BA0DE1708A73CB3BC5440D84D9C</key>
+		<key>0143E308DE729F2209BB6A3FBD8025BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>04EF0AEBE543EFD7FA9956B476AEA4A3</key>
+		<key>1683BB4400CA700D2EC383AC6F807D58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,7 +192,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D3D358676A8775172C98D48DC0A88B5</key>
+		<key>2CC8A2FD3C889D22A4CA29CD6C110EFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,12 +212,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>51986C3B18755E90C6216E79470EAFEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A3BA5A5027466E89CD85E946D7C7060</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5DB499EB898E52D23FA69E8929CD9D55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7FD2B77A0FBB5521620210AA0020A53F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82467590F0AA492A4D3F6A2C5E11D3D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -257,7 +282,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE98430BAFA00934DE1E531BA8DC5E76</key>
+		<key>CEF09E8A50427DE2AEC3E1474E331A58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -267,27 +292,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA611E63FE5E80558A32E1E4B991DC29</key>
+		<key>D70E33E19167E78495906E1B473133EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCC98A5ACCDB61BF6A0D4C612C3805BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E002DFA77EA0BBA07568BF4596AD2814</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E00311318D3052CB3429E9B5303B854B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E55FBC23B6A75D6A6F3EE98B4262E8DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E619EE519606FDDD6899623AF0D891D9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6DDC15155E69B05E7D01C30C43C79C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

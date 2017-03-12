@@ -22,7 +22,7 @@ class DetailView: UIView {
     var theProfileImageView: CircularImageView!
     var theBottomView: UIView = UIView()
     var thePriceLabel: UILabel = UILabel()
-    var theMessageButton: UIButton = UIButton()
+    var theBookButton: UIButton = UIButton()
     var theExitButton: UIButton = UIButton()
     
     override init(frame: CGRect) {
@@ -106,7 +106,7 @@ extension DetailView {
             make.height.equalTo(height)
         }
         priceLabelSetup()
-        messageButtonSetup()
+        bookButtonSetup()
         addLineToBottomView()
         theBottomView.backgroundColor = UIColor.white
     }
@@ -120,17 +120,17 @@ extension DetailView {
         }
     }
     
-    fileprivate func messageButtonSetup() {
-        theMessageButton.setTitle("Message", for: .normal)
+    fileprivate func bookButtonSetup() {
+        theBookButton.setTitle("Book", for: .normal)
         let inset: CGFloat = 10
-        theMessageButton.contentEdgeInsets.left = inset
-        theMessageButton.contentEdgeInsets.right = inset
-        theMessageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-        theMessageButton.setTitleColor(UIColor.white, for: .normal)
-        theMessageButton.backgroundColor = CustomColors.AquamarineBlue
-        theMessageButton.layer.cornerRadius = 10
-        theBottomView.addSubview(theMessageButton)
-        theMessageButton.snp.makeConstraints { (make) in
+        theBookButton.contentEdgeInsets.left = inset
+        theBookButton.contentEdgeInsets.right = inset
+        theBookButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
+        theBookButton.setTitleColor(UIColor.white, for: .normal)
+        theBookButton.backgroundColor = CustomColors.AquamarineBlue
+        theBookButton.layer.cornerRadius = 10
+        theBottomView.addSubview(theBookButton)
+        theBookButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.trailing.equalTo(theProfileImageView)
             make.height.equalTo(theBottomView).multipliedBy(0.5)

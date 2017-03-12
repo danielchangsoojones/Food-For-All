@@ -20,6 +20,7 @@ class FreelancersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        tableView.register(FreelancersTableViewCell.self, forCellReuseIdentifier: FreelancersTableViewCell.identifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,14 +36,14 @@ class FreelancersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gig = gigs[indexPath.row]
-        let cell = FreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
+        let cell = tableView.dequeueReusableCell(withIdentifier: FreelancersTableViewCell.identifier) as! FreelancersTableViewCell
+        cell.gig = gig
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.rowHeight = 100
-        return tableView.rowHeight
+        return FreelancersTableViewCell.Constants.cellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

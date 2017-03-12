@@ -9,10 +9,14 @@
 import UIKit
 
 class PersonalFreelancersTableViewCell: FreelancersTableViewCell {
+    override var reuseIdentifier: String? {
+        return PersonalFreelancersTableViewCell.personalFreelancerIdentifier
+    }
+    
     var editButtonTapped: (() -> Void)?
     
-    override init(gig: Gig, height: CGFloat) {
-        super.init(gig: gig, height: height)
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         addEditButton()
     }
     
@@ -43,4 +47,8 @@ class PersonalFreelancersTableViewCell: FreelancersTableViewCell {
     func editTapped() {
         editButtonTapped?()
     }
+}
+
+extension PersonalFreelancersTableViewCell {
+    static let personalFreelancerIdentifier = "personalFreelancerTableCell"
 }

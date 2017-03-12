@@ -122,6 +122,8 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
                 cell = CreationData().pricingCell
             case .contact:
                 cell = CreationData().contactCell
+            case .schedule:
+                cell = CreationData().scheduleCell
             case .photos:
                 cell = CreationData().photosCell
             }
@@ -157,6 +159,11 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
                 destinationVC = CreationData().pricing.destinationVC
             case .contact:
                 destinationVC = CreationData().contact.destinationVC
+            case .schedule:
+                if let scheduleVC = CreationData().schedule.destinationVC as? ProviderScheduleViewController {
+                    scheduleVC.gig = self.gig
+                    destinationVC = scheduleVC
+                }
             case .photos:
                 if let photosVC = CreationData().photos.destinationVC as? PhotosFormViewController {
                     photosVC.gig = self.gig

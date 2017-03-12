@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     var theTitleLabel: UILabel!
     var thePriceLabel: UILabel!
     var theSpinnerContainer: UIView?
-    var theReviewCell: UIView!
     var theTableView: UITableView!
     var nytPhotoVC: NYTPhotosViewController?
     
@@ -27,6 +26,8 @@ class DetailViewController: UIViewController {
     var mutualFriends: [MutualFriend] = []
     var totalMutualFriends: Int = 0
     var photos: [GigPhoto] = []
+    var messageHelper: MessageHelper?
+    var events: [CustomEvent] = []
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -60,12 +61,12 @@ class DetailViewController: UIViewController {
         self.view = detailView
         theNameLabel = detailView.theNameLabel
         theProfileImageView = detailView.theProfileImageView
+        theProfileImageView.addTapGesture(target: self, action: #selector(profileImageTapped))
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
         theTableView = detailView.theTableView
-        theTableView.delegate = self
-        theTableView.dataSource = self
+        tableViewSetup()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -77,6 +78,7 @@ class DetailViewController: UIViewController {
         dataStore.delegate = self
         dataStore.getMutualFriends(creator: gig.creator)
         dataStore.getPhotos(gig: gig, photoDelegate: self)
+        dataStore.getSchedule(gig: gig, scheduleDelegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,6 +88,12 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        theTableView.showsVerticalScrollIndicator = false
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellTypes.count
     }
@@ -106,6 +114,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
             friendCell.mutualFriends = self.mutualFriends
             cell = friendCell
+        case .message:
+            cell = data.createMessageCell()
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -129,6 +139,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .review:
             reviewCellTapped()
+        case .message:
+            messageTapped()
         case .venmo:
             venmoTapped()
         default:
@@ -163,12 +175,35 @@ extension DetailViewController {
         popVC()
     }
     
-    func messageButtonPressed(sender: UIButton) {
-        theSpinnerContainer = Helpers.showActivityIndicatory(uiView: self.view)
-        Timer.runThisAfterDelay(seconds: 0.01) {
-            //the spinner was taking a while to show up because sendSMS was somehow taking up the processing, so it felt like the user had not pressed the button. This fixed it.
-            self.sendSMSText(phoneNumber: self.gig.phoneNumberString)
+    func profileImageTapped() {
+        //We need to have a placeholder image because NYTPhotoViewController is being annoying and it will only update photos that are inputted during initialization. So, we pass a blank file EnlargedPhoto, and then when we get the data from the server, we just update the file on this photo, and then update this placeholder photo, which makes the functionality work. best workaround I could find.
+        let placeholderPhoto = EnlargedPhoto(file: nil, delegate: self)
+        nytPhotoVC = NYTPhotosViewController(photos: [placeholderPhoto])
+        dataStore.getEnlargedProfileImage(enlargedPhoto: placeholderPhoto, gig: gig)
+        if let nytPhotoVC = nytPhotoVC {
+            nytPhotoVC.navigationItem.rightBarButtonItem = nil //hide share button in corner
+            presentVC(nytPhotoVC)
         }
+    }
+    
+    func bookButtonPressed(sender: UIButton) {
+        if events.isEmpty {
+            messageTapped()
+        } else {
+            segueToSchedule()
+        }
+    }
+    
+    fileprivate func segueToSchedule() {
+        let scheduleVC = CustomerScheduleViewController()
+        scheduleVC.gig = self.gig
+        scheduleVC.events = self.events
+        pushVC(scheduleVC)
+    }
+    
+    func messageTapped() {
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        messageHelper?.send(type: .blank)
     }
     
     func venmoTapped() {
@@ -239,45 +274,8 @@ extension DetailViewController: PhotoFormDelegate {
     }
 }
 
-//Text messaging extension
-extension DetailViewController: MFMessageComposeViewControllerDelegate {
-    func sendSMSText(phoneNumber: String) {
-        if (MFMessageComposeViewController.canSendText()) {
-            let controller = MFMessageComposeViewController()
-            
-            var firstName: String = gig.creator.theFirstName
-            if firstName.isNotEmpty {
-                firstName = " " + firstName
-            }
-            controller.body = "Hey\(firstName), I found you on Gigio for \(gig.title). Can we arrange something?"
-            controller.recipients = [phoneNumber]
-            controller.messageComposeDelegate = self
-            self.present(controller, animated: true, completion: {
-                self.theSpinnerContainer?.removeFromSuperview()
-            })
-        } else {
-            theSpinnerContainer?.removeFromSuperview()
-            Helpers.showBanner(title: "Message Error", subtitle: "Can not send messages currently")
-        }
-    }
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        //... handle sms screen actions
-        var messageState: String = "defualt"
-        
-        switch result {
-        case .cancelled:
-            messageState = "clicked, but then cancelled"
-        case .failed:
-            messageState = "failure to send"
-        case .sent:
-            messageState = "successfully sent"
-        }
-        
-        dataStore.saveMessageMetric(messageState: messageState, gig: gig)
-        
-        self.dismiss(animated: true, completion: {
-            Helpers.showBanner(title: "Succesful Message", subtitle: "You have succesfully texted the tutor", bannerType: .success)
-        })
+extension DetailViewController: ScheduleDataStoreDelegate {
+    func loaded(events: [CustomEvent]) {
+        self.events = events
     }
 }

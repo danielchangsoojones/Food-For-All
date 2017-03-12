@@ -17,6 +17,7 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(PersonalFreelancersTableViewCell.self, forCellReuseIdentifier: PersonalFreelancersTableViewCell.personalFreelancerIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +27,8 @@ class PersonalGigsTableViewController: FreelancersTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gig = gigs[indexPath.row]
-        let cell = PersonalFreelancersTableViewCell(gig: gig, height: tableView.rowHeight)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PersonalFreelancersTableViewCell.personalFreelancerIdentifier) as! PersonalFreelancersTableViewCell
+        cell.gig = gig
         cell.editButtonTapped = {
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             self.delegate?.edit(gig: gig)
