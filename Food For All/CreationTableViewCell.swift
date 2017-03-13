@@ -14,6 +14,10 @@ class CreationTableViewCell: UITableViewCell {
         static let uncompletedImage: UIImage = #imageLiteral(resourceName: "Arrow")
     }
     
+    override var reuseIdentifier: String? {
+        return CreationTableViewCell.identifier
+    }
+    
     var theIconImageView: UIImageView = UIImageView()
     var theLine: UIView!
     var theTitleLabel: UILabel = UILabel()
@@ -21,7 +25,7 @@ class CreationTableViewCell: UITableViewCell {
     var theContentView: UIView = UIView()
     
     init(iconImage: UIImage, titleText: String) {
-        super.init(style: .default, reuseIdentifier: "creationCell")
+        super.init(style: .default, reuseIdentifier: CreationTableViewCell.identifier)
         self.backgroundColor = UIColor.clear
         contentViewSetup()
         completionImageViewSetup()
@@ -79,7 +83,7 @@ class CreationTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate func titleSetup(text: String) {
+    func titleSetup(text: String) {
         theTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
         theTitleLabel.text = text
         theTitleLabel.textColor = CustomColors.JellyTeal
@@ -101,4 +105,8 @@ class CreationTableViewCell: UITableViewCell {
             make.width.equalTo(20.0)
         }
     }
+}
+
+extension CreationTableViewCell {
+    static let identifier = "creationTableCell"
 }

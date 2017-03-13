@@ -47,6 +47,8 @@
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
+		924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27051E7606CE00413CDE /* ContractCellData.swift */; };
+		924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27071E76075300413CDE /* ContractTableViewCell.swift */; };
 		9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */; };
 		9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7161E37E2780034F6D0 /* GigParse.swift */; };
 		9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7191E3940F70034F6D0 /* DetailViewController.swift */; };
@@ -85,6 +87,7 @@
 		92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */; };
 		92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */; };
 		92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E45B1E4F88FB00FD2042 /* Review.swift */; };
+		92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -197,6 +200,8 @@
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
+		924D27051E7606CE00413CDE /* ContractCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractCellData.swift; sourceTree = "<group>"; };
+		924D27071E76075300413CDE /* ContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
 		9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageDataStore.swift; sourceTree = "<group>"; };
 		9254B7161E37E2780034F6D0 /* GigParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigParse.swift; sourceTree = "<group>"; };
 		9254B7191E3940F70034F6D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 		92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsView.swift; sourceTree = "<group>"; };
 		92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		92B3E45B1E4F88FB00FD2042 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoContractTableViewCell.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -622,6 +628,9 @@
 		924D27041E76063500413CDE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				924D27051E7606CE00413CDE /* ContractCellData.swift */,
+				924D27071E76075300413CDE /* ContractTableViewCell.swift */,
+				92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1495,6 +1504,7 @@
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */,
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
+				924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */,
 				923A61071E6B7F0400C56471 /* CustomerScheduleViewController.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
@@ -1551,6 +1561,7 @@
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
+				924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */,
 				923A60EC1E6638BA00C56471 /* HourUnitCollectionViewCell.swift in Sources */,
 				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
 				923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */,
@@ -1578,6 +1589,7 @@
 				92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */,
 				923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
+				92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */,
 				92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */,
 				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,

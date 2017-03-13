@@ -18,6 +18,8 @@ class ContractViewController: UIViewController {
     fileprivate func viewSetup() {
         let contractView = ContractView(frame: self.view.bounds)
         self.view = contractView
+        contractView.theTableView.delegate = self
+        contractView.theTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,5 +52,28 @@ extension ContractViewController {
     
     func homePressed() {
         //enter app
+    }
+}
+
+extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Contract.all.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let contract = Contract(rawValue: indexPath.row) ?? .description
+        let data = ContractCellData()
+        switch contract {
+        case .description:
+            return data.createDescriptionCell(gig: Gig())
+        case .message:
+            return data.createMessageCell()
+        case .venmo:
+            return data.createVenmoCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CreationViewController.Constants.cellHeight
     }
 }

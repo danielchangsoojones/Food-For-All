@@ -9,6 +9,10 @@
 import UIKit
 
 class CreationViewController: UIViewController {
+    struct Constants {
+        static let cellHeight: CGFloat = 70
+    }
+    
     var theTableView: UITableView!
     var theCameraImageView: UIImageView!
     var theFinishButton: UIButton!
@@ -146,7 +150,7 @@ extension CreationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
