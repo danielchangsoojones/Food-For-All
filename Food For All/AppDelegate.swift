@@ -28,8 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-//            toFrontPageVC()
-            toContractVC()
+            if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
+                toContractVC()
+            } else {
+                toFrontPageVC()
+            }
         }
         
         return true

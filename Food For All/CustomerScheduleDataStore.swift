@@ -9,19 +9,12 @@
 import Foundation
 
 class CustomerScheduleDataStore {
-    func saveContract(gig: Gig, selectedTime: Date?) {
-        let contractParse = ContractParse()
-        contractParse.gig = gig.gigParse
-        if let currentUser = User.current() {
-            contractParse.customer = currentUser
-        }
+    func save(contract: Contract) {
+        let contractParse = ContractParse(contract: contract)
         contractParse.saveInBackground { (success, error) in
             contractParse.pinInBackground(block: { (success, error) in
-                UserDefaults.standard.setValue(true, forKey: "doesContractExist")
-                print("\(UserDefaults.standard.value(forKey: "doesContractExist")!)")
+                UserDefaults.standard.set(true, forKey: ContractViewController.Constants.contractKey)
             })
         }
-        
-        
     }
 }

@@ -15,6 +15,17 @@ class ContractParse: PFObject, PFSubclassing {
     }
     
     @NSManaged var gig: GigParse
-    @NSManaged var plannedTime: Date
+    @NSManaged var plannedTime: Date?
     @NSManaged var customer: User
+    
+    override init() {
+        super.init()
+    }
+    
+    init(contract: Contract) {
+        super.init()
+        self.gig = contract.gig.gigParse
+        self.plannedTime = contract.plannedTime
+        self.customer = contract.customer
+    }
 }

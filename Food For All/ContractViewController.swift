@@ -9,7 +9,11 @@
 import UIKit
 
 class ContractViewController: UIViewController {
-    var gig: Gig?
+    struct Constants {
+        static let contractKey = "doesContractExist"
+    }
+    
+    var contract: Contract?
     var messageHelper: MessageHelper?
     
     override func viewDidLoad() {
@@ -103,14 +107,14 @@ extension ContractViewController {
     }
     
     fileprivate func messageTapped() {
-        if let gig = gig {
+        if let gig = contract?.gig {
             messageHelper = MessageHelper(currentVC: self, gig: gig)
             messageHelper?.send(type: .blank)
         }
     }
     
     fileprivate func venmoTapped() {
-        let venmoUsername: String? = gig?.creator.venmoUsername
+        let venmoUsername: String? = contract?.gig.creator.venmoUsername
         let headURL = "https://venmo.com/"
         
         var venmoState: String = "pressed, but no venmo account attatched"

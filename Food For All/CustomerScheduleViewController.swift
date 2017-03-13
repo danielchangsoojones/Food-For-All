@@ -13,6 +13,8 @@ import MessageUI
 class CustomerScheduleViewController: SchedulingViewController {
     //need to hold the message helper in global variable because it is a long-running operation, so we don't want the variable to get disposed of when it is called in a function.
     var messageHelper: MessageHelper?
+    var selectedTime: Date?
+    var customerDataStore: CustomerScheduleDataStore = CustomerScheduleDataStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +57,31 @@ class CustomerScheduleViewController: SchedulingViewController {
 }
 
 extension CustomerScheduleViewController: CustomerPopUpDelegate {
-    func segueToMessage(time: String) {
+    func segueToMessage(time: Date) {
+        let timeString = time.timeString(in: .short)
         self.messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
-        self.messageHelper?.send(type: .withTime, time: time)
+        self.messageHelper?.send(type: .withTime, time: timeString)
+        selectedTime = time
     }
 }
 
 extension CustomerScheduleViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         if result == .sent {
-            
+            let contract = Contract()
+            contract.plannedTime = selectedTime
+            if let currentUser = User.current() {
+                contract.customer = currentUser
+            }
+            contract.gig = self.gig
+            customerDataStore.save(contract: contract)
+            segueToContractVC(contract: contract)
         }
+    }
+    
+    fileprivate func segueToContractVC(contract: Contract) {
+        let contractVC = ContractViewController()
+        contractVC.contract = contract
+        presentVC(contractVC)
     }
 }
