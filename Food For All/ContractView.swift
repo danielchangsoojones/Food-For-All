@@ -13,8 +13,8 @@ class ContractView: UIView {
     var thePhotoView: UIView!
     var theProfileCircleView: CircularImageView!
     var theFooterView: UIView!
-    var theDeleteButton: UIView!
-    var theCompleteButton: UIView!
+    var theDeleteButtonView: UIView!
+    var theCompleteButtonView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,11 +72,11 @@ extension ContractView {
         let xImage = #imageLiteral(resourceName: "X").withRenderingMode(.alwaysTemplate)
         let view = BottomLabelButtonView(frame: rect, buttonImage: xImage, title: "Delete")
         view.theButton.tintColor = CustomColors.BombayGray
-        theDeleteButton = view
+        theDeleteButtonView = view
         
-        theCompleteButton = BottomLabelButtonView(frame: rect, buttonImage: #imageLiteral(resourceName: "Checkmark"), title: "Completed")
+        theCompleteButtonView = BottomLabelButtonView(frame: rect, buttonImage: #imageLiteral(resourceName: "Checkmark"), title: "Completed")
         
-        let stackView = UIStackView(arrangedSubviews: [theDeleteButton, theCompleteButton])
+        let stackView = UIStackView(arrangedSubviews: [theDeleteButtonView, theCompleteButtonView])
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .equalCentering

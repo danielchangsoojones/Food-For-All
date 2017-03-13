@@ -23,6 +23,7 @@ class BottomLabelButtonView: UIView {
     
     fileprivate func buttonSetup(image: UIImage) {
         theButton = UIButton()
+        theButton.isUserInteractionEnabled = false
         theButton.setImage(image, for: .normal)
         theButton.backgroundColor = UIColor.white
         theButton.addBorder(width: 1, color: CustomColors.BombayGray)

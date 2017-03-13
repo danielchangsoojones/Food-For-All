@@ -13,20 +13,31 @@ class ContractViewController: UIViewController {
         static let contractKey = "doesContractExist"
     }
     
+    var theProfileCircleView: CircularImageView!
+    var theTableView: UITableView!
+    
     var contract: Contract?
     var messageHelper: MessageHelper?
+    var dataStore: ContractDataStore?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         navBarSetup()
+        dataStoreSetup()
+        setContent()
     }
     
     fileprivate func viewSetup() {
         let contractView = ContractView(frame: self.view.bounds)
         self.view = contractView
+        theTableView = contractView.theTableView
         contractView.theTableView.delegate = self
         contractView.theTableView.dataSource = self
+        theProfileCircleView = contractView.theProfileCircleView
+        contractView.theCompleteButtonView.addTapGesture(target: self, action: #selector(completedTapped))
+        contractView.theDeleteButtonView.addTapGesture(target: self, action: #selector(deleteTapped))
+        contractView.theCompleteButtonView.backgroundColor = UIColor.red
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +47,19 @@ class ContractViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func setContent() {
+        if let contract = contract {
+            theProfileCircleView.add(file: contract.gig.creator.profileImage)
+        } else {
+            //load the contract
+            dataStore?.loadContract()
+        }
+    }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = ContractDataStore(delegate: self)
     }
 }
 
@@ -69,11 +93,11 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contract = ContractCell(rawValue: indexPath.row) ?? .description
+        let cellType = ContractCell(rawValue: indexPath.row) ?? .description
         let data = ContractCellData()
-        switch contract {
+        switch cellType {
         case .description:
-            return data.createDescriptionCell(gig: Gig())
+            return data.createDescriptionCell(contract: self.contract)
         case .message:
             return data.createMessageCell()
         case .venmo:
@@ -131,5 +155,23 @@ extension ContractViewController {
         }
         
 //        dataStore.saveVenmoMetric(state: venmoState, gig: gig)
+    }
+    
+    func completedTapped() {
+        if let contract = contract {
+            dataStore?.complete(contract: contract)
+        }
+        //TODO: move to the review page
+    }
+    
+    func deleteTapped() {
+        //TODO: delete in data store then segue into the main application
+    }
+}
+
+extension ContractViewController: ContractDataStoreDelegate {
+    func loaded(contract: Contract) {
+        self.contract = contract
+        theTableView.reloadData()
     }
 }

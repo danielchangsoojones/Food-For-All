@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = ParseClientConfiguration {
             $0.applicationId = appConfiguration.environment.applicationId
             $0.server = appConfiguration.environment.server
+            $0.isLocalDatastoreEnabled = true
         }
         Parse.initialize(with: configuration)
     }

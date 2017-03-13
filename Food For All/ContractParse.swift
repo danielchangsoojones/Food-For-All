@@ -17,6 +17,7 @@ class ContractParse: PFObject, PFSubclassing {
     @NSManaged var gig: GigParse
     @NSManaged var plannedTime: Date?
     @NSManaged var customer: User
+    @NSManaged var isCompleted: Bool
     
     override init() {
         super.init()
@@ -27,5 +28,6 @@ class ContractParse: PFObject, PFSubclassing {
         self.gig = contract.gig.gigParse
         self.plannedTime = contract.plannedTime
         self.customer = contract.customer
+        self.isCompleted = false
     }
 }

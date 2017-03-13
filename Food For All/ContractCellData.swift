@@ -20,7 +20,7 @@ enum ContractCell: Int {
 class ContractCellData {
     init() {}
     
-    func createDescriptionCell(gig: Gig) -> ContractTableViewCell {
+    func createDescriptionCell(contract: Contract?) -> ContractTableViewCell {
         let cell = ContractTableViewCell(style: .default, reuseIdentifier: nil)
         return cell
     }
