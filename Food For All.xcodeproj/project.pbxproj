@@ -88,6 +88,9 @@
 		92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */; };
 		92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E45B1E4F88FB00FD2042 /* Review.swift */; };
 		92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */; };
+		92CC523B1E77338E006D5E2B /* CustomerScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */; };
+		92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523C1E7733F3006D5E2B /* Contract.swift */; };
+		92CC523F1E7734D9006D5E2B /* ContractParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523E1E7734D9006D5E2B /* ContractParse.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
 		92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9D1E283165009AC99E /* WelcomeFormView.swift */; };
 		92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12BA31E303B6D009AC99E /* LoginViewController.swift */; };
@@ -245,6 +248,9 @@
 		92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		92B3E45B1E4F88FB00FD2042 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoContractTableViewCell.swift; sourceTree = "<group>"; };
+		92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerScheduleDataStore.swift; sourceTree = "<group>"; };
+		92CC523C1E7733F3006D5E2B /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		92CC523E1E7734D9006D5E2B /* ContractParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractParse.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
 		92D12B9D1E283165009AC99E /* WelcomeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormView.swift; sourceTree = "<group>"; };
 		92D12BA31E303B6D009AC99E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -509,6 +515,7 @@
 		923A61051E6B7EDA00C56471 /* Customer Scheduling */ = {
 			isa = PBXGroup;
 			children = (
+				92CC52391E77337A006D5E2B /* Data Store */,
 				923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */,
 			);
 			name = "Customer Scheduling";
@@ -907,6 +914,14 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		92CC52391E77337A006D5E2B /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +966,7 @@
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
 				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
 				923A60F11E67C05300C56471 /* CustomEvent.swift */,
+				92CC523C1E7733F3006D5E2B /* Contract.swift */,
 			);
 			name = "Internal Models";
 			sourceTree = "<group>";
@@ -963,6 +979,7 @@
 				92D12BAB1E30592D009AC99E /* User.swift */,
 				923A8CE81E54D42900F1BFCA /* ReviewParse.swift */,
 				923A61031E6B468900C56471 /* EventParse.swift */,
+				92CC523E1E7734D9006D5E2B /* ContractParse.swift */,
 			);
 			name = "Database Models";
 			sourceTree = "<group>";
@@ -1535,6 +1552,7 @@
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
+				92CC523B1E77338E006D5E2B /* CustomerScheduleDataStore.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
@@ -1550,6 +1568,7 @@
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
+				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
@@ -1590,6 +1609,7 @@
 				923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */,
+				92CC523F1E7734D9006D5E2B /* ContractParse.swift in Sources */,
 				92F86B2D1E55612600BF8CF7 /* EditingRatingViewController.swift in Sources */,
 				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,

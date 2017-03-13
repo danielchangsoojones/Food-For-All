@@ -9,6 +9,9 @@
 import UIKit
 
 class ContractViewController: UIViewController {
+    var gig: Gig?
+    var messageHelper: MessageHelper?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -52,16 +55,17 @@ extension ContractViewController {
     
     func homePressed() {
         //enter app
+        Helpers.enterApplication(from: self)
     }
 }
 
 extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Contract.all.count
+        return ContractCell.all.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contract = Contract(rawValue: indexPath.row) ?? .description
+        let contract = ContractCell(rawValue: indexPath.row) ?? .description
         let data = ContractCellData()
         switch contract {
         case .description:
@@ -74,6 +78,54 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CreationViewController.Constants.cellHeight
+        let contract = ContractCell(rawValue: indexPath.row) ?? .message
+        switch contract {
+        case .description:
+            return 150
+        default:
+            return CreationViewController.Constants.cellHeight
+        }
+    }
+}
+
+//cell actions
+extension ContractViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contract = ContractCell(rawValue: indexPath.row) ?? .description
+        switch contract {
+        case .message:
+            messageTapped()
+        case .venmo:
+            venmoTapped()
+        default:
+            break
+        }
+    }
+    
+    fileprivate func messageTapped() {
+        if let gig = gig {
+            messageHelper = MessageHelper(currentVC: self, gig: gig)
+            messageHelper?.send(type: .blank)
+        }
+    }
+    
+    fileprivate func venmoTapped() {
+        let venmoUsername: String? = gig?.creator.venmoUsername
+        let headURL = "https://venmo.com/"
+        
+        var venmoState: String = "pressed, but no venmo account attatched"
+        if let venmoUsername = venmoUsername {
+            if let destinationURL = URL(string: headURL + venmoUsername) {
+                UIApplication.shared.openURL(destinationURL)
+            } else {
+                Helpers.showBanner(title: "Error", subtitle: "Venmo could not be loaded", bannerType: .error)
+            }
+            venmoState = "success"
+        } else {
+            //the gig creator never made a username
+            Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
+        }
+        
+//        dataStore.saveVenmoMetric(state: venmoState, gig: gig)
     }
 }

@@ -39,6 +39,7 @@ extension ContractView {
         theTableView = UITableView(frame: self.bounds)
         theTableView.separatorStyle = .none
         theTableView.backgroundColor = UIColor.clear
+        theTableView.showsVerticalScrollIndicator = false
         self.addSubview(theTableView)
         footerViewSetup()
         headerViewSetup()

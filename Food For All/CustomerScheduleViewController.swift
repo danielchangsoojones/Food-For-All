@@ -8,6 +8,7 @@
 
 import UIKit
 import STPopup
+import MessageUI
 
 class CustomerScheduleViewController: SchedulingViewController {
     //need to hold the message helper in global variable because it is a long-running operation, so we don't want the variable to get disposed of when it is called in a function.
@@ -55,7 +56,15 @@ class CustomerScheduleViewController: SchedulingViewController {
 
 extension CustomerScheduleViewController: CustomerPopUpDelegate {
     func segueToMessage(time: String) {
-        self.messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        self.messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
         self.messageHelper?.send(type: .withTime, time: time)
+    }
+}
+
+extension CustomerScheduleViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        if result == .sent {
+            
+        }
     }
 }

@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ReviewParse.registerSubclass()
         GigDetailPhoto.registerSubclass()
         EventParse.registerSubclass()
+        ContractParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum Contract: Int {
+enum ContractCell: Int {
     case description = 0
     case message = 1
     case venmo = 2
     
-    static let all: [Contract] = [.description, .message, .venmo]
+    static let all: [ContractCell] = [.description, .message, .venmo]
 }
 
 class ContractCellData {

@@ -25,6 +25,7 @@ class ContractTableViewCell: UITableViewCell {
         backgroundColor = UIColor.clear
         contentViewSetup()
         titleLabelSetup()
+        descriptionLabelSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,10 +47,10 @@ class ContractTableViewCell: UITableViewCell {
     fileprivate func titleLabelSetup() {
         theTitleLabel = UILabel()
         theTitleLabel.textColor = CustomColors.JellyTeal
-        theTitleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFontWeightBold)
-        self.addSubview(theTitleLabel)
+        theTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        theContentView.addSubview(theTitleLabel)
         theTitleLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(15)
             make.top.equalToSuperview().inset(Constants.verticalSpacing)
         }
     }
@@ -57,9 +58,10 @@ class ContractTableViewCell: UITableViewCell {
     fileprivate func descriptionLabelSetup() {
         let label = UILabel()
         label.textColor = CustomColors.SilverChalice
+        theContentView.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.leading.equalTo(theTitleLabel)
-            make.top.equalTo(theTitleLabel.snp.bottom).inset(Constants.verticalSpacing)
+            make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.verticalSpacing)
         }
     }
 }
