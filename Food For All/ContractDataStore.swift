@@ -23,8 +23,11 @@ class ContractDataStore {
     func loadContract() {
         let query = ContractParse.query() as! PFQuery<ContractParse>
         query.whereKey("customer", equalTo: User.current() ?? User())
+        query.whereKey("isCompleted", notEqualTo: true)
+        query.order(byDescending: "createdAt")
         query.includeKey("gig")
         query.includeKey("gig.creator")
+        
         //TODO: this is not perfect, we should be saving the object to the local data store, and then we can pull it up. This will bring up the past contract for a second, before it reloads with the new one.
         query.cachePolicy = .cacheThenNetwork
         query.getFirstObjectInBackground { (contractParse, error) in

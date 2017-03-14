@@ -17,6 +17,11 @@ protocol DetailDataStoreDelegate {
 
 class DetailDataStore {
     var delegate: DetailDataStoreDelegate?
+    
+    func save(contract: Contract) {
+        let dataStore = CustomerScheduleDataStore()
+        dataStore.save(contract: contract)
+    }
 }
 
 extension DetailDataStore {

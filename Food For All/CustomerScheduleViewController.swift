@@ -76,15 +76,8 @@ extension CustomerScheduleViewController: MFMessageComposeViewControllerDelegate
             contract.gig = self.gig
             customerDataStore.save(contract: contract)
             self.dismiss(animated: true, completion: {
-                self.segueToContractVC(contract: contract)
+                ContractViewController.segue(from: self, contract: contract)
             })
         }
-    }
-    
-    fileprivate func segueToContractVC(contract: Contract) {
-        let contractVC = ContractViewController()
-        contractVC.contract = contract
-        let navController = ClearNavigationController(rootViewController: contractVC)
-        presentVC(navController)
     }
 }

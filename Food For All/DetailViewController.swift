@@ -185,6 +185,7 @@ extension DetailViewController {
     func bookButtonPressed(sender: UIButton) {
         if events.isEmpty {
             messageTapped()
+            messageHelper?.messageDelegate = self
         } else {
             segueToSchedule()
         }
@@ -253,5 +254,20 @@ extension DetailViewController: PhotoFormDelegate {
 extension DetailViewController: ScheduleDataStoreDelegate {
     func loaded(events: [CustomEvent]) {
         self.events = events
+    }
+}
+
+extension DetailViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        if result == .sent {
+            if result == .sent {
+                let contract = Contract()
+                contract.gig = self.gig
+                dataStore.save(contract: contract)
+                self.dismiss(animated: true, completion: {
+                    ContractViewController.segue(from: self, contract: contract)
+                })
+            }
+        }
     }
 }

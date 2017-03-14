@@ -142,7 +142,7 @@ extension ContractViewController {
         
         var venmoState: String = "pressed, but no venmo account attatched"
         if let venmoUsername = venmoUsername {
-            if let destinationURL = URL(string: headURL + venmoUsername) {
+            if let destinationURL = URL(string: headURL + venmoUsername), UIApplication.shared.canOpenURL(destinationURL) {
                 UIApplication.shared.openURL(destinationURL)
             } else {
                 Helpers.showBanner(title: "Error", subtitle: "Venmo could not be loaded", bannerType: .error)
@@ -179,5 +179,14 @@ extension ContractViewController: ContractDataStoreDelegate {
         self.contract = contract
         setContent(contract: contract)
         theTableView.reloadData()
+    }
+}
+
+extension ContractViewController {
+    static func segue(from vc: UIViewController, contract: Contract) {
+        let contractVC = ContractViewController()
+        contractVC.contract = contract
+        let navController = ClearNavigationController(rootViewController: contractVC)
+        vc.presentVC(navController)
     }
 }
