@@ -37,7 +37,6 @@ class ContractViewController: UIViewController {
         theProfileCircleView = contractView.theProfileCircleView
         contractView.theCompleteButtonView.addTapGesture(target: self, action: #selector(completedTapped))
         contractView.theDeleteButtonView.addTapGesture(target: self, action: #selector(deleteTapped))
-        contractView.theCompleteButtonView.backgroundColor = UIColor.red
     }
 
     override func didReceiveMemoryWarning() {
@@ -162,10 +161,14 @@ extension ContractViewController {
             dataStore?.complete(contract: contract)
         }
         //TODO: move to the review page
+        Helpers.enterApplication(from: self)
     }
     
     func deleteTapped() {
-        //TODO: delete in data store then segue into the main application
+        if let contract = contract {
+            dataStore?.delete(contract: contract)
+        }
+        Helpers.enterApplication(from: self)
     }
 }
 

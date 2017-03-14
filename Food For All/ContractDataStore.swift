@@ -23,6 +23,7 @@ class ContractDataStore {
     func loadContract() {
         let query = ContractParse.query() as! PFQuery<ContractParse>
         query.fromLocalDatastore()
+        query.includeKey("gig")
         query.getFirstObjectInBackground { (contractParse, error) in
             if let contractParse = contractParse {
                 let contract = Contract(contractParse: contractParse)
