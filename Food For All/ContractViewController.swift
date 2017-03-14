@@ -25,7 +25,12 @@ class ContractViewController: UIViewController {
         viewSetup()
         navBarSetup()
         dataStoreSetup()
-        setContent()
+        if let contract = contract {
+            //load the contract
+            setContent(contract: contract)
+        } else {
+            dataStore?.loadContract()
+        }
     }
     
     fileprivate func viewSetup() {
@@ -48,13 +53,8 @@ class ContractViewController: UIViewController {
         return true
     }
     
-    func setContent() {
-        if let contract = contract {
-            theProfileCircleView.add(file: contract.gig.creator.profileImage)
-        } else {
-            //load the contract
-            dataStore?.loadContract()
-        }
+    func setContent(contract: Contract) {
+        theProfileCircleView.add(file: contract.gig.creator.profileImage)
     }
     
     fileprivate func dataStoreSetup() {
@@ -69,7 +69,7 @@ extension ContractViewController {
     }
     
     fileprivate func setNavBarTitle() {
-        navigationItem.title = "Transaction"
+        navigationItem.title = "Pending Transaction"
     }
     
     fileprivate func addHomeButton() {
@@ -108,7 +108,7 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
         let contract = ContractCell(rawValue: indexPath.row) ?? .message
         switch contract {
         case .description:
-            return 150
+            return 120
         default:
             return CreationViewController.Constants.cellHeight
         }
@@ -153,7 +153,9 @@ extension ContractViewController {
             Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
         }
         
-//        dataStore.saveVenmoMetric(state: venmoState, gig: gig)
+        if let gig = contract?.gig {
+            dataStore?.saveVenmoMetric(state: venmoState, gig: gig)
+        }
     }
     
     func completedTapped() {
@@ -175,6 +177,7 @@ extension ContractViewController {
 extension ContractViewController: ContractDataStoreDelegate {
     func loaded(contract: Contract) {
         self.contract = contract
+        setContent(contract: contract)
         theTableView.reloadData()
     }
 }

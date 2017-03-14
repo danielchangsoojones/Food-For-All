@@ -22,8 +22,11 @@ class ContractDataStore {
     
     func loadContract() {
         let query = ContractParse.query() as! PFQuery<ContractParse>
-        query.fromLocalDatastore()
+        query.whereKey("customer", equalTo: User.current() ?? User())
         query.includeKey("gig")
+        query.includeKey("gig.creator")
+        //TODO: this is not perfect, we should be saving the object to the local data store, and then we can pull it up. This will bring up the past contract for a second, before it reloads with the new one.
+        query.cachePolicy = .cacheThenNetwork
         query.getFirstObjectInBackground { (contractParse, error) in
             if let contractParse = contractParse {
                 let contract = Contract(contractParse: contractParse)
@@ -47,9 +50,16 @@ class ContractDataStore {
     }
     
     fileprivate func neverShowContractAgain(c: ContractParse) {
-        //remove the contractParse from the phone, so it won't show the contract screen again.
-        //TODO: If they have two contracts, then this would tell the userdefaults that it should never show again, even if they only deleted one.
-        c.unpinInBackground()
         UserDefaults.standard.removeObject(forKey: ContractViewController.Constants.contractKey)
+    }
+    
+    func saveVenmoMetric(state: String, gig: Gig) {
+        let metric = VenmoMetric()
+        if let currentUser = User.current() {
+            metric.customer = currentUser
+        }
+        metric.gig = gig.gigParse
+        metric.state = state
+        metric.saveInBackground()
     }
 }

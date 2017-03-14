@@ -63,9 +63,8 @@ enum GigItemType: Int {
     case review = 2
     case mutualFriends = 3
     case message = 4
-    case venmo = 5
     
-    static let mandatory: [GigItemType] = [.information, .review, .venmo, .message]
+    static let mandatory: [GigItemType] = [.information, .review, .message]
     static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {
         var arrayCopy = array
         arrayCopy.insert(type, at: type.rawValue)

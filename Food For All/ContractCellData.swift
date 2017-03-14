@@ -22,6 +22,16 @@ class ContractCellData {
     
     func createDescriptionCell(contract: Contract?) -> ContractTableViewCell {
         let cell = ContractTableViewCell(style: .default, reuseIdentifier: nil)
+        if let gig = contract?.gig {
+            cell.theTitleLabel.text = gig.title
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM d, h:mm a"
+            var dateString: String? = nil
+            if let date = contract?.plannedTime {
+                dateString = formatter.string(from: date)
+            }
+            cell.set(price: gig.priceString, time: dateString)
+        }
         return cell
     }
     
