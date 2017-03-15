@@ -44,8 +44,8 @@ class EntryViewController: UIViewController {
         self.view.layer.insertSublayer(gradient, at: 0)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
@@ -68,7 +68,7 @@ extension EntryViewController: UITableViewDelegate, UITableViewDataSource {
         let allCellsHeight: CGFloat = CategoryTableViewCell.cellHeight * CGFloat(categories.count)
         if allCellsHeight <= self.view.frame.height {
             //For centering the cells while we don't cover the whole screen, once we get enough categories, then we can get rid of this, just to keep things nice and neat
-            theTableView.contentInset = UIEdgeInsets(top: ((self.view.frame.height - allCellsHeight - tabBarHeight) / 2) - navigationBarHeight  , left: 0, bottom: 0, right: 0)
+            theTableView.contentInset = UIEdgeInsets(top: ((self.view.frame.height - allCellsHeight - tabBarHeight) / 2) - navigationBarHeight, left: 0, bottom: 0, right: 0)
         }
         theTableView.backgroundColor = UIColor.clear
         theTableView.separatorStyle = .none
