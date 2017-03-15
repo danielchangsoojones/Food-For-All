@@ -156,7 +156,8 @@ extension DetailViewController {
     
     fileprivate func colorPriceLabel() {
         let priceString = gig.priceString
-        let indexOfMoneySign: Int = priceString.getIndexOf("$") ?? 0
+        //TODO: this isn't very robust, it finds the first space and makes everything up to that point teal, so it works for the money sign but it's not really great code
+        let indexOfMoneySign: Int = priceString.getIndexOf(" ") ?? 0
         
         let myMutableString = NSMutableAttributedString(string: priceString)
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: CustomColors.JellyTeal, range: NSRange(location: 0,length: indexOfMoneySign + 1))
