@@ -54,6 +54,7 @@ class CustomerPopUpViewController: CalendarPopUpViewController {
     }
     
     override func choseNew(date: Date, sender: UIButton) {
+        self.start = date
         setTitleFor(button: sender, date: date)
     }
     
