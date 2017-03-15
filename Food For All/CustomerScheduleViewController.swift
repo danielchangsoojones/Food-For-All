@@ -39,7 +39,7 @@ class CustomerScheduleViewController: SchedulingViewController {
     }
     
     func skipPressed() {
-        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
         messageHelper?.send(type: .withoutTime)
     }
     
@@ -78,6 +78,8 @@ extension CustomerScheduleViewController: MFMessageComposeViewControllerDelegate
             self.dismiss(animated: true, completion: {
                 ContractViewController.segue(from: self, contract: contract)
             })
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
