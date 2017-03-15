@@ -94,14 +94,18 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = ContractCell(rawValue: indexPath.row) ?? .description
         let data = ContractCellData()
+        var cell: UITableViewCell!
         switch cellType {
         case .description:
-            return data.createDescriptionCell(contract: self.contract)
+            cell = data.createDescriptionCell(contract: self.contract)
         case .message:
-            return data.createMessageCell()
+            cell = data.createMessageCell()
         case .venmo:
-            return data.createVenmoCell()
+            cell = data.createVenmoCell()
         }
+        
+        cell.selectionStyle = .none
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
