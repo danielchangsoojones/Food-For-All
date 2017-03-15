@@ -41,7 +41,7 @@ extension SettingsViewController {
     
     fileprivate func segueToWelcomePage() {
         let rootVC = WelcomeViewController()
-        let navController = WelcomeNavigationController(rootViewController: rootVC)
+        let navController = ClearNavigationController(rootViewController: rootVC)
         presentVC(navController)
     }
 }

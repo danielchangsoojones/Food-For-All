@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CustomerPopUpDelegate {
-    func segueToMessage(time: String)
+    func segueToMessage(time: Date)
 }
 
 class CustomerPopUpViewController: CalendarPopUpViewController {
@@ -58,7 +58,9 @@ class CustomerPopUpViewController: CalendarPopUpViewController {
     }
     
     func nextPressed() {
-        delegate?.segueToMessage(time: self.start?.timeString(in: .short) ?? "")
+        if let time = self.start {
+            delegate?.segueToMessage(time: time)
+        }
         popupController?.dismiss()
     }
 }

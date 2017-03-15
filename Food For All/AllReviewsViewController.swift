@@ -64,7 +64,7 @@ class AllReviewsViewController: UIViewController {
 //navigation bar extension
 extension AllReviewsViewController {
     fileprivate func navBarSetup() {
-        if let navController = self.navigationController as? WelcomeNavigationController {
+        if let navController = self.navigationController as? ClearNavigationController {
             navController.makeTransparent()
             navController.navigationBar.tintColor = UIColor.black
         }
@@ -79,7 +79,7 @@ extension AllReviewsViewController {
     }
     
     func exitTapped() {
-        if let navController = self.navigationController as? WelcomeNavigationController {
+        if let navController = self.navigationController as? ClearNavigationController {
             navController.resetToDefaults()
         }
         popVC()

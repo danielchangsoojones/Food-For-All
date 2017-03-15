@@ -21,9 +21,11 @@ class MessageHelper: NSObject {
     var currentVC: UIViewController!
     var time: String?
     var type: MessageType = .blank
+    var messageDelegate: MFMessageComposeViewControllerDelegate?
     
-    init(currentVC: UIViewController, gig: Gig) {
+    init(currentVC: UIViewController, gig: Gig, delegate: MFMessageComposeViewControllerDelegate? = nil) {
         super.init()
+        self.messageDelegate = delegate
         self.currentVC = currentVC
         self.gig = gig
     }
@@ -48,7 +50,12 @@ class MessageHelper: NSObject {
             }
             controller.body = getMessageBody(gig: gig)
             controller.recipients = [phoneNumber]
-            controller.messageComposeDelegate = self
+            
+            if let messageDelegate = messageDelegate {
+                controller.messageComposeDelegate = messageDelegate
+            } else {
+                controller.messageComposeDelegate = self
+            }
             currentVC.present(controller, animated: true, completion: {
                 self.theSpinnerContainer?.removeFromSuperview()
             })

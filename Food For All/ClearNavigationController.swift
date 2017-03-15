@@ -1,5 +1,5 @@
 //
-//  WelcomeNavigationController.swift
+//  ClearNavigationController.swift
 //  Food For All
 //
 //  Created by Daniel Jones on 1/13/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeNavigationController: CustomNavigationController {
+class ClearNavigationController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeTransparent()

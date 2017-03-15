@@ -28,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            toFrontPageVC()
+            if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
+                toContractVC()
+            } else {
+                toFrontPageVC()
+            }
         }
         
         return true
@@ -53,11 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ReviewParse.registerSubclass()
         GigDetailPhoto.registerSubclass()
         EventParse.registerSubclass()
+        ContractParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {
         let rootVC = WelcomeViewController()
-        let navController = WelcomeNavigationController(rootViewController: rootVC)
+        let navController = ClearNavigationController(rootViewController: rootVC)
         setInitialVC(vc: navController)
     }
     
@@ -66,10 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialVC(vc: tabBarController)
     }
     
-    fileprivate func setTestingVC() {
-        let destinationVC = NameViewController()
-        let navController = UINavigationController(rootViewController: destinationVC)
-        setInitialVC(vc: navController)
+    fileprivate func toContractVC() {
+        let contractVC = ContractViewController()
+        let clearNavController = ClearNavigationController(rootViewController: contractVC)
+        setInitialVC(vc: clearNavController)
     }
     
     fileprivate func setInitialVC(vc: UIViewController) {
