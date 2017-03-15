@@ -115,6 +115,7 @@
 		92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199A71E46908F00ABC255 /* EditingGigViewController.swift */; };
 		92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */; };
 		92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */; };
+		92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */; };
 		92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
 		92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D311E350B22009EB164 /* FrontPageViewController.swift */; };
@@ -276,6 +277,7 @@
 		92D199A71E46908F00ABC255 /* EditingGigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingGigViewController.swift; sourceTree = "<group>"; };
 		92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingGigDataStore.swift; sourceTree = "<group>"; };
 		92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
+		92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractNewRatingViewController.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClearNavigationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
 		92DD8D311E350B22009EB164 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 				921FA51E1E7760C300C1B2B6 /* Data Store */,
 				924D27041E76063500413CDE /* Cells */,
 				924D27011E7600A200413CDE /* Subviews */,
+				92D4F6401E79ADFC00BCB9A0 /* Review */,
 				924D26FD1E75E5C500413CDE /* ContractViewController.swift */,
 				924D26FF1E75E62C00413CDE /* ContractView.swift */,
 			);
@@ -1101,6 +1104,14 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		92D4F6401E79ADFC00BCB9A0 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */,
+			);
+			name = Review;
+			sourceTree = "<group>";
+		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -1527,6 +1538,7 @@
 				92D199981E4586F700ABC255 /* ProfileViewController.swift in Sources */,
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
+				92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */,
 				923A60EE1E66622200C56471 /* DateCollectionViewCell.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,

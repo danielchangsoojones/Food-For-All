@@ -165,9 +165,10 @@ extension ContractViewController {
     func completedTapped() {
         if let contract = contract {
             dataStore?.complete(contract: contract)
+            let newReviewVC = ContractNewRatingViewController(gig: contract.gig)
+            let clearNavController = ClearNavigationController(rootViewController: newReviewVC)
+            presentVC(clearNavController)
         }
-        //TODO: move to the review page
-        Helpers.enterApplication(from: self)
     }
     
     func deleteTapped() {
