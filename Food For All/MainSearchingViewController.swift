@@ -38,7 +38,6 @@ class MainSearchingViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
         dataStoreSetup()
-        navBarSetup()
         setExampleResults()
     }
     
@@ -50,6 +49,11 @@ class MainSearchingViewController: UIViewController {
         theTableView.dataSource = self
         theSearchBar = searchingView.theSearchBar
         theSearchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBarSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,6 +111,7 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = results[indexPath.row]
         let cell = MainSearchTableViewCell(title: result)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -138,8 +143,15 @@ extension MainSearchingViewController: MainSearchingDelegate {
     }
     
     func pass(gigs: [Gig]) {
-        delegate?.pass(gigs: gigs)
-        popVC()
+        theSpinnerView?.removeFromSuperview()
+        if let delegate = delegate {
+            delegate.pass(gigs: gigs)
+            popVC()
+        } else {
+            let frontPageVC = FrontPageViewController()
+            frontPageVC.gigs = gigs
+            pushVC(frontPageVC)
+        }
     }
     
     func getMostCurrentSearchText() -> String? {

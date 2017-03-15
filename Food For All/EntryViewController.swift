@@ -19,6 +19,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradient()
+        navBarSetup()
         createTableView()
     }
     
@@ -45,6 +46,18 @@ class EntryViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension EntryViewController {
+    fileprivate func navBarSetup() {
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
+        navigationItem.rightBarButtonItem = searchButton
+    }
+    
+    func searchButtonTapped() {
+        let searchVC = MainSearchingViewController()
+        pushVC(searchVC)
     }
 }
 
