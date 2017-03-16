@@ -99,6 +99,11 @@ class NewRatingViewController: UIViewController {
     func updateDelegate(review: Review) {
         delegate?.add(review: review)
     }
+    
+    func finishedSaving(review: Review) {
+        updateDelegate(review: review)
+        popVC()
+    }
 }
 
 extension NewRatingViewController {
@@ -142,11 +147,6 @@ extension NewRatingViewController: NewRatingDataStoreDelegate {
             return isValidText
         }
         return isValidText && isValidStars
-    }
-    
-    func finishedSaving(review: Review) {
-        updateDelegate(review: review)
-        popVC()
     }
     
     func savingErrorOccurred() {

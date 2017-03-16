@@ -102,8 +102,6 @@ extension MessageHelper: MFMessageComposeViewControllerDelegate {
         
        MessageDataStore().saveMessageMetric(messageState: messageState, gig: gig)
         
-        currentVC.dismiss(animated: true, completion: {
-            Helpers.showBanner(title: "Succesful Message", subtitle: "You have succesfully texted the tutor", bannerType: .success)
-        })
+        currentVC.dismiss(animated: true, completion: nil)
     }
 }

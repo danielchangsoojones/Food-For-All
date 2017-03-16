@@ -94,24 +94,32 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = ContractCell(rawValue: indexPath.row) ?? .description
         let data = ContractCellData()
+        var cell: UITableViewCell!
         switch cellType {
         case .description:
-            return data.createDescriptionCell(contract: self.contract)
+            cell = data.createDescriptionCell(contract: self.contract)
         case .message:
-            return data.createMessageCell()
+            cell = data.createMessageCell()
         case .venmo:
-            return data.createVenmoCell()
+            cell = data.createVenmoCell()
         }
+        
+        cell.selectionStyle = .none
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let contract = ContractCell(rawValue: indexPath.row) ?? .message
         switch contract {
         case .description:
-            return 120
+            return UITableViewAutomaticDimension
         default:
             return CreationViewController.Constants.cellHeight
         }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }
 
@@ -161,9 +169,10 @@ extension ContractViewController {
     func completedTapped() {
         if let contract = contract {
             dataStore?.complete(contract: contract)
+            let newReviewVC = ContractNewRatingViewController(gig: contract.gig)
+            let clearNavController = ClearNavigationController(rootViewController: newReviewVC)
+            presentVC(clearNavController)
         }
-        //TODO: move to the review page
-        Helpers.enterApplication(from: self)
     }
     
     func deleteTapped() {

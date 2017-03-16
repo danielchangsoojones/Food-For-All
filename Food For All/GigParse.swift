@@ -23,6 +23,7 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var frontImage: PFFile?
     @NSManaged var avgStars: Double
     @NSManaged var numOfReviews: Int
+    @NSManaged var estimatedDuration: String?
     
     override init() {
         super.init()
@@ -48,5 +49,6 @@ class GigParse: PFObject, PFSubclassing {
         }
         avgStars = gig.avgStars
         numOfReviews = gig.numOfReviews
+        estimatedDuration = gig.estimatedDuration
     }
 }

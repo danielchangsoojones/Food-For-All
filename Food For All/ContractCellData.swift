@@ -26,11 +26,15 @@ class ContractCellData {
             cell.theTitleLabel.text = gig.title
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM d, h:mm a"
-            var dateString: String? = nil
+            var dateString: String?
             if let date = contract?.plannedTime {
                 dateString = formatter.string(from: date)
             }
-            cell.set(price: gig.priceString, time: dateString)
+            var durationString: String?
+            if let duration = contract?.gig.estimatedDuration {
+                durationString = duration
+            }
+            cell.set(price: gig.priceString, time: dateString, estimatedDuration: durationString)
         }
         return cell
     }

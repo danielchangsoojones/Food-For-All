@@ -15,6 +15,7 @@ class Gig {
     var description: String = ""
     var avgStars: Double = 0
     var numOfReviews: Int = 0
+    var estimatedDuration: String?
     
     var phoneNumber: Double = 0
     var phoneNumberString: String {
@@ -59,6 +60,7 @@ class Gig {
         self.tags = gigParse.tags
         self.avgStars = gigParse.avgStars
         self.numOfReviews = gigParse.numOfReviews
+        self.estimatedDuration = gigParse.estimatedDuration
         setGigImage()
     }
     

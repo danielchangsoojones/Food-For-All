@@ -10,8 +10,13 @@ import UIKit
 import Former
 
 class ServiceFormViewController: SuperCreationFormViewController {
+    struct Constants {
+        static let estimatedDuration = "Estimated Duration"
+    }
+    
     var titleRow = TextFieldRowFormer<FormTextFieldCell>()
     var descriptionRow = TextViewRowFormer<FormTextViewCell>()
+    var durationRow = TextViewRowFormer<FormTextViewCell>()
     var tagRow: InlinePickerRowFormer<FormInlinePickerCell, String>!
     
     override var isComplete: Bool {
@@ -27,6 +32,7 @@ class ServiceFormViewController: SuperCreationFormViewController {
         super.viewDidLoad()
         titleFormSetup()
         descriptionFormSetup()
+        durationFormSetup()
         tagFormSetup()
     }
 
@@ -41,6 +47,9 @@ class ServiceFormViewController: SuperCreationFormViewController {
         }
         if let description = descriptionRow.cell.textView.text {
             gig?.description = description
+        }
+        if let duration = durationRow.cell.textView.text {
+            gig?.estimatedDuration = duration
         }
         gig?.tags = [categories[tagRow.selectedRow]]
         super.save(sender: sender)
@@ -67,6 +76,30 @@ extension ServiceFormViewController {
             }
         }
         _ = append(rows: [descriptionRow], headerTitle: "Description")
+    }
+    
+    fileprivate func durationFormSetup() {
+        durationRow.configure { row in
+            row.placeholder = "How long will the service take?"
+            if let description = gig?.estimatedDuration {
+                row.text = description
+            }
+        }
+        
+        let header = LabelViewFormer<FormLabelHeaderView>()
+        header.text = Constants.estimatedDuration
+        
+        let footer = LabelViewFormer<FormLabelFooterView>()
+        footer.text = "The maximum time necessary for you to complete the task. This field is optional"
+        footer.configure { (view) in
+            //TODO: make the height based upon the size of the letters, so we can change it without concern. I'm just gauging by eye right now
+            view.viewHeight = 50
+        }
+        
+        let section = SectionFormer(rowFormer: durationRow)
+        section.set(headerViewFormer: header)
+        section.set(footerViewFormer: footer)
+        former.append(sectionFormer: section)
     }
     
     var categories: [String] {

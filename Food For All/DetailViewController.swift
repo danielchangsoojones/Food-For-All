@@ -106,6 +106,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .information:
             cell = data.createInformationCell(gig: gig)
+        case .estimatedDuration:
+            cell = data.createEstimatedDurationCell(gig: gig)
         case .photos:
             cell = data.createPhotosCell(photos: photos, delegate: self)
         case .review:
@@ -152,11 +154,15 @@ extension DetailViewController {
         if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
         }
+        if gig.estimatedDuration != nil {
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .estimatedDuration)
+        }
     }
     
     fileprivate func colorPriceLabel() {
         let priceString = gig.priceString
-        let indexOfMoneySign: Int = priceString.getIndexOf("$") ?? 0
+        //TODO: this isn't very robust, it finds the first space and makes everything up to that point teal, so it works for the money sign but it's not really great code
+        let indexOfMoneySign: Int = priceString.getIndexOf(" ") ?? 0
         
         let myMutableString = NSMutableAttributedString(string: priceString)
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: CustomColors.JellyTeal, range: NSRange(location: 0,length: indexOfMoneySign + 1))

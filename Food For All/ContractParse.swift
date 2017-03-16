@@ -19,6 +19,7 @@ class ContractParse: PFObject, PFSubclassing {
     @NSManaged var customer: User
     @NSManaged var isCompleted: Bool
     
+    
     override init() {
         super.init()
     }
