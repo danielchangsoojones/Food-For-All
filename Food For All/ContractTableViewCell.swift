@@ -65,6 +65,7 @@ class ContractTableViewCell: UITableViewCell {
         theDescriptionLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(theTitleLabel)
             make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.verticalSpacing / 2)
+            make.bottom.equalToSuperview().inset(Constants.verticalSpacing)
         }
     }
     
@@ -84,7 +85,7 @@ class ContractTableViewCell: UITableViewCell {
         }
         if let duration = estimatedDuration {
             let durationString: NSMutableAttributedString = NSMutableAttributedString(string: "\n\(ServiceFormViewController.Constants.estimatedDuration): " + duration)
-            durationString.setAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: theDescriptionLabel.font.pointSize, weight: UIFontWeightBold)], range: NSMakeRange(0, 16))
+            durationString.setAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: theDescriptionLabel.font.pointSize, weight: UIFontWeightBold)], range: NSMakeRange(0, 20))
             str.append(durationString)
         }
         

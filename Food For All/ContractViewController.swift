@@ -112,10 +112,14 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
         let contract = ContractCell(rawValue: indexPath.row) ?? .message
         switch contract {
         case .description:
-            return 120
+            return UITableViewAutomaticDimension
         default:
             return CreationViewController.Constants.cellHeight
         }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }
 
