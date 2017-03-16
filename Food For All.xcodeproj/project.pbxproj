@@ -116,6 +116,7 @@
 		92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */; };
 		92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */; };
 		92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */; };
+		92D4F6451E7B346D00BCB9A0 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */; };
 		92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
 		92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D311E350B22009EB164 /* FrontPageViewController.swift */; };
@@ -278,6 +279,7 @@
 		92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingGigDataStore.swift; sourceTree = "<group>"; };
 		92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
 		92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractNewRatingViewController.swift; sourceTree = "<group>"; };
+		92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeButton.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClearNavigationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
 		92DD8D311E350B22009EB164 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 		923A60F51E68D70400C56471 /* Pop Up */ = {
 			isa = PBXGroup;
 			children = (
+				92D4F6431E7B341700BCB9A0 /* Subviews */,
 				923A61111E6B98D400C56471 /* Customer */,
 				923A610E1E6B97E800C56471 /* Provider */,
 				923A60F61E68D78F00C56471 /* CalendarPopUpViewController.swift */,
@@ -1112,6 +1115,14 @@
 			name = Review;
 			sourceTree = "<group>";
 		};
+		92D4F6431E7B341700BCB9A0 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */,
+			);
+			name = Subviews;
+			sourceTree = "<group>";
+		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -1546,6 +1557,7 @@
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
 				924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */,
 				923A61071E6B7F0400C56471 /* CustomerScheduleViewController.swift in Sources */,
+				92D4F6451E7B346D00BCB9A0 /* TimeButton.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
@@ -1782,7 +1794,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1801,7 +1813,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1997,7 +2009,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -72,7 +72,14 @@ enum GigItemType: Int {
     static let mandatory: [GigItemType] = [.information, .review, .message]
     static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {
         var arrayCopy = array
-        arrayCopy.insert(type, at: type.rawValue)
+        let targetIndex = array.index { (item: GigItemType) -> Bool in
+            return item.rawValue > type.rawValue
+        }
+        
+        if let targetIndex = targetIndex {
+            arrayCopy.insert(type, at: targetIndex)
+        }
+        
         return arrayCopy
     }
 }

@@ -40,10 +40,7 @@ class ProviderPopUpView: CalendarPopUpView {
     }
     
     fileprivate func createTimeButton(title: String) -> UIButton {
-        let button = UIButton()
-        button.setTitleColor(Constants.textColor, for: .normal)
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.font = Constants.font
+        let button = TimeButton()
         return button
     }
     
