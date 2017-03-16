@@ -106,6 +106,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .information:
             cell = data.createInformationCell(gig: gig)
+        case .estimatedDuration:
+            cell = data.createEstimatedDurationCell(gig: gig)
         case .photos:
             cell = data.createPhotosCell(photos: photos, delegate: self)
         case .review:
@@ -151,6 +153,9 @@ extension DetailViewController {
         theNameLabel.text = gig.creator.fullName
         if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
+        }
+        if gig.estimatedDuration != nil {
+            cellTypes = GigItemType.insertInto(array: cellTypes, type: .estimatedDuration)
         }
     }
     

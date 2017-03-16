@@ -18,7 +18,7 @@ class GigDetailData {
     
     var cellHeight: CGFloat {
         switch type {
-        case .information:
+        case .information, .estimatedDuration:
             return UITableViewAutomaticDimension
         case .photos:
             return 155
@@ -31,6 +31,10 @@ class GigDetailData {
     
     func createInformationCell(gig: Gig) -> InformationTableViewCell {
         return InformationTableViewCell(title: gig.title, description: gig.description)
+    }
+    
+    func createEstimatedDurationCell(gig: Gig) -> InformationTableViewCell {
+        return InformationTableViewCell(title: ServiceFormViewController.Constants.estimatedDuration, description: gig.estimatedDuration ?? "")
     }
     
     func createPhotosCell(photos: [GigPhoto], delegate: GigPhotosCellDelegate) -> GigPhotosTableViewCell {
@@ -59,10 +63,11 @@ class GigDetailData {
 //anytime you add a new cell type, it needs to be ordered correctly in the array and in the cases.
 enum GigItemType: Int {
     case information = 0
-    case photos = 1
-    case review = 2
-    case mutualFriends = 3
-    case message = 4
+    case estimatedDuration = 1
+    case photos = 2
+    case review = 3
+    case mutualFriends = 4
+    case message = 5
     
     static let mandatory: [GigItemType] = [.information, .review, .message]
     static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {
