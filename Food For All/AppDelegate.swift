@@ -40,11 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func mixPanelSetup() {
-        Mixpanel.initialize(token: "c0717dfc13b7eeae55c9c81126e4816e")
-        if let currentUser = User.current() {
-            let fullName = currentUser.fullName ?? "Unknown"
-            let email = currentUser.email ?? "Unknown"
-            Mixpanel.mainInstance().registerSuperProperties(["User's Name": fullName, "Email" : email])
+        var appConfiguration = Configuration()
+        if appConfiguration.environment == .Production {
+            Mixpanel.initialize(token: "c0717dfc13b7eeae55c9c81126e4816e")
+            if let currentUser = User.current() {
+                let fullName = currentUser.fullName ?? "Unknown"
+                let email = currentUser.email ?? "Unknown"
+                Mixpanel.mainInstance().registerSuperProperties(["User's Name": fullName, "Email" : email])
+            }
         }
     }
     
