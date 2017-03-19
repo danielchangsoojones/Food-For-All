@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import Mixpanel
 
 class MessageDataStore {
     func saveMessageMetric(messageState: String, gig: Gig) {
@@ -18,5 +19,10 @@ class MessageDataStore {
         metric.gig = gig.gigParse
         metric.state = messageState
         metric.saveInBackground()
+        saveMixPanelMesageMetric(state: messageState, gig: gig)
+    }
+    
+    fileprivate func saveMixPanelMesageMetric(state: String, gig: Gig) {
+        Mixpanel.mainInstance().track(event: "Message", properties: ["status" : state, "recipient" : gig.creator.fullName ?? "Unknown"])
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import Mixpanel
 
 protocol MainSearchingDelegate {
     func passSearchResults(results: [String])
@@ -25,6 +26,7 @@ class MainSearchingDataStore {
     }
     
     func findGigs(title: String) {
+        setSearchAnalytic(text: title)
         let query = SearchGig.query()! as! PFQuery<SearchGig>
         query.whereKey("lowercaseTitle", contains: title.lowercased())
         query.includeKey("gigParse")
@@ -68,5 +70,9 @@ extension MainSearchingDataStore {
             search(text: newestSearchText)
         }
         isSearching = false
+    }
+    
+    fileprivate func setSearchAnalytic(text: String) {
+        Mixpanel.mainInstance().track(event: "Search", properties: ["Text" : text])
     }
 }

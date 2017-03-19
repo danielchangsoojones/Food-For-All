@@ -9,6 +9,7 @@
 import Foundation
 import ParseFacebookUtilsV4
 import Alamofire
+import Mixpanel
 
 protocol WelcomeDataStoreDelegate {
     func segueIntoApplication(isNew: Bool)
@@ -40,7 +41,6 @@ extension WelcomeDataStore {
             if let currentUser = user as? User {
                 if currentUser.isNew {
                     print("this is a new user that just signed up")
-                    self.sendNewUserIntoGroupMe()
                     self.updateProfileFromFacebook(true)
                 } else {
                     //let the facebook user sign-in
@@ -96,6 +96,7 @@ extension WelcomeDataStore {
                             }
                         }
                     })
+                    self.saveSignUpMetrics()
                     self.updateFacebookImage(isNew: isNew)
                 } else if let error = error {
                     print(error)
@@ -121,6 +122,10 @@ extension WelcomeDataStore {
         }
     }
     
+    func saveSignUpMetrics() {
+        sendNewUserIntoGroupMe()
+    }
+    
     func sendNewUserIntoGroupMe() {
         getTotalUsersCount()
     }
@@ -136,9 +141,22 @@ extension WelcomeDataStore {
         let url = "https://maker.ifttt.com/trigger/new-user-signup/with/key/bmku_IppapnZ3eewT54mzi"
         let fullName = User.current()?.fullName ?? ""
         let userCount: Int = count
+        saveMixPanelUserMetric(userCount: count)
         let parameters: Parameters = ["value1" : fullName, "value2" : userCount]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
             print(response)
         })
+    }
+    
+    func saveMixPanelUserMetric(userCount: Int) {
+        if let currentUser = User.current(), let objectId = currentUser.objectId {
+            Mixpanel.mainInstance().identify(distinctId: objectId)
+            Mixpanel.mainInstance().people.set(property: "Name",
+                                               to: currentUser.fullName ?? "")
+            Mixpanel.mainInstance().people.set(property: "Email",
+                                               to: currentUser.email ?? "")
+            Mixpanel.mainInstance().people.set(property: "Total User Count",
+                                               to: userCount)
+        }
     }
 }

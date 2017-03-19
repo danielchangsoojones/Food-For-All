@@ -21,6 +21,7 @@ PODS:
   - Former (1.5.1)
   - Instabug (6.4.1)
   - MBProgressHUD (1.0.0)
+  - Mixpanel-swift (2.1.4)
   - NextGrowingTextView (0.8.5)
   - NYTPhotoViewer (1.1.0):
     - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
@@ -60,8 +61,9 @@ DEPENDENCIES:
   - Former
   - Instabug
   - MBProgressHUD (~> 1.0.0)
+  - Mixpanel-swift
   - NextGrowingTextView
-  - NYTPhotoViewer (~> 1.1.0)
+  - NYTPhotoViewer
   - Parse
   - ParseFacebookUtilsV4 (from `https://github.com/white-rabbit-apps/ParseFacebookUtils-iOS.git`)
   - ParseUI
@@ -98,6 +100,7 @@ SPEC CHECKSUMS:
   Former: 0b48a812c0d93b092b908d1b0574d0fd95c6b6f9
   Instabug: f1e8ced2a08618b48aade3ec67b260f92d8fd8a6
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Mixpanel-swift: 02c76c6ff25cac461eabb4d47365aab1681fb5d9
   NextGrowingTextView: 3cc930a03c5979071244af42bcc81360d7453323
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
@@ -112,6 +115,6 @@ SPEC CHECKSUMS:
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: d0d1f7e4a5511ecc857e1a9ae2a52bb3a65932c0
+PODFILE CHECKSUM: 0205f6d440c17d0c0e6ca444d49df7bc3d3758e4
 
 COCOAPODS: 1.1.1
