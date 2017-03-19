@@ -20,6 +20,11 @@ class CustomerScheduleViewController: SchedulingViewController {
         super.viewDidLoad()
         navBarSetup()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollToNearestVisibleEventCell()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

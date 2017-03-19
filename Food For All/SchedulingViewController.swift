@@ -282,9 +282,26 @@ extension SchedulingViewController {
 }
 
 extension SchedulingViewController: ScheduleDataStoreDelegate {
+    //added the load events function to the main class, so i could override it.
     func loaded(events: [CustomEvent]) {
         self.events = events
         theCollectionView.reloadSections([theCollectionView.numberOfSections - 1])
+        Timer.runThisAfterDelay(seconds: 0.5, after: {
+            self.scrollToNearestVisibleEventCell()
+        })
+    }
+    
+    //Purpose: if there are no visible event cells, then scroll to one.
+    func scrollToNearestVisibleEventCell() {
+        let isVisibleEventCell: Bool = theCollectionView.visibleCells.contains { (cell: UICollectionViewCell) -> Bool in
+            return cell is EventCollectionViewCell
+        }
+        if !isVisibleEventCell && !events.isEmpty {
+            //no currently visible event cells
+            //TODO: this technically doesn't scroll to the closest one, but just the first event in the list. We really want it to scroll to the closest one.
+            let targetIndexPath = IndexPath(item: 0, section: theCollectionView.numberOfSections - 1)
+            theCollectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: true)
+        }
     }
 }
 
