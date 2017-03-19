@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import Mixpanel
 
 protocol ContractDataStoreDelegate {
     func loaded(contract: Contract)
@@ -43,9 +44,11 @@ class ContractDataStore {
     func delete(contract: Contract) {
         contract.contractParse.deleteInBackground()
         neverShowContractAgain(c: contract.contractParse)
+        deleteContractMetric(contract: contract)
     }
     
     func complete(contract: Contract) {
+        completeContractMetric(contract: contract)
         let c = contract.contractParse
         c.isCompleted = true
         c.saveInBackground()
@@ -56,10 +59,21 @@ class ContractDataStore {
         UserDefaults.standard.removeObject(forKey: ContractViewController.Constants.contractKey)
     }
     
+    fileprivate func deleteContractMetric(contract: Contract) {
+        Mixpanel.mainInstance().track(event: "Contract", properties: ["status" : "deleted", "freelancer" : contract.gig.creator.fullName ?? "Unknown"])
+    }
+    
+    fileprivate func completeContractMetric(contract: Contract) {
+        Mixpanel.mainInstance().track(event: "Contract", properties: ["status" : "completed", "freelancer" : contract.gig.creator.fullName ?? "Unknown"])
+    }
+    
     func saveVenmoMetric(state: String, gig: Gig) {
+        
         let metric = VenmoMetric()
         if let currentUser = User.current() {
             metric.customer = currentUser
+            Mixpanel.mainInstance().track(event: "Venmo",
+                                          properties: ["State" : state, "Gig" : gig.title, "Customer" : currentUser.fullName ?? ""])
         }
         metric.gig = gig.gigParse
         metric.state = state

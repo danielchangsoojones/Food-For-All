@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import ParseFacebookUtilsV4
 import Instabug
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         registerParseSubclasses()
         setParseConfiguration()
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         instabugSetup()
+        mixPanelSetup()
         
         if User.current() == nil {
             //not logged in
@@ -36,6 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    fileprivate func mixPanelSetup() {
+        var appConfiguration = Configuration()
+        if appConfiguration.environment == .Production {
+            Mixpanel.initialize(token: "c0717dfc13b7eeae55c9c81126e4816e")
+            if let currentUser = User.current() {
+                let fullName = currentUser.fullName ?? "Unknown"
+                let email = currentUser.email ?? "Unknown"
+                Mixpanel.mainInstance().registerSuperProperties(["User's Name": fullName, "Email" : email])
+            }
+        }
     }
     
     fileprivate func setParseConfiguration() {

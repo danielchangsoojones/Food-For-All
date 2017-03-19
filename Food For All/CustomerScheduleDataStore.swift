@@ -7,14 +7,18 @@
 //
 
 import Foundation
+import Mixpanel
 
 class CustomerScheduleDataStore {
     func save(contract: Contract) {
         let contractParse = ContractParse(contract: contract)
         contractParse.saveInBackground { (success, error) in
-            contractParse.pinInBackground(block: { (success, error) in
-                UserDefaults.standard.set(true, forKey: ContractViewController.Constants.contractKey)
-            })
+            self.saveContractMetric(contract: contract)
+            UserDefaults.standard.set(true, forKey: ContractViewController.Constants.contractKey)
         }
+    }
+    
+    fileprivate func saveContractMetric(contract: Contract) {
+        Mixpanel.mainInstance().track(event: "Contract", properties: ["status" : "in-progress", "freelancer" : contract.gig.creator.fullName ?? "Unknown"])
     }
 }

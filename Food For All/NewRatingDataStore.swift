@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import Mixpanel
 
 protocol NewRatingDataStoreDelegate {
     func finishedSaving(review: Review)
@@ -27,11 +28,18 @@ class NewRatingDataStore {
             if success {
                 review.reviewParse = r
                 self.delegate?.finishedSaving(review: review)
+                self.saveReviewAnalytic(review: review)
             } else if let error = error {
                 print(error)
                 self.delegate?.savingErrorOccurred()
                 Helpers.showBanner(title: "Error", subtitle: error.localizedDescription, bannerType: .error)
             }
+        }
+    }
+    
+    fileprivate func saveReviewAnalytic(review: Review) {
+        if let gig = review.gig {
+            Mixpanel.mainInstance().track(event: "New Review", properties: ["Gig Title" : gig.title, "Gig Creator" : gig.creator.fullName ?? "Unknown", "Stars" : review.stars, "Text" : review.description ?? ""])
         }
     }
 }
