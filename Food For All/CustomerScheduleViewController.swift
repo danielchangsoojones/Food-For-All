@@ -63,7 +63,11 @@ class CustomerScheduleViewController: SchedulingViewController {
 
 extension CustomerScheduleViewController: CustomerPopUpDelegate {
     func segueToMessage(time: Date) {
-        let timeString = time.timeString(in: .short)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d"
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
+        let timeString: String = dateFormatter.string(from: time) + " at " + timeFormatter.string(from: time)
         self.messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
         self.messageHelper?.send(type: .withTime, time: timeString)
         selectedTime = time

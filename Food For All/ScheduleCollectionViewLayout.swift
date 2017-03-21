@@ -8,6 +8,7 @@
 
 import UIKit
 import EZSwiftExtensions
+import Timepiece
 
 class ScheduleCollectionViewLayout: UICollectionViewLayout {
     struct Constants {
@@ -255,8 +256,15 @@ extension ScheduleCollectionViewLayout {
     
     fileprivate func getEventPosX(event: CustomEvent) -> Double {
         let currentStartOfDay: Date = Date().changed(hour: 0, minute: 0, second: 0, nanosecond: 0) ?? Date()
+        var targetDate: Date = event.start
+        if event.start < currentStartOfDay {
+            //the event date is in the past, so translate it into the current week's future
+            if let weekAheadDate = event.start + 7.day {
+                targetDate = weekAheadDate
+            }
+        }
         //using remainder 7 because we want users to input their dates, but then we want it to reoccur every week. So, people can input their schedule once, and it will continue into eternity.
-        let dayDifference: Int = Int(currentStartOfDay.daysInBetweenDate(event.start)) % 7
+        let dayDifference: Int = Int(currentStartOfDay.daysInBetweenDate(targetDate)) % 7
         //+1 because the items in the grid are 1 item over because the first item is the yaxis
         let xPos = calculateXPos(item: dayDifference + 1)
         return xPos
