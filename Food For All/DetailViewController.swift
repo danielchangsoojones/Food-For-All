@@ -118,6 +118,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell = friendCell
         case .message:
             cell = data.createMessageCell()
+        case .venmo:
+            cell = data.createVenmoCell()
         }
         
         cell.selectionStyle = .none
@@ -141,6 +143,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             reviewCellTapped()
         case .message:
             messageTapped()
+        case .venmo:
+            Helpers.venmoTapped(gig: gig)
         default:
             break
         }

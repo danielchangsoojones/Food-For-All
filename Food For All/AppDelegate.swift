@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let email = currentUser.email ?? "Unknown"
                 Mixpanel.mainInstance().registerSuperProperties(["User's Name": fullName, "Email" : email])
             }
+        } else if appConfiguration.environment == .Staging {
+            Mixpanel.initialize(token: "notoken")
         }
     }
     

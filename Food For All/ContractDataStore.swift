@@ -21,6 +21,8 @@ class ContractDataStore {
         self.delegate = delegate
     }
     
+    init() {}
+    
     func loadContract() {
         let query = ContractParse.query() as! PFQuery<ContractParse>
         query.whereKey("customer", equalTo: User.current() ?? User())
@@ -68,7 +70,6 @@ class ContractDataStore {
     }
     
     func saveVenmoMetric(state: String, gig: Gig) {
-        
         let metric = VenmoMetric()
         if let currentUser = User.current() {
             metric.customer = currentUser
