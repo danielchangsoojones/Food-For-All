@@ -77,7 +77,7 @@ class MessageHelper: NSObject {
             body += " Can we arrange something?"
         case .withTime:
             if let time = time {
-                body += " Can we plan something at \(time)?"
+                body += " Can we plan something on \(time)?"
             }
         case .blank:
             body = ""

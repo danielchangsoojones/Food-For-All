@@ -22,17 +22,6 @@ class EntryViewController: UIViewController {
         addGradient()
         navBarSetup()
         createTableView()
-        
-    }
-    
-    func saveSignUpMetric() {
-        if let currentUser = User.current() {
-//            Mixpanel.mainInstance().identify(distinctId: (User.current()?.objectId)!)
-//            Mixpanel.mainInstance().people.set(property: "Name",
-//                                               to: currentUser.fullName ?? "")
-//            Mixpanel.mainInstance().people.set(property: "Email",
-//                                               to: (User.current()?.email)!)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +29,6 @@ class EntryViewController: UIViewController {
         if let navController = self.navigationController as? ClearNavigationController {
             navController.makeTransparent()
         }
-        saveSignUpMetric()
     }
 
     override func didReceiveMemoryWarning() {
