@@ -270,14 +270,15 @@ extension DetailViewController: ScheduleDataStoreDelegate {
 extension DetailViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         if result == .sent {
-            if result == .sent {
-                let contract = Contract()
-                contract.gig = self.gig
-                dataStore.save(contract: contract)
-                self.dismiss(animated: true, completion: {
-                    ContractViewController.segue(from: self, contract: contract)
-                })
-            }
+            let contract = Contract()
+            contract.gig = self.gig
+            dataStore.save(contract: contract)
+            self.dismiss(animated: true, completion: {
+                ContractViewController.segue(from: self, contract: contract)
+            })
+        } else {
+            //message was canceled
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
