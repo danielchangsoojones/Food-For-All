@@ -158,7 +158,7 @@ extension DetailViewController {
         if let profileFile = gig.frontImage {
             theProfileImageView.add(file: profileFile)
         }
-        if gig.estimatedDuration != nil {
+        if let duration = gig.estimatedDuration, duration.isNotEmpty {
             cellTypes = GigItemType.insertInto(array: cellTypes, type: .estimatedDuration)
         }
     }
