@@ -65,6 +65,9 @@ extension ServiceFormViewController {
             }
         }
         
+        titleRow.cell.textField.tag = Forms.service.rawValue
+        titleRow.cell.textField.delegate = self
+        
         _ = append(rows: [titleRow], headerTitle: "Title")
     }
     
@@ -123,5 +126,26 @@ extension ServiceFormViewController {
         }
         
         _ = append(rows: [tagRow], headerTitle: "Category")
+    }
+}
+
+extension ServiceFormViewController: UITextFieldDelegate {
+    enum Forms: Int {
+        case service
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let form = Forms(rawValue: textField.tag) {
+            switch form {
+            case .service:
+                guard let text = textField.text else { return true }
+                let newLength = text.characters.count + string.characters.count - range.length
+                //TODO: 50 is an arbitrary number, just want to make sure that users don't input a title that flow off the screen
+                let limitLength = 50
+                return newLength <= limitLength
+            }
+        }
+        
+        return true
     }
 }
