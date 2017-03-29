@@ -141,7 +141,7 @@ extension ServiceFormViewController: UITextFieldDelegate {
                 guard let text = textField.text else { return true }
                 let newLength = text.characters.count + string.characters.count - range.length
                 //TODO: 50 is an arbitrary number, just want to make sure that users don't input a title that flow off the screen
-                let limitLength = 50
+                let limitLength = 35
                 return newLength <= limitLength
             }
         }
