@@ -90,6 +90,7 @@ class FreelancersTableViewCell: UITableViewCell {
         theServiceTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theNameLabel.snp.bottom).offset(Constants.verticalWordSpacing)
             make.leading.equalTo(theNameLabel)
+            make.trailing.equalToSuperview()
         }
     }
 
