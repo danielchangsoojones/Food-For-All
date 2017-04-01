@@ -30,8 +30,6 @@ class CategoryTableViewCell: UITableViewCell {
         theButton = UIButton()
         theButton.isUserInteractionEnabled = false
         theButton.layer.cornerRadius = 25
-//        let textColor = UIColor.white
-//        let backgroundColor = UIColor.clear
         let textColor = CustomColors.JellyTeal
         let backgroundColor = UIColor.white
         theButton.addBorder(width: 2, color: textColor)

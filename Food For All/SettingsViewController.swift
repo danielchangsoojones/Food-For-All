@@ -16,7 +16,6 @@ class SettingsViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutSetup()
-        userMetricRowSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,18 +42,5 @@ extension SettingsViewController {
         let rootVC = WelcomeViewController()
         let navController = ClearNavigationController(rootViewController: rootVC)
         presentVC(navController)
-    }
-}
-
-extension SettingsViewController {
-    fileprivate func userMetricRowSetup() {
-        let userMetricRow = LabelRowFormer<FormLabelCell>()
-            .configure { row in
-                row.text = "Secret!"
-            }.onSelected { row in
-                self.dataStore?.seeUserMetrics()
-        }
-        let section = SectionFormer(rowFormer: userMetricRow)
-        former.append(sectionFormer: section)
     }
 }
