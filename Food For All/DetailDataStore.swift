@@ -19,8 +19,6 @@ class DetailDataStore {
     var delegate: DetailDataStoreDelegate?
     
     func save(contract: Contract) {
-        let dataStore = CustomerScheduleDataStore()
-        dataStore.save(contract: contract)
     }
 }
 
@@ -81,13 +79,6 @@ extension DetailDataStore {
                 }
             }
         }
-    }
-}
-
-extension DetailDataStore {
-    func getSchedule(gig: Gig, scheduleDelegate: ScheduleDataStoreDelegate) {
-        let scheduleDataStore = ScheduleDataStore(delegate: scheduleDelegate)
-        scheduleDataStore.load(from: gig)
     }
 }
 

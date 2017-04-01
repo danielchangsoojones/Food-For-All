@@ -18,33 +18,14 @@
 		923A60D11E5FDC8700C56471 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D01E5FDC8700C56471 /* AgreementViewController.swift */; };
 		923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D21E5FDD8A00C56471 /* AgreementView.swift */; };
 		923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60D51E5FF36A00C56471 /* BulletLabel.swift */; };
-		923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E01E63EE5800C56471 /* SchedulingViewController.swift */; };
-		923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */; };
-		923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */; };
-		923A60EC1E6638BA00C56471 /* HourUnitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */; };
-		923A60EE1E66622200C56471 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */; };
-		923A60F21E67C05300C56471 /* CustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60F11E67C05300C56471 /* CustomEvent.swift */; };
-		923A60F41E67C11D00C56471 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60F31E67C11D00C56471 /* EventCollectionViewCell.swift */; };
-		923A60F71E68D78F00C56471 /* CalendarPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60F61E68D78F00C56471 /* CalendarPopUpViewController.swift */; };
-		923A60F91E68DA1500C56471 /* CalendarPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60F81E68DA1500C56471 /* CalendarPopUpView.swift */; };
-		923A60FB1E6B39C000C56471 /* ProviderScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60FA1E6B39C000C56471 /* ProviderScheduleViewController.swift */; };
-		923A61001E6B435E00C56471 /* ScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A60FF1E6B435E00C56471 /* ScheduleDataStore.swift */; };
-		923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */; };
-		923A61041E6B468900C56471 /* EventParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61031E6B468900C56471 /* EventParse.swift */; };
-		923A61071E6B7F0400C56471 /* CustomerScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */; };
 		923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61091E6B838200C56471 /* MessageHelper.swift */; };
 		923A610D1E6B893400C56471 /* MessageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A610C1E6B893400C56471 /* MessageDataStore.swift */; };
-		923A61101E6B981500C56471 /* CustomerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */; };
-		923A61131E6B98ED00C56471 /* ProviderPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */; };
-		923A61151E6B992E00C56471 /* CustomerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61141E6B992E00C56471 /* CustomerPopUpView.swift */; };
-		923A61171E6B9ADC00C56471 /* ProviderPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */; };
 		923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */; };
 		923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE01E42658E00F1BFCA /* CreationView.swift */; };
 		923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */; };
 		923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */; };
 		923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE81E54D42900F1BFCA /* ReviewParse.swift */; };
 		923A8CEB1E54DD1700F1BFCA /* NewReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */; };
-		924D26FB1E70D83300413CDE /* EditableEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FA1E70D83300413CDE /* EditableEventCollectionViewCell.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -89,7 +70,6 @@
 		92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */; };
 		92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E45B1E4F88FB00FD2042 /* Review.swift */; };
 		92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */; };
-		92CC523B1E77338E006D5E2B /* CustomerScheduleDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */; };
 		92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523C1E7733F3006D5E2B /* Contract.swift */; };
 		92CC523F1E7734D9006D5E2B /* ContractParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523E1E7734D9006D5E2B /* ContractParse.swift */; };
 		92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */; };
@@ -116,7 +96,6 @@
 		92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */; };
 		92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */; };
 		92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */; };
-		92D4F6451E7B346D00BCB9A0 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */; };
 		92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */; };
 		92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */; };
 		92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD8D311E350B22009EB164 /* FrontPageViewController.swift */; };
@@ -177,33 +156,14 @@
 		923A60D01E5FDC8700C56471 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		923A60D21E5FDD8A00C56471 /* AgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		923A60D51E5FF36A00C56471 /* BulletLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletLabel.swift; sourceTree = "<group>"; };
-		923A60E01E63EE5800C56471 /* SchedulingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SchedulingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
-		923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewLayout.swift; sourceTree = "<group>"; };
-		923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourUnitCollectionViewCell.swift; sourceTree = "<group>"; };
-		923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
-		923A60F11E67C05300C56471 /* CustomEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEvent.swift; sourceTree = "<group>"; };
-		923A60F31E67C11D00C56471 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
-		923A60F61E68D78F00C56471 /* CalendarPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUpViewController.swift; sourceTree = "<group>"; };
-		923A60F81E68DA1500C56471 /* CalendarPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUpView.swift; sourceTree = "<group>"; };
-		923A60FA1E6B39C000C56471 /* ProviderScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderScheduleViewController.swift; sourceTree = "<group>"; };
-		923A60FF1E6B435E00C56471 /* ScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataStore.swift; sourceTree = "<group>"; };
-		923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderScheduleDataStore.swift; sourceTree = "<group>"; };
-		923A61031E6B468900C56471 /* EventParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventParse.swift; sourceTree = "<group>"; };
-		923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerScheduleViewController.swift; sourceTree = "<group>"; };
 		923A61091E6B838200C56471 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		923A610C1E6B893400C56471 /* MessageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDataStore.swift; sourceTree = "<group>"; };
-		923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPopUpViewController.swift; sourceTree = "<group>"; };
-		923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderPopUpViewController.swift; sourceTree = "<group>"; };
-		923A61141E6B992E00C56471 /* CustomerPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPopUpView.swift; sourceTree = "<group>"; };
-		923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderPopUpView.swift; sourceTree = "<group>"; };
 		923A8CDE1E425D2B00F1BFCA /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		923A8CE01E42658E00F1BFCA /* CreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		923A8CE31E42857200F1BFCA /* CreationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationTableViewCell.swift; sourceTree = "<group>"; };
 		923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRatingDataStore.swift; sourceTree = "<group>"; };
 		923A8CE81E54D42900F1BFCA /* ReviewParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewParse.swift; sourceTree = "<group>"; };
 		923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReviewTests.swift; sourceTree = "<group>"; };
-		924D26FA1E70D83300413CDE /* EditableEventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -252,7 +212,6 @@
 		92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		92B3E45B1E4F88FB00FD2042 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoContractTableViewCell.swift; sourceTree = "<group>"; };
-		92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerScheduleDataStore.swift; sourceTree = "<group>"; };
 		92CC523C1E7733F3006D5E2B /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		92CC523E1E7734D9006D5E2B /* ContractParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractParse.swift; sourceTree = "<group>"; };
 		92D12B9B1E28314F009AC99E /* WelcomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFormViewController.swift; sourceTree = "<group>"; };
@@ -279,7 +238,6 @@
 		92D199AA1E4695C100ABC255 /* EditingGigDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingGigDataStore.swift; sourceTree = "<group>"; };
 		92D199AD1E46985E00ABC255 /* ProfileDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
 		92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractNewRatingViewController.swift; sourceTree = "<group>"; };
-		92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeButton.swift; sourceTree = "<group>"; };
 		92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClearNavigationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancersTableViewController.swift; sourceTree = "<group>"; };
 		92DD8D311E350B22009EB164 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
@@ -459,83 +417,6 @@
 			name = Subview;
 			sourceTree = "<group>";
 		};
-		923A60DF1E63EE3800C56471 /* Scheduling */ = {
-			isa = PBXGroup;
-			children = (
-				923A60FE1E6B434800C56471 /* Data Store */,
-				923A60F51E68D70400C56471 /* Pop Up */,
-				923A60EF1E66629B00C56471 /* Collection View */,
-				924D26F61E6FB12400413CDE /* View Controller */,
-			);
-			name = Scheduling;
-			sourceTree = "<group>";
-		};
-		923A60EA1E66380D00C56471 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				924D26F91E70D80500413CDE /* Event Cells */,
-				924D26F31E6DEE9B00413CDE /* Date Cells */,
-				923A60E21E648F5F00C56471 /* ScheduleCollectionViewCell.swift */,
-				923A60EB1E6638BA00C56471 /* HourUnitCollectionViewCell.swift */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		923A60EF1E66629B00C56471 /* Collection View */ = {
-			isa = PBXGroup;
-			children = (
-				923A60EA1E66380D00C56471 /* Cells */,
-				923A60E61E64C7F100C56471 /* ScheduleCollectionViewLayout.swift */,
-			);
-			name = "Collection View";
-			sourceTree = "<group>";
-		};
-		923A60F51E68D70400C56471 /* Pop Up */ = {
-			isa = PBXGroup;
-			children = (
-				92D4F6431E7B341700BCB9A0 /* Subviews */,
-				923A61111E6B98D400C56471 /* Customer */,
-				923A610E1E6B97E800C56471 /* Provider */,
-				923A60F61E68D78F00C56471 /* CalendarPopUpViewController.swift */,
-				923A60F81E68DA1500C56471 /* CalendarPopUpView.swift */,
-			);
-			name = "Pop Up";
-			sourceTree = "<group>";
-		};
-		923A60FC1E6B433300C56471 /* Provider Scheduling */ = {
-			isa = PBXGroup;
-			children = (
-				923A60FD1E6B433E00C56471 /* Data Store */,
-				923A60FA1E6B39C000C56471 /* ProviderScheduleViewController.swift */,
-			);
-			name = "Provider Scheduling";
-			sourceTree = "<group>";
-		};
-		923A60FD1E6B433E00C56471 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				923A61011E6B43FC00C56471 /* ProviderScheduleDataStore.swift */,
-			);
-			name = "Data Store";
-			sourceTree = "<group>";
-		};
-		923A60FE1E6B434800C56471 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				923A60FF1E6B435E00C56471 /* ScheduleDataStore.swift */,
-			);
-			name = "Data Store";
-			sourceTree = "<group>";
-		};
-		923A61051E6B7EDA00C56471 /* Customer Scheduling */ = {
-			isa = PBXGroup;
-			children = (
-				92CC52391E77337A006D5E2B /* Data Store */,
-				923A61061E6B7F0400C56471 /* CustomerScheduleViewController.swift */,
-			);
-			name = "Customer Scheduling";
-			sourceTree = "<group>";
-		};
 		923A61081E6B82F600C56471 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,24 +432,6 @@
 				923A610C1E6B893400C56471 /* MessageDataStore.swift */,
 			);
 			name = "Data Store";
-			sourceTree = "<group>";
-		};
-		923A610E1E6B97E800C56471 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				923A61121E6B98ED00C56471 /* ProviderPopUpViewController.swift */,
-				923A61161E6B9ADC00C56471 /* ProviderPopUpView.swift */,
-			);
-			name = Provider;
-			sourceTree = "<group>";
-		};
-		923A61111E6B98D400C56471 /* Customer */ = {
-			isa = PBXGroup;
-			children = (
-				923A610F1E6B981500C56471 /* CustomerPopUpViewController.swift */,
-				923A61141E6B992E00C56471 /* CustomerPopUpView.swift */,
-			);
-			name = Customer;
 			sourceTree = "<group>";
 		};
 		923A8CDD1E425D1300F1BFCA /* Creation */ = {
@@ -599,33 +462,6 @@
 				923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */,
 			);
 			name = "Data Store";
-			sourceTree = "<group>";
-		};
-		924D26F31E6DEE9B00413CDE /* Date Cells */ = {
-			isa = PBXGroup;
-			children = (
-				923A60ED1E66622200C56471 /* DateCollectionViewCell.swift */,
-			);
-			name = "Date Cells";
-			sourceTree = "<group>";
-		};
-		924D26F61E6FB12400413CDE /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				923A60FC1E6B433300C56471 /* Provider Scheduling */,
-				923A61051E6B7EDA00C56471 /* Customer Scheduling */,
-				923A60E01E63EE5800C56471 /* SchedulingViewController.swift */,
-			);
-			name = "View Controller";
-			sourceTree = "<group>";
-		};
-		924D26F91E70D80500413CDE /* Event Cells */ = {
-			isa = PBXGroup;
-			children = (
-				923A60F31E67C11D00C56471 /* EventCollectionViewCell.swift */,
-				924D26FA1E70D83300413CDE /* EditableEventCollectionViewCell.swift */,
-			);
-			name = "Event Cells";
 			sourceTree = "<group>";
 		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
@@ -726,7 +562,6 @@
 				921C79881E46C34200D9396B /* Entry Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
-				923A60DF1E63EE3800C56471 /* Scheduling */,
 				92B3E4521E4F835300FD2042 /* Reviews */,
 				9279DA241E3D02D600E2CCA1 /* Search */,
 				923A8CDD1E425D1300F1BFCA /* Creation */,
@@ -931,14 +766,6 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
-		92CC52391E77337A006D5E2B /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				92CC523A1E77338E006D5E2B /* CustomerScheduleDataStore.swift */,
-			);
-			name = "Data Store";
-			sourceTree = "<group>";
-		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,7 +809,6 @@
 				92B3E45B1E4F88FB00FD2042 /* Review.swift */,
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
 				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
-				923A60F11E67C05300C56471 /* CustomEvent.swift */,
 				92CC523C1E7733F3006D5E2B /* Contract.swift */,
 			);
 			name = "Internal Models";
@@ -995,7 +821,6 @@
 				92F86B581E589E7A00BF8CF7 /* Gig */,
 				92D12BAB1E30592D009AC99E /* User.swift */,
 				923A8CE81E54D42900F1BFCA /* ReviewParse.swift */,
-				923A61031E6B468900C56471 /* EventParse.swift */,
 				92CC523E1E7734D9006D5E2B /* ContractParse.swift */,
 			);
 			name = "Database Models";
@@ -1113,14 +938,6 @@
 				92D4F6411E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift */,
 			);
 			name = Review;
-			sourceTree = "<group>";
-		};
-		92D4F6431E7B341700BCB9A0 /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				92D4F6441E7B346D00BCB9A0 /* TimeButton.swift */,
-			);
-			name = Subviews;
 			sourceTree = "<group>";
 		};
 		92DD8D2A1E295F19009EB164 /* Forms */ = {
@@ -1535,10 +1352,8 @@
 				92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */,
 				92F86B501E58049D00BF8CF7 /* PhotoCollectionViewCell.swift in Sources */,
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
-				923A61171E6B9ADC00C56471 /* ProviderPopUpView.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */,
-				923A61131E6B98ED00C56471 /* ProviderPopUpViewController.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
 				9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */,
@@ -1550,20 +1365,16 @@
 				927BE0B11E26F4EA00220168 /* Configuration.swift in Sources */,
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */,
-				923A60EE1E66622200C56471 /* DateCollectionViewCell.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */,
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
 				924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */,
-				923A61071E6B7F0400C56471 /* CustomerScheduleViewController.swift in Sources */,
-				92D4F6451E7B346D00BCB9A0 /* TimeButton.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
 				924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */,
-				923A61101E6B981500C56471 /* CustomerPopUpViewController.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
@@ -1575,11 +1386,8 @@
 				923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */,
 				9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */,
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
-				923A60E11E63EE5800C56471 /* SchedulingViewController.swift in Sources */,
-				923A61151E6B992E00C56471 /* CustomerPopUpView.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
-				923A60F41E67C11D00C56471 /* EventCollectionViewCell.swift in Sources */,
 				92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */,
 				921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
@@ -1588,12 +1396,10 @@
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
-				92CC523B1E77338E006D5E2B /* CustomerScheduleDataStore.swift in Sources */,
 				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
-				923A61041E6B468900C56471 /* EventParse.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
@@ -1609,29 +1415,21 @@
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
-				923A60F71E68D78F00C56471 /* CalendarPopUpViewController.swift in Sources */,
-				923A60FB1E6B39C000C56471 /* ProviderScheduleViewController.swift in Sources */,
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */,
-				923A60EC1E6638BA00C56471 /* HourUnitCollectionViewCell.swift in Sources */,
 				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
-				923A61021E6B43FC00C56471 /* ProviderScheduleDataStore.swift in Sources */,
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
-				923A60E71E64C7F100C56471 /* ScheduleCollectionViewLayout.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
-				923A61001E6B435E00C56471 /* ScheduleDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
-				923A60F91E68DA1500C56471 /* CalendarPopUpView.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
-				924D26FB1E70D83300413CDE /* EditableEventCollectionViewCell.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
@@ -1642,7 +1440,6 @@
 				926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */,
 				92DD8D301E350A28009EB164 /* FreelancersTableViewController.swift in Sources */,
 				92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */,
-				923A60E31E648F5F00C56471 /* ScheduleCollectionViewCell.swift in Sources */,
 				92D199A81E46908F00ABC255 /* EditingGigViewController.swift in Sources */,
 				92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */,
 				92CC523F1E7734D9006D5E2B /* ContractParse.swift in Sources */,
@@ -1653,7 +1450,6 @@
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,
-				923A60F21E67C05300C56471 /* CustomEvent.swift in Sources */,
 				92F86B231E53D28700BF8CF7 /* NewRatingViewController.swift in Sources */,
 				925C5F0F1E25A53F00196504 /* AppDelegate.swift in Sources */,
 				923A610D1E6B893400C56471 /* MessageDataStore.swift in Sources */,

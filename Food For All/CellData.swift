@@ -53,18 +53,6 @@ class CreationData {
         return cell
     }
     
-    var schedule: CellData {
-        let cell = scheduleCell
-        let destinationVC = ProviderScheduleViewController()
-        return CellData(cell: cell, destinationVC: destinationVC)
-    }
-    
-    var scheduleCell: CreationTableViewCell {
-        let image = #imageLiteral(resourceName: "Calendar")
-        let cell = CreationTableViewCell(iconImage: image, titleText: "Available Times")
-        return cell
-    }
-    
     var photos: CellData {
         let cell = photosCell
         let destinationVC = PhotosFormViewController()
@@ -83,8 +71,7 @@ enum Creation: Int {
     case service = 0
     case pricing = 1
     case contact = 2
-    case schedule = 3
-    case photos = 4
+    case photos = 3
     
     static var count: Int {
         // starting at zero, verify whether the enum can be instantiated from the Int and increment until it cannot
