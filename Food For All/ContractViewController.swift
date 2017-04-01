@@ -140,7 +140,7 @@ extension ContractViewController {
     fileprivate func messageTapped() {
         if let gig = contract?.gig {
             messageHelper = MessageHelper(currentVC: self, gig: gig)
-            messageHelper?.send(type: .blank)
+            messageHelper?.show()
         }
     }
     

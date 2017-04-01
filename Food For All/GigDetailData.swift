@@ -49,12 +49,6 @@ class GigDetailData {
         return MutualFriendTableViewCell(numOfFriends: numOfFriends)
     }
     
-    func createMessageCell() -> GigItemTableViewCell {
-        let cell = GigItemTableViewCell()
-        cell.set(title: "Message")
-        return cell
-    }
-    
     func createVenmoCell() -> VenmoTableViewCell {
         return VenmoTableViewCell()
     }
@@ -67,10 +61,9 @@ enum GigItemType: Int {
     case photos = 2
     case review = 3
     case mutualFriends = 4
-    case message = 5
     case venmo = 6
     
-    static let mandatory: [GigItemType] = [.information, .review, .message, .venmo]
+    static let mandatory: [GigItemType] = [.information, .review, .venmo]
     static func insertInto(array: [GigItemType], type: GigItemType) -> [GigItemType] {
         var arrayCopy = array
         let targetIndex = array.index { (item: GigItemType) -> Bool in

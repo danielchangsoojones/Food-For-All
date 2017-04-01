@@ -10,17 +10,9 @@ import Foundation
 import MessageUI
 
 class MessageHelper: NSObject {
-    enum MessageType {
-        case blank
-        case withoutTime
-        case withTime
-    }
-    
     var theSpinnerContainer: UIView?
     var gig: Gig!
     var currentVC: UIViewController!
-    var time: String?
-    var type: MessageType = .blank
     var messageDelegate: MFMessageComposeViewControllerDelegate?
     
     init(currentVC: UIViewController, gig: Gig, delegate: MFMessageComposeViewControllerDelegate? = nil) {
@@ -30,9 +22,7 @@ class MessageHelper: NSObject {
         self.gig = gig
     }
     
-    func send(type: MessageType, time: String? = nil) {
-        self.time = time
-        self.type = type
+    func show() {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: currentVC.view)
         Timer.runThisAfterDelay(seconds: 0.01) {
             //the spinner was taking a while to show up because sendSMS was somehow taking up the processing, so it felt like the user had not pressed the button. This fixed it.
@@ -43,19 +33,15 @@ class MessageHelper: NSObject {
     fileprivate func sendSMSText(phoneNumber: String) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            
-            var firstName: String = gig.creator.theFirstName
-            if firstName.isNotEmpty {
-                firstName = " " + firstName
-            }
-            controller.body = getMessageBody(gig: gig)
             controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
             
             if let messageDelegate = messageDelegate {
                 controller.messageComposeDelegate = messageDelegate
             } else {
                 controller.messageComposeDelegate = self
             }
+            
             currentVC.present(controller, animated: true, completion: {
                 self.theSpinnerContainer?.removeFromSuperview()
             })
@@ -64,31 +50,16 @@ class MessageHelper: NSObject {
             Helpers.showBanner(title: "Message Error", subtitle: "Can not send messages currently")
         }
     }
-    
-    fileprivate func getMessageBody(gig: Gig) -> String {
-        var firstName: String = gig.creator.theFirstName
-        if firstName.isNotEmpty {
-            firstName = " " + firstName
-        }
-        var body = "Hey\(firstName), I found you on Gigio for \(gig.title)."
-        
-        switch type {
-        case .withoutTime:
-            body += " Can we arrange something?"
-        case .withTime:
-            if let time = time {
-                body += " Can we plan something on \(time)?"
-            }
-        case .blank:
-            body = ""
-        }
-        return body
-    }
 }
 
 extension MessageHelper: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //... handle sms screen actions
+        saveMessageMetric(result: result)
+        currentVC.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveMessageMetric(result: MessageComposeResult) {
         var messageState: String = "defualt"
         
         switch result {
@@ -100,8 +71,7 @@ extension MessageHelper: MFMessageComposeViewControllerDelegate {
             messageState = "successfully sent"
         }
         
-       MessageDataStore().saveMessageMetric(messageState: messageState, gig: gig)
-        
-        currentVC.dismiss(animated: true, completion: nil)
+        let dataStore = MessageDataStore()
+        dataStore.saveMessageMetric(messageState: messageState, gig: gig)
     }
 }

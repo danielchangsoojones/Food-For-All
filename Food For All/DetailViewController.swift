@@ -63,7 +63,7 @@ class DetailViewController: UIViewController {
         theProfileImageView.addTapGesture(target: self, action: #selector(profileImageTapped))
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
         theTableView = detailView.theTableView
         tableViewSetup()
     }
@@ -114,8 +114,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
             friendCell.mutualFriends = self.mutualFriends
             cell = friendCell
-        case .message:
-            cell = data.createMessageCell()
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -139,8 +137,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .review:
             reviewCellTapped()
-        case .message:
-            messageTapped()
         case .venmo:
             Helpers.venmoTapped(gig: gig)
         default:
@@ -190,14 +186,9 @@ extension DetailViewController {
         }
     }
     
-    func bookButtonPressed(sender: UIButton) {
-        messageTapped()
-        messageHelper?.messageDelegate = self
-    }
-    
-    func messageTapped() {
-        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
-        messageHelper?.send(type: .blank)
+    func messageButtonPressed(sender: UIButton) {
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
+        messageHelper?.show()
     }
     
     func reviewCellTapped() {
@@ -251,6 +242,7 @@ extension DetailViewController: PhotoFormDelegate {
 extension DetailViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         if result == .sent {
+            messageHelper?.saveMessageMetric(result: result)
             let contract = Contract()
             contract.gig = self.gig
             dataStore.save(contract: contract)
@@ -259,7 +251,8 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
             })
         } else {
             //message was canceled
-            self.dismiss(animated: true, completion: nil)
+            messageHelper?.messageComposeViewController(controller, didFinishWith: result)
         }
     }
 }
+
