@@ -11,6 +11,7 @@ import UIKit
 class ContractTableViewCell: UITableViewCell {
     struct Constants {
         static let verticalSpacing: CGFloat = 10
+        static let horizontalInset: CGFloat = 15
     }
     
     override var reuseIdentifier: String? {
@@ -51,7 +52,7 @@ class ContractTableViewCell: UITableViewCell {
         theTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
         theContentView.addSubview(theTitleLabel)
         theTitleLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(Constants.horizontalInset)
             make.top.equalToSuperview().inset(Constants.verticalSpacing)
         }
     }
@@ -64,6 +65,7 @@ class ContractTableViewCell: UITableViewCell {
         theContentView.addSubview(theDescriptionLabel)
         theDescriptionLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(theTitleLabel)
+            make.trailing.equalToSuperview().inset(Constants.horizontalInset)
             make.top.equalTo(theTitleLabel.snp.bottom).offset(Constants.verticalSpacing / 2)
             make.bottom.equalToSuperview().inset(Constants.verticalSpacing)
         }
@@ -74,7 +76,7 @@ class ContractTableViewCell: UITableViewCell {
         
         //TODO: my range is manually counted by me. If I ever changed a title, it would break
         if let price = price {
-            let priceString: NSMutableAttributedString = NSMutableAttributedString(string: "Price: " + price + "\n")
+            let priceString: NSMutableAttributedString = NSMutableAttributedString(string: "Price: " + price)
             priceString.setAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: theDescriptionLabel.font.pointSize, weight: UIFontWeightBold)], range: NSMakeRange(0, 7))
             str.append(priceString)
         }
