@@ -69,7 +69,7 @@ class ContractTableViewCell: UITableViewCell {
         }
     }
     
-    func set(price: String?, time: String?, estimatedDuration: String?) {
+    func set(price: String?, estimatedDuration: String?) {
         let str: NSMutableAttributedString = NSMutableAttributedString(string: "")
         
         //TODO: my range is manually counted by me. If I ever changed a title, it would break
@@ -77,11 +77,6 @@ class ContractTableViewCell: UITableViewCell {
             let priceString: NSMutableAttributedString = NSMutableAttributedString(string: "Price: " + price + "\n")
             priceString.setAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: theDescriptionLabel.font.pointSize, weight: UIFontWeightBold)], range: NSMakeRange(0, 7))
             str.append(priceString)
-        }
-        if let time = time {
-            let timeString: NSMutableAttributedString = NSMutableAttributedString(string: "Time: " + time)
-            timeString.setAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: theDescriptionLabel.font.pointSize, weight: UIFontWeightBold)], range: NSMakeRange(0, 6))
-            str.append(timeString)
         }
         if let duration = estimatedDuration {
             let durationString: NSMutableAttributedString = NSMutableAttributedString(string: "\n\(ServiceFormViewController.Constants.estimatedDuration): " + duration)

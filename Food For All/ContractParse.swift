@@ -15,7 +15,6 @@ class ContractParse: PFObject, PFSubclassing {
     }
     
     @NSManaged var gig: GigParse
-    @NSManaged var plannedTime: Date?
     @NSManaged var customer: User
     @NSManaged var isCompleted: Bool
     
@@ -27,7 +26,6 @@ class ContractParse: PFObject, PFSubclassing {
     init(contract: Contract) {
         super.init()
         self.gig = contract.gig.gigParse
-        self.plannedTime = contract.plannedTime
         self.customer = contract.customer
         self.isCompleted = false
     }
