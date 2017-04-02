@@ -52,11 +52,26 @@ extension WelcomeView {
             make.centerY.equalTo(self)
             make.leading.trailing.equalTo(self).inset(self.frame.width * 0.05)
         }
+        facebookWarningLabelSetup()
     }
     
     fileprivate func facebookButtonSetup() {
         //TODO: add f logo to the button like the Airbnb page
         theFacebookButton = createButton(title: "Continue With Facebook", backgroundColor: UIColor.white, textColor: CustomColors.JellyTeal)
+    }
+    
+    fileprivate func facebookWarningLabelSetup() {
+        let warningLabel = UILabel()
+        warningLabel.text = "Don't Worry! We never post to Facebook without your permission"
+        warningLabel.textColor = UIColor.white
+        warningLabel.numberOfLines = 0
+        warningLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
+        warningLabel.textAlignment = .center
+        self.addSubview(warningLabel)
+        warningLabel.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(theFacebookButton).inset(10)
+            make.top.equalTo(theFacebookButton.snp.bottom).offset(10)
+        }
     }
     
     private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {

@@ -19,6 +19,7 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addMilkMoooversCategory()
         addGradient()
         navBarSetup()
         createTableView()
@@ -43,6 +44,10 @@ class EntryViewController: UIViewController {
         gradient.startPoint = CGPoint(x: 0.4, y: 0.4)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         self.view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    func addMilkMoooversCategory() {
+        categories.insert("Milk Mooovers", at: categories.count - 1)
     }
     
     override var prefersStatusBarHidden: Bool {

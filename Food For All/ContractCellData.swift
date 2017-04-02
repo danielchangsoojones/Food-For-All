@@ -24,17 +24,11 @@ class ContractCellData {
         let cell = ContractTableViewCell(style: .default, reuseIdentifier: nil)
         if let gig = contract?.gig {
             cell.theTitleLabel.text = gig.title
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM d, h:mm a"
-            var dateString: String?
-            if let date = contract?.plannedTime {
-                dateString = formatter.string(from: date)
-            }
             var durationString: String?
             if let duration = contract?.gig.estimatedDuration {
                 durationString = duration
             }
-            cell.set(price: gig.priceString, time: dateString, estimatedDuration: durationString)
+            cell.set(price: gig.priceString, estimatedDuration: durationString)
         }
         return cell
     }

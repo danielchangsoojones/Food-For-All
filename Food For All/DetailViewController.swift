@@ -27,7 +27,6 @@ class DetailViewController: UIViewController {
     var totalMutualFriends: Int = 0
     var photos: [GigPhoto] = []
     var messageHelper: MessageHelper?
-    var events: [CustomEvent] = []
     
     init(gig: Gig) {
         super.init(nibName: nil, bundle: nil)
@@ -64,7 +63,7 @@ class DetailViewController: UIViewController {
         theProfileImageView.addTapGesture(target: self, action: #selector(profileImageTapped))
         thePriceLabel = detailView.thePriceLabel
         detailView.theExitButton.addTarget(self, action: #selector(exitButtonPressed(sender:)), for: .touchUpInside)
-        detailView.theBookButton.addTarget(self, action: #selector(bookButtonPressed(sender:)), for: .touchUpInside)
+        detailView.theMessageButton.addTarget(self, action: #selector(messageButtonPressed(sender:)), for: .touchUpInside)
         theTableView = detailView.theTableView
         tableViewSetup()
     }
@@ -78,7 +77,6 @@ class DetailViewController: UIViewController {
         dataStore.delegate = self
         dataStore.getMutualFriends(creator: gig.creator)
         dataStore.getPhotos(gig: gig, photoDelegate: self)
-        dataStore.getSchedule(gig: gig, scheduleDelegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,8 +114,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let friendCell = data.createMutualFriendsCell(numOfFriends: totalMutualFriends)
             friendCell.mutualFriends = self.mutualFriends
             cell = friendCell
-        case .message:
-            cell = data.createMessageCell()
         case .venmo:
             cell = data.createVenmoCell()
         }
@@ -141,8 +137,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .review:
             reviewCellTapped()
-        case .message:
-            messageTapped()
         case .venmo:
             Helpers.venmoTapped(gig: gig)
         default:
@@ -192,25 +186,9 @@ extension DetailViewController {
         }
     }
     
-    func bookButtonPressed(sender: UIButton) {
-        if events.isEmpty {
-            messageTapped()
-            messageHelper?.messageDelegate = self
-        } else {
-            segueToSchedule()
-        }
-    }
-    
-    fileprivate func segueToSchedule() {
-        let scheduleVC = CustomerScheduleViewController()
-        scheduleVC.gig = self.gig
-        scheduleVC.events = self.events
-        pushVC(scheduleVC)
-    }
-    
-    func messageTapped() {
-        messageHelper = MessageHelper(currentVC: self, gig: self.gig)
-        messageHelper?.send(type: .blank)
+    func messageButtonPressed(sender: UIButton) {
+        messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
+        messageHelper?.show()
     }
     
     func reviewCellTapped() {
@@ -261,15 +239,10 @@ extension DetailViewController: PhotoFormDelegate {
     }
 }
 
-extension DetailViewController: ScheduleDataStoreDelegate {
-    func loaded(events: [CustomEvent]) {
-        self.events = events
-    }
-}
-
 extension DetailViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         if result == .sent {
+            messageHelper?.saveMessageMetric(result: result)
             let contract = Contract()
             contract.gig = self.gig
             dataStore.save(contract: contract)
@@ -278,7 +251,8 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
             })
         } else {
             //message was canceled
-            self.dismiss(animated: true, completion: nil)
+            messageHelper?.messageComposeViewController(controller, didFinishWith: result)
         }
     }
 }
+

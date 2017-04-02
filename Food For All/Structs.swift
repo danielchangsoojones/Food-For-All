@@ -215,11 +215,17 @@ struct Helpers {
     
     static func venmoTapped(gig: Gig) {
         let venmoUsername: String? = gig.creator.venmoUsername
-        let headURL = "https://venmo.com/"
         
         var venmoState: String = "pressed, but no venmo account attatched"
         if let venmoUsername = venmoUsername {
-            if let destinationURL = URL(string: headURL + venmoUsername), UIApplication.shared.canOpenURL(destinationURL) {
+            let headURL = "https://venmo.com/?"
+            let venmoNote = "Gigio: " + gig.title
+            //TODO: this encoded parameter is still blind to & and %, which means it would break (Stop the title up to that point) if a freelancer had a title with & or %.
+            let encodedVenmoNote: String = venmoNote.addingPercentEncoding(
+                withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
+            let price: String = gig.price.toString
+            let targetURL = headURL + "txn=pay&audience=public&recipients=\(venmoUsername)&amount=\(price)&note=\(encodedVenmoNote)"
+            if let destinationURL = URL(string: targetURL), UIApplication.shared.canOpenURL(destinationURL) {
                 UIApplication.shared.openURL(destinationURL)
             } else {
                 Helpers.showBanner(title: "Error", subtitle: "Venmo could not be loaded", bannerType: .error)

@@ -19,8 +19,10 @@ class DetailDataStore {
     var delegate: DetailDataStoreDelegate?
     
     func save(contract: Contract) {
-        let dataStore = CustomerScheduleDataStore()
-        dataStore.save(contract: contract)
+        let contractParse = ContractParse(contract: contract)
+        contractParse.saveInBackground { (success, error) in
+            UserDefaults.standard.set(true, forKey: ContractViewController.Constants.contractKey)
+        }
     }
 }
 
@@ -81,13 +83,6 @@ extension DetailDataStore {
                 }
             }
         }
-    }
-}
-
-extension DetailDataStore {
-    func getSchedule(gig: Gig, scheduleDelegate: ScheduleDataStoreDelegate) {
-        let scheduleDataStore = ScheduleDataStore(delegate: scheduleDelegate)
-        scheduleDataStore.load(from: gig)
     }
 }
 
