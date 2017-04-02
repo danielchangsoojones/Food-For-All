@@ -65,7 +65,7 @@ extension WelcomeView {
         warningLabel.text = "Don't Worry! We never post to Facebook without your permission"
         warningLabel.textColor = UIColor.white
         warningLabel.numberOfLines = 0
-        warningLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
+        warningLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
         warningLabel.textAlignment = .center
         self.addSubview(warningLabel)
         warningLabel.snp.makeConstraints { (make) in
