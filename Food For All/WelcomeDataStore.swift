@@ -115,8 +115,8 @@ extension WelcomeDataStore {
                     currentUser.profileImage = PFFile(name: "profileImage.jpg", data: data!)
                     currentUser.saveInBackground()
                     self.delegate?.segueIntoApplication(isNew: isNew)
-                } else {
-                    print("Failed to update profile image from facebook: \(response.result.error)")
+                } else if let error = response.result.error {
+                    print("Failed to update profile image from facebook: \(error)")
                 }
             })
         }

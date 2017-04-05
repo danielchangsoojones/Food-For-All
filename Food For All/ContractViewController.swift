@@ -19,6 +19,7 @@ class ContractViewController: UIViewController {
     var contract: Contract?
     var messageHelper: MessageHelper?
     var dataStore: ContractDataStore?
+    var contactHelper: ContactHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,8 @@ extension ContractViewController: UITableViewDelegate, UITableViewDataSource {
             cell = data.createMessageCell()
         case .venmo:
             cell = data.createVenmoCell()
+        case .contactUs:
+            cell = data.createContactUsCell()
         }
         
         cell.selectionStyle = .none
@@ -132,6 +135,8 @@ extension ContractViewController {
             messageTapped()
         case .venmo:
             venmoTapped()
+        case .contactUs:
+            contactUsTapped()
         default:
             break
         }
@@ -148,6 +153,11 @@ extension ContractViewController {
         if let gig = contract?.gig {
             Helpers.venmoTapped(gig: gig)
         }
+    }
+    
+    fileprivate func contactUsTapped() {
+        contactHelper = ContactHelper()
+        contactHelper?.contactUs(currentVC: self)
     }
     
     func completedTapped() {

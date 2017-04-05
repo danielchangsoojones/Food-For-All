@@ -11,15 +11,20 @@ import EZSwiftExtensions
 import Mixpanel
 
 class EntryViewController: UIViewController {
+    struct Constants {
+        static let contactUs: String = "Have A Problem?"
+    }
+    
     var theStackView: UIStackView = UIStackView()
     var theSpinnerView: UIView?
     var theTableView: UITableView!
     
     var categories: [String] = Helpers.categories
+    var contactHelper: ContactHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addMilkMoooversCategory()
+        addExtraCategories()
         addGradient()
         navBarSetup()
         createTableView()
@@ -46,8 +51,17 @@ class EntryViewController: UIViewController {
         self.view.layer.insertSublayer(gradient, at: 0)
     }
     
+    fileprivate func addExtraCategories() {
+        addMilkMoooversCategory()
+        addContactUsCategory()
+    }
+    
     func addMilkMoooversCategory() {
         categories.insert("Milk Mooovers", at: categories.count - 1)
+    }
+    
+    fileprivate func addContactUsCategory() {
+        categories.append(Constants.contactUs)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -100,7 +114,18 @@ extension EntryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = categories[indexPath.row]
-        categoryTapped(tag: category)
+        if category == Constants.contactUs {
+            contactCategoryTapped()
+        } else {
+            categoryTapped(tag: category)
+        }
+    }
+    
+    fileprivate func contactCategoryTapped() {
+        //TODO: implement the contact us
+        //need to hold contactHelper in global variable because it uses a message helper which needs to still be alive when the function finished because it is a long running operation to open up a message.
+        contactHelper = ContactHelper()
+        contactHelper?.contactUs(currentVC: self)
     }
     
     func categoryTapped(tag: String) {
