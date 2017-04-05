@@ -11,22 +11,33 @@ import MessageUI
 
 class MessageHelper: NSObject {
     var theSpinnerContainer: UIView?
-    var gig: Gig!
+    var phoneNumber: String = "0"
+    var gig: Gig?
     var currentVC: UIViewController!
     var messageDelegate: MFMessageComposeViewControllerDelegate?
     
-    init(currentVC: UIViewController, gig: Gig, delegate: MFMessageComposeViewControllerDelegate? = nil) {
+    private init(currentVC: UIViewController, delegate: MFMessageComposeViewControllerDelegate? = nil) {
         super.init()
         self.messageDelegate = delegate
         self.currentVC = currentVC
+    }
+    
+    convenience init(currentVC: UIViewController, gig: Gig, delegate: MFMessageComposeViewControllerDelegate? = nil) {
+        self.init(currentVC: currentVC, delegate: delegate)
+        self.phoneNumber = gig.phoneNumberString
         self.gig = gig
+    }
+    
+    convenience init(currentVC: UIViewController, phoneNumber: String, delegate: MFMessageComposeViewControllerDelegate? = nil) {
+        self.init(currentVC: currentVC, delegate: delegate)
+        self.phoneNumber = phoneNumber
     }
     
     func show() {
         theSpinnerContainer = Helpers.showActivityIndicatory(uiView: currentVC.view)
         Timer.runThisAfterDelay(seconds: 0.01) {
             //the spinner was taking a while to show up because sendSMS was somehow taking up the processing, so it felt like the user had not pressed the button. This fixed it.
-            self.sendSMSText(phoneNumber: self.gig.phoneNumberString)
+            self.sendSMSText(phoneNumber: self.phoneNumber)
         }
     }
     
@@ -60,18 +71,20 @@ extension MessageHelper: MFMessageComposeViewControllerDelegate {
     }
     
     func saveMessageMetric(result: MessageComposeResult) {
-        var messageState: String = "defualt"
-        
-        switch result {
-        case .cancelled:
-            messageState = "clicked, but then cancelled"
-        case .failed:
-            messageState = "failure to send"
-        case .sent:
-            messageState = "successfully sent"
+        if let gig = gig {
+            var messageState: String = "defualt"
+            
+            switch result {
+            case .cancelled:
+                messageState = "clicked, but then cancelled"
+            case .failed:
+                messageState = "failure to send"
+            case .sent:
+                messageState = "successfully sent"
+            }
+            
+            let dataStore = MessageDataStore()
+            dataStore.saveMessageMetric(messageState: messageState, gig: gig)
         }
-        
-        let dataStore = MessageDataStore()
-        dataStore.saveMessageMetric(messageState: messageState, gig: gig)
     }
 }

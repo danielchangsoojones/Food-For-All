@@ -69,6 +69,7 @@
 		92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */; };
 		92B3E4581E4F88A700FD2042 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */; };
 		92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3E45B1E4F88FB00FD2042 /* Review.swift */; };
+		92C545671E949F7100EF7C67 /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C545661E949F7100EF7C67 /* ContactHelper.swift */; };
 		92CC52381E772A73006D5E2B /* VenmoContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */; };
 		92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523C1E7733F3006D5E2B /* Contract.swift */; };
 		92CC523F1E7734D9006D5E2B /* ContractParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC523E1E7734D9006D5E2B /* ContractParse.swift */; };
@@ -211,6 +212,7 @@
 		92B3E4551E4F86A500FD2042 /* AllReviewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsView.swift; sourceTree = "<group>"; };
 		92B3E4571E4F88A700FD2042 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		92B3E45B1E4F88FB00FD2042 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		92C545661E949F7100EF7C67 /* ContactHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactHelper.swift; sourceTree = "<group>"; };
 		92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenmoContractTableViewCell.swift; sourceTree = "<group>"; };
 		92CC523C1E7733F3006D5E2B /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		92CC523E1E7734D9006D5E2B /* ContractParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractParse.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				92D199961E4586B900ABC255 /* Profile */,
 				92D199A11E4684BA00ABC255 /* Settings */,
 				924D26FC1E75E59600413CDE /* Contract */,
+				92C545651E949F4100EF7C67 /* ContactUs */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
 				925C5F1A1E25A53F00196504 /* Info.plist */,
 				92D12BA81E3058DF009AC99E /* Models */,
@@ -764,6 +767,14 @@
 				92F86B291E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		92C545651E949F4100EF7C67 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				92C545661E949F7100EF7C67 /* ContactHelper.swift */,
+			);
+			name = ContactUs;
 			sourceTree = "<group>";
 		};
 		92D12B991E282F3A009AC99E /* Welcome */ = {
@@ -1420,6 +1431,7 @@
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
+				92C545671E949F7100EF7C67 /* ContactHelper.swift in Sources */,
 				924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */,
 				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
 				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
