@@ -13,8 +13,9 @@ enum ContractCell: Int {
     case description = 0
     case message = 1
     case venmo = 2
+    case contactUs = 3
     
-    static let all: [ContractCell] = [.description, .message, .venmo]
+    static let all: [ContractCell] = [.description, .message, .venmo, .contactUs]
 }
 
 class ContractCellData {
@@ -40,6 +41,11 @@ class ContractCellData {
     
     func createVenmoCell() -> VenmoContractTableViewCell {
         let cell = VenmoContractTableViewCell()
+        return cell
+    }
+    
+    func createContactUsCell() -> CreationTableViewCell {
+        let cell = CreationTableViewCell(iconImage: #imageLiteral(resourceName: "QuestionMark"), titleText: "Have A Problem?")
         return cell
     }
 }
