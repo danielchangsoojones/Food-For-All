@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SCLAlertView
 
 class SetLocationViewController: UIViewController {
     var theKeyboardAccessoryView: UIView!
@@ -79,14 +80,20 @@ extension SetLocationViewController: CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .restricted, .denied:
-                print("direct to location settings page?")
+                let alert = SCLAlertView()
+                alert.addButton("Settings", action: {
+                    //go to apple system settings for our app page, so they can update location
+                    let path = UIApplicationOpenSettingsURLString
+                    if let settingsURL = URL(string: path), UIApplication.shared.canOpenURL(settingsURL) {
+                        UIApplication.shared.openURL(settingsURL)
+                    }
+                })
+                alert.showInfo("Access Location", subTitle: "Please proceed to your settings to update your location services", closeButtonTitle: "Cancel")
             case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
                 locationManager.delegate = self
                 locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
                 locationManager.requestLocation()
             }
-            
-            
         }
     }
     
