@@ -16,6 +16,7 @@ class SetLocationViewController: UIViewController {
     var theZipCodeTextField: UITextField!
     
     let locationManager = CLLocationManager()
+    var chosenLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,35 @@ class SetLocationViewController: UIViewController {
     override var inputAccessoryView: UIView? {
         return theKeyboardAccessoryView
     }
+    
+    func finishedSaving() {
+        Helpers.enterApplication(from: self)
+    }
 }
 
 //save extension
 extension SetLocationViewController {
     func savePressed() {
         if isValidZipCode() {
-            print("save the user's chosen location!")
+            if let chosenLocation = chosenLocation {
+                //user chose location from current location
+                save(location: chosenLocation)
+            } else {
+                //get location from zip code
+                getLocationFromZipCode()
+            }
+        }
+    }
+    
+    fileprivate func getLocationFromZipCode() {
+        let address = "46032"
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if let placemarks = placemarks, let first = placemarks.first, let targetLocation = first.location {
+                self.save(location: targetLocation)
+            } else if error != nil {
+                Helpers.showBanner(title: "Zip Code Error", subtitle: "Problem saving inputted zip code", bannerType: .error)
+            }
         }
     }
     
@@ -72,10 +95,17 @@ extension SetLocationViewController {
             return false
         }
     }
+    
+    fileprivate func save(location: CLLocation) {
+        User.current()?._location = location
+        User.current()?.saveInBackground()
+        finishedSaving()
+    }
 }
 
 extension SetLocationViewController: CLLocationManagerDelegate {
     func currentLocationButtonPressed() {
+        theZipCodeTextField.resignFirstResponder()
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
@@ -99,11 +129,29 @@ extension SetLocationViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            print("Found user's location: \(location)")
+            chosenLocation = location
+            updateZipCodeText(from: location)
             //the update location is being called twice, this makes it so it will only be called the first time.
             manager.stopUpdatingLocation()
             manager.delegate = nil
         }
+    }
+    
+    fileprivate func updateZipCodeText(from location: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            if error != nil {
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0]
+                
+                self.theZipCodeTextField.text = pm.postalCode
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -117,5 +165,16 @@ extension SetLocationViewController: UITextFieldDelegate {
         let newLength = text.characters.count + string.characters.count - range.length
         let limitLength = 5
         return newLength <= limitLength // Bool
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        chosenLocation = nil
+    }
+}
+
+extension SetLocationViewController {
+    static func create() -> UINavigationController {
+        let clearNavController = ClearNavigationController(rootViewController: SetLocationViewController())
+        return clearNavController
     }
 }

@@ -33,7 +33,8 @@ class AgreementViewController: UIViewController {
     }
     
     func agreePressed() {
-        Helpers.enterApplication(from: self)
+        let setLocationVC = SetLocationViewController.create()
+        presentVC(setLocationVC)
     }
 }
 
