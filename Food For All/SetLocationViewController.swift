@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class SetLocationViewController: UIViewController {
     var theKeyboardAccessoryView: UIView!
     var theZipCodeTextField: UITextField!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,7 @@ class SetLocationViewController: UIViewController {
         locationView.theSaveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         theZipCodeTextField = locationView.theZipCodeTextField
         theZipCodeTextField.delegate = self
+        locationView.theLocationButton.addTarget(self, action: #selector(currentLocationButtonPressed), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +70,37 @@ extension SetLocationViewController {
             Helpers.showBanner(title: "Invalid Zip Code", subtitle: "Please enter a valid 5 digit zip code", bannerType: .error)
             return false
         }
+    }
+}
+
+extension SetLocationViewController: CLLocationManagerDelegate {
+    func currentLocationButtonPressed() {
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .restricted, .denied:
+                print("direct to location settings page?")
+            case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.requestLocation()
+            }
+            
+            
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("Found user's location: \(location)")
+            //the update location is being called twice, this makes it so it will only be called the first time.
+            manager.stopUpdatingLocation()
+            manager.delegate = nil
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Helpers.showBanner(title: "Location Error", subtitle: "Failed to find your location: \(error.localizedDescription)", bannerType: .error)
     }
 }
 
