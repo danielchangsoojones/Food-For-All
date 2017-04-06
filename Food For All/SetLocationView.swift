@@ -82,6 +82,7 @@ class SetLocationView: UIView {
         theZipCodeTextField.textColor = UIColor.white
         theZipCodeTextField.backgroundColor = UIColor.clear
         theZipCodeTextField.textAlignment = .center
+        theZipCodeTextField.keyboardType = .numberPad
         addBottomLineToTextField()
         theStackView.addArrangedSubview(theZipCodeTextField)
     }

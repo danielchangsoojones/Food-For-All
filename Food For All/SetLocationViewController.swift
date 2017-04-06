@@ -10,6 +10,7 @@ import UIKit
 
 class SetLocationViewController: UIViewController {
     var theKeyboardAccessoryView: UIView!
+    var theZipCodeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class SetLocationViewController: UIViewController {
         let locationView = SetLocationView(frame: self.view.bounds)
         self.view = locationView
         theKeyboardAccessoryView = locationView.theKeyboardAccessoryView
+        locationView.theSaveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
+        theZipCodeTextField = locationView.theZipCodeTextField
+        theZipCodeTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,5 +46,33 @@ class SetLocationViewController: UIViewController {
     
     override var inputAccessoryView: UIView? {
         return theKeyboardAccessoryView
+    }
+}
+
+//save extension
+extension SetLocationViewController {
+    func savePressed() {
+        if isValidZipCode() {
+            print("save the user's chosen location!")
+        }
+    }
+    
+    func isValidZipCode() -> Bool {
+        if theZipCodeTextField.text?.characters.count == 5 {
+            //valid zip code
+            return true
+        } else {
+            Helpers.showBanner(title: "Invalid Zip Code", subtitle: "Please enter a valid 5 digit zip code", bannerType: .error)
+            return false
+        }
+    }
+}
+
+extension SetLocationViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        let limitLength = 5
+        return newLength <= limitLength // Bool
     }
 }
