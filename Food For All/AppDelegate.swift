@@ -32,7 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
                 toContractVC()
             } else {
-                toFrontPageVC()
+//                toFrontPageVC()
+                let navController = ClearNavigationController(rootViewController: SetLocationViewController())
+                setInitialVC(vc: navController)
             }
         }
         

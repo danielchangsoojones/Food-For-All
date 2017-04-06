@@ -26,6 +26,8 @@
 		923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */; };
 		923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE81E54D42900F1BFCA /* ReviewParse.swift */; };
 		923A8CEB1E54DD1700F1BFCA /* NewReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */; };
+		9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */; };
+		9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5681E95E2F5005ECA37 /* SetLocationView.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -165,6 +167,8 @@
 		923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRatingDataStore.swift; sourceTree = "<group>"; };
 		923A8CE81E54D42900F1BFCA /* ReviewParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewParse.swift; sourceTree = "<group>"; };
 		923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReviewTests.swift; sourceTree = "<group>"; };
+		9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		9248C5681E95E2F5005ECA37 /* SetLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationView.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -466,6 +470,15 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		9248C5651E95D588005ECA37 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */,
+				9248C5681E95E2F5005ECA37 /* SetLocationView.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +574,7 @@
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
+				9248C5651E95D588005ECA37 /* Location */,
 				921C79881E46C34200D9396B /* Entry Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
@@ -1421,6 +1435,7 @@
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
+				9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */,
 				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
@@ -1447,6 +1462,7 @@
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,
+				9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
 				92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */,
 				926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */,
