@@ -46,6 +46,7 @@ class FrontPageViewController: UIViewController {
     
     fileprivate func addTableViewVC() {
         tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
+        tableVC.freelancerDelegate = self
         tableVC.gigs = self.gigs
     }
 }
@@ -103,6 +104,13 @@ extension FrontPageViewController: MainSearchViewDelegate {
         UIGraphicsEndImageContext()
         
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+    }
+}
+
+//tableview empty state
+extension FrontPageViewController: FreelancersTableVCDelegate {
+    func createButtonPressed() {
+        print("create a gig now")
     }
 }
 

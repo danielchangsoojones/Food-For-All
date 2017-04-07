@@ -10,12 +10,18 @@ import UIKit
 import EZSwiftExtensions
 import SnapKit
 
+protocol FreelancersTableVCDelegate {
+    func createButtonPressed()
+}
+
 class FreelancersTableViewController: UITableViewController {
     var gigs: [Gig] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var freelancerDelegate: FreelancersTableVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,21 @@ class FreelancersTableViewController: UITableViewController {
         let tappedGig = gigs[indexPath.row]
         let destinationVC = DetailViewController(gig: tappedGig)
         parent?.pushVC(destinationVC)
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if gigs.count > 0 {
+            return 1
+        } else {
+            let emptyView = EmptyGigsView(frame: tableView.frame)
+            emptyView.theCreateButton.addTarget(self, action: #selector(createButtonPressed), for: .touchUpInside)
+            tableView.backgroundView = emptyView
+            return 0
+        }
+    }
+    
+    func createButtonPressed() {
+        freelancerDelegate?.createButtonPressed()
     }
 }
 
