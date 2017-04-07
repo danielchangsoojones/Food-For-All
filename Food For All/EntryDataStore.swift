@@ -25,9 +25,12 @@ class EntryDataStore {
         let query = GigParse.query() as! PFQuery<GigParse>
         query.whereKey("tags", equalTo: tag.lowercased())
         
-        let creatorQuery = User.query()!
-        creatorQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: 60)
-        query.whereKey("creator", matchesQuery: creatorQuery)
+        if tag.lowercased() != "milk mooovers" {
+            let creatorQuery = User.query()!
+            creatorQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: 60)
+            query.whereKey("creator", matchesQuery: creatorQuery)
+        }
+        
         
         query.includeKey("creator")
         query.order(byDescending: "numOfReviews")
