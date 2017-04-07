@@ -8,6 +8,7 @@
 
 import UIKit
 import Former
+import CoreLocation
 
 class SettingsViewController: FormViewController {
     var dataStore: SettingsDataStore? = SettingsDataStore()
@@ -16,6 +17,7 @@ class SettingsViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutSetup()
+        setLocationSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,5 +44,38 @@ extension SettingsViewController {
         let rootVC = WelcomeViewController()
         let navController = ClearNavigationController(rootViewController: rootVC)
         presentVC(navController)
+    }
+}
+
+extension SettingsViewController {
+    fileprivate func setLocationSetup() {
+        let locationRow = LabelRowFormer<FormLabelCell>()
+            .configure { row in
+                row.text = "Location"
+                self.setZipCodeText(row: row)
+            }.onSelected { row in
+                self.pushVC(SetLocationViewController())
+        }
+        let section = SectionFormer(rowFormer: locationRow)
+        former.append(sectionFormer: section)
+    }
+    
+    fileprivate func setZipCodeText(row: LabelRowFormer<FormLabelCell>) {
+        if let location = User.current()?._location {
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                if error != nil {
+                    print("Reverse geocoder failed with error" + error!.localizedDescription)
+                    return
+                }
+                
+                if placemarks!.count > 0 {
+                    let pm = placemarks![0]
+                    
+                    row.subText = pm.postalCode
+                } else {
+                    print("Problem with the data received from geocoder")
+                }
+            })
+        }
     }
 }

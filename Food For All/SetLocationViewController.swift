@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 import CoreLocation
 import SCLAlertView
 
@@ -75,7 +74,7 @@ extension SetLocationViewController {
     }
     
     fileprivate func getLocationFromZipCode() {
-        let address = "46032"
+        let address: String = theZipCodeTextField.text ?? ""
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             if let placemarks = placemarks, let first = placemarks.first, let targetLocation = first.location {
