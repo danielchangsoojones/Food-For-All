@@ -8,14 +8,18 @@
 
 import UIKit
 import Former
+import CoreLocation
 
 class SettingsViewController: FormViewController {
+    var theLocationRow: LabelRowFormer<FormLabelCell>!
+    
     var dataStore: SettingsDataStore? = SettingsDataStore()
     
     //TODO: the nav bar is transparent and we need it to be solid
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutSetup()
+        setLocationSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,5 +46,52 @@ extension SettingsViewController {
         let rootVC = WelcomeViewController()
         let navController = ClearNavigationController(rootViewController: rootVC)
         presentVC(navController)
+    }
+}
+
+extension SettingsViewController: SettingsLocationVCDelegate {
+    fileprivate func setLocationSetup() {
+        theLocationRow = LabelRowFormer<FormLabelCell>()
+            .configure { row in
+                row.text = "Location"
+                self.setZipCodeText(row: row)
+            }.onSelected { row in
+                self.locationRowPressed()
+        }
+        let section = SectionFormer(rowFormer: theLocationRow)
+        former.append(sectionFormer: section)
+    }
+    
+    fileprivate func locationRowPressed() {
+        let locationVC = SettingsLocationViewController()
+        locationVC.delegate = self
+        pushVC(locationVC)
+    }
+    
+    fileprivate func setZipCodeText(row: LabelRowFormer<FormLabelCell>) {
+        if let location = User.current()?._location {
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                if error != nil {
+                    print("Reverse geocoder failed with error" + error!.localizedDescription)
+                    return
+                }
+                
+                if placemarks!.count > 0 {
+                    let pm = placemarks![0]
+                    
+                    row.update({ (row) in
+                        row.subText = pm.postalCode
+                    })
+                } else {
+                    print("Problem with the data received from geocoder")
+                }
+            })
+        }
+    }
+    
+    func update(zipCode: String) {
+        theLocationRow.update { (row) in
+            row.subText = zipCode
+        }
     }
 }

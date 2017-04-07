@@ -17,7 +17,7 @@ class User: PFUser {
     @NSManaged var lowercaseLastName: String?
     @NSManaged var birthDate: Date?
     @NSManaged var facebookId : String?
-    @NSManaged var location: PFGeoPoint
+    @NSManaged fileprivate var location: PFGeoPoint?
     @NSManaged var venmoUsername: String?
     @NSManaged var profileImage: PFFile?
     @NSManaged var phoneNumber: Double
@@ -61,5 +61,19 @@ class User: PFUser {
                                                                 to: now,
                                                                 options: [])
         return ageComponents.year!
+    }
+    
+    var _location: CLLocation? {
+        get {
+            if let location = location {
+                return CLLocation(latitude: location.latitude, longitude: location.longitude)
+            }
+            return nil
+        }
+        set (newLocation) {
+            if let newLocation = newLocation {
+                location = PFGeoPoint(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.longitude)
+            }
+        }
     }
 }

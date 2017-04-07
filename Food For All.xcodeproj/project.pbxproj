@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
+		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
+		9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152091E97FC27003A4455 /* EmptyGigsView.swift */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
 		921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */; };
@@ -26,12 +28,13 @@
 		923A8CE71E54D3C500F1BFCA /* NewRatingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */; };
 		923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CE81E54D42900F1BFCA /* ReviewParse.swift */; };
 		923A8CEB1E54DD1700F1BFCA /* NewReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */; };
+		9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */; };
+		9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5681E95E2F5005ECA37 /* SetLocationView.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
 		924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27051E7606CE00413CDE /* ContractCellData.swift */; };
 		924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27071E76075300413CDE /* ContractTableViewCell.swift */; };
-		9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */; };
 		9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7161E37E2780034F6D0 /* GigParse.swift */; };
 		9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B7191E3940F70034F6D0 /* DetailViewController.swift */; };
 		9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254B71B1E3942DB0034F6D0 /* DetailView.swift */; };
@@ -147,6 +150,8 @@
 /* Begin PBXFileReference section */
 		1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_AllTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
+		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
+		921152091E97FC27003A4455 /* EmptyGigsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsView.swift; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EntryViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDataStore.swift; sourceTree = "<group>"; };
@@ -165,12 +170,13 @@
 		923A8CE61E54D3C500F1BFCA /* NewRatingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRatingDataStore.swift; sourceTree = "<group>"; };
 		923A8CE81E54D42900F1BFCA /* ReviewParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewParse.swift; sourceTree = "<group>"; };
 		923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReviewTests.swift; sourceTree = "<group>"; };
+		9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		9248C5681E95E2F5005ECA37 /* SetLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationView.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
 		924D27051E7606CE00413CDE /* ContractCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractCellData.swift; sourceTree = "<group>"; };
 		924D27071E76075300413CDE /* ContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
-		9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageDataStore.swift; sourceTree = "<group>"; };
 		9254B7161E37E2780034F6D0 /* GigParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigParse.swift; sourceTree = "<group>"; };
 		9254B7191E3940F70034F6D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9254B71B1E3942DB0034F6D0 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -326,6 +332,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		921152051E97D1B3003A4455 /* Settings Location */ = {
+			isa = PBXGroup;
+			children = (
+				921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */,
+			);
+			name = "Settings Location";
+			sourceTree = "<group>";
+		};
+		921152081E97FC03003A4455 /* Empty State */ = {
+			isa = PBXGroup;
+			children = (
+				921152091E97FC27003A4455 /* EmptyGigsView.swift */,
+			);
+			name = "Empty State";
+			sourceTree = "<group>";
+		};
 		921C79881E46C34200D9396B /* Entry Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +488,16 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		9248C5651E95D588005ECA37 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				921152051E97D1B3003A4455 /* Settings Location */,
+				9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */,
+				9248C5681E95E2F5005ECA37 /* SetLocationView.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,14 +536,6 @@
 				927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */,
 			);
 			name = Navigation;
-			sourceTree = "<group>";
-		};
-		9254B7131E37E1D70034F6D0 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				9254B7141E37E1EF0034F6D0 /* FrontPageDataStore.swift */,
-			);
-			name = "Data Store";
 			sourceTree = "<group>";
 		};
 		9254B7181E39405B0034F6D0 /* Gig Detail */ = {
@@ -561,6 +585,7 @@
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
+				9248C5651E95D588005ECA37 /* Location */,
 				921C79881E46C34200D9396B /* Entry Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
@@ -973,7 +998,6 @@
 		92DD8D2E1E3509F8009EB164 /* Front Page */ = {
 			isa = PBXGroup;
 			children = (
-				9254B7131E37E1D70034F6D0 /* Data Store */,
 				9279DA211E3CE71000E2CCA1 /* Search Bar */,
 				92DD8D311E350B22009EB164 /* FrontPageViewController.swift */,
 				92DD8D331E350B43009EB164 /* FrontPageView.swift */,
@@ -984,6 +1008,7 @@
 		92DD8D351E35348B009EB164 /* Freelancers TableView */ = {
 			isa = PBXGroup;
 			children = (
+				921152081E97FC03003A4455 /* Empty State */,
 				92DD8D361E3534A5009EB164 /* Cell */,
 				92DD8D2F1E350A28009EB164 /* FreelancersTableViewController.swift */,
 			);
@@ -1385,9 +1410,11 @@
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
+				921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */,
 				924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
+				9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
@@ -1407,7 +1434,6 @@
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
-				9254B7151E37E1EF0034F6D0 /* FrontPageDataStore.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
@@ -1421,6 +1447,7 @@
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
+				9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */,
 				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
@@ -1447,6 +1474,7 @@
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,
+				9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */,
 				92D199901E452F3C00ABC255 /* Camera.swift in Sources */,
 				92D199A01E458F7200ABC255 /* PersonalFreelancersTableViewCell.swift in Sources */,
 				926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */,
@@ -1602,7 +1630,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1621,7 +1649,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1817,7 +1845,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

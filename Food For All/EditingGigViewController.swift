@@ -13,7 +13,6 @@ protocol EditingGigDelegate {
     func update(gig: Gig)
 }
 
-
 class EditingGigViewController: CreationViewController {
     var theButtonStackView: UIStackView!
     var theTableViewFooterView: UIView!

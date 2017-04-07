@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             toWelcomeVC()
         } else {
             //already logged in
-            if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
+            if User.current()?._location == nil {
+                toSetLocationVC()
+            } else if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
                 toContractVC()
             } else {
                 toFrontPageVC()
@@ -83,6 +85,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func toFrontPageVC() {
         let tabBarController = CustomTabBarController()
         setInitialVC(vc: tabBarController)
+    }
+    
+    fileprivate func toSetLocationVC() {
+        let navController = SetLocationViewController.create()
+        setInitialVC(vc: navController)
     }
     
     fileprivate func toContractVC() {

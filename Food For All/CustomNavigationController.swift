@@ -13,7 +13,6 @@ class CustomNavigationController: UINavigationController {
         static let navBarTintColor: UIColor = UIColor.white
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = Constants.navBarTintColor //makes the back button a certain color
@@ -55,5 +54,16 @@ class CustomNavigationController: UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    public func popViewController(animated: Bool, completion: (() -> Void)?) -> UIViewController? {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        
+        let controller = self.popViewController(animated: animated)
+        
+        CATransaction.commit()
+        
+        return controller
     }
 }

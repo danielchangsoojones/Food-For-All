@@ -129,7 +129,7 @@ extension ProfileViewController {
     }
     
     func editProfile() {
-        print("edit profile")
+        print(" profile")
     }
     
     func goToSettings() {
