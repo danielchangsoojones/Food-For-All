@@ -24,6 +24,7 @@ class SetLocationViewController: UIViewController {
         //To show the input accessory view initially
         self.becomeFirstResponder()
         CustomColors.addGradient(colors: CustomColors.creationGradientColors, to: self.view)
+        zipCodeTextFieldSetup()
     }
     
     fileprivate func viewSetup() {
@@ -32,7 +33,6 @@ class SetLocationViewController: UIViewController {
         theKeyboardAccessoryView = locationView.theKeyboardAccessoryView
         locationView.theSaveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         theZipCodeTextField = locationView.theZipCodeTextField
-        theZipCodeTextField.delegate = self
         locationView.theLocationButton.addTarget(self, action: #selector(currentLocationButtonPressed), for: .touchUpInside)
     }
 
@@ -159,6 +159,13 @@ extension SetLocationViewController: CLLocationManagerDelegate {
 }
 
 extension SetLocationViewController: UITextFieldDelegate {
+    fileprivate func zipCodeTextFieldSetup() {
+        theZipCodeTextField.delegate = self
+        if let location = User.current()?._location {
+            updateZipCodeText(from: location)
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
