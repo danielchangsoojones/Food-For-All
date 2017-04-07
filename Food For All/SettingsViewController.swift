@@ -71,7 +71,9 @@ extension SettingsViewController {
                 if placemarks!.count > 0 {
                     let pm = placemarks![0]
                     
-                    row.subText = pm.postalCode
+                    row.update({ (row) in
+                        row.subText = pm.postalCode
+                    })
                 } else {
                     print("Problem with the data received from geocoder")
                 }

@@ -72,7 +72,7 @@ class User: PFUser {
         }
         set (newLocation) {
             if let newLocation = newLocation {
-                location = PFGeoPoint(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.latitude)
+                location = PFGeoPoint(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.longitude)
             }
         }
     }
