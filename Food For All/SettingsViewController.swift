@@ -11,6 +11,8 @@ import Former
 import CoreLocation
 
 class SettingsViewController: FormViewController {
+    var theLocationRow: LabelRowFormer<FormLabelCell>!
+    
     var dataStore: SettingsDataStore? = SettingsDataStore()
     
     //TODO: the nav bar is transparent and we need it to be solid
@@ -47,17 +49,23 @@ extension SettingsViewController {
     }
 }
 
-extension SettingsViewController {
+extension SettingsViewController: SettingsLocationVCDelegate {
     fileprivate func setLocationSetup() {
-        let locationRow = LabelRowFormer<FormLabelCell>()
+        theLocationRow = LabelRowFormer<FormLabelCell>()
             .configure { row in
                 row.text = "Location"
                 self.setZipCodeText(row: row)
             }.onSelected { row in
-                self.pushVC(SetLocationViewController())
+                self.locationRowPressed()
         }
-        let section = SectionFormer(rowFormer: locationRow)
+        let section = SectionFormer(rowFormer: theLocationRow)
         former.append(sectionFormer: section)
+    }
+    
+    fileprivate func locationRowPressed() {
+        let locationVC = SettingsLocationViewController()
+        locationVC.delegate = self
+        pushVC(locationVC)
     }
     
     fileprivate func setZipCodeText(row: LabelRowFormer<FormLabelCell>) {
@@ -78,6 +86,12 @@ extension SettingsViewController {
                     print("Problem with the data received from geocoder")
                 }
             })
+        }
+    }
+    
+    func update(zipCode: String) {
+        theLocationRow.update { (row) in
+            row.subText = zipCode
         }
     }
 }

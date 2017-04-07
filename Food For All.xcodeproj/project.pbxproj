@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
+		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
 		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
 		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
 		921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */; };
@@ -149,6 +150,7 @@
 /* Begin PBXFileReference section */
 		1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_AllTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
+		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
 		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
 		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EntryViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDataStore.swift; sourceTree = "<group>"; };
@@ -330,6 +332,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		921152051E97D1B3003A4455 /* Settings Location */ = {
+			isa = PBXGroup;
+			children = (
+				921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */,
+			);
+			name = "Settings Location";
+			sourceTree = "<group>";
+		};
 		921C79881E46C34200D9396B /* Entry Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +483,7 @@
 		9248C5651E95D588005ECA37 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				921152051E97D1B3003A4455 /* Settings Location */,
 				9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */,
 				9248C5681E95E2F5005ECA37 /* SetLocationView.swift */,
 			);
@@ -1399,6 +1410,7 @@
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
+				921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */,
 				924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
