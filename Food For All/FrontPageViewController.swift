@@ -110,7 +110,15 @@ extension FrontPageViewController: MainSearchViewDelegate {
 //tableview empty state
 extension FrontPageViewController: FreelancersTableVCDelegate {
     func createButtonPressed() {
-        print("create a gig now")
+        if let navController = navigationController as? CustomNavigationController {
+            _ = navController.popViewController(animated: false, completion: {
+                if let vc = navController.viewControllers.last {
+                    let rootVC = CreationViewController()
+                    let clearNavController = ClearNavigationController(rootViewController: rootVC)
+                    vc.presentVC(clearNavController)
+                }
+            })
+        }
     }
 }
 
