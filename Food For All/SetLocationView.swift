@@ -40,7 +40,7 @@ class SetLocationView: UIView {
         theStackView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             //I'm not sure why, but just having it centered looks funny
-            make.centerY.equalToSuperview().offset(-20)
+            make.centerY.equalTo(self.frame.height * 0.25)
         }
     }
     

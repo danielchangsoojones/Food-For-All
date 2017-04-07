@@ -12,14 +12,11 @@ class FrontPageViewController: UIViewController {
     var tableVC: FreelancersTableViewController!
     var theSearchView: MainSearchView?
     
-    var dataStore: FrontPageDataStore?
-    
     var gigs: [Gig] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        dataStoreSetup()
         addTableViewVC()
         searchButtonSetup()
     }
@@ -47,19 +44,9 @@ class FrontPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    fileprivate func dataStoreSetup() {
-        dataStore = FrontPageDataStore(delegate: self)
-    }
-    
     fileprivate func addTableViewVC() {
         tableVC = FreelancersTableViewController.add(to: self, toView: self.view)
-        if !gigs.isEmpty {
-            //gigs were passed from another screen
-            tableVC.gigs = self.gigs
-        } else {
-            //load the default gigs
-            dataStore?.loadDefaultGigs()
-        }
+        tableVC.gigs = self.gigs
     }
 }
 
@@ -119,7 +106,7 @@ extension FrontPageViewController: MainSearchViewDelegate {
     }
 }
 
-extension FrontPageViewController: FrontPageDataStoreDelegate, SearchVCDelegate {
+extension FrontPageViewController: SearchVCDelegate {
     func pass(gigs: [Gig]) {
         self.gigs = gigs
         tableVC.gigs = gigs
