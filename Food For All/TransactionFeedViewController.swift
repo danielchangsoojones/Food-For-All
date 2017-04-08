@@ -63,6 +63,22 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
+//empty state extension
+extension TransactionFeedViewController {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if !transactions.isEmpty {
+            return 1
+        } else {
+            EmptyState.showEmptyGigsView(tableView: tableView, currentVC: self, action: #selector(createButtonPressed))
+            return 0
+        }
+    }
+    
+    func createButtonPressed() {
+        CreationViewController.show(from: self)
+    }
+}
+
 extension TransactionFeedViewController: TransactionFeedDataStoreDelegate {
     func loaded(transactions reviews: [Review]) {
         self.transactions = reviews

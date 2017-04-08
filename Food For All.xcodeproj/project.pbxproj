@@ -36,6 +36,7 @@
 		9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */; };
 		9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */; };
 		9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5781E999F5F005ECA37 /* TransactionContentView.swift */; };
+		9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57A1E99AA52005ECA37 /* EmptyState.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -184,6 +185,7 @@
 		9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHeadView.swift; sourceTree = "<group>"; };
 		9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedDataStore.swift; sourceTree = "<group>"; };
 		9248C5781E999F5F005ECA37 /* TransactionContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContentView.swift; sourceTree = "<group>"; };
+		9248C57A1E99AA52005ECA37 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 				92DD8D391E358D10009EB164 /* Circle Views */,
 				927BE0AD1E26F4BF00220168 /* Configurations */,
 				925C5F261E25BD4600196504 /* Structs.swift */,
+				9248C57A1E99AA52005ECA37 /* EmptyState.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1525,6 +1528,7 @@
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
+				9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,

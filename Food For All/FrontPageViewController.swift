@@ -113,9 +113,7 @@ extension FrontPageViewController: FreelancersTableVCDelegate {
         if let navController = navigationController as? CustomNavigationController {
             _ = navController.popViewController(animated: false, completion: {
                 if let vc = navController.viewControllers.last {
-                    let rootVC = CreationViewController()
-                    let clearNavController = ClearNavigationController(rootViewController: rootVC)
-                    vc.presentVC(clearNavController)
+                    CreationViewController.show(from: vc)
                 }
             })
         }
