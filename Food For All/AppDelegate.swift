@@ -34,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
                 toContractVC()
             } else {
-                toFrontPageVC()
+                let navController = UINavigationController(rootViewController: TransactionFeedViewController())
+                setInitialVC(vc: navController)
+//                toFrontPageVC()
             }
         }
         

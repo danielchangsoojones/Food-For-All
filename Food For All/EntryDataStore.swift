@@ -27,7 +27,7 @@ class EntryDataStore {
         
         if tag.lowercased() != "milk mooovers" {
             let creatorQuery = User.query()!
-            creatorQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: 60)
+            creatorQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: TransactionFeedDataStore.Constants.distanceRadius)
             query.whereKey("creator", matchesQuery: creatorQuery)
         }
         

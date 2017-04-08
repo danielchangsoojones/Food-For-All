@@ -30,6 +30,11 @@
 		923A8CEB1E54DD1700F1BFCA /* NewReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */; };
 		9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */; };
 		9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5681E95E2F5005ECA37 /* SetLocationView.swift */; };
+		9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */; };
+		9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */; };
+		9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */; };
+		9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */; };
+		9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -172,6 +177,11 @@
 		923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReviewTests.swift; sourceTree = "<group>"; };
 		9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 		9248C5681E95E2F5005ECA37 /* SetLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationView.swift; sourceTree = "<group>"; };
+		9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedViewController.swift; sourceTree = "<group>"; };
+		9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedView.swift; sourceTree = "<group>"; };
+		9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHeadView.swift; sourceTree = "<group>"; };
+		9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedDataStore.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -498,6 +508,42 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		9248C56A1E997486005ECA37 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5721E997957005ECA37 /* Subview */,
+				9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9248C56D1E99755B005ECA37 /* Transaction Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5751E998265005ECA37 /* Data Store */,
+				9248C56A1E997486005ECA37 /* Cell */,
+				9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */,
+				9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */,
+			);
+			name = "Transaction Feed";
+			sourceTree = "<group>";
+		};
+		9248C5721E997957005ECA37 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */,
+			);
+			name = Subview;
+			sourceTree = "<group>";
+		};
+		9248C5751E998265005ECA37 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
+				9248C56D1E99755B005ECA37 /* Transaction Feed */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
 				9248C5651E95D588005ECA37 /* Location */,
 				921C79881E46C34200D9396B /* Entry Page */,
@@ -1390,6 +1437,7 @@
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */,
+				9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
 				9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */,
@@ -1431,6 +1479,7 @@
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
+				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
@@ -1438,6 +1487,7 @@
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
+				9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
@@ -1458,6 +1508,7 @@
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
+				9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */,
 				92C545671E949F7100EF7C67 /* ContactHelper.swift in Sources */,
 				924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */,
 				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
@@ -1496,6 +1547,7 @@
 				924D27001E75E62C00413CDE /* ContractView.swift in Sources */,
 				9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */,
 				92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */,
+				9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */,
 				92DD8D341E350B43009EB164 /* FrontPageView.swift in Sources */,
 				923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */,
 			);
