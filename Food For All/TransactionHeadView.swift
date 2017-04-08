@@ -10,7 +10,7 @@ import UIKit
 
 class TransactionHeadView: UIView {
     struct Constants {
-        static let horizontalInset: CGFloat = 10
+        static let height: CGFloat = 70
     }
     
     var theProfileImageView: CircularImageView!
@@ -18,7 +18,7 @@ class TransactionHeadView: UIView {
     var theStarsView: MyCosmosView!
     
     init(width: CGFloat) {
-        super.init(frame: CGRect(x: 0, y: 0, w: width, h: 70))
+        super.init(frame: CGRect(x: 0, y: 0, w: width, h: Constants.height))
         profileImageViewSetup()
         titleLabelSetup()
         starsSetup()
@@ -33,7 +33,7 @@ class TransactionHeadView: UIView {
         self.addSubview(theProfileImageView)
         theProfileImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(Constants.horizontalInset)
+            make.leading.equalToSuperview()
         }
     }
     
@@ -43,7 +43,7 @@ class TransactionHeadView: UIView {
         self.addSubview(theTitleLabel)
         theTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(theProfileImageView)
-            make.leading.equalTo(theProfileImageView.snp.trailing).offset(Constants.horizontalInset)
+            make.leading.equalTo(theProfileImageView.snp.trailing).offset(10)
             make.trailing.equalToSuperview()
         }
     }
@@ -52,7 +52,7 @@ class TransactionHeadView: UIView {
         theStarsView = MyCosmosView(rating: 0)
         self.addSubview(theStarsView)
         theStarsView.snp.makeConstraints { (make) in
-            make.top.equalTo(theTitleLabel.snp.bottom).offset(10)
+            make.top.equalTo(theTitleLabel.snp.bottom).offset(7)
             make.leading.equalTo(theTitleLabel)
         }
     }

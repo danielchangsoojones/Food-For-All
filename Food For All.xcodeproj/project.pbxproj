@@ -35,6 +35,7 @@
 		9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */; };
 		9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */; };
 		9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */; };
+		9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5781E999F5F005ECA37 /* TransactionContentView.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -182,6 +183,7 @@
 		9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedView.swift; sourceTree = "<group>"; };
 		9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHeadView.swift; sourceTree = "<group>"; };
 		9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedDataStore.swift; sourceTree = "<group>"; };
+		9248C5781E999F5F005ECA37 /* TransactionContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContentView.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */,
+				9248C5781E999F5F005ECA37 /* TransactionContentView.swift */,
 			);
 			name = Subview;
 			sourceTree = "<group>";
@@ -1538,6 +1541,7 @@
 				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,
 				924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */,
+				9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,
