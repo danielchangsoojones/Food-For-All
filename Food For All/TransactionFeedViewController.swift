@@ -32,6 +32,13 @@ class TransactionFeedViewController: UIViewController {
         navBarSetup()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+        }
+    }
+    
     fileprivate func viewSetup() {
         let transactionView = TransactionFeedView(frame: self.view.bounds)
         self.view = transactionView

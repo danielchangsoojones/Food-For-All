@@ -28,6 +28,7 @@ class SearchNavigationController: ScrollingNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white //so when we change the nav bar height it doesn't have weird blackness.
+        navigationBar.tintColor = UIColor.white
     }
     
     fileprivate func setEnlargedSearchNavigationBar() {
@@ -39,21 +40,28 @@ class SearchNavigationController: ScrollingNavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count == 1 {
             //pushing from root view controller
             let height: CGFloat = 50 //whatever height you want
             self.navigationBar.frame = CGRect(x: 0, y: 0, width: self.navigationBar.bounds.width, height: height)
-            navigationBar.removeSubviews()
-            makeTransparent()
+            removeSearchSubviews()
+            CustomNavigationController.makeTransparent(navBar: navigationBar)
         }
+        CustomNavigationController.createCustomBackButton(navController: self)
         super.pushViewController(viewController, animated: animated)
     }
     
-    fileprivate func makeTransparent() {
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
+    fileprivate func removeSearchSubviews() {
+        for subview in navigationBar.subviews {
+            if subview is MainSearchView {
+                subview.removeFromSuperview()
+            }
+        }
     }
     
     override func popViewController(animated: Bool) -> UIViewController? {

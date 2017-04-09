@@ -24,16 +24,7 @@ class CustomNavigationController: UINavigationController {
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        //when we push a new view controller, we want to have a a custom back button.
-        //To set the back item for a View Controller, you need to set the back item in the previous ViewController, hence why I am setting it here. YOu can't set it in the destinationVC or it is too late
-        //This allows us to have the same backButton throughout the app
-        if viewControllers.count >= 1 {
-            let pushingVC = viewControllers[viewControllers.count - 1]
-            let backItem = UIBarButtonItem()
-            backItem.title = "" //get rid of the title, we just want the back arrow: <
-            pushingVC.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-            tabBarController?.tabBar.isHidden = true
-        }
+        CustomNavigationController.createCustomBackButton(navController: self)
         super.pushViewController(viewController, animated: animated)
     }
     
@@ -47,9 +38,7 @@ class CustomNavigationController: UINavigationController {
     }
     
     func makeTransparent() {
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
+        CustomNavigationController.makeTransparent(navBar: navigationBar)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -65,5 +54,26 @@ class CustomNavigationController: UINavigationController {
         CATransaction.commit()
         
         return controller
+    }
+}
+
+extension CustomNavigationController {
+    static func createCustomBackButton(navController: UINavigationController) {
+        //when we push a new view controller, we want to have a a custom back button.
+        //To set the back item for a View Controller, you need to set the back item in the previous ViewController, hence why I am setting it here. YOu can't set it in the destinationVC or it is too late
+        //This allows us to have the same backButton throughout the app
+        if navController.viewControllers.count >= 1 {
+            let pushingVC = navController.viewControllers[navController.viewControllers.count - 1]
+            let backItem = UIBarButtonItem()
+            backItem.title = "" //get rid of the title, we just want the back arrow: <
+            pushingVC.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+            navController.tabBarController?.tabBar.isHidden = true
+        }
+    }
+    
+    static func makeTransparent(navBar: UINavigationBar) {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
     }
 }
