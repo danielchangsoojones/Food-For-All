@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug (Staging)" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ALCameraViewController/ALCameraViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AMScrollingNavbar/AMScrollingNavbar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/AlamofireImage/AlamofireImage.framework"
@@ -115,6 +116,7 @@ if [[ "$CONFIGURATION" == "Debug (Staging)" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Debug (Production)" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ALCameraViewController/ALCameraViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AMScrollingNavbar/AMScrollingNavbar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/AlamofireImage/AlamofireImage.framework"
@@ -145,6 +147,7 @@ if [[ "$CONFIGURATION" == "Debug (Production)" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ALCameraViewController/ALCameraViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AMScrollingNavbar/AMScrollingNavbar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/AlamofireImage/AlamofireImage.framework"

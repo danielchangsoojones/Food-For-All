@@ -11,13 +11,13 @@ import UIKit
 
 extension TransactionFeedViewController {
         fileprivate func searchBarSetup() {
-            let frame: CGRect = navBar?.bounds ?? CGRect.zero
-            let insetFrame = frame.insetBy(dx: 10, dy: 6)
-            theSearchView = MainSearchView(frame: insetFrame, delegate: self)
-            theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
-            if let searchView = theSearchView {
-                self.navBar?.addSubview(searchView)
-            }
+//            let frame: CGRect = navBar?.bounds ?? CGRect.zero
+//            let insetFrame = frame.insetBy(dx: 10, dy: 6)
+//            theSearchView = MainSearchView(frame: insetFrame, delegate: self)
+//            theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
+//            if let searchView = theSearchView {
+//                self.navBar?.addSubview(searchView)
+//            }
         }
     
     func handleTap() {

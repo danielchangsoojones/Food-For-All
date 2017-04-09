@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AMScrollingNavbar
 
 class TransactionFeedViewController: UIViewController {
     var theTableView: UITableView!
@@ -20,6 +21,13 @@ class TransactionFeedViewController: UIViewController {
         viewSetup()
         tableViewSetup()
         dataStoreSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(theTableView, delay: 50.0)
+        }
     }
     
     fileprivate func viewSetup() {

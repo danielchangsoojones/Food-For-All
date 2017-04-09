@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1D793E0D1B62F97985F69EAEC7F0C9D3'
-               BlueprintName = 'NYTPhotoViewer-NYTPhotoViewer'
+               BlueprintIdentifier = '3B704C9C2397EE9902ECE6BF81FCC089'
+               BlueprintName = 'AMScrollingNavbar'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'NYTPhotoViewer.bundle'>
+               BuildableName = 'AMScrollingNavbar.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

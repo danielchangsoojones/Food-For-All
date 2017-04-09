@@ -38,6 +38,8 @@
 		9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5781E999F5F005ECA37 /* TransactionContentView.swift */; };
 		9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57A1E99AA52005ECA37 /* EmptyState.swift */; };
 		9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */; };
+		9248C5811E99C67C005ECA37 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */; };
+		9248C5831E99C737005ECA37 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -188,6 +190,8 @@
 		9248C5781E999F5F005ECA37 /* TransactionContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContentView.swift; sourceTree = "<group>"; };
 		9248C57A1E99AA52005ECA37 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCSearchExtension.swift; sourceTree = "<group>"; };
+		9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
+		9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -555,9 +559,19 @@
 		9248C57C1E99BF87005ECA37 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				9248C57F1E99C62C005ECA37 /* Navigation */,
 				9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		9248C57F1E99C62C005ECA37 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */,
+				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
@@ -1447,6 +1461,7 @@
 				926427961E5C0EFC009EDDF3 /* SearchCategories.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
 				92F86B4B1E57843D00BF8CF7 /* MutualFriend.swift in Sources */,
+				9248C5831E99C737005ECA37 /* SearchNavigationBar.swift in Sources */,
 				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				92D199951E45748500ABC255 /* GigImage.swift in Sources */,
 				92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */,
@@ -1517,6 +1532,7 @@
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
 				9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */,
 				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
+				9248C5811E99C67C005ECA37 /* SearchNavigationController.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
