@@ -37,6 +37,7 @@
 		9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */; };
 		9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5781E999F5F005ECA37 /* TransactionContentView.swift */; };
 		9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57A1E99AA52005ECA37 /* EmptyState.swift */; };
+		9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -186,6 +187,7 @@
 		9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedDataStore.swift; sourceTree = "<group>"; };
 		9248C5781E999F5F005ECA37 /* TransactionContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContentView.swift; sourceTree = "<group>"; };
 		9248C57A1E99AA52005ECA37 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCSearchExtension.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 			children = (
 				9248C5751E998265005ECA37 /* Data Store */,
 				9248C56A1E997486005ECA37 /* Cell */,
+				9248C57C1E99BF87005ECA37 /* Search */,
 				9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */,
 				9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */,
 			);
@@ -547,6 +550,14 @@
 				9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9248C57C1E99BF87005ECA37 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
@@ -1482,6 +1493,7 @@
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */,
 				921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */,
+				9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
