@@ -22,6 +22,11 @@ class TransactionContentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setContents(review: Review) {
+        theTitleLabel.text = review.title
+        theDescriptionLabel.text = review.description
+    }
+    
     fileprivate func titleLabelSetup() {
         theTitleLabel = UILabel()
         theTitleLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightBold)

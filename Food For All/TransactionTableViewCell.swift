@@ -24,6 +24,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     func setContents(review: Review) {
         theHeadView.setContents(review: review)
+        theContentView.setContents(review: review)
     }
     
     required init?(coder aDecoder: NSCoder) {

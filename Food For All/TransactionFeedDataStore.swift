@@ -11,6 +11,8 @@ import Parse
 
 protocol TransactionFeedDataStoreDelegate {
     func loaded(transactions: [Review])
+    func loaded(gig: Gig)
+    func removeSpinner()
 }
 
 class TransactionFeedDataStore {
@@ -35,7 +37,7 @@ class TransactionFeedDataStore {
         query.includeKey("gig")
         query.includeKey("gig.creator")
         query.includeKey("creator")
-        query.selectKeys(["gig.title", "gig.creator.profileImage", "gig.creator.firstName", "gig.creator.lastName", "creator.firstName", "creator.profileImage", "detail", "stars"])
+        query.selectKeys(["gig.title", "gig.creator.profileImage", "gig.creator.firstName", "gig.creator.lastName", "creator.firstName", "creator.profileImage", "detail", "stars", "title"])
         query.limit = 30
         query.findObjectsInBackground { (reviewParses, error) in
             if let reviewParses = reviewParses {
@@ -45,6 +47,7 @@ class TransactionFeedDataStore {
                     review.creator = r.creator
                     review.description = r.detail
                     review.stars = r.stars
+                    review.title = r.title
                     
                     let gig = Gig()
                     gig.gigParse = r.gig
@@ -58,6 +61,19 @@ class TransactionFeedDataStore {
             } else if let error = error {
                 print(error)
             }
+        }
+    }
+    
+    func load(gig: Gig) {
+        gig.gigParse.fetchInBackground { (gigParse, error) in
+            if let gigParse = gigParse as? GigParse {
+                let gig = Gig(gigParse: gigParse)
+                self.delegate?.loaded(gig: gig)
+            } else if let error = error {
+                Helpers.showBanner(title: "Error Loading Service", subtitle: "For some reason, there was an error when trying to open the service", bannerType: .error)
+                print(error)
+            }
+            self.delegate?.removeSpinner()
         }
     }
 }

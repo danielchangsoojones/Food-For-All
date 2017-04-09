@@ -10,8 +10,10 @@ import UIKit
 
 class TransactionFeedViewController: UIViewController {
     var theTableView: UITableView!
+    var theSpinnerView: UIView?
     
     var transactions: [Review] = []
+    var dataStore: TransactionFeedDataStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +34,8 @@ class TransactionFeedViewController: UIViewController {
     }
     
     fileprivate func dataStoreSetup() {
-        let dataStore = TransactionFeedDataStore(delegate: self)
-        dataStore.loadTransactions()
+        dataStore = TransactionFeedDataStore(delegate: self)
+        dataStore?.loadTransactions()
     }
 }
 
@@ -61,12 +63,20 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let gig = transactions[indexPath.row].gig {
+            theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
+            dataStore?.load(gig: gig)
+        }
+    }
 }
 
 //empty state extension
 extension TransactionFeedViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         if !transactions.isEmpty {
+            tableView.backgroundView?.isHidden = true
             return 1
         } else {
             EmptyState.showEmptyGigsView(tableView: tableView, currentVC: self, action: #selector(createButtonPressed))
@@ -80,8 +90,17 @@ extension TransactionFeedViewController {
 }
 
 extension TransactionFeedViewController: TransactionFeedDataStoreDelegate {
-    func loaded(transactions reviews: [Review]) {
-        self.transactions = reviews
+    func loaded(transactions: [Review]) {
+        self.transactions = transactions
         theTableView.reloadData()
+    }
+    
+    func loaded(gig: Gig) {
+        let gigDetailVC = DetailViewController(gig: gig)
+        pushVC(gigDetailVC)
+    }
+    
+    func removeSpinner() {
+        theSpinnerView?.removeFromSuperview()
     }
 }
