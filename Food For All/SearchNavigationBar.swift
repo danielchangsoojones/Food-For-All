@@ -9,9 +9,11 @@
 import UIKit
 
 class SearchNavigationBar: UINavigationBar {
+    //allows us to set a customized height for the navigation controller
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let newSize : CGSize = CGSize(width: self.frame.size.width, height: 80)
+        let newSize : CGSize = CGSize(width: self.frame.size.width, height: self.frame.height)
         return newSize
     }
-
+    
+    static let enlargedHeight: CGFloat = 80
 }

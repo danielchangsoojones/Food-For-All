@@ -12,6 +12,7 @@ import AMScrollingNavbar
 class TransactionFeedViewController: UIViewController {
     var theTableView: UITableView!
     var theSpinnerView: UIView?
+    var theSearchView: MainSearchView!
     
     var transactions: [Review] = []
     var dataStore: TransactionFeedDataStore?
@@ -28,6 +29,7 @@ class TransactionFeedViewController: UIViewController {
         if let navigationController = navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(theTableView, delay: 50.0)
         }
+        navBarSetup()
     }
     
     fileprivate func viewSetup() {
@@ -55,12 +57,13 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+//        return transactions.count
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseIdentifier) as! TransactionTableViewCell
-        cell.setContents(review: transactions[indexPath.row])
+//        cell.setContents(review: transactions[indexPath.row])
         return cell
     }
     

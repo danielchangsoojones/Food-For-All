@@ -32,13 +32,12 @@ class MainSearchView: UIView {
     
     fileprivate var delegate: MainSearchViewDelegate?
     
-    init(frame: CGRect, delegate: MainSearchViewDelegate) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white.withAlphaComponent(0.26)
         iconSetup()
         clearButtonSetup()
         searchLabelSetup()
-        self.delegate = delegate
         makeTappable()
     }
     

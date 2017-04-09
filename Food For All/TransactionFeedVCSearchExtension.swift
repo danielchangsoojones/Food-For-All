@@ -10,15 +10,23 @@ import Foundation
 import UIKit
 
 extension TransactionFeedViewController {
-        fileprivate func searchBarSetup() {
-//            let frame: CGRect = navBar?.bounds ?? CGRect.zero
-//            let insetFrame = frame.insetBy(dx: 10, dy: 6)
-//            theSearchView = MainSearchView(frame: insetFrame, delegate: self)
-//            theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
-//            if let searchView = theSearchView {
-//                self.navBar?.addSubview(searchView)
-//            }
+    func navBarSetup() {
+        searchBarSetup()
+        addNavBarGradient()
+        
+        //remove nav bar line
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    fileprivate func searchBarSetup() {
+        if let navBar = navBar {
+            let frame: CGRect = CGRect(x: 0, y: 0, w: navBar.frame.width, h: 60)
+            let insetFrame = frame.insetBy(dx: 10, dy: 6)
+            theSearchView = MainSearchView(frame: insetFrame)
+            theSearchView.addTapGesture(target: self, action: #selector(handleTap))
+            navBar.addSubview(theSearchView)
         }
+    }
     
     func handleTap() {
         let searchVC = MainSearchingViewController()
@@ -26,13 +34,6 @@ extension TransactionFeedViewController {
             searchVC.searchCategory = category
         }
         pushVC(searchVC)
-    }
-    
-    fileprivate func navBarSetup() {
-        addNavBarGradient()
-        
-        //remove nav bar line
-        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func addNavBarGradient() {
