@@ -27,7 +27,7 @@ class TransactionFeedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let navigationController = navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(theTableView, delay: 50.0)
+            navigationController.followScrollView(theTableView, delay: 20.0)
         }
         navBarSetup()
     }
