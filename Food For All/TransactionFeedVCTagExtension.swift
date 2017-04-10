@@ -10,10 +10,13 @@ import Foundation
 import UIKit
 
 extension TransactionFeedViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var categories {
-        let categories = Helpers.categories
-        categories.insert("Milk Mooovers", at: categories.count - 1)
-        return 
+    var categories: [String] {
+        var categories = Helpers.categories
+        if let milkIndex = Helpers.categories.index(of: Helpers.milkMooovers) {
+            let milkMooovers = categories.remove(at: milkIndex)
+            categories.insert(milkMooovers, at: 0)
+        }
+        return categories
     }
     
     
@@ -22,17 +25,17 @@ extension TransactionFeedViewController: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
-        cell.setCategory(title: "testing")
+        cell.setCategory(title: categories[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = "testing"
+        let text = categories[indexPath.row]
         let fontSize = text.size(attributes: [NSFontAttributeName: CategoryCollectionViewCell.TagProperties.tagFont])
         let tagWidth = fontSize.width + CategoryCollectionViewCell.TagProperties.paddingX * 2
         return CGSize(width: tagWidth, height: collectionView.frame.height)
