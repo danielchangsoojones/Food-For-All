@@ -66,10 +66,18 @@ extension TransactionHeadView {
     }
     
     fileprivate func updateTitleLabel(review: Review) {
-        //TODO: make each name be bolded
         let creatorName: String = review.creator.theFirstName
         let freelancerName: String = review.gig?.creator.fullName ?? ""
         let title: String = "\(creatorName) reviewed \(freelancerName)"
-        theTitleLabel.text = title
+        let attributedString = NSMutableAttributedString(string: title)
+        let firstIterationStr = makeBold(name: creatorName, fullText: attributedString)
+        let finalTitle = makeBold(name: freelancerName, fullText: firstIterationStr)
+        theTitleLabel.attributedText = finalTitle
+    }
+    
+    fileprivate func makeBold(name: String, fullText: NSMutableAttributedString) -> NSMutableAttributedString {
+        let range = (fullText.string as NSString).range(of: name)
+        fullText.setAttributes([NSFontAttributeName : UIFont.boldSystemFont(ofSize: theTitleLabel.font.pointSize)], range: range)
+        return fullText
     }
 }

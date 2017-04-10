@@ -42,7 +42,7 @@ class TransactionFeedDataStore {
         query.includeKey("gig.creator")
         query.includeKey("creator")
         query.selectKeys(["gig.title", "gig.creator.profileImage", "gig.creator.firstName", "gig.creator.lastName", "creator.firstName", "creator.profileImage", "detail", "stars", "title"])
-        query.limit = 30
+        query.limit = 50
         query.findObjectsInBackground { (reviewParses, error) in
             if let reviewParses = reviewParses {
                 let transactions = reviewParses.map({ (r: ReviewParse) -> Review in

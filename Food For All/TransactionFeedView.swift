@@ -22,6 +22,10 @@ class TransactionFeedView: UIView {
     
     fileprivate func tableViewSetup() {
         theTableView = UITableView(frame: self.frame)
+        theTableView.separatorColor = CustomColors.BombayGray
+        let seperatorInset: CGFloat = 20
+        theTableView.separatorInset.left = seperatorInset
+        theTableView.separatorInset.right = seperatorInset
         self.addSubview(theTableView)
     }
 }

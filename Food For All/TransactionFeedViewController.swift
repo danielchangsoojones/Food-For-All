@@ -70,6 +70,7 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseIdentifier) as! TransactionTableViewCell
         cell.setContents(review: transactions[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
