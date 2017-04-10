@@ -18,7 +18,6 @@ class SearchNavigationController: ScrollingNavigationController {
     init() {
         super.init(navigationBarClass: SearchNavigationBar.self, toolbarClass: nil)
         setEnlargedSearchNavigationBar()
-        setViewControllers([TransactionFeedViewController()], animated: false) //setting root view controller
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,6 +67,7 @@ class SearchNavigationController: ScrollingNavigationController {
         if viewControllers.count == 2 {
             //popping to root view controller
             setEnlargedSearchNavigationBar()
+            tabBarController?.tabBar.isHidden = false
         }
         return super.popViewController(animated: animated)
     }

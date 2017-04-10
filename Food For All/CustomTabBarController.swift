@@ -52,9 +52,10 @@ extension CustomTabBarController {
     }
     
     var firstVC: UIViewController {
-        let vc = EntryViewController()
+        let vc = TransactionFeedViewController()
         vc.tabBarItem = firstTabBarItem
-        let navController = ClearNavigationController(rootViewController: vc)
+        let navController = SearchNavigationController()
+        navController.setViewControllers([vc], animated: false) //setting root view controller
         return navController
     }
 }
