@@ -23,7 +23,7 @@ class TransactionContentView: UIView {
     }
     
     func setContents(review: Review) {
-        theTitleLabel.text = review.title
+        theTitleLabel.text = review.title ?? review.gig?.title
         theDescriptionLabel.text = review.description
     }
     

@@ -61,6 +61,7 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
         theTableView.delegate = self
         theTableView.dataSource = self
         theTableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.reuseIdentifier)
+        theTableView.tableFooterView = UIView() //so it doesn't show extra empty cells on the empty state.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
