@@ -47,6 +47,7 @@ PODS:
   - SnapKit (3.0.2)
   - STPopup (1.8.2)
   - SwiftyJSON (3.1.4)
+  - TagListView (1.1.0)
   - TextFieldEffects (1.3.0)
   - Timepiece (1.1.0)
   - TTTAttributedLabel (2.0.0)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - SnapKit (~> 3.0)
   - STPopup
   - SwiftyJSON
+  - TagListView (~> 1.0)
   - TextFieldEffects
   - Timepiece
   - TTTAttributedLabel
@@ -114,10 +116,11 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   STPopup: b69b3e7484ef7d2baec5f9ab2939f8a7bcdfe218
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TagListView: d0267a71393f3c73db5c9ea2f979ac1125fcab56
   TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 7f470883919b1c40250cde87864ded57e4b1044e
+PODFILE CHECKSUM: 5e3601da967c4d0b60f0aa3a543dd2af7a8b8fa0
 
 COCOAPODS: 1.1.1

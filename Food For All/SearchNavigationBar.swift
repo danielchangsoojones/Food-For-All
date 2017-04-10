@@ -59,14 +59,15 @@ extension SearchNavigationBar {
 
 //collection View extension
 extension SearchNavigationBar {
-    func collectionViewSetup(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+    func collectionViewSetup(delegate: UICollectionViewDelegateFlowLayout, dataSource: UICollectionViewDataSource) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let minY = theSearchView.frame.maxY + ((1 - SearchNavigationBar.subviewRatio) * SearchNavigationBar.enlargedHeight) / 2
+        let minY = theSearchView.frame.maxY
         theCollectionView = UICollectionView(frame: CGRect(x: 0, y: minY, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * 0.45), collectionViewLayout: layout)
         theCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         theCollectionView.delegate = delegate
         theCollectionView.dataSource = dataSource
+        theCollectionView.backgroundColor = UIColor.clear
         self.addSubview(theCollectionView)
     }
 }
