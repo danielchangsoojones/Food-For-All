@@ -21,9 +21,6 @@ extension TransactionFeedViewController: SearchNavBarDelegate {
     
     func searchTapped() {
         let searchVC = MainSearchingViewController()
-        if let category = SearchCategory(rawValue: title ?? "") {
-            searchVC.searchCategory = category
-        }
         pushVC(searchVC)
     }
 }
