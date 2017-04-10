@@ -14,12 +14,14 @@ class SettingsViewController: FormViewController {
     var theLocationRow: LabelRowFormer<FormLabelCell>!
     
     var dataStore: SettingsDataStore? = SettingsDataStore()
+    var contactHelper: ContactHelper?
     
     //TODO: the nav bar is transparent and we need it to be solid
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutSetup()
         setLocationSetup()
+        contactUsSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,3 +97,23 @@ extension SettingsViewController: SettingsLocationVCDelegate {
         }
     }
 }
+
+extension SettingsViewController {
+    fileprivate func contactUsSetup() {
+        let contactUsRow = LabelRowFormer<FormLabelCell>()
+            .configure { row in
+                row.text = "Contact Us"
+            }.onSelected { row in
+                self.contactUsPressed()
+        }
+        let section = SectionFormer(rowFormer: contactUsRow)
+        former.append(sectionFormer: section)
+    }
+    
+    fileprivate func contactUsPressed() {
+        //need to hold contactHelper in global variable because it uses a message helper which needs to still be alive when the function finished because it is a long running operation to open up a message.
+        contactHelper = ContactHelper()
+        contactHelper?.contactUs(currentVC: self)
+    }
+}
+
