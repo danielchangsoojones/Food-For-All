@@ -31,9 +31,12 @@ class TransactionFeedDataStore {
         let query = ReviewParse.query() as! PFQuery<ReviewParse>
         query.addDescendingOrder("updatedAt")
         
+        //the creator of the gig is within distance radius
         let innerDistanceQuery = User.query()!
         innerDistanceQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: Constants.distanceRadius)
-        query.whereKey("creator", matchesQuery: innerDistanceQuery)
+        let innerGigQuery = GigParse.query()!
+        innerGigQuery.whereKey("creator", matchesQuery: innerDistanceQuery)
+        query.whereKey("gig", matchesQuery: innerGigQuery)
         
         query.includeKey("gig")
         query.includeKey("gig.creator")

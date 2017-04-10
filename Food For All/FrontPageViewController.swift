@@ -10,7 +10,6 @@ import UIKit
 
 class FrontPageViewController: UIViewController {
     var tableVC: FreelancersTableViewController!
-    var theSearchView: MainSearchView?
     
     var gigs: [Gig] = []
     
@@ -18,20 +17,11 @@ class FrontPageViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
         addTableViewVC()
-        searchButtonSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navBarSetup()
-        if let searchView = theSearchView {
-            self.navBar?.addSubview(searchView)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        theSearchView?.removeFromSuperview()
     }
 
     fileprivate func viewSetup() {
@@ -53,35 +43,6 @@ class FrontPageViewController: UIViewController {
 
 //search bar extension
 extension FrontPageViewController {
-//    fileprivate func searchBarSetup() {
-//        let frame: CGRect = navBar?.bounds ?? CGRect.zero
-//        let insetFrame = frame.insetBy(dx: 10, dy: 6)
-//        theSearchView = MainSearchView(frame: insetFrame, delegate: self)
-//        theSearchView?.theClearButton.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
-//        if let searchView = theSearchView {
-//            self.navBar?.addSubview(searchView)
-//        }
-//    }
-    
-//    func resetSearch() {
-//        dataStore?.loadDefaultGigs()
-//        theSearchView?.reset()
-//    }
-    
-    fileprivate func searchButtonSetup() {
-        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleTap))
-        navigationItem.rightBarButtonItem = rightBarButton
-    }
-    
-    func handleTap() {
-        let searchVC = MainSearchingViewController()
-        searchVC.delegate = self
-        if let category = SearchCategory(rawValue: title ?? "") {
-            searchVC.searchCategory = category
-        }
-        pushVC(searchVC)
-    }
-    
     fileprivate func navBarSetup() {
         addNavBarGradient()
 

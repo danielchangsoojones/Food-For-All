@@ -64,13 +64,12 @@ extension TransactionFeedViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return transactions.count
-        return 50
+        return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseIdentifier) as! TransactionTableViewCell
-//        cell.setContents(review: transactions[indexPath.row])
+        cell.setContents(review: transactions[indexPath.row])
         return cell
     }
     
