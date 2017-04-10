@@ -72,6 +72,8 @@
 		927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */; };
 		927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F501E3DA40500B24D40 /* SearchGig.swift */; };
 		927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */; };
+		9282EFC51E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */; };
+		9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
 		92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BE1E42CD5C00F6358E /* CellData.swift */; };
 		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
@@ -226,6 +228,8 @@
 		927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchTableViewCell.swift; sourceTree = "<group>"; };
 		927E2F501E3DA40500B24D40 /* SearchGig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGig.swift; sourceTree = "<group>"; };
 		927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingDataStore.swift; sourceTree = "<group>"; };
+		9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCTagExtension.swift; sourceTree = "<group>"; };
+		9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92A843BE1E42CD5C00F6358E /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
@@ -532,7 +536,7 @@
 			children = (
 				9248C5751E998265005ECA37 /* Data Store */,
 				9248C56A1E997486005ECA37 /* Cell */,
-				9248C57C1E99BF87005ECA37 /* Search */,
+				9282EFC61E9BBCAC00636B15 /* Navigation */,
 				9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */,
 				9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */,
 			);
@@ -559,19 +563,11 @@
 		9248C57C1E99BF87005ECA37 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9248C57F1E99C62C005ECA37 /* Navigation */,
+				9279DA211E3CE71000E2CCA1 /* Search Bar */,
+				9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */,
 				9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */,
 			);
 			name = Search;
-			sourceTree = "<group>";
-		};
-		9248C57F1E99C62C005ECA37 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				9279DA211E3CE71000E2CCA1 /* Search Bar */,
-				9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */,
-			);
-			name = Navigation;
 			sourceTree = "<group>";
 		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
@@ -811,6 +807,32 @@
 				927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9282EFC31E9BBC3800636B15 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC81E9BBD7500636B15 /* Cell */,
+				9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */,
+			);
+			name = Tags;
+			sourceTree = "<group>";
+		};
+		9282EFC61E9BBCAC00636B15 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC31E9BBC3800636B15 /* Tags */,
+				9248C57C1E99BF87005ECA37 /* Search */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		9282EFC81E9BBD7500636B15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		92A843BC1E419C4400F6358E /* Tab Bar */ = {
@@ -1540,6 +1562,7 @@
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
+				9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */,
@@ -1551,6 +1574,7 @@
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
+				9282EFC51E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,

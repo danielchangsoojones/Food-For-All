@@ -52,7 +52,7 @@ class FrontPageViewController: UIViewController {
 }
 
 //search bar extension
-extension FrontPageViewController: MainSearchViewDelegate {
+extension FrontPageViewController {
 //    fileprivate func searchBarSetup() {
 //        let frame: CGRect = navBar?.bounds ?? CGRect.zero
 //        let insetFrame = frame.insetBy(dx: 10, dy: 6)
