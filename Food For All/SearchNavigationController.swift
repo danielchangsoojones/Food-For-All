@@ -49,14 +49,15 @@ class SearchNavigationController: ScrollingNavigationController {
         if viewControllers.count == 1 {
             //pushing from root view controller
             //TODO: this is manually calculating nav bar height with a constant, if apple ever changes nav bar height, then this would break.
-            var navBarHeight: CGFloat = 44
+            let navBarHeight: CGFloat = 44
+            var minY: CGFloat = 0
             if !viewController.prefersStatusBarHidden {
-                navBarHeight += ez.screenStatusBarHeight
+                minY += ez.screenStatusBarHeight
             }
-            navigationBar.frame = CGRect(x: 0, y: 0, w: self.navigationBar.bounds.width, h: navBarHeight)
+            navigationBar.frame = CGRect(x: 0, y: minY, w: self.navigationBar.bounds.width, h: navBarHeight)
             removeSearchSubviews()
-            CustomNavigationController.makeTransparent(navBar: navigationBar)
         }
+        CustomNavigationController.makeTransparent(navBar: navigationBar)
         CustomNavigationController.createCustomBackButton(navController: self)
         super.pushViewController(viewController, animated: animated)
     }
