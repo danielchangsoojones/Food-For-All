@@ -113,6 +113,14 @@ extension TransactionFeedViewController: TransactionFeedDataStoreDelegate {
         theTableView.reloadData()
     }
     
+    func loaded(gigs: [Gig], tag: String) {
+        let startingVC = FrontPageViewController()
+        startingVC.gigs = gigs
+        startingVC.title = tag
+        theSpinnerView?.removeFromSuperview()
+        pushVC(startingVC)
+    }
+    
     func loaded(gig: Gig) {
         let gigDetailVC = DetailViewController(gig: gig)
         pushVC(gigDetailVC)

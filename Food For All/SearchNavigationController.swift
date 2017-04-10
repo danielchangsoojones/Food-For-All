@@ -8,6 +8,7 @@
 
 import UIKit
 import AMScrollingNavbar
+import EZSwiftExtensions
 
 class SearchNavigationController: ScrollingNavigationController {
     //Not sure why, but in order to use the navigation bar class, we need to implement this initializer also
@@ -17,6 +18,7 @@ class SearchNavigationController: ScrollingNavigationController {
     
     init() {
         super.init(navigationBarClass: SearchNavigationBar.self, toolbarClass: nil)
+        self.navigationBar.barStyle = UIBarStyle.black //white view controller title
         setEnlargedSearchNavigationBar()
     }
     
@@ -46,8 +48,12 @@ class SearchNavigationController: ScrollingNavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count == 1 {
             //pushing from root view controller
-            let height: CGFloat = 50 //whatever height you want
-            self.navigationBar.frame = CGRect(x: 0, y: 0, width: self.navigationBar.bounds.width, height: height)
+            //TODO: this is manually calculating nav bar height with a constant, if apple ever changes nav bar height, then this would break.
+            var navBarHeight: CGFloat = 44
+            if !viewController.prefersStatusBarHidden {
+                navBarHeight += ez.screenStatusBarHeight
+            }
+            navigationBar.frame = CGRect(x: 0, y: 0, w: self.navigationBar.bounds.width, h: navBarHeight)
             removeSearchSubviews()
             CustomNavigationController.makeTransparent(navBar: navigationBar)
         }
@@ -57,16 +63,20 @@ class SearchNavigationController: ScrollingNavigationController {
     
     fileprivate func removeSearchSubviews() {
         for subview in navigationBar.subviews {
-            if subview is MainSearchView {
+            if subview is MainSearchView || subview is UICollectionView {
                 subview.removeFromSuperview()
             }
         }
     }
     
     override func popViewController(animated: Bool) -> UIViewController? {
-        if viewControllers.count == 2 {
+        if viewControllers.count == 2, let poppingVC = viewControllers.last {
             //popping to root view controller
             setEnlargedSearchNavigationBar()
+            if !poppingVC.prefersStatusBarHidden {
+                //TODO: For some reason, when I pop from a vc with a status bar, it makes the Search View go on top of the status bar. Not sure why, but accounting for the status bar fixes it here. It works fine for VC's without a status bar.
+                navigationBar.frame.y = ez.screenStatusBarHeight
+            }
             tabBarController?.tabBar.isHidden = false
         }
         return super.popViewController(animated: animated)

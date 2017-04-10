@@ -13,6 +13,10 @@ protocol SearchNavBarDelegate {
 }
 
 class SearchNavigationBar: UINavigationBar {
+    struct Constants {
+        static let horizontalInset: CGFloat = 10
+    }
+    
     var theCollectionView: UICollectionView!
     var theSearchView: MainSearchView!
     
@@ -45,8 +49,8 @@ class SearchNavigationBar: UINavigationBar {
 //search view extension
 extension SearchNavigationBar {
     func addSearchView() {
-        let frame: CGRect = CGRect(x: 0, y: 0, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * 0.45)
-        let insetFrame = frame.insetBy(dx: 10, dy: 6)
+        let frame: CGRect = CGRect(x: 0, y: 0, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * SearchNavigationBar.subviewRatio)
+        let insetFrame = frame.insetBy(dx: Constants.horizontalInset, dy: 6)
         theSearchView = MainSearchView(frame: insetFrame)
         theSearchView.addTapGesture(target: self, action: #selector(searchTapped))
         self.addSubview(theSearchView)
@@ -63,17 +67,18 @@ extension SearchNavigationBar {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let minY = theSearchView.frame.maxY
-        theCollectionView = UICollectionView(frame: CGRect(x: 0, y: minY, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * 0.45), collectionViewLayout: layout)
+        theCollectionView = UICollectionView(frame: CGRect(x: 0, y: minY, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * SearchNavigationBar.subviewRatio), collectionViewLayout: layout)
         theCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         theCollectionView.delegate = delegate
         theCollectionView.dataSource = dataSource
         theCollectionView.backgroundColor = UIColor.clear
+        theCollectionView.showsHorizontalScrollIndicator = false
+        theCollectionView.contentInset.left = Constants.horizontalInset
         self.addSubview(theCollectionView)
     }
 }
 
 extension SearchNavigationBar {
-    static let subviewRatio: CGFloat = 0.45
-    static let spacingRatio: CGFloat = 1 - SearchNavigationBar.subviewRatio
-    static let enlargedHeight: CGFloat = 150
+    static let subviewRatio: CGFloat = 0.5
+    static let enlargedHeight: CGFloat = 120
 }

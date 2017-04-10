@@ -40,4 +40,10 @@ extension TransactionFeedViewController: UICollectionViewDataSource, UICollectio
         let tagWidth = fontSize.width + CategoryCollectionViewCell.TagProperties.paddingX * 2
         return CGSize(width: tagWidth, height: collectionView.frame.height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        theSpinnerView = Helpers.showActivityIndicatory(uiView: self.view)
+        let dataStore = TransactionFeedDataStore(delegate: self)
+        dataStore.findGigsWith(tag: categories[indexPath.row])
+    }
 }
