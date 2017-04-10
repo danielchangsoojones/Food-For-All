@@ -568,8 +568,8 @@
 		9248C57F1E99C62C005ECA37 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				9279DA211E3CE71000E2CCA1 /* Search Bar */,
 				9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */,
-				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -761,6 +761,7 @@
 		9279DA211E3CE71000E2CCA1 /* Search Bar */ = {
 			isa = PBXGroup;
 			children = (
+				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
 				9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */,
 			);
 			name = "Search Bar";
@@ -1076,7 +1077,6 @@
 		92DD8D2E1E3509F8009EB164 /* Front Page */ = {
 			isa = PBXGroup;
 			children = (
-				9279DA211E3CE71000E2CCA1 /* Search Bar */,
 				92DD8D311E350B22009EB164 /* FrontPageViewController.swift */,
 				92DD8D331E350B43009EB164 /* FrontPageView.swift */,
 			);
