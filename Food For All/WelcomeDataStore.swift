@@ -123,29 +123,14 @@ extension WelcomeDataStore {
     }
     
     func saveSignUpMetrics() {
-        sendNewUserIntoGroupMe()
-    }
-    
-    func sendNewUserIntoGroupMe() {
         getTotalUsersCount()
     }
     
     fileprivate func getTotalUsersCount() {
         let query = User.query() as! PFQuery<User>
         query.countObjectsInBackground { (count: Int32, error) in
-            self.sendMessage(count: Int(count))
+            self.saveMixPanelUserMetric(userCount: Int(count))
         }
-    }
-    
-    fileprivate func sendMessage(count: Int) {
-        let url = "https://maker.ifttt.com/trigger/new-user-signup/with/key/bmku_IppapnZ3eewT54mzi"
-        let fullName = User.current()?.fullName ?? ""
-        let userCount: Int = count
-        saveMixPanelUserMetric(userCount: count)
-        let parameters: Parameters = ["value1" : fullName, "value2" : userCount]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
-            print(response)
-        })
     }
     
     func saveMixPanelUserMetric(userCount: Int) {

@@ -10,8 +10,6 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
 		9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152091E97FC27003A4455 /* EmptyGigsView.swift */; };
-		921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79841E46C33A00D9396B /* EntryDataStore.swift */; };
-		921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C79851E46C33A00D9396B /* EntryViewController.swift */; };
 		921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */; };
 		9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */; };
 		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
@@ -30,6 +28,16 @@
 		923A8CEB1E54DD1700F1BFCA /* NewReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */; };
 		9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */; };
 		9248C5691E95E2F5005ECA37 /* SetLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5681E95E2F5005ECA37 /* SetLocationView.swift */; };
+		9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */; };
+		9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */; };
+		9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */; };
+		9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */; };
+		9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */; };
+		9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5781E999F5F005ECA37 /* TransactionContentView.swift */; };
+		9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57A1E99AA52005ECA37 /* EmptyState.swift */; };
+		9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */; };
+		9248C5811E99C67C005ECA37 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */; };
+		9248C5831E99C737005ECA37 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */; };
 		924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FD1E75E5C500413CDE /* ContractViewController.swift */; };
 		924D27001E75E62C00413CDE /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D26FF1E75E62C00413CDE /* ContractView.swift */; };
 		924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */; };
@@ -45,10 +53,8 @@
 		925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F211E25AA1A00196504 /* WelcomeView.swift */; };
 		925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F231E25AA9C00196504 /* WelcomeViewController.swift */; };
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
-		926427881E5BE13C009EDDF3 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */; };
 		9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278B1E5BFEED009EDDF3 /* NameViewController.swift */; };
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
-		926427961E5C0EFC009EDDF3 /* SearchCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926427951E5C0EFC009EDDF3 /* SearchCategories.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -62,6 +68,8 @@
 		927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */; };
 		927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F501E3DA40500B24D40 /* SearchGig.swift */; };
 		927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */; };
+		9282EFC51E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */; };
+		9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
 		92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BE1E42CD5C00F6358E /* CellData.swift */; };
 		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
@@ -152,8 +160,6 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
 		921152091E97FC27003A4455 /* EmptyGigsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsView.swift; sourceTree = "<group>"; };
-		921C79841E46C33A00D9396B /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
-		921C79851E46C33A00D9396B /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EntryViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDataStore.swift; sourceTree = "<group>"; };
 		9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +178,16 @@
 		923A8CEA1E54DD1700F1BFCA /* NewReviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReviewTests.swift; sourceTree = "<group>"; };
 		9248C5661E95E1BF005ECA37 /* SetLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 		9248C5681E95E2F5005ECA37 /* SetLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetLocationView.swift; sourceTree = "<group>"; };
+		9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedViewController.swift; sourceTree = "<group>"; };
+		9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedView.swift; sourceTree = "<group>"; };
+		9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHeadView.swift; sourceTree = "<group>"; };
+		9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedDataStore.swift; sourceTree = "<group>"; };
+		9248C5781E999F5F005ECA37 /* TransactionContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionContentView.swift; sourceTree = "<group>"; };
+		9248C57A1E99AA52005ECA37 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCSearchExtension.swift; sourceTree = "<group>"; };
+		9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
+		9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		924D26FD1E75E5C500413CDE /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		924D26FF1E75E62C00413CDE /* ContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLabelButtonView.swift; sourceTree = "<group>"; };
@@ -189,10 +205,8 @@
 		925C5F211E25AA1A00196504 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		925C5F231E25AA9C00196504 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9264278B1E5BFEED009EDDF3 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
-		926427951E5C0EFC009EDDF3 /* SearchCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategories.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -206,6 +220,8 @@
 		927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchTableViewCell.swift; sourceTree = "<group>"; };
 		927E2F501E3DA40500B24D40 /* SearchGig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGig.swift; sourceTree = "<group>"; };
 		927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingDataStore.swift; sourceTree = "<group>"; };
+		9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCTagExtension.swift; sourceTree = "<group>"; };
+		9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92A843BE1E42CD5C00F6358E /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
@@ -348,24 +364,6 @@
 			name = "Empty State";
 			sourceTree = "<group>";
 		};
-		921C79881E46C34200D9396B /* Entry Page */ = {
-			isa = PBXGroup;
-			children = (
-				921C79891E46C35500D9396B /* Data Store */,
-				926427861E5BE117009EDDF3 /* Cells */,
-				921C79851E46C33A00D9396B /* EntryViewController.swift */,
-			);
-			name = "Entry Page";
-			sourceTree = "<group>";
-		};
-		921C79891E46C35500D9396B /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				921C79841E46C33A00D9396B /* EntryDataStore.swift */,
-			);
-			name = "Data Store";
-			sourceTree = "<group>";
-		};
 		921C798A1E4984D300D9396B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +496,53 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		9248C56A1E997486005ECA37 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5721E997957005ECA37 /* Subview */,
+				9248C56B1E9974C4005ECA37 /* TransactionTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9248C56D1E99755B005ECA37 /* Transaction Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5751E998265005ECA37 /* Data Store */,
+				9248C56A1E997486005ECA37 /* Cell */,
+				9282EFC61E9BBCAC00636B15 /* Navigation */,
+				9248C56E1E99758D005ECA37 /* TransactionFeedViewController.swift */,
+				9248C5701E9975A7005ECA37 /* TransactionFeedView.swift */,
+			);
+			name = "Transaction Feed";
+			sourceTree = "<group>";
+		};
+		9248C5721E997957005ECA37 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5731E9979E3005ECA37 /* TransactionHeadView.swift */,
+				9248C5781E999F5F005ECA37 /* TransactionContentView.swift */,
+			);
+			name = Subview;
+			sourceTree = "<group>";
+		};
+		9248C5751E998265005ECA37 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9248C5761E998278005ECA37 /* TransactionFeedDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9248C57C1E99BF87005ECA37 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9279DA211E3CE71000E2CCA1 /* Search Bar */,
+				9248C57D1E99BFAE005ECA37 /* TransactionFeedVCSearchExtension.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,9 +629,9 @@
 			isa = PBXGroup;
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
+				9248C56D1E99755B005ECA37 /* Transaction Feed */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
 				9248C5651E95D588005ECA37 /* Location */,
-				921C79881E46C34200D9396B /* Entry Page */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
 				9254B7181E39405B0034F6D0 /* Gig Detail */,
 				92B3E4521E4F835300FD2042 /* Reviews */,
@@ -627,16 +672,9 @@
 				92DD8D391E358D10009EB164 /* Circle Views */,
 				927BE0AD1E26F4BF00220168 /* Configurations */,
 				925C5F261E25BD4600196504 /* Structs.swift */,
+				9248C57A1E99AA52005ECA37 /* EmptyState.swift */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		926427861E5BE117009EDDF3 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				926427871E5BE13C009EDDF3 /* CategoryTableViewCell.swift */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		9264278A1E5BFE7E009EDDF3 /* Data Entry Forms */ = {
@@ -664,14 +702,6 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
-		926427941E5C0EEA009EDDF3 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				926427951E5C0EFC009EDDF3 /* SearchCategories.swift */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
 		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,7 +723,6 @@
 			children = (
 				927E2F521E3E3F3C00B24D40 /* Data Store */,
 				927E2F4B1E3D5F2600B24D40 /* Subviews */,
-				926427941E5C0EEA009EDDF3 /* Categories */,
 				9279DA251E3D030A00E2CCA1 /* MainSearchingViewController.swift */,
 				927E2F471E3D594A00B24D40 /* MainSearchingView.swift */,
 			);
@@ -732,6 +761,34 @@
 				927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9282EFC31E9BBC3800636B15 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC81E9BBD7500636B15 /* Cell */,
+				9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */,
+			);
+			name = Tags;
+			sourceTree = "<group>";
+		};
+		9282EFC61E9BBCAC00636B15 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC31E9BBC3800636B15 /* Tags */,
+				9248C57C1E99BF87005ECA37 /* Search */,
+				9248C5801E99C67C005ECA37 /* SearchNavigationController.swift */,
+				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		9282EFC81E9BBD7500636B15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		92A843BC1E419C4400F6358E /* Tab Bar */ = {
@@ -998,7 +1055,6 @@
 		92DD8D2E1E3509F8009EB164 /* Front Page */ = {
 			isa = PBXGroup;
 			children = (
-				9279DA211E3CE71000E2CCA1 /* Search Bar */,
 				92DD8D311E350B22009EB164 /* FrontPageViewController.swift */,
 				92DD8D331E350B43009EB164 /* FrontPageView.swift */,
 			);
@@ -1380,9 +1436,9 @@
 				92F86B331E56648700BF8CF7 /* ForwardAccessoryView.swift in Sources */,
 				927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */,
 				92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */,
-				926427961E5C0EFC009EDDF3 /* SearchCategories.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
 				92F86B4B1E57843D00BF8CF7 /* MutualFriend.swift in Sources */,
+				9248C5831E99C737005ECA37 /* SearchNavigationBar.swift in Sources */,
 				92D12BAC1E30592D009AC99E /* User.swift in Sources */,
 				92D199951E45748500ABC255 /* GigImage.swift in Sources */,
 				92D1998E1E452E9100ABC255 /* CreationViewControllerCameraExtension.swift in Sources */,
@@ -1390,6 +1446,7 @@
 				9254B7171E37E2780034F6D0 /* GigParse.swift in Sources */,
 				92B3E4561E4F86A500FD2042 /* AllReviewsView.swift in Sources */,
 				92DD8D291E295E8C009EB164 /* ClearNavigationController.swift in Sources */,
+				9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
 				9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */,
@@ -1427,10 +1484,11 @@
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
 				92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */,
-				921C79861E46C33A00D9396B /* EntryDataStore.swift in Sources */,
+				9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
+				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
@@ -1438,17 +1496,18 @@
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
+				9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,
-				926427881E5BE13C009EDDF3 /* CategoryTableViewCell.swift in Sources */,
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
 				9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */,
 				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
+				9248C5811E99C67C005ECA37 /* SearchNavigationController.swift in Sources */,
 				927E2F461E3D0A9D00B24D40 /* TimeIntervalHelper.swift in Sources */,
 				923A8CE41E42857200F1BFCA /* CreationTableViewCell.swift in Sources */,
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
@@ -1456,21 +1515,24 @@
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
+				9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
+				9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */,
 				92C545671E949F7100EF7C67 /* ContactHelper.swift in Sources */,
 				924D27061E7606CE00413CDE /* ContractCellData.swift in Sources */,
 				923A610A1E6B838200C56471 /* MessageHelper.swift in Sources */,
-				921C79871E46C33A00D9396B /* EntryViewController.swift in Sources */,
 				92D1999A1E45871300ABC255 /* ProfileView.swift in Sources */,
 				92F86B251E53D31D00BF8CF7 /* NewRatingView.swift in Sources */,
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
+				9282EFC51E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
+				9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
 				92F86B1D1E51633E00BF8CF7 /* VenmoMetric.swift in Sources */,
@@ -1487,6 +1549,7 @@
 				92F86B4E1E57FF8500BF8CF7 /* PhotosFormViewController.swift in Sources */,
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,
 				924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */,
+				9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,
@@ -1496,6 +1559,7 @@
 				924D27001E75E62C00413CDE /* ContractView.swift in Sources */,
 				9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */,
 				92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */,
+				9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */,
 				92DD8D341E350B43009EB164 /* FrontPageView.swift in Sources */,
 				923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */,
 			);
@@ -1630,7 +1694,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1649,7 +1713,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1845,7 +1909,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

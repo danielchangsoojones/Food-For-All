@@ -211,7 +211,8 @@ struct Helpers {
         return randomString
     }
     
-    static var categories: [String] = ["Tutoring", "Laundry", "Haircuts", "Photography", "Other"]
+    static var milkMooovers: String = "Milk Mooovers"
+    static var categories: [String] = ["Tutoring", "Laundry", "Haircuts", "Photography", "Other", milkMooovers]
     
     static func venmoTapped(gig: Gig) {
         let venmoUsername: String? = gig.creator.venmoUsername

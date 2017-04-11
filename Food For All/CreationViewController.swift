@@ -211,3 +211,11 @@ extension CreationViewController: CreationDataStoreDelegate {
     }
 }
 
+extension CreationViewController {
+    static func show(from presentingVC: UIViewController) {
+        let rootVC = CreationViewController()
+        let clearNavController = ClearNavigationController(rootViewController: rootVC)
+        presentingVC.presentVC(clearNavController)
+    }
+}
+

@@ -62,9 +62,7 @@ class FreelancersTableViewController: UITableViewController {
         if gigs.count > 0 {
             return 1
         } else {
-            let emptyView = EmptyGigsView(frame: tableView.frame)
-            emptyView.theCreateButton.addTarget(self, action: #selector(createButtonPressed), for: .touchUpInside)
-            tableView.backgroundView = emptyView
+            EmptyState.showEmptyGigsView(tableView: tableView, currentVC: self, action: #selector(createButtonPressed))
             return 0
         }
     }

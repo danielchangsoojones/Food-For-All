@@ -35,6 +35,10 @@ class AllReviewsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            //view controller was popped
+            navigationController?.navigationBar.tintColor = UIColor.white
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,9 +70,8 @@ extension AllReviewsViewController {
     fileprivate func navBarSetup() {
         if let navController = self.navigationController as? ClearNavigationController {
             navController.makeTransparent()
-            navController.navigationBar.tintColor = UIColor.black
         }
-        
+        navigationController?.navigationBar.tintColor = UIColor.black
         leftBarButtonSetup()
         rightBarButtonSetup()
     }

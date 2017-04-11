@@ -30,6 +30,8 @@ target 'Food For All' do
   pod 'STPopup'
   pod 'ActionSheetPicker-3.0'
   pod 'Mixpanel-swift'
+  pod 'AMScrollingNavbar'
+  pod 'TagListView', '~> 1.0'
 
 end
 

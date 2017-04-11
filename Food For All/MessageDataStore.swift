@@ -25,12 +25,12 @@ class MessageDataStore {
     }
     
     fileprivate func saveMixPanelMesageMetric(state: String, gig: Gig) {
-        Mixpanel.mainInstance().track(event: "Message", properties: ["status" : state, "recipient" : gig.creator.fullName ?? "Unknown"])
+        Mixpanel.mainInstance().track(event: "Message", properties: ["status" : state, "recipient" : gig.creator.fullName ?? "Unknown", "sender" : User.current()?.fullName ?? ""])
     }
     
     fileprivate func sendGroupMeMessage(state: String, gig: Gig) {
         var configuration = Configuration()
-        if configuration.environment == .Production {
+        if configuration.environment == .Production, state == "successfully sent" {
             let url = "https://maker.ifttt.com/trigger/new-user-message/with/key/bmku_IppapnZ3eewT54mzi"
             let fullName = User.current()?.fullName ?? ""
             let recipient = gig.creator.fullName ?? ""

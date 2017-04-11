@@ -16,6 +16,7 @@ class SetLocationViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var chosenLocation: CLLocation?
+    var spinnerView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +105,7 @@ extension SetLocationViewController {
 
 extension SetLocationViewController: CLLocationManagerDelegate {
     func currentLocationButtonPressed() {
+        spinnerView = Helpers.showActivityIndicatory(uiView: self.view)
         theZipCodeTextField.resignFirstResponder()
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -118,6 +120,7 @@ extension SetLocationViewController: CLLocationManagerDelegate {
                     }
                 })
                 alert.showInfo("Access Location", subTitle: "Please proceed to your settings to update your location services", closeButtonTitle: "Cancel")
+                spinnerView?.removeFromSuperview()
             case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
                 locationManager.delegate = self
                 locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -138,6 +141,7 @@ extension SetLocationViewController: CLLocationManagerDelegate {
     
     fileprivate func updateZipCodeText(from location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            self.spinnerView?.removeFromSuperview()
             if error != nil {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return

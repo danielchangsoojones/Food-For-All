@@ -14,6 +14,7 @@ class Review {
     var updated: Date = Date()
     var description: String?
     var stars: Double = 0
+    var title: String?
     
     var reviewParse: ReviewParse?
     
@@ -22,9 +23,11 @@ class Review {
     init(reviewParse r: ReviewParse) {
         creator = r.creator
         updated = r.updatedAt ?? Date()
+        title = r.title
         description = r.detail
         stars = r.stars
         reviewParse = r
+        
     }
 }
 
