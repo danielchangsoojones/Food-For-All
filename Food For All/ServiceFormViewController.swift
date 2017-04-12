@@ -155,10 +155,6 @@ extension ServiceFormViewController {
         
         _ = append(rows: [descriptionRow], headerTitle: "Description")
     }
-    
-//    private func calculateTextViewHeight(from text: String) -> CGFloat {
-//        
-//    }
 }
 
 extension ServiceFormViewController: UITextFieldDelegate {
