@@ -125,6 +125,21 @@ extension ServiceFormViewController {
             }
         }
         
+        tagRow.onValueChanged { (row) in
+            print(row)
+        }
+        
+        former.onCellSelected { (indexPath: IndexPath) in
+            if let selectedRow = self.former.rowFormer(indexPath: indexPath) as? InlinePickerRowFormer<FormInlinePickerCell, String>, selectedRow.cell == self.tagRow.cell {
+                //the category row
+                Timer.runThisAfterDelay(seconds: 0.4, after: {
+                    //the height of the cell does not include the height of the inline picker, so we need to add a custom height for the targetScrollFrame, plus we need to wait until the tableview has actually grown to the size of the inline picker, or else it will think the rect is already visible.
+                    let targetFrame = CGRect(x: selectedRow.cell.frame.x, y: selectedRow.cell.frame.y, w: selectedRow.cell.frame.width, h: 500)
+                    self.tableView.scrollRectToVisible(targetFrame, animated: true)
+                })
+            }
+        }
+        
         _ = append(rows: [tagRow], headerTitle: "Category")
     }
 }

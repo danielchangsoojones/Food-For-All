@@ -12,10 +12,13 @@ import UIKit
 extension TransactionFeedViewController: SearchNavBarDelegate {
     func navBarSetup() {
         if let navBar = navBar as? SearchNavigationBar {
-            navBar.navDelegate = self
-            navBar.addGradient()
-            navBar.addSearchView()
-            tagCollectionViewSetup(navBar: navBar)
+            if !navBar.hasSearchViews {
+                //only add subviews again, if they have been removed, so when we go to the creation page and come back, we don't want to place more views on the nav bar or else we'll have duplicates that overlap each other
+                navBar.navDelegate = self
+                navBar.addGradient()
+                navBar.addSearchView()
+                tagCollectionViewSetup(navBar: navBar)
+            }
         }
     }
     
