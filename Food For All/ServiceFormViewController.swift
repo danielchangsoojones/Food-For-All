@@ -71,16 +71,6 @@ extension ServiceFormViewController {
         _ = append(rows: [titleRow], headerTitle: "Title")
     }
     
-    fileprivate func descriptionFormSetup() {
-        descriptionRow.configure { row in
-            row.placeholder = "Describe your service/qualifications..."
-            if let description = gig?.description {
-                row.text = description
-            }
-        }
-        _ = append(rows: [descriptionRow], headerTitle: "Description")
-    }
-    
     fileprivate func durationFormSetup() {
         durationRow.configure { row in
             row.placeholder = "How long will the service take?"
@@ -125,10 +115,6 @@ extension ServiceFormViewController {
             }
         }
         
-        tagRow.onValueChanged { (row) in
-            print(row)
-        }
-        
         former.onCellSelected { (indexPath: IndexPath) in
             if let selectedRow = self.former.rowFormer(indexPath: indexPath) as? InlinePickerRowFormer<FormInlinePickerCell, String>, selectedRow.cell == self.tagRow.cell {
                 //the category row
@@ -142,6 +128,37 @@ extension ServiceFormViewController {
         
         _ = append(rows: [tagRow], headerTitle: "Category")
     }
+}
+
+//description row extension
+extension ServiceFormViewController {
+    fileprivate func descriptionFormSetup() {
+        descriptionRow.configure { row in
+            row.placeholder = "Describe your service/qualifications..."
+            if let description = gig?.description {
+                row.text = description
+            }
+        }
+        
+        descriptionRow.dynamicRowHeight { (tableView, indexPath) -> CGFloat in
+            let minimumHeight: CGFloat = 150
+            if let textView = self.descriptionRow.cell.textView {
+                let targetHeight: CGFloat = textView.sizeThatFits(textView.bounds.size).height
+                if targetHeight > minimumHeight {
+                    return targetHeight
+                } else {
+                    return minimumHeight
+                }
+            }
+            return minimumHeight
+        }
+        
+        _ = append(rows: [descriptionRow], headerTitle: "Description")
+    }
+    
+//    private func calculateTextViewHeight(from text: String) -> CGFloat {
+//        
+//    }
 }
 
 extension ServiceFormViewController: UITextFieldDelegate {
