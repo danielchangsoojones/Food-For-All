@@ -21,11 +21,11 @@ class TransactionFeedViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
         tableViewSetup()
-        dataStoreSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        dataStoreSetup()
         if let navigationController = navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(theTableView, delay: 20.0)
         }
