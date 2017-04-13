@@ -70,6 +70,9 @@
 		927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */; };
 		9282EFC51E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */; };
 		9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */; };
+		929EC3411E9F13A700162AEB /* EntryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3401E9F13A700162AEB /* EntryDataStore.swift */; };
+		929EC3441E9F13B700162AEB /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3431E9F13B700162AEB /* CategoryTableViewCell.swift */; };
+		929EC3461E9F13BD00162AEB /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3451E9F13BD00162AEB /* EntryViewController.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
 		92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BE1E42CD5C00F6358E /* CellData.swift */; };
 		92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */; };
@@ -222,6 +225,9 @@
 		927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingDataStore.swift; sourceTree = "<group>"; };
 		9282EFC41E9BBC5F00636B15 /* TransactionFeedVCTagExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFeedVCTagExtension.swift; sourceTree = "<group>"; };
 		9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		929EC3401E9F13A700162AEB /* EntryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDataStore.swift; sourceTree = "<group>"; };
+		929EC3431E9F13B700162AEB /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		929EC3451E9F13BD00162AEB /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		92A843BE1E42CD5C00F6358E /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		92A843C21E42D0BA00F6358E /* SuperCreationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCreationFormViewController.swift; sourceTree = "<group>"; };
@@ -630,6 +636,7 @@
 			children = (
 				925C5F201E25A55900196504 /* Login/SignUp */,
 				9248C56D1E99755B005ECA37 /* Transaction Feed */,
+				929EC33E1E9F135000162AEB /* Categories */,
 				92DD8D2E1E3509F8009EB164 /* Front Page */,
 				9248C5651E95D588005ECA37 /* Location */,
 				92DD8D351E35348B009EB164 /* Freelancers TableView */,
@@ -789,6 +796,32 @@
 				9282EFC91E9BBD9200636B15 /* CategoryCollectionViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		929EC33E1E9F135000162AEB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				929EC33F1E9F139D00162AEB /* Data Store */,
+				929EC3421E9F13AB00162AEB /* Cells */,
+				929EC3451E9F13BD00162AEB /* EntryViewController.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		929EC33F1E9F139D00162AEB /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				929EC3401E9F13A700162AEB /* EntryDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		929EC3421E9F13AB00162AEB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				929EC3431E9F13B700162AEB /* CategoryTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		92A843BC1E419C4400F6358E /* Tab Bar */ = {
@@ -1473,6 +1506,7 @@
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
+				929EC3411E9F13A700162AEB /* EntryDataStore.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */,
@@ -1514,6 +1548,7 @@
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
+				929EC3441E9F13B700162AEB /* CategoryTableViewCell.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				9282EFCA1E9BBD9200636B15 /* CategoryCollectionViewCell.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
@@ -1531,6 +1566,7 @@
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
+				929EC3461E9F13BD00162AEB /* EntryViewController.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
 				9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
