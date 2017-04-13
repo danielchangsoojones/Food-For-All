@@ -15,7 +15,8 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [firstVC, secondVC, thirdVC]
+        //TODO: change names from firstVC to the actual description of the view controller
+        viewControllers = [firstVC, categoryVC, secondVC, thirdVC]
         delegate = self
         tabBar.tintColor = CustomColors.JellyTeal
     }
@@ -65,7 +66,7 @@ extension CustomTabBarController {
 extension CustomTabBarController {
     var secondTabBarItem: UITabBarItem {
         let image = #imageLiteral(resourceName: "TabBarAdd")
-        return createTabBarItem(image: image, tag: 2)
+        return createTabBarItem(image: image, tag: 3)
     }
     
     var secondVC: UIViewController {
@@ -84,7 +85,7 @@ extension CustomTabBarController {
 
 extension CustomTabBarController {
     var thirdTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Profile"), tag: 3)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Profile"), tag: 4)
     }
     
     var thirdVC: UIViewController {
@@ -92,5 +93,18 @@ extension CustomTabBarController {
         vc.tabBarItem = thirdTabBarItem
         let clearNavController = ClearNavigationController(rootViewController: vc)
         return clearNavController
+    }
+}
+
+extension CustomTabBarController {
+    var categoryTabBarItem: UITabBarItem {
+        return createTabBarItem(image: #imageLiteral(resourceName: "Earth"), tag: 2)
+    }
+    
+    var categoryVC: UIViewController {
+        let vc = CategoriesViewController()
+        vc.tabBarItem = categoryTabBarItem
+        let navController = ClearNavigationController(rootViewController: vc)
+        return navController
     }
 }

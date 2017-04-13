@@ -10,7 +10,7 @@ import UIKit
 import EZSwiftExtensions
 import Mixpanel
 
-class CategoryViewController: UIViewController {
+class CategoriesViewController: UIViewController {
     struct Constants {
         static let contactUs: String = "Have A Problem?"
     }
@@ -52,12 +52,7 @@ class CategoryViewController: UIViewController {
     }
     
     fileprivate func addExtraCategories() {
-        addMilkMoooversCategory()
         addContactUsCategory()
-    }
-    
-    func addMilkMoooversCategory() {
-        categories.insert("Milk Mooovers", at: categories.count - 1)
     }
     
     fileprivate func addContactUsCategory() {
@@ -69,7 +64,7 @@ class CategoryViewController: UIViewController {
     }
 }
 
-extension CategoryViewController {
+extension CategoriesViewController {
     fileprivate func navBarSetup() {
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
         navigationItem.rightBarButtonItem = searchButton
@@ -81,7 +76,7 @@ extension CategoryViewController {
     }
 }
 
-extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func createTableView() {
         theTableView = UITableView(frame: self.view.bounds)
         theTableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifier)
@@ -135,7 +130,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension CategoryViewController: CategoryDelegate {
+extension CategoriesViewController: CategoriesDelegate {
     func segueIntoApp(gigs: [Gig], vcTitle: String) {
         let startingVC = FrontPageViewController()
         startingVC.gigs = gigs
@@ -149,9 +144,9 @@ extension CategoryViewController: CategoryDelegate {
     }
 }
 
-extension CategoryViewController {
+extension CategoriesViewController {
     static func present(from vc: UIViewController) {
-        let startingVC = CategoryViewController()
+        let startingVC = CategoriesViewController()
         vc.presentVC(startingVC)
     }
 }

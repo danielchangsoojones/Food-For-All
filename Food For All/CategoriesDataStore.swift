@@ -9,15 +9,15 @@
 import Foundation
 import Parse
 
-protocol CategoryDelegate {
+protocol CategoriesDelegate {
     func segueIntoApp(gigs: [Gig], vcTitle: String)
     func removeSpinner()
 }
 
 class CategoryDataStore {
-    var delegate: CategoryDelegate
+    var delegate: CategoriesDelegate
     
-    init(delegate: CategoryDelegate) {
+    init(delegate: CategoriesDelegate) {
         self.delegate = delegate
     }
     
