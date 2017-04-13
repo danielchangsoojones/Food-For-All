@@ -24,6 +24,7 @@ class GigParse: PFObject, PFSubclassing {
     @NSManaged var avgStars: Double
     @NSManaged var numOfReviews: Int
     @NSManaged var estimatedDuration: String?
+    @NSManaged var deleted: Bool
     
     override init() {
         super.init()
@@ -50,5 +51,11 @@ class GigParse: PFObject, PFSubclassing {
         avgStars = gig.avgStars
         numOfReviews = gig.numOfReviews
         estimatedDuration = gig.estimatedDuration
+    }
+    
+    override static func query() -> PFQuery<PFObject>? {
+        let query = super.query()
+        query?.whereKey("deleted", notEqualTo: true)
+        return query
     }
 }
