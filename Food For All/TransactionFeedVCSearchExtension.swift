@@ -17,7 +17,6 @@ extension TransactionFeedViewController: SearchNavBarDelegate {
                 navBar.navDelegate = self
                 navBar.addGradient()
                 navBar.addSearchView()
-                tagCollectionViewSetup(navBar: navBar)
             }
         }
     }
