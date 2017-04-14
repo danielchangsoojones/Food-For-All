@@ -14,24 +14,39 @@ import GlidingCollection
 class CategoriesViewController: UIViewController {
     var glidingCollection: GlidingCollection!
     
+    var dataStore: CategoriesDataStore?
+    
     let categories: [String] = Helpers.categories
+    var gigs: [Gig] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         glidingCollectionViewSetup()
+        dataStoreSetup()
+        self.view.backgroundColor = UIColor.white
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = CategoriesDataStore(delegate: self)
+        dataStore?.loadGigs()
+    }
 }
 
 extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
     fileprivate func glidingCollectionViewSetup() {
+        var config = GlidingConfig.shared
+        config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
+        GlidingConfig.shared = config
         glidingCollection = GlidingCollection(frame: self.view.frame)
         glidingCollection.collectionView.register(GigCollectionViewCell.self, forCellWithReuseIdentifier: GigCollectionViewCell.identifier)
         glidingCollection.dataSource = self
         glidingCollection.collectionView.dataSource = self
+        glidingCollection.collectionView.delegate = self
+        glidingCollection.collectionView.backgroundColor = glidingCollection.backgroundColor
         self.view.addSubview(glidingCollection)
     }
     
@@ -44,13 +59,25 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return gigs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GigCollectionViewCell.identifier, for: indexPath) as! GigCollectionViewCell
-        cell.setContents(image: #imageLiteral(resourceName: "Earth"))
+        let gig = gigs[indexPath.row]
+        cell.setContents(gig: gig)
         return cell
+    }
+}
+
+extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+}
+
+extension CategoriesViewController: CategoriesDataStoreDelegate {
+    func loaded(gigs: [Gig]) {
+        //TODO: actually seperate the gigs into categories
+        self.gigs = gigs
+        glidingCollection.collectionView.reloadData()
     }
 }
 
