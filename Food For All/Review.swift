@@ -27,7 +27,6 @@ class Review {
         description = r.detail
         stars = r.stars
         reviewParse = r
-        
     }
 }
 

@@ -17,16 +17,14 @@ class SearchNavigationBar: UINavigationBar {
         static let horizontalInset: CGFloat = 10
     }
     
-    var theCollectionView: UICollectionView?
     var theSearchView: MainSearchView?
     
     var navDelegate: SearchNavBarDelegate?
     
     var hasSearchViews: Bool {
-        if let collectionView = theCollectionView, let searchView = theSearchView {
-            let hasCollectionView: Bool = subviews.contains(collectionView)
+        if let searchView = theSearchView {
             let hasMainSearchView: Bool = subviews.contains(searchView)
-            return hasCollectionView && hasMainSearchView
+            return hasMainSearchView
         }
         
         return false
@@ -59,6 +57,7 @@ class SearchNavigationBar: UINavigationBar {
 //search view extension
 extension SearchNavigationBar {
     func addSearchView() {
+        //TODO: technically, since we got rid of the tag collectionview, we don't even need to resize the nav bar everytime, but this might change at some point
         let frame: CGRect = CGRect(x: 0, y: 0, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * SearchNavigationBar.subviewRatio)
         let insetFrame = frame.insetBy(dx: Constants.horizontalInset, dy: 6)
         theSearchView = MainSearchView(frame: insetFrame)
@@ -73,26 +72,7 @@ extension SearchNavigationBar {
     }
 }
 
-//collection View extension
 extension SearchNavigationBar {
-    func collectionViewSetup(delegate: UICollectionViewDelegateFlowLayout, dataSource: UICollectionViewDataSource) {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let minY = theSearchView?.frame.maxY ?? 0
-        theCollectionView = UICollectionView(frame: CGRect(x: 0, y: minY, w: self.frame.width, h: SearchNavigationBar.enlargedHeight * SearchNavigationBar.subviewRatio), collectionViewLayout: layout)
-        theCollectionView?.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
-        theCollectionView?.delegate = delegate
-        theCollectionView?.dataSource = dataSource
-        theCollectionView?.backgroundColor = UIColor.clear
-        theCollectionView?.showsHorizontalScrollIndicator = false
-        theCollectionView?.contentInset.left = Constants.horizontalInset
-        if let collectionView = theCollectionView {
-            self.addSubview(collectionView)
-        }
-    }
-}
-
-extension SearchNavigationBar {
-    static let subviewRatio: CGFloat = 0.5
-    static let enlargedHeight: CGFloat = 120
+    static let subviewRatio: CGFloat = 1
+    static let enlargedHeight: CGFloat = 55
 }

@@ -22,8 +22,10 @@ class EditingGigDataStore: CreationDataStore {
     
     func delete(gig: Gig) {
         let g = gig.gigParse
-        g.deleteInBackground()
-        //TODO: make a function for when we finish deleting the gig.
-        delegate?.finishedSaving(gig: gig)
+        g.deleted = true
+        g.saveInBackground { (success, error) in
+            //TODO: make a function for when we finish deleting the gig.
+            self.delegate?.finishedSaving(gig: gig)
+        }
     }
 }

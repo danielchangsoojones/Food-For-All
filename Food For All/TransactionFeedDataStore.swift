@@ -29,6 +29,7 @@ class TransactionFeedDataStore {
     
     func loadTransactions() {
         let query = ReviewParse.query() as! PFQuery<ReviewParse>
+        query.cachePolicy = .cacheThenNetwork
         query.addDescendingOrder("updatedAt")
         
         //the creator of the gig is within distance radius

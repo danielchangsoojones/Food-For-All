@@ -27,17 +27,31 @@ class MainSearchingDataStore {
     
     func findGigs(title: String) {
         setSearchAnalytic(text: title)
-        let query = SearchGig.query()! as! PFQuery<SearchGig>
-        query.whereKey("lowercaseTitle", contains: title.lowercased())
-        query.includeKey("gigParse")
-        query.includeKey("gigParse.creator")
-        query.findObjectsInBackground { (searchGigs, error) in
+        let lowercasedTitle = title.lowercased()
+        
+        let titleQuery = SearchGig.query()!
+        titleQuery.whereKey("lowercaseTitle", contains: lowercasedTitle)
+        
+        let tagQuery = SearchGig.query()!
+        let innerGigQuery = GigParse.query()!
+        innerGigQuery.whereKey("tags", contains: lowercasedTitle)
+        tagQuery.whereKey("gigParse", matchesQuery: innerGigQuery)
+        
+        let orQuery = PFQuery.orQuery(withSubqueries: [titleQuery, tagQuery]) as PFQuery<SearchGig>
+        orQuery.includeKey("gigParse")
+        orQuery.includeKey("gigParse.creator")
+        
+        orQuery.findObjectsInBackground { (searchGigs, error) in
             if let searchGigs = searchGigs {
+                //TODO: this is not the most effecicient thing because I am mapping and then sorting, should do it all at once. 
                 let gigs: [Gig] = searchGigs.map({ (s: SearchGig) -> Gig in
                     let gig = Gig(gigParse: s.gigParse)
                     return gig
                 })
-                self.delegate?.pass(gigs: gigs)
+                let sortedGigs = gigs.sorted(by: { (gig1: Gig, gig2: Gig) -> Bool in
+                    return gig1.avgStars > gig2.avgStars
+                })
+                self.delegate?.pass(gigs: sortedGigs)
             } else if let error = error {
                 print(error)
                 Helpers.showBanner(title: "Error", subtitle: error.localizedDescription)

@@ -21,6 +21,7 @@ class User: PFUser {
     @NSManaged var venmoUsername: String?
     @NSManaged var profileImage: PFFile?
     @NSManaged var phoneNumber: Double
+    @NSManaged var deleted: Bool
 
     var age : Int? {
         if let birthDate = birthDate {
@@ -75,5 +76,11 @@ class User: PFUser {
                 location = PFGeoPoint(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.longitude)
             }
         }
+    }
+    
+    override static func query() -> PFQuery<PFObject>? {
+        let query = super.query()
+        query?.whereKey("deleted", notEqualTo: true)
+        return query
     }
 }

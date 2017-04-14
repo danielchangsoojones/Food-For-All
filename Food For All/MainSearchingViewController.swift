@@ -124,7 +124,7 @@ extension MainSearchingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     fileprivate func setExampleResults() {
-        results = ["barber", "laundry", "headshots", "tutoring", "M119", "K201", "M118", "A100", "Spanish", "K303", "S301", "A201", "K303", "C104", "G202"]
+        results = Helpers.categories
     }
 }
 
