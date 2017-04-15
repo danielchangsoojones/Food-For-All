@@ -32,6 +32,7 @@ target 'Food For All' do
   pod 'Mixpanel-swift'
   pod 'AMScrollingNavbar'
   pod 'TagListView', '~> 1.0'
+  pod 'GlidingCollection', :git => 'https://github.com/Ramotion/gliding-collection.git'
 
 end
 
