@@ -39,6 +39,12 @@ class CategoriesViewController: UIViewController {
 }
 
 extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
+    var visibleGigs: [Gig] {
+        let sectionIndex: Int = glidingView.expandedItemIndex
+        let gigs = dictionary[categories[sectionIndex].lowercased()] ?? []
+        return gigs
+    }
+    
     fileprivate func glidingCollectionViewSetup() {
         var config = GlidingConfig.shared
         config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
@@ -66,8 +72,7 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let category = categories[glidingView.expandedItemIndex]
-        let gigs: [Gig] = dictionary[category.lowercased()] ?? []
+        let gigs = visibleGigs
         if shouldShowEmptyState(gigs: gigs) {
             //shwo empty state cell
             return 1
@@ -77,8 +82,7 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionIndex: Int = glidingView.expandedItemIndex
-        let gigs = dictionary[categories[sectionIndex].lowercased()] ?? []
+        let gigs = visibleGigs
         
         var cell: UICollectionViewCell = UICollectionViewCell()
         if shouldShowEmptyState(gigs: gigs) {
@@ -112,7 +116,16 @@ extension CategoriesViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath)
         if cell is EmptyGigsCollectionViewCell {
             CreationViewController.show(from: self)
+        } else if cell is GigCollectionViewCell {
+            showGigDetailVC(indexPath: indexPath)
         }
+    }
+    
+    fileprivate func showGigDetailVC(indexPath: IndexPath) {
+        let gigs = visibleGigs
+        let gig = gigs[indexPath.item]
+        let gigDetailVC = DetailViewController(gig: gig)
+        pushVC(gigDetailVC)
     }
 }
 
