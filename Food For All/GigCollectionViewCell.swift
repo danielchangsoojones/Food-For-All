@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import GlidingCollection
 
-class GigCollectionViewCell: UICollectionViewCell {
+class GigCollectionViewCell: GlidingCollectionViewCell {
     struct Constants {
         static let height: CGFloat = 280
         static let verticalSpacing: CGFloat = 5
@@ -31,11 +30,6 @@ class GigCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         profileImageSetup()
         descriptionViewSetup()
-        backgroundColor = UIColor.clear
-        contentView.backgroundColor = UIColor.white
-        //Need to use contentView corner radius, or if we use self.corner radius, then the shadow will not show
-        contentView.layer.cornerRadius = 10
-        addShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,19 +42,6 @@ class GigCollectionViewCell: UICollectionViewCell {
         theNameLabel.text = gig.creator.fullName
         theServiceLabel.text = gig.title
         thePriceLabel.text = gig.priceString
-    }
-    
-    fileprivate func addShadow() {
-        contentView.clipsToBounds = true
-        
-        let config = GlidingConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
-        
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
     }
 }
 

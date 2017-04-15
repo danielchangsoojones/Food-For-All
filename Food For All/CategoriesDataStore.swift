@@ -24,7 +24,16 @@ class CategoriesDataStore {
     
     func loadGigs() {
         let query = GigParse.query() as! PFQuery<GigParse>
+        query.cachePolicy = .cacheThenNetwork
         query.includeKey("creator")
+        
+        let creatorQuery = User.query()!
+        creatorQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: User.current()?._location), withinMiles: TransactionFeedDataStore.Constants.distanceRadius)
+        query.whereKey("creator", matchesQuery: creatorQuery)
+        
+        query.order(byDescending: "numOfReviews")
+        query.addDescendingOrder("updatedAt")
+        
         query.findObjectsInBackground { (gigParses, error) in
             if let gigParses = gigParses {
                 let gigs = gigParses.map({ (g: GigParse) -> Gig in
@@ -32,6 +41,8 @@ class CategoriesDataStore {
                     return gig
                 })
                 self.delegate?.loaded(gigs: gigs)
+            } else if let error = error {
+                print(error)
             }
         }
     }

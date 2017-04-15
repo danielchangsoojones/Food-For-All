@@ -12,15 +12,17 @@ import Mixpanel
 import GlidingCollection
 
 class CategoriesViewController: UIViewController {
-    var glidingCollection: GlidingCollection!
+    var glidingView: GlidingCollection!
     
     var dataStore: CategoriesDataStore?
     
     let categories: [String] = Helpers.categories
-    var gigs: [Gig] = []
+    var dictionary: [String : [Gig]] = [:]
+    var hasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDictionaryHeaders()
         glidingCollectionViewSetup()
         dataStoreSetup()
         self.view.backgroundColor = UIColor.white
@@ -34,6 +36,12 @@ class CategoriesViewController: UIViewController {
         dataStore = CategoriesDataStore(delegate: self)
         dataStore?.loadGigs()
     }
+    
+    fileprivate func createDictionaryHeaders() {
+        for category in categories {
+            dictionary[category.lowercased()] = []
+        }
+    }
 }
 
 extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
@@ -41,13 +49,18 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
         var config = GlidingConfig.shared
         config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
         GlidingConfig.shared = config
-        glidingCollection = GlidingCollection(frame: self.view.frame)
-        glidingCollection.collectionView.register(GigCollectionViewCell.self, forCellWithReuseIdentifier: GigCollectionViewCell.identifier)
-        glidingCollection.dataSource = self
-        glidingCollection.collectionView.dataSource = self
-        glidingCollection.collectionView.delegate = self
-        glidingCollection.collectionView.backgroundColor = glidingCollection.backgroundColor
-        self.view.addSubview(glidingCollection)
+        glidingView = GlidingCollection(frame: self.view.frame)
+        registerCollectionCells()
+        glidingView.dataSource = self
+        glidingView.collectionView.dataSource = self
+        glidingView.collectionView.delegate = self
+        glidingView.collectionView.backgroundColor = glidingView.backgroundColor
+        self.view.addSubview(glidingView)
+    }
+    
+    fileprivate func registerCollectionCells() {
+        glidingView.collectionView.register(GigCollectionViewCell.self, forCellWithReuseIdentifier: GigCollectionViewCell.identifier)
+        glidingView.collectionView.register(EmptyGigsCollectionViewCell.self, forCellWithReuseIdentifier: EmptyGigsCollectionViewCell.identifier)
     }
     
     func numberOfItems(in collection: GlidingCollection) -> Int {
@@ -59,25 +72,66 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gigs.count
+        let category = categories[glidingView.expandedItemIndex]
+        let gigs: [Gig] = dictionary[category.lowercased()] ?? []
+        if shouldShowEmptyState(gigs: gigs) {
+            //shwo empty state cell
+            return 1
+        } else {
+            return gigs.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let sectionIndex: Int = glidingView.expandedItemIndex
+        let gigs = dictionary[categories[sectionIndex].lowercased()] ?? []
+        
+        var cell: UICollectionViewCell = UICollectionViewCell()
+        if shouldShowEmptyState(gigs: gigs) {
+            cell = createEmptyStateCell(collectionView: collectionView, indexPath: indexPath)
+        } else {
+            cell = createGigCell(collectionView: collectionView, indexPath: indexPath, gigs: gigs)
+        }
+        
+        return cell
+    }
+    
+    fileprivate func createGigCell(collectionView: UICollectionView, indexPath: IndexPath, gigs: [Gig]) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GigCollectionViewCell.identifier, for: indexPath) as! GigCollectionViewCell
         let gig = gigs[indexPath.row]
         cell.setContents(gig: gig)
         return cell
     }
+    
+    fileprivate func createEmptyStateCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyGigsCollectionViewCell.identifier, for: indexPath) as! EmptyGigsCollectionViewCell
+        return cell
+    }
+    
+    fileprivate func shouldShowEmptyState(gigs: [Gig]) -> Bool {
+        return gigs.isEmpty && hasLoaded
+    }
 }
 
-extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        if cell is EmptyGigsCollectionViewCell {
+            CreationViewController.show(from: self)
+        }
+    }
 }
 
 extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {
-        //TODO: actually seperate the gigs into categories
-        self.gigs = gigs
-        glidingCollection.collectionView.reloadData()
+        hasLoaded = true
+        dictionary.removeAll()
+        for gig in gigs {
+            if let category = gig.tags.first {
+                dictionary[category]?.append(gig)
+            }
+        }
+        glidingView.collectionView.reloadData()
     }
 }
 
