@@ -36,12 +36,6 @@ class CategoriesViewController: UIViewController {
         dataStore = CategoriesDataStore(delegate: self)
         dataStore?.loadGigs()
     }
-    
-    fileprivate func createDictionaryHeaders() {
-        for category in categories {
-            dictionary[category.lowercased()] = []
-        }
-    }
 }
 
 extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
@@ -126,12 +120,19 @@ extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {
         hasLoaded = true
         dictionary.removeAll()
+        createDictionaryHeaders()
         for gig in gigs {
             if let category = gig.tags.first {
                 dictionary[category]?.append(gig)
             }
         }
         glidingView.collectionView.reloadData()
+    }
+    
+    fileprivate func createDictionaryHeaders() {
+        for category in categories {
+            dictionary[category.lowercased()] = []
+        }
     }
 }
 
