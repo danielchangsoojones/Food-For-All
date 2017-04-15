@@ -16,6 +16,7 @@ class SetLocationView: UIView {
     var theZipCodeTextField: UITextField!
     var theSaveButton: UIButton!
     var theKeyboardAccessoryView: UIView!
+    var theCityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,12 +36,14 @@ class SetLocationView: UIView {
         theStackView.spacing = 20
         searchingLabelSetup()
         locationButtonSetup()
+        orLabelSetup()
         zipCodeTextFieldSetup()
+        cityLabelSetup()
         self.addSubview(theStackView)
         theStackView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             //I'm not sure why, but just having it centered looks funny
-            make.centerY.equalTo(self.frame.height * 0.25)
+            make.centerY.equalTo(self.frame.height * 0.33)
         }
     }
     
@@ -75,6 +78,14 @@ class SetLocationView: UIView {
         theStackView.addArrangedSubview(theLocationButton)
     }
     
+    fileprivate func orLabelSetup() {
+        let orLabel = UILabel()
+        orLabel.text = "Or"
+        orLabel.textColor = UIColor.white
+        orLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
+        theStackView.addArrangedSubview(orLabel)
+    }
+    
     fileprivate func zipCodeTextFieldSetup() {
         theZipCodeTextField = UITextField()
         theZipCodeTextField.font = UIFont.systemFont(ofSize: 30)
@@ -96,6 +107,13 @@ class SetLocationView: UIView {
             make.height.equalTo(1)
             make.bottom.leading.trailing.equalToSuperview()
         }
+    }
+    
+    fileprivate func cityLabelSetup() {
+        theCityLabel = UILabel()
+        theCityLabel.textColor = UIColor.white
+        theCityLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        theStackView.addArrangedSubview(theCityLabel)
     }
 }
 

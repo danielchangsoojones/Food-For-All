@@ -13,6 +13,7 @@ import SCLAlertView
 class SetLocationViewController: UIViewController {
     var theKeyboardAccessoryView: UIView!
     var theZipCodeTextField: UITextField!
+    var theCityLabel: UILabel!
     
     let locationManager = CLLocationManager()
     var chosenLocation: CLLocation?
@@ -34,6 +35,7 @@ class SetLocationViewController: UIViewController {
         theKeyboardAccessoryView = locationView.theKeyboardAccessoryView
         locationView.theSaveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         theZipCodeTextField = locationView.theZipCodeTextField
+        theCityLabel = locationView.theCityLabel
         locationView.theLocationButton.addTarget(self, action: #selector(currentLocationButtonPressed), for: .touchUpInside)
     }
 
@@ -132,14 +134,14 @@ extension SetLocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             chosenLocation = location
-            updateZipCodeText(from: location)
+            updateLocationText(from: location)
             //the update location is being called twice, this makes it so it will only be called the first time.
             manager.stopUpdatingLocation()
             manager.delegate = nil
         }
     }
     
-    fileprivate func updateZipCodeText(from location: CLLocation) {
+    fileprivate func updateLocationText(from location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
             self.spinnerView?.removeFromSuperview()
             if error != nil {
@@ -150,6 +152,9 @@ extension SetLocationViewController: CLLocationManagerDelegate {
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
                 
+                if let city = pm.locality, let state = pm.administrativeArea {
+                    self.theCityLabel.text = city + ", " + state
+                }
                 self.theZipCodeTextField.text = pm.postalCode
             } else {
                 print("Problem with the data received from geocoder")
@@ -166,7 +171,7 @@ extension SetLocationViewController: UITextFieldDelegate {
     fileprivate func zipCodeTextFieldSetup() {
         theZipCodeTextField.delegate = self
         if let location = User.current()?._location {
-            updateZipCodeText(from: location)
+            updateLocationText(from: location)
         }
     }
     
