@@ -16,12 +16,13 @@ class CategoriesViewController: UIViewController {
     
     var dataStore: CategoriesDataStore?
     
-    let categories: [String] = Helpers.categories
+    var categories: [String] = Helpers.categories
     var dictionary: [String : [Gig]] = [:]
     var hasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reorderMilkMoooversPosition()
         createDictionaryHeaders()
         glidingCollectionViewSetup()
         dataStoreSetup()
@@ -35,6 +36,13 @@ class CategoriesViewController: UIViewController {
     fileprivate func dataStoreSetup() {
         dataStore = CategoriesDataStore(delegate: self)
         dataStore?.loadGigs()
+    }
+    
+    fileprivate func reorderMilkMoooversPosition() {
+        if let milkIndex = categories.index(of: Helpers.milkMooovers) {
+            let element = categories.remove(at: milkIndex)
+            categories.insert(element, at: categories.count - 1)
+        }
     }
 }
 

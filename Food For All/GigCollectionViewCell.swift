@@ -38,7 +38,7 @@ class GigCollectionViewCell: GlidingCollectionViewCell {
     
     func setContents(gig: Gig) {
         theProfileImageView.loadFromFile(gig.frontImage ?? gig.creator.profileImage)
-        toggleStars(avgStars: 5)
+//        toggleStars(avgStars: 5)
         theNameLabel.text = gig.creator.fullName
         theServiceLabel.text = gig.title
         thePriceLabel.text = gig.priceString
@@ -103,43 +103,43 @@ extension GigCollectionViewCell {
     }
 }
 
-//stars view
-extension GigCollectionViewCell {
-    fileprivate func toggleStars(avgStars: Double) {
-        if avgStars <= 0 {
-            //have no rating
-            theStarsView?.removeFromSuperview()
-        } else {
-            //has a rating
-            starsViewSetup(avgStars: avgStars)
-        }
-    }
-    
-    private func starsViewSetup(avgStars: Double) {
-        if theStarsView == nil {
-            theStarsView = MyCosmosView(rating: avgStars)
-            backgroundStarsBlurSetup()
-        }
-        
-        if let starsView = theStarsView {
-            starsView.rating = avgStars
-            theProfileImageView.addSubview(starsView)
-            starsView.snp.makeConstraints({ (make) in
-                make.leading.equalToSuperview().inset(Constants.horizontalInset)
-                make.bottom.equalToSuperview().inset(Constants.verticalSpacing)
-            })
-        }
-    }
-    
-    private func backgroundStarsBlurSetup() {
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.alpha = 0.4
-        blurEffectView.frame = theStarsView?.bounds ?? CGRect.zero
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        theStarsView?.insertSubview(blurEffectView, at: 0)
-    }
-}
+////stars view
+//extension GigCollectionViewCell {
+//    fileprivate func toggleStars(avgStars: Double) {
+//        if avgStars <= 0 {
+//            //have no rating
+//            theStarsView?.removeFromSuperview()
+//        } else {
+//            //has a rating
+//            starsViewSetup(avgStars: avgStars)
+//        }
+//    }
+//    
+//    private func starsViewSetup(avgStars: Double) {
+//        if theStarsView == nil {
+//            theStarsView = MyCosmosView(rating: avgStars)
+//            backgroundStarsBlurSetup()
+//        }
+//        
+//        if let starsView = theStarsView {
+//            starsView.rating = avgStars
+//            theProfileImageView.addSubview(starsView)
+//            starsView.snp.makeConstraints({ (make) in
+//                make.leading.equalToSuperview().inset(Constants.horizontalInset)
+//                make.bottom.equalToSuperview().inset(Constants.verticalSpacing)
+//            })
+//        }
+//    }
+//    
+//    private func backgroundStarsBlurSetup() {
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.alpha = 0.4
+//        blurEffectView.frame = theStarsView?.bounds ?? CGRect.zero
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        theStarsView?.insertSubview(blurEffectView, at: 0)
+//    }
+//}
 
 extension GigCollectionViewCell {
     static let identifier = "gigCollectionCell"
