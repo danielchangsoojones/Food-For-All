@@ -17,7 +17,8 @@ class NameViewController: WelcomeFormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        theTopTextField?.autocapitalizationType = .words
+        theBottomTextField?.autocapitalizationType = .words
         // Do any additional setup after loading the view.
     }
 
