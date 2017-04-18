@@ -13,12 +13,23 @@ class CustomTabBarController: UITabBarController {
         static let creationVC: String = "creationVC"
     }
     
+    enum Tabs: Int {
+        case category = 1
+        case review = 2
+        case newGig = 3
+        case message = 4
+        case profile = 5
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: change names from firstVC to the actual description of the view controller
-        viewControllers = [categoryVC, firstVC, secondVC, thirdVC]
+        viewControllers = [categoryVC, firstVC, secondVC, messageVC, thirdVC]
         delegate = self
         tabBar.tintColor = CustomColors.JellyTeal
+        
+        //TODO: remove just for testing
+        selectedIndex = Tabs.message.rawValue - 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +61,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
 //first view controller
 extension CustomTabBarController {
     var firstTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: 2)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: Tabs.review.rawValue)
     }
     
     var firstVC: UIViewController {
@@ -66,7 +77,7 @@ extension CustomTabBarController {
 extension CustomTabBarController {
     var secondTabBarItem: UITabBarItem {
         let image = #imageLiteral(resourceName: "TabBarAdd")
-        return createTabBarItem(image: image, tag: 3)
+        return createTabBarItem(image: image, tag: Tabs.newGig.rawValue)
     }
     
     var secondVC: UIViewController {
@@ -85,7 +96,7 @@ extension CustomTabBarController {
 
 extension CustomTabBarController {
     var thirdTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Profile"), tag: 4)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Profile"), tag: Tabs.profile.rawValue)
     }
     
     var thirdVC: UIViewController {
@@ -98,11 +109,24 @@ extension CustomTabBarController {
 
 extension CustomTabBarController {
     var categoryTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Earth"), tag: 1)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Earth"), tag: Tabs.category.rawValue)
     }
     
     var categoryVC: UIViewController {
         let vc = CategoriesViewController()
+        vc.tabBarItem = categoryTabBarItem
+        let navController = ClearNavigationController(rootViewController: vc)
+        return navController
+    }
+}
+
+extension CustomTabBarController {
+    var messageTabBarItem: UITabBarItem {
+        return createTabBarItem(image: #imageLiteral(resourceName: "messageIcon"), tag: Tabs.message.rawValue)
+    }
+    
+    var messageVC: UIViewController {
+        let vc = MessageIndexViewController()
         vc.tabBarItem = categoryTabBarItem
         let navController = ClearNavigationController(rootViewController: vc)
         return navController

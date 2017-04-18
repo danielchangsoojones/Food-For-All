@@ -71,6 +71,7 @@
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
+		92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB21EA669430083A399 /* MessageIndexViewController.swift */; };
 		929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */; };
 		929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
@@ -226,6 +227,7 @@
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
+		92967CB21EA669430083A399 /* MessageIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexViewController.swift; sourceTree = "<group>"; };
 		929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataStore.swift; sourceTree = "<group>"; };
 		929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -585,6 +587,7 @@
 			children = (
 				92A843BC1E419C4400F6358E /* Tab Bar */,
 				927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */,
+				92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				923A8CDD1E425D1300F1BFCA /* Creation */,
 				92D199961E4586B900ABC255 /* Profile */,
 				92D199A11E4684BA00ABC255 /* Settings */,
+				92967CB11EA668DD0083A399 /* Messaging */,
 				924D26FC1E75E59600413CDE /* Contract */,
 				92C545651E949F4100EF7C67 /* ContactUs */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
@@ -665,7 +669,6 @@
 				92DD8D2A1E295F19009EB164 /* Forms */,
 				92D12BA21E303B4D009AC99E /* Login */,
 				92D12BAD1E3060C9009AC99E /* Sign Up */,
-				92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */,
 			);
 			name = Login/SignUp;
 			sourceTree = "<group>";
@@ -778,6 +781,14 @@
 				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		92967CB11EA668DD0083A399 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				92967CB21EA669430083A399 /* MessageIndexViewController.swift */,
+			);
+			name = Messaging;
 			sourceTree = "<group>";
 		};
 		929EC33E1E9F135000162AEB /* Categories */ = {
@@ -1451,6 +1462,7 @@
 			files = (
 				92B3E4541E4F837B00FD2042 /* AllReviewsViewController.swift in Sources */,
 				92F86B331E56648700BF8CF7 /* ForwardAccessoryView.swift in Sources */,
+				92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */,
 				927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */,
 				92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
