@@ -31,13 +31,30 @@ class MessageDataStore {
     fileprivate func sendGroupMeMessage(state: String, gig: Gig) {
         var configuration = Configuration()
         if configuration.environment == .Production, state == "successfully sent" {
-            let url = "https://maker.ifttt.com/trigger/new-user-message/with/key/bmku_IppapnZ3eewT54mzi"
-            let fullName = User.current()?.fullName ?? ""
-            let recipient = gig.creator.fullName ?? ""
-            let parameters: Parameters = ["value1" : fullName, "value2" : state, "value3" : recipient]
-            Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
-                print(response)
-            })
+            countMessages(gig: gig)
         }
+    }
+    
+    fileprivate func countMessages(gig: Gig) {
+        let query = MessageMetrics.query()!
+        query.whereKey("state", equalTo: "successfully sent")
+        
+        let gigQuery = GigParse.query()!
+        gigQuery.whereKey("objectId", notEqualTo: "7rm4E82cLi")
+        query.whereKey("gig", matchesQuery: gigQuery)
+        
+        query.countObjectsInBackground { (count: Int32, error: Error?) in
+            self.sendIFTTTMessage(count: Int(count), gig: gig)
+        }
+    }
+    
+    fileprivate func sendIFTTTMessage(count: Int, gig: Gig) {
+        let url = "https://maker.ifttt.com/trigger/new-user-message/with/key/bmku_IppapnZ3eewT54mzi"
+        let fullName = User.current()?.fullName ?? ""
+        let recipient = gig.creator.fullName ?? ""
+        let parameters: Parameters = ["value1" : fullName, "value2" : count, "value3" : recipient]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
+            print(response)
+        })
     }
 }

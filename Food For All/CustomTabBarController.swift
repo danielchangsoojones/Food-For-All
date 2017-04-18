@@ -16,7 +16,7 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: change names from firstVC to the actual description of the view controller
-        viewControllers = [firstVC, categoryVC, secondVC, thirdVC]
+        viewControllers = [categoryVC, firstVC, secondVC, thirdVC]
         delegate = self
         tabBar.tintColor = CustomColors.JellyTeal
     }
@@ -50,7 +50,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
 //first view controller
 extension CustomTabBarController {
     var firstTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: 1)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: 2)
     }
     
     var firstVC: UIViewController {
@@ -98,7 +98,7 @@ extension CustomTabBarController {
 
 extension CustomTabBarController {
     var categoryTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Earth"), tag: 2)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Earth"), tag: 1)
     }
     
     var categoryVC: UIViewController {
