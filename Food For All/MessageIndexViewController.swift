@@ -74,9 +74,15 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contract = contracts[indexPath.row]
-        let contractVC = ContractViewController()
-        contractVC.contract = contract
-        pushVC(contractVC)
+        
+        if contract.currentUserIsCustomer {
+            
+        } else {
+            //current user is the freelancer
+            let contractVC = FreelancerContractViewController()
+            contractVC.contract = contract
+            pushVC(contractVC)
+        }
     }
 }
 

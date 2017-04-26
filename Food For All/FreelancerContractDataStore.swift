@@ -9,8 +9,16 @@
 import Foundation
 import Mixpanel
 
+protocol FreelancerContractDataStoreDelegate {
+    func received(mutualFriends: [MutualFriend], totalCount: Int)
+}
+
 class FreelancerContractDataStore {
-    init() {}
+    var delegate: FreelancerContractDataStoreDelegate?
+    
+    init(delegate: FreelancerContractDataStoreDelegate) {
+        self.delegate = delegate
+    }
     
     func delete(contract: Contract) {
         //TODO: don't actually delete, just have it add a deleted field to the object.
@@ -43,5 +51,17 @@ class FreelancerContractDataStore {
         metric.gig = gig.gigParse
         metric.state = state
         metric.saveInBackground()
+    }
+}
+
+extension FreelancerContractDataStore: DetailDataStoreDelegate {
+    func loadMutualFriends(targetUser: User) {
+        let dataStore = DetailDataStore()
+        dataStore.delegate = self
+        dataStore.getMutualFriends(creator: targetUser)
+    }
+    
+    func received(mutualFriends: [MutualFriend], totalCount: Int) {
+        self.delegate?.received(mutualFriends: mutualFriends, totalCount: totalCount)
     }
 }
