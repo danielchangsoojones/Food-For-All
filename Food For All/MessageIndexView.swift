@@ -13,6 +13,7 @@ class MessageIndexView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        tableViewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,6 +23,6 @@ class MessageIndexView: UIView {
     fileprivate func tableViewSetup() {
         theTableView = UITableView(frame: self.bounds)
         theTableView.separatorColor = CustomColors.SilverChalice
+        self.addSubview(theTableView)
     }
-
 }

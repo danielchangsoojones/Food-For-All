@@ -9,14 +9,25 @@
 import UIKit
 
 class MessageIndexViewController: UIViewController {
+    var theTableView : UITableView!
+    
+    var messages: [Message] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        viewSetup()
+        tableViewSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navBarSetup()
+    }
+    
+    fileprivate func viewSetup() {
+        let messageIndexView = MessageIndexView(frame: self.view.bounds)
+        self.view = messageIndexView
+        theTableView = messageIndexView.theTableView
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,5 +41,22 @@ class MessageIndexViewController: UIViewController {
             //Must set title of the navigationItem instead of VC or else the tab bar has the title on it.
             self.navigationItem.title = "Message History"
         }
+    }
+}
+
+extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        theTableView.register(CustomerMessageTableViewCell.self, forCellReuseIdentifier: CustomerMessageTableViewCell.identifier)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath)
+        return cell
     }
 }
