@@ -246,9 +246,7 @@ extension DetailViewController: MFMessageComposeViewControllerDelegate {
             let contract = Contract()
             contract.gig = self.gig
             dataStore.save(contract: contract)
-            self.dismiss(animated: true, completion: {
-                ContractViewController.segue(from: self, contract: contract)
-            })
+            self.dismiss(animated: true, completion: nil)
         } else {
             //message was canceled
             messageHelper?.messageComposeViewController(controller, didFinishWith: result)

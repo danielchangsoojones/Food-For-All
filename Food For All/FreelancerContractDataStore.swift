@@ -10,6 +10,8 @@ import Foundation
 import Mixpanel
 
 class FreelancerContractDataStore {
+    init() {}
+    
     func delete(contract: Contract) {
         //TODO: don't actually delete, just have it add a deleted field to the object.
         contract.contractParse.deleteInBackground()

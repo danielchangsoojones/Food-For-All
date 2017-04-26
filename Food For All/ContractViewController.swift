@@ -18,6 +18,7 @@ class ContractViewController: UIViewController {
     
     var messageHelper: MessageHelper?
     var contactHelper: ContactHelper?
+    var contract: Contract?
     
     var contractView: ContractView {
         return ContractView(frame: self.view.bounds)
@@ -42,5 +43,10 @@ class ContractViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func contactUsTapped() {
+        contactHelper = ContactHelper()
+        contactHelper?.contactUs(currentVC: self)
     }
 }

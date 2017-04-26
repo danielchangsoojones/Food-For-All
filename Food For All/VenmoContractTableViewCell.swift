@@ -11,7 +11,6 @@ import UIKit
 class VenmoContractTableViewCell: CreationTableViewCell {
     init() {
         super.init(iconImage: #imageLiteral(resourceName: "VenmoIcon"), titleText: "")
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

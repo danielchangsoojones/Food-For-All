@@ -109,4 +109,8 @@ class CreationTableViewCell: UITableViewCell {
 
 extension CreationTableViewCell {
     static let identifier = "creationTableCell"
+    
+    static func stylize(view: UIView) {
+        
+    }
 }

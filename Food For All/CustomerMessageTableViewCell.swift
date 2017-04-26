@@ -13,12 +13,10 @@ class CustomerMessageTableViewCell: MessageTableViewCell {
         return CustomerMessageTableViewCell.identifier
     }
     
-    func setContents(message: Message) {
-        if let message = message as? CustomerMessage {
-            theCircleImageView.add(file: message.customer.profileImage)
-            theNameLabel.text = message.customer.fullName
-            theTimeStamp.text = formatTimeStamp(message.sentDate)
-        }
+    func setContents(contract: Contract) {
+        theCircleImageView.add(file: contract.customer.profileImage)
+        theNameLabel.text = contract.customer.fullName
+        theTimeStamp.text = formatTimeStamp(contract.sentDate)
     }
 }
 

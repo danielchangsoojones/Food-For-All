@@ -13,12 +13,12 @@ class FreelancerContractViewController: ContractViewController {
         return FreelancerContractView(frame: self.view.bounds)
     }
     
-    var contract: Contract?
     var dataStore: FreelancerContractDataStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle()
+        dataStoreSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,11 +113,6 @@ extension FreelancerContractViewController {
         if let gig = contract?.gig {
             Helpers.venmoTapped(gig: gig)
         }
-    }
-    
-    fileprivate func contactUsTapped() {
-        contactHelper = ContactHelper()
-        contactHelper?.contactUs(currentVC: self)
     }
     
     func completedTapped() {

@@ -11,6 +11,7 @@ import Foundation
 class Contract {
     var gig: Gig = Gig()
     var customer: User = User.current()!
+    var sentDate: Date = Date()
     
     var contractParse: ContractParse = ContractParse()
     
@@ -20,5 +21,10 @@ class Contract {
         self.contractParse = contractParse
         self.gig = Gig(gigParse: contractParse.gig)
         self.customer = contractParse.customer
+        self.sentDate = contractParse.updatedAt ?? Date()
+    }
+    
+    var currentUserIsCustomer: Bool {
+        return customer == User.current()
     }
 }

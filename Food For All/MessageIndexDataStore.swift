@@ -10,7 +10,7 @@ import Foundation
 import Parse
 
 protocol MessageIndexDataStoreDelegate {
-    func loaded(messages: [Message])
+    func loaded(contracts: [Contract])
 }
 
 class MessageIndexDataStore {
@@ -21,25 +21,23 @@ class MessageIndexDataStore {
     }
     
     func loadMessages() {
-        let query = MessageMetrics.query()! as! PFQuery<MessageMetrics>
-        query.whereKey("state", equalTo: "successfully sent")
+        let query = ContractParse.query()! as! PFQuery<ContractParse>
+        query.whereKey("isCompleted", notEqualTo: true)
         
         let gigQuery = GigParse.query()!
         gigQuery.whereKey("creator", equalTo: User.current() ?? User())
         query.whereKey("gig", matchesQuery: gigQuery)
         
+        //TODO: I am pulling down a lot of things and I shouldn't be pulling those down until they actually click a message, then I can load more. 
         query.includeKey("customer")
-        query.findObjectsInBackground { (messageMetrics, error) in
-            if let messageMetrics = messageMetrics {
-                let messages = messageMetrics.map({ (m: MessageMetrics) -> Message in
-                    if m.customer != User.current() {
-                        //the current User is the freelancer the message was sent to
-                        return CustomerMessage(messageMetric: m)
-                    } else {
-                        return Message(messageMetric: m)
-                    }
+        query.includeKey("gig")
+        query.includeKey("gig.creator")
+        query.findObjectsInBackground { (contractParses, error) in
+            if let contractParses = contractParses {
+                let contracts = contractParses.map({ (c: ContractParse) -> Contract in
+                    return Contract(contractParse: c)
                 })
-                self.delegate?.loaded(messages: messages)
+                self.delegate?.loaded(contracts: contracts)
             }
         }
     }

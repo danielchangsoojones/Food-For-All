@@ -74,6 +74,7 @@
 		92894BF11EB0E73C0019E722 /* CustomerContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */; };
 		92894BF41EB0E81C0019E722 /* FreelancerContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */; };
 		92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF51EB0F5060019E722 /* FreelancerContractView.swift */; };
+		92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */; };
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
@@ -239,6 +240,7 @@
 		92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractViewController.swift; sourceTree = "<group>"; };
 		92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractViewController.swift; sourceTree = "<group>"; };
 		92894BF51EB0F5060019E722 /* FreelancerContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractView.swift; sourceTree = "<group>"; };
+		92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendContractTableViewCell.swift; sourceTree = "<group>"; };
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -574,7 +576,6 @@
 			children = (
 				92894BF21EB0E7F00019E722 /* Freelancer */,
 				92894BEF1EB0E6CB0019E722 /* Customer */,
-				924D27041E76063500413CDE /* Cells */,
 				92D4F6401E79ADFC00BCB9A0 /* Review */,
 				924D26FD1E75E5C500413CDE /* ContractViewController.swift */,
 				924D26FF1E75E62C00413CDE /* ContractView.swift */,
@@ -588,16 +589,6 @@
 				924D27021E7600EE00413CDE /* BottomLabelButtonView.swift */,
 			);
 			name = Subviews;
-			sourceTree = "<group>";
-		};
-		924D27041E76063500413CDE /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				924D27051E7606CE00413CDE /* ContractCellData.swift */,
-				924D27071E76075300413CDE /* ContractTableViewCell.swift */,
-				92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {
@@ -821,6 +812,7 @@
 		92894BEF1EB0E6CB0019E722 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				92894BFB1EB117AD0019E722 /* Cell */,
 				92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */,
 			);
 			name = Customer;
@@ -831,10 +823,29 @@
 			children = (
 				921FA51E1E7760C300C1B2B6 /* Data Store */,
 				924D27011E7600A200413CDE /* Subviews */,
+				92894BF71EB10EC40019E722 /* Cells */,
 				92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */,
 				92894BF51EB0F5060019E722 /* FreelancerContractView.swift */,
 			);
 			name = Freelancer;
+			sourceTree = "<group>";
+		};
+		92894BF71EB10EC40019E722 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */,
+				924D27071E76075300413CDE /* ContractTableViewCell.swift */,
+				924D27051E7606CE00413CDE /* ContractCellData.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		92894BFB1EB117AD0019E722 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		92967CB11EA668DD0083A399 /* Messaging */ = {
@@ -1658,6 +1669,7 @@
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,
 				924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */,
 				9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */,
+				92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,

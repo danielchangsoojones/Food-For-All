@@ -11,7 +11,7 @@ import UIKit
 class MessageIndexViewController: UIViewController {
     var theTableView : UITableView!
     
-    var messages: [Message] = []
+    var contracts: [Contract] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,24 +58,31 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return contracts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = messages[indexPath.row]
+        let contract = contracts[indexPath.row]
         let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath) as! CustomerMessageTableViewCell
-        cell.setContents(message: message)
+        cell.setContents(contract: contract)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contract = contracts[indexPath.row]
+        let contractVC = ContractViewController()
+        contractVC.contract = contract
+        pushVC(contractVC)
+    }
 }
 
 extension MessageIndexViewController: MessageIndexDataStoreDelegate {
-    func loaded(messages: [Message]) {
-        self.messages = messages
+    func loaded(contracts: [Contract]) {
+        self.contracts = contracts
         theTableView.reloadData()
     }
 }
