@@ -56,6 +56,8 @@
 		926367A01EAC190A00BCF86B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263679F1EAC190A00BCF86B /* Message.swift */; };
 		9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278B1E5BFEED009EDDF3 /* NameViewController.swift */; };
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
+		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
+		9265C1331EB0D9640017E01E /* CustomerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1321EB0D9640017E01E /* CustomerMessage.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -216,6 +218,8 @@
 		9263679F1EAC190A00BCF86B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9264278B1E5BFEED009EDDF3 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
+		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
+		9265C1321EB0D9640017E01E /* CustomerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessage.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -720,6 +724,23 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		9265C12E1EB0D5D20017E01E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9265C1311EB0D94A0017E01E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				9263679F1EAC190A00BCF86B /* Message.swift */,
+				9265C1321EB0D9640017E01E /* CustomerMessage.swift */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,6 +815,7 @@
 		92967CB11EA668DD0083A399 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
+				9265C12E1EB0D5D20017E01E /* Data Store */,
 				92967CB41EAC0B800083A399 /* Cell */,
 				92967CB21EA669430083A399 /* MessageIndexViewController.swift */,
 				92967CB91EAC17350083A399 /* MessageIndexView.swift */,
@@ -945,12 +967,12 @@
 		92D12BA91E3058E9009AC99E /* Internal Models */ = {
 			isa = PBXGroup;
 			children = (
+				9265C1311EB0D94A0017E01E /* Message */,
 				92DD8D411E358DC8009EB164 /* Gig.swift */,
 				92B3E45B1E4F88FB00FD2042 /* Review.swift */,
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
 				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
 				92CC523C1E7733F3006D5E2B /* Contract.swift */,
-				9263679F1EAC190A00BCF86B /* Message.swift */,
 			);
 			name = "Internal Models";
 			sourceTree = "<group>";
@@ -1523,6 +1545,7 @@
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */,
+				9265C1331EB0D9640017E01E /* CustomerMessage.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
@@ -1552,6 +1575,7 @@
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
+				9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,

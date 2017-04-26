@@ -17,6 +17,7 @@ class MessageIndexViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
         tableViewSetup()
+        dataStoreSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,11 @@ class MessageIndexViewController: UIViewController {
             self.navigationItem.title = "Message History"
         }
     }
+    
+    fileprivate func dataStoreSetup() {
+        let dataStore = MessageIndexDataStore(delegate: self)
+        dataStore.loadMessages()
+    }
 }
 
 extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource {
@@ -58,5 +64,12 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath)
         return cell
+    }
+}
+
+extension MessageIndexViewController: MessageIndexDataStoreDelegate {
+    func loaded(messages: [Message]) {
+        self.messages = messages
+        theTableView.reloadData()
     }
 }

@@ -9,10 +9,11 @@
 import Foundation
 
 class Message {
-    var otherUser: User!
-    var sender: User = User.current()!
+    var sentDate: Date = Date()
+    var messageMetric: MessageMetrics = MessageMetrics()
     
-    var contractParse: ContractParse = ContractParse()
-    
-    init() {}
+    init(messageMetric: MessageMetrics) {
+        self.messageMetric = messageMetric
+        self.sentDate = messageMetric.updatedAt ?? Date()
+    }
 }
