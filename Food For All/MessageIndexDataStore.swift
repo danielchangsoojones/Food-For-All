@@ -32,7 +32,12 @@ class MessageIndexDataStore {
         query.findObjectsInBackground { (messageMetrics, error) in
             if let messageMetrics = messageMetrics {
                 let messages = messageMetrics.map({ (m: MessageMetrics) -> Message in
-                    return Message(messageMetric: m)
+                    if m.customer != User.current() {
+                        //the current User is the freelancer the message was sent to
+                        return CustomerMessage(messageMetric: m)
+                    } else {
+                        return Message(messageMetric: m)
+                    }
                 })
                 self.delegate?.loaded(messages: messages)
             }

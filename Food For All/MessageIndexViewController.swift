@@ -62,8 +62,14 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath)
+        let message = messages[indexPath.row]
+        let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath) as! CustomerMessageTableViewCell
+        cell.setContents(message: message)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
 }
 

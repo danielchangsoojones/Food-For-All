@@ -10,6 +10,10 @@ import UIKit
 import Timepiece
 
 class MessageTableViewCell: UITableViewCell {
+    struct Constants {
+        static let horizontalInset: CGFloat = 10
+    }
+    
     var theNameLabel : UILabel!
     var theCircleImageView : CircularImageView!
     var theTimeStamp : UILabel!
@@ -17,6 +21,10 @@ class MessageTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        profileCircleSetup()
+        timeStampSetup()
+        nameLabelSetup()
+        subtitleLabelSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,20 +37,8 @@ class MessageTableViewCell: UITableViewCell {
         self.addSubview(theCircleImageView)
         theCircleImageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.leading.equalTo(self).offset(10)
+            make.leading.equalTo(self).offset(Constants.horizontalInset)
             make.width.height.equalTo(diameter)
-        }
-    }
-    
-    fileprivate func nameLabelSetup() {
-        theNameLabel = UILabel()
-        theNameLabel.font = UIFont.systemFont(ofSize: 20)
-        self.addSubview(theNameLabel)
-        theNameLabel.snp.makeConstraints { (make) in
-            //TODO: line up the top of timestamp and the top of the nameLabel
-            make.top.equalTo(theCircleImageView).offset(10)
-            make.leading.equalTo(theCircleImageView.snp.trailing).offset(10)
-            make.trailing.equalTo(theTimeStamp.snp.leading)
         }
     }
     
@@ -55,13 +51,13 @@ class MessageTableViewCell: UITableViewCell {
         theTimeStamp.setContentCompressionResistancePriority(1000, for: .horizontal)
         self.addSubview(theTimeStamp)
         theTimeStamp.snp.makeConstraints { (make) in
-            make.trailing.equalTo(self)
+            make.trailing.equalTo(self).inset(Constants.horizontalInset)
             //TODO: I want this line up with the Name Label center, but can't figure out how to do that.
             make.top.equalTo(theCircleImageView).offset(13)
         }
     }
     
-    fileprivate func formatTimeStamp(_ date: Date) -> String {
+    func formatTimeStamp(_ date: Date) -> String {
         let formatter = DateFormatter()
         let lessThan24Hours : Bool = date >= 1.day.ago ?? Date()
         if lessThan24Hours {
@@ -78,7 +74,19 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate func messagePreviewLabelSetup(_ message: String) {
+    fileprivate func nameLabelSetup() {
+        theNameLabel = UILabel()
+        theNameLabel.font = UIFont.systemFont(ofSize: 20)
+        self.addSubview(theNameLabel)
+        theNameLabel.snp.makeConstraints { (make) in
+            //TODO: line up the top of timestamp and the top of the nameLabel
+            make.top.equalTo(theCircleImageView).offset(10)
+            make.leading.equalTo(theCircleImageView.snp.trailing).offset(10)
+            make.trailing.equalTo(theTimeStamp.snp.leading)
+        }
+    }
+    
+    fileprivate func subtitleLabelSetup() {
         theSubtitleLabel = UILabel()
         self.addSubview(theSubtitleLabel)
         theSubtitleLabel.snp.makeConstraints { (make) in

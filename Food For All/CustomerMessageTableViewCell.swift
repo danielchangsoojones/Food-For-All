@@ -8,9 +8,17 @@
 
 import UIKit
 
-class CustomerMessageTableViewCell: UITableViewCell {
+class CustomerMessageTableViewCell: MessageTableViewCell {
     override var reuseIdentifier: String? {
         return CustomerMessageTableViewCell.identifier
+    }
+    
+    func setContents(message: Message) {
+        if let message = message as? CustomerMessage {
+            theCircleImageView.add(file: message.customer.profileImage)
+            theNameLabel.text = message.customer.fullName
+            theTimeStamp.text = formatTimeStamp(message.sentDate)
+        }
     }
 }
 

@@ -23,6 +23,7 @@ class MessageIndexView: UIView {
     fileprivate func tableViewSetup() {
         theTableView = UITableView(frame: self.bounds)
         theTableView.separatorColor = CustomColors.SilverChalice
+        theTableView.tableFooterView = UIView() //removes any extra empty tableview cells
         self.addSubview(theTableView)
     }
 }

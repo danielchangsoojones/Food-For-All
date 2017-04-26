@@ -566,6 +566,7 @@
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
+				92894BEF1EB0E6CB0019E722 /* Customer */,
 				921FA51E1E7760C300C1B2B6 /* Data Store */,
 				924D27041E76063500413CDE /* Cells */,
 				924D27011E7600A200413CDE /* Subviews */,
@@ -810,6 +811,13 @@
 				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		92894BEF1EB0E6CB0019E722 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Customer;
 			sourceTree = "<group>";
 		};
 		92967CB11EA668DD0083A399 /* Messaging */ = {
