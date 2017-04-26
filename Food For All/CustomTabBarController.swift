@@ -127,7 +127,7 @@ extension CustomTabBarController {
     
     var messageVC: UIViewController {
         let vc = MessageIndexViewController()
-        vc.tabBarItem = categoryTabBarItem
+        vc.tabBarItem = messageTabBarItem
         let navController = ClearNavigationController(rootViewController: vc)
         return navController
     }
