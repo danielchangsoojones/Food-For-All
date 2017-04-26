@@ -14,10 +14,11 @@ class FreelancerContractViewController: ContractViewController {
     }
     
     var contract: Contract?
+    var dataStore: FreelancerContractDataStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBarSetup()
+        setNavBarTitle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,13 +35,13 @@ class FreelancerContractViewController: ContractViewController {
     func setContent(contract: Contract) {
         theProfileCircleView.add(file: contract.gig.creator.profileImage)
     }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = FreelancerContractDataStore()
+    }
 }
 
 extension FreelancerContractViewController {
-    fileprivate func navBarSetup() {
-        setNavBarTitle()
-    }
-    
     fileprivate func setNavBarTitle() {
         navigationItem.title = "Pending Transaction"
     }

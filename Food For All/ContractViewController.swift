@@ -17,7 +17,6 @@ class ContractViewController: UIViewController {
     var theTableView: UITableView!
     
     var messageHelper: MessageHelper?
-    var dataStore: ContractDataStore?
     var contactHelper: ContactHelper?
     
     var contractView: ContractView {
@@ -27,13 +26,6 @@ class ContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        dataStoreSetup()
-        if let contract = contract {
-            //load the contract
-            setContent(contract: contract)
-        } else {
-            dataStore?.loadContract()
-        }
     }
     
     func viewSetup() {
@@ -50,9 +42,5 @@ class ContractViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-    
-    fileprivate func dataStoreSetup() {
-        dataStore = ContractDataStore(delegate: self)
     }
 }

@@ -237,7 +237,7 @@ struct Helpers {
             Helpers.showBanner(title: "Error", subtitle: "The freelancer has not configured their venmo account yet", bannerType: .error)
         }
         
-        let dataStore = ContractDataStore()
+        let dataStore = FreelancerContractDataStore()
         dataStore.saveVenmoMetric(state: venmoState, gig: gig)
     }
 }

@@ -10,7 +10,7 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
 		9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152091E97FC27003A4455 /* EmptyGigsView.swift */; };
-		921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */; };
+		921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */; };
 		9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */; };
 		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
 		9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */; };
@@ -173,7 +173,7 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
 		921152091E97FC27003A4455 /* EmptyGigsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsView.swift; sourceTree = "<group>"; };
-		921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDataStore.swift; sourceTree = "<group>"; };
+		921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractDataStore.swift; sourceTree = "<group>"; };
 		9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 		921FA51E1E7760C300C1B2B6 /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
-				921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */,
+				921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */,
 			);
 			name = "Data Store";
 			sourceTree = "<group>";
@@ -574,7 +574,6 @@
 			children = (
 				92894BF21EB0E7F00019E722 /* Freelancer */,
 				92894BEF1EB0E6CB0019E722 /* Customer */,
-				921FA51E1E7760C300C1B2B6 /* Data Store */,
 				924D27041E76063500413CDE /* Cells */,
 				92D4F6401E79ADFC00BCB9A0 /* Review */,
 				924D26FD1E75E5C500413CDE /* ContractViewController.swift */,
@@ -830,6 +829,7 @@
 		92894BF21EB0E7F00019E722 /* Freelancer */ = {
 			isa = PBXGroup;
 			children = (
+				921FA51E1E7760C300C1B2B6 /* Data Store */,
 				924D27011E7600A200413CDE /* Subviews */,
 				92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */,
 				92894BF51EB0F5060019E722 /* FreelancerContractView.swift */,
@@ -1593,7 +1593,7 @@
 				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
 				926367A01EAC190A00BCF86B /* Message.swift in Sources */,
-				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
+				921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
