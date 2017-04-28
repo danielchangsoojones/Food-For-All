@@ -27,9 +27,6 @@ class CustomTabBarController: UITabBarController {
         viewControllers = [categoryVC, firstVC, secondVC, messageVC, thirdVC]
         delegate = self
         tabBar.tintColor = CustomColors.JellyTeal
-        
-        //TODO: remove just for testing
-        selectedIndex = Tabs.message.rawValue - 1
     }
 
     override func didReceiveMemoryWarning() {

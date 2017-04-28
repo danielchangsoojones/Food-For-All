@@ -50,7 +50,7 @@ class FreelancerContractViewController: ContractViewController {
 
 extension FreelancerContractViewController {
     fileprivate func setNavBarTitle() {
-        navigationItem.title = "Pending Transaction"
+        navigationItem.title = "Freelancer"
     }
 }
 

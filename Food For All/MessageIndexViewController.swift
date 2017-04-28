@@ -60,6 +60,7 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if contracts.count > 0 {
+            tableView.backgroundView = nil
             return 1
         } else {
             Helpers.EmptyMessage(message: "No Messages", tableView: tableView)

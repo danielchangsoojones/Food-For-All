@@ -37,6 +37,7 @@ class MessageIndexDataStore {
         orQuery.includeKey("customer")
         orQuery.includeKey("gig")
         orQuery.includeKey("gig.creator")
+        orQuery.order(byDescending: "updatedAt")
         orQuery.cachePolicy = .cacheThenNetwork
         orQuery.findObjectsInBackground { (contractParses, error) in
             if let contractParses = contractParses as? [ContractParse] {
