@@ -58,6 +58,15 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
         theTableView.register(FreelancerMessageTableViewCell.self, forCellReuseIdentifier: FreelancerMessageTableViewCell.identifier)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if contracts.count > 0 {
+            return 1
+        } else {
+            Helpers.EmptyMessage(message: "No Messages", tableView: tableView)
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contracts.count
     }
