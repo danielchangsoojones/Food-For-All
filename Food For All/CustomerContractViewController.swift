@@ -42,6 +42,13 @@ class CustomerContractViewController: ContractViewController {
         setContents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navController = navigationController as? ClearNavigationController {
+            navController.makeTransparent()
+        }
+    }
+    
     fileprivate func dataStoreSetup() {
         dataStore = CustomerContractDataStore(delegate: self)
     }

@@ -53,11 +53,9 @@
 		925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F211E25AA1A00196504 /* WelcomeView.swift */; };
 		925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F231E25AA9C00196504 /* WelcomeViewController.swift */; };
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
-		926367A01EAC190A00BCF86B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263679F1EAC190A00BCF86B /* Message.swift */; };
 		9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278B1E5BFEED009EDDF3 /* NameViewController.swift */; };
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
 		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
-		9265C1331EB0D9640017E01E /* CustomerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1321EB0D9640017E01E /* CustomerMessage.swift */; };
 		9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
@@ -220,11 +218,9 @@
 		925C5F211E25AA1A00196504 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		925C5F231E25AA9C00196504 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		9263679F1EAC190A00BCF86B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9264278B1E5BFEED009EDDF3 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
 		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
-		9265C1321EB0D9640017E01E /* CustomerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessage.swift; sourceTree = "<group>"; };
 		9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractDataStore.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
@@ -731,15 +727,6 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
-		9265C1311EB0D94A0017E01E /* Message */ = {
-			isa = PBXGroup;
-			children = (
-				9263679F1EAC190A00BCF86B /* Message.swift */,
-				9265C1321EB0D9640017E01E /* CustomerMessage.swift */,
-			);
-			name = Message;
-			sourceTree = "<group>";
-		};
 		9265C1341EB15F0B0017E01E /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -1014,7 +1001,6 @@
 		92D12BA91E3058E9009AC99E /* Internal Models */ = {
 			isa = PBXGroup;
 			children = (
-				9265C1311EB0D94A0017E01E /* Message */,
 				92DD8D411E358DC8009EB164 /* Gig.swift */,
 				92B3E45B1E4F88FB00FD2042 /* Review.swift */,
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
@@ -1593,7 +1579,6 @@
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
 				9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */,
-				9265C1331EB0D9640017E01E /* CustomerMessage.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
@@ -1614,7 +1599,6 @@
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
 				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
-				926367A01EAC190A00BCF86B /* Message.swift in Sources */,
 				921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
