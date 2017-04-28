@@ -20,9 +20,7 @@ class DetailDataStore {
     
     func save(contract: Contract) {
         let contractParse = ContractParse(contract: contract)
-        contractParse.saveInBackground { (success, error) in
-            UserDefaults.standard.set(true, forKey: ContractViewController.Constants.contractKey)
-        }
+        contractParse.saveInBackground()
     }
 }
 

@@ -28,10 +28,10 @@ class ContractNewRatingViewController: NewRatingViewController {
     }
     
     func skipPressed() {
-        Helpers.enterApplication(from: self)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func finishedSaving(review: Review) {
-        Helpers.enterApplication(from: self)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

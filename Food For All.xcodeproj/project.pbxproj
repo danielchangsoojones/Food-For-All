@@ -10,7 +10,7 @@
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
 		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
 		9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152091E97FC27003A4455 /* EmptyGigsView.swift */; };
-		921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */; };
+		921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */; };
 		9230BA4D1E59114C00B77A56 /* GigPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */; };
 		9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */; };
 		9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */; };
@@ -55,6 +55,9 @@
 		925C5F271E25BD4600196504 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C5F261E25BD4600196504 /* Structs.swift */; };
 		9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278B1E5BFEED009EDDF3 /* NameViewController.swift */; };
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
+		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
+		9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */; };
+		9265C1381EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -68,9 +71,17 @@
 		927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */; };
 		927E2F511E3DA40500B24D40 /* SearchGig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F501E3DA40500B24D40 /* SearchGig.swift */; };
 		927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */; };
+		92894BF11EB0E73C0019E722 /* CustomerContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */; };
+		92894BF41EB0E81C0019E722 /* FreelancerContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */; };
+		92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF51EB0F5060019E722 /* FreelancerContractView.swift */; };
+		92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */; };
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
+		92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB21EA669430083A399 /* MessageIndexViewController.swift */; };
+		92967CB61EAC12A80083A399 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */; };
+		92967CB81EAC16C80083A399 /* CustomerMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */; };
+		92967CBA1EAC17350083A399 /* MessageIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB91EAC17350083A399 /* MessageIndexView.swift */; };
 		929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */; };
 		929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
@@ -163,7 +174,7 @@
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
 		921152091E97FC27003A4455 /* EmptyGigsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsView.swift; sourceTree = "<group>"; };
-		921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDataStore.swift; sourceTree = "<group>"; };
+		921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractDataStore.swift; sourceTree = "<group>"; };
 		9230BA4C1E59114C00B77A56 /* GigPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigPhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableViewCell.swift; sourceTree = "<group>"; };
 		9230BA521E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -210,6 +221,9 @@
 		925C5F261E25BD4600196504 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		9264278B1E5BFEED009EDDF3 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
+		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
+		9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractDataStore.swift; sourceTree = "<group>"; };
+		9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerMessageTableViewCell.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -223,9 +237,17 @@
 		927E2F4E1E3D72C200B24D40 /* MainSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchTableViewCell.swift; sourceTree = "<group>"; };
 		927E2F501E3DA40500B24D40 /* SearchGig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGig.swift; sourceTree = "<group>"; };
 		927E2F531E3E3F5100B24D40 /* MainSearchingDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchingDataStore.swift; sourceTree = "<group>"; };
+		92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractViewController.swift; sourceTree = "<group>"; };
+		92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractViewController.swift; sourceTree = "<group>"; };
+		92894BF51EB0F5060019E722 /* FreelancerContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractView.swift; sourceTree = "<group>"; };
+		92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendContractTableViewCell.swift; sourceTree = "<group>"; };
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
+		92967CB21EA669430083A399 /* MessageIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexViewController.swift; sourceTree = "<group>"; };
+		92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessageTableViewCell.swift; sourceTree = "<group>"; };
+		92967CB91EAC17350083A399 /* MessageIndexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexView.swift; sourceTree = "<group>"; };
 		929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataStore.swift; sourceTree = "<group>"; };
 		929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -386,7 +408,7 @@
 		921FA51E1E7760C300C1B2B6 /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
-				921FA51F1E7760D300C1B2B6 /* ContractDataStore.swift */,
+				921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */,
 			);
 			name = "Data Store";
 			sourceTree = "<group>";
@@ -552,9 +574,8 @@
 		924D26FC1E75E59600413CDE /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				921FA51E1E7760C300C1B2B6 /* Data Store */,
-				924D27041E76063500413CDE /* Cells */,
-				924D27011E7600A200413CDE /* Subviews */,
+				92894BF21EB0E7F00019E722 /* Freelancer */,
+				92894BEF1EB0E6CB0019E722 /* Customer */,
 				92D4F6401E79ADFC00BCB9A0 /* Review */,
 				924D26FD1E75E5C500413CDE /* ContractViewController.swift */,
 				924D26FF1E75E62C00413CDE /* ContractView.swift */,
@@ -570,21 +591,12 @@
 			name = Subviews;
 			sourceTree = "<group>";
 		};
-		924D27041E76063500413CDE /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				924D27051E7606CE00413CDE /* ContractCellData.swift */,
-				924D27071E76075300413CDE /* ContractTableViewCell.swift */,
-				92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		9254B7101E37E0B40034F6D0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				92A843BC1E419C4400F6358E /* Tab Bar */,
 				927E2F491E3D5B4C00B24D40 /* CustomNavigationController.swift */,
+				92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -646,6 +658,7 @@
 				923A8CDD1E425D1300F1BFCA /* Creation */,
 				92D199961E4586B900ABC255 /* Profile */,
 				92D199A11E4684BA00ABC255 /* Settings */,
+				92967CB11EA668DD0083A399 /* Messaging */,
 				924D26FC1E75E59600413CDE /* Contract */,
 				92C545651E949F4100EF7C67 /* ContactUs */,
 				925C5F0E1E25A53F00196504 /* AppDelegate.swift */,
@@ -665,7 +678,6 @@
 				92DD8D2A1E295F19009EB164 /* Forms */,
 				92D12BA21E303B4D009AC99E /* Login */,
 				92D12BAD1E3060C9009AC99E /* Sign Up */,
-				92DD8D281E295E8C009EB164 /* ClearNavigationController.swift */,
 			);
 			name = Login/SignUp;
 			sourceTree = "<group>";
@@ -705,6 +717,22 @@
 			isa = PBXGroup;
 			children = (
 				9264278F1E5C0366009EDDF3 /* NameDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9265C12E1EB0D5D20017E01E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		9265C1341EB15F0B0017E01E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */,
 			);
 			name = "Data Store";
 			sourceTree = "<group>";
@@ -778,6 +806,67 @@
 				9248C5821E99C737005ECA37 /* SearchNavigationBar.swift */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		92894BEF1EB0E6CB0019E722 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				9265C1341EB15F0B0017E01E /* Data Store */,
+				92894BFB1EB117AD0019E722 /* Cell */,
+				92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
+		92894BF21EB0E7F00019E722 /* Freelancer */ = {
+			isa = PBXGroup;
+			children = (
+				921FA51E1E7760C300C1B2B6 /* Data Store */,
+				924D27011E7600A200413CDE /* Subviews */,
+				92894BF71EB10EC40019E722 /* Cells */,
+				92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */,
+				92894BF51EB0F5060019E722 /* FreelancerContractView.swift */,
+			);
+			name = Freelancer;
+			sourceTree = "<group>";
+		};
+		92894BF71EB10EC40019E722 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92CC52371E772A72006D5E2B /* VenmoContractTableViewCell.swift */,
+				924D27071E76075300413CDE /* ContractTableViewCell.swift */,
+				924D27051E7606CE00413CDE /* ContractCellData.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		92894BFB1EB117AD0019E722 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		92967CB11EA668DD0083A399 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				9265C12E1EB0D5D20017E01E /* Data Store */,
+				92967CB41EAC0B800083A399 /* Cell */,
+				92967CB21EA669430083A399 /* MessageIndexViewController.swift */,
+				92967CB91EAC17350083A399 /* MessageIndexView.swift */,
+			);
+			name = Messaging;
+			sourceTree = "<group>";
+		};
+		92967CB41EAC0B800083A399 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */,
+				92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */,
+				9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		929EC33E1E9F135000162AEB /* Categories */ = {
@@ -1451,6 +1540,7 @@
 			files = (
 				92B3E4541E4F837B00FD2042 /* AllReviewsViewController.swift in Sources */,
 				92F86B331E56648700BF8CF7 /* ForwardAccessoryView.swift in Sources */,
+				92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */,
 				927E2F481E3D594A00B24D40 /* MainSearchingView.swift in Sources */,
 				92D199AE1E46985E00ABC255 /* ProfileDataStore.swift in Sources */,
 				92DD8D381E3534C4009EB164 /* FreelancersTableViewCell.swift in Sources */,
@@ -1481,11 +1571,13 @@
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
 				924D27081E76075300413CDE /* ContractTableViewCell.swift in Sources */,
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
+				92894BF41EB0E81C0019E722 /* FreelancerContractViewController.swift in Sources */,
 				92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */,
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
 				921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */,
+				92967CB61EAC12A80083A399 /* MessageTableViewCell.swift in Sources */,
 				924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
@@ -1506,10 +1598,11 @@
 				9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
+				92967CB81EAC16C80083A399 /* CustomerMessageTableViewCell.swift in Sources */,
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
 				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
-				921FA5201E7760D300C1B2B6 /* ContractDataStore.swift in Sources */,
+				921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
@@ -1517,6 +1610,7 @@
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
 				9248C5741E9979E3005ECA37 /* TransactionHeadView.swift in Sources */,
 				92D199A31E4684DA00ABC255 /* SettingsViewController.swift in Sources */,
+				9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */,
 				92D12BB21E30632B009AC99E /* SignUpDataStore.swift in Sources */,
 				92D1998B1E45179C00ABC255 /* ContactFormViewController.swift in Sources */,
 				92F86B5C1E589EAF00BF8CF7 /* GigDetailPhoto.swift in Sources */,
@@ -1535,6 +1629,7 @@
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
+				92894BF11EB0E73C0019E722 /* CustomerContractViewController.swift in Sources */,
 				92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */,
 				92F86B3E1E5676F100BF8CF7 /* InformationTableViewCell.swift in Sources */,
 				9248C56F1E99758D005ECA37 /* TransactionFeedViewController.swift in Sources */,
@@ -1546,11 +1641,14 @@
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
+				92967CBA1EAC17350083A399 /* MessageIndexView.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
 				927E2F4F1E3D72C200B24D40 /* MainSearchTableViewCell.swift in Sources */,
 				929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */,
+				92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
+				9265C1381EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift in Sources */,
 				9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
@@ -1570,6 +1668,7 @@
 				9230BA531E59255C00B77A56 /* PhotoDetailCollectionViewCell.swift in Sources */,
 				924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */,
 				9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */,
+				92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,
@@ -1579,6 +1678,7 @@
 				924D27001E75E62C00413CDE /* ContractView.swift in Sources */,
 				9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */,
 				92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */,
+				9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */,
 				9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */,
 				92DD8D341E350B43009EB164 /* FrontPageView.swift in Sources */,
 				923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */,
@@ -1714,7 +1814,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1733,7 +1833,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1929,7 +2029,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
