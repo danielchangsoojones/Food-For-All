@@ -58,6 +58,7 @@
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
 		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
 		9265C1331EB0D9640017E01E /* CustomerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1321EB0D9640017E01E /* CustomerMessage.swift */; };
+		9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -224,6 +225,7 @@
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
 		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
 		9265C1321EB0D9640017E01E /* CustomerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessage.swift; sourceTree = "<group>"; };
+		9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractDataStore.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -738,6 +740,14 @@
 			name = Message;
 			sourceTree = "<group>";
 		};
+		9265C1341EB15F0B0017E01E /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +822,7 @@
 		92894BEF1EB0E6CB0019E722 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				9265C1341EB15F0B0017E01E /* Data Store */,
 				92894BFB1EB117AD0019E722 /* Cell */,
 				92894BF01EB0E73C0019E722 /* CustomerContractViewController.swift */,
 			);
@@ -1679,6 +1690,7 @@
 				924D27001E75E62C00413CDE /* ContractView.swift in Sources */,
 				9254B71A1E3940F70034F6D0 /* DetailViewController.swift in Sources */,
 				92D12BA41E303B6D009AC99E /* LoginViewController.swift in Sources */,
+				9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */,
 				9248C5711E9975A7005ECA37 /* TransactionFeedView.swift in Sources */,
 				92DD8D341E350B43009EB164 /* FrontPageView.swift in Sources */,
 				923A8CE11E42658E00F1BFCA /* CreationView.swift in Sources */,

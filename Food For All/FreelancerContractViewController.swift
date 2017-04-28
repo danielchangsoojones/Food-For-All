@@ -37,7 +37,7 @@ class FreelancerContractViewController: ContractViewController {
     }
     
     fileprivate func dataStoreSetup() {
-        dataStore = FreelancerContractDataStore(delegate: self)
+        dataStore = FreelancerContractDataStore()
     }
 }
 
@@ -129,11 +129,5 @@ extension FreelancerContractViewController {
             dataStore?.delete(contract: contract)
         }
         Helpers.enterApplication(from: self)
-    }
-}
-
-extension FreelancerContractViewController: FreelancerContractDataStoreDelegate {
-    func received(mutualFriends: [MutualFriend], totalCount: Int) {
-        
     }
 }

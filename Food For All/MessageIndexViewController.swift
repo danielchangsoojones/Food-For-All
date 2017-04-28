@@ -78,8 +78,8 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
         if contract.currentUserIsCustomer {
             
         } else {
-            //current user is the freelancer
-            let contractVC = FreelancerContractViewController()
+            //current user is the freelancer, so show information about the user
+            let contractVC = CustomerContractViewController()
             contractVC.contract = contract
             pushVC(contractVC)
         }

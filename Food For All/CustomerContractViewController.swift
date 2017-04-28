@@ -16,17 +16,54 @@ class CustomerContractViewController: ContractViewController {
         case contactAdmin
         
         static let all: [CustomerContractCell] = [.description, .mutualFriends, .contactAdmin]
+        static func insertInto(array: [CustomerContractCell], type: CustomerContractCell) -> [CustomerContractCell] {
+            var arrayCopy = array
+            let targetIndex = array.index { (item: CustomerContractCell) -> Bool in
+                return item.rawValue > type.rawValue
+            }
+            
+            if let targetIndex = targetIndex {
+                arrayCopy.insert(type, at: targetIndex)
+            }
+            
+            return arrayCopy
+        }
+    }
+    
+    var dataStore: CustomerContractDataStore?
+    var totalMutualFriends: Int = 0
+    var mutualFriends: [MutualFriend] = []
+    var cellData: [CustomerContractCell] = [.description, .contactAdmin]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataStoreSetup()
+        tableViewSetup()
+        setContents()
+    }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = CustomerContractDataStore(delegate: self)
     }
 }
 
 extension CustomerContractViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func setContents() {
+        theProfileCircleView.add(file: contract?.customer.profileImage)
+    }
+    
+    fileprivate func tableViewSetup() {
+        theTableView.delegate = self
+        theTableView.dataSource = self
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CustomerContractCell.all.count
+        return cellData.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let contract = CustomerContractCell(rawValue: indexPath.row) ?? .contactAdmin
-        switch contract {
+        let cellType = cellData[indexPath.row]
+        switch cellType {
         case .description:
             return UITableViewAutomaticDimension
         default:
@@ -41,12 +78,11 @@ extension CustomerContractViewController: UITableViewDelegate, UITableViewDataSo
 
 extension CustomerContractViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = CustomerContractCell(rawValue: indexPath.row) ?? .description
+        let cellType = cellData[indexPath.row]
         var cell: UITableViewCell!
         switch cellType {
         case .description:
             cell = createDescriptionCell()
-            //TODO: implement these cells
         case .mutualFriends:
             cell = createMutualFriendCell()
         case .contactAdmin:
@@ -67,8 +103,8 @@ extension CustomerContractViewController {
     }
     
     fileprivate func createMutualFriendCell() -> UITableViewCell {
-        let cell = MutualFriendContractTableViewCell(numOfFriends: 10)
-        //TODO: set the actual mutual friends
+        let cell = MutualFriendContractTableViewCell(numOfFriends: totalMutualFriends)
+        cell.mutualFriends = mutualFriends
         return cell
     }
     
@@ -81,12 +117,23 @@ extension CustomerContractViewController {
 //cell actions
 extension CustomerContractViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contract = CustomerContractCell(rawValue: indexPath.row) ?? .description
-        switch contract {
+        let cellType = cellData[indexPath.row]
+        switch cellType {
         case .contactAdmin:
             contactUsTapped()
         default:
             break
+        }
+    }
+}
+
+extension CustomerContractViewController: CustomerContractDataStoreDelegate {
+    func received(mutualFriends: [MutualFriend], totalCount: Int) {
+        if totalCount > 0 {
+            self.mutualFriends = mutualFriends
+            self.totalMutualFriends = totalCount
+            cellData = CustomerContractCell.insertInto(array: cellData, type: .mutualFriends)
+            theTableView.reloadData()
         }
     }
 }
