@@ -9,10 +9,6 @@
 import UIKit
 
 class ContractViewController: UIViewController {
-    struct Constants {
-        static let contractKey = "doesContractExist"
-    }
-    
     var theProfileCircleView: CircularImageView!
     var theTableView: UITableView!
     

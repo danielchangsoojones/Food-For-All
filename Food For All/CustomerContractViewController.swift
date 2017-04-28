@@ -56,7 +56,10 @@ class CustomerContractViewController: ContractViewController {
 
 extension CustomerContractViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func setContents() {
-        theProfileCircleView.add(file: contract?.customer.profileImage)
+        if let customer = contract?.customer {
+            theProfileCircleView.add(file: customer.profileImage)
+            dataStore?.loadMutualFriends(targetUser: customer)
+        }
     }
     
     fileprivate func tableViewSetup() {
@@ -73,6 +76,8 @@ extension CustomerContractViewController: UITableViewDelegate, UITableViewDataSo
         switch cellType {
         case .description:
             return UITableViewAutomaticDimension
+        case .mutualFriends:
+            return 155
         default:
             return CreationViewController.Constants.cellHeight
         }

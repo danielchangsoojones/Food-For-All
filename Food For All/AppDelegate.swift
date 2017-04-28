@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //already logged in
             if User.current()?._location == nil {
                 toSetLocationVC()
-            } else if let shouldShowContract = UserDefaults.standard.value(forKey: ContractViewController.Constants.contractKey) as? Bool, shouldShowContract {
-                toContractVC()
             } else {
                 toFrontPageVC()
             }
@@ -92,12 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setInitialVC(vc: navController)
     }
     
-    fileprivate func toContractVC() {
-        let contractVC = ContractViewController()
-        let clearNavController = ClearNavigationController(rootViewController: contractVC)
-        setInitialVC(vc: clearNavController)
-    }
-    
     fileprivate func setInitialVC(vc: UIViewController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = vc
@@ -108,7 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Instabug.start(withToken: "c1d90288be3cf98624000127f6139a87", invocationEvent: .shake)
         Instabug.setIntroMessageEnabled(false)
     }
-    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
