@@ -18,9 +18,6 @@ class FreelancerContractDataStore {
     
     func complete(contract: Contract) {
         completeContractMetric(contract: contract)
-        let c = contract.contractParse
-        c.isCompleted = true
-        c.saveInBackground()
     }
     
     fileprivate func deleteContractMetric(contract: Contract) {

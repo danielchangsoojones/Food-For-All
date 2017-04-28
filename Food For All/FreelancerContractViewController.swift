@@ -19,6 +19,7 @@ class FreelancerContractViewController: ContractViewController {
         super.viewDidLoad()
         setNavBarTitle()
         dataStoreSetup()
+        setContent(contract: contract)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,12 +29,18 @@ class FreelancerContractViewController: ContractViewController {
     
     override func viewSetup() {
         super.viewSetup()
-        contractView.theTableView.delegate = self
-        contractView.theTableView.dataSource = self
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        if let contractView = view as? FreelancerContractView {
+            contractView.theCompleteButtonView.addTapGesture(target: self, action: #selector(completedTapped))
+            contractView.theDeleteButtonView.addTapGesture(target: self, action: #selector(deleteTapped))
+        }
     }
     
-    func setContent(contract: Contract) {
-        theProfileCircleView.add(file: contract.gig.creator.profileImage)
+    func setContent(contract: Contract?) {
+        if let contract = contract {
+            theProfileCircleView.add(file: contract.gig.creator.profileImage)
+        }
     }
     
     fileprivate func dataStoreSetup() {
@@ -119,8 +126,7 @@ extension FreelancerContractViewController {
         if let contract = contract {
             dataStore?.complete(contract: contract)
             let newReviewVC = ContractNewRatingViewController(gig: contract.gig)
-            let clearNavController = ClearNavigationController(rootViewController: newReviewVC)
-            presentVC(clearNavController)
+            pushVC(newReviewVC)
         }
     }
     
@@ -128,6 +134,6 @@ extension FreelancerContractViewController {
         if let contract = contract {
             dataStore?.delete(contract: contract)
         }
-        Helpers.enterApplication(from: self)
+        popVC()
     }
 }

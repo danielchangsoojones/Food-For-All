@@ -13,10 +13,10 @@ class CustomerMessageTableViewCell: MessageTableViewCell {
         return CustomerMessageTableViewCell.identifier
     }
     
-    func setContents(contract: Contract) {
+    override func setContents(contract: Contract) {
+        super.setContents(contract: contract)
         theCircleImageView.add(file: contract.customer.profileImage)
         theNameLabel.text = contract.customer.fullName
-        theTimeStamp.text = formatTimeStamp(contract.sentDate)
     }
 }
 

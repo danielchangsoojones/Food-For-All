@@ -25,6 +25,7 @@ class Contract {
     }
     
     var currentUserIsCustomer: Bool {
-        return customer == User.current()
+        //For some reason, just comparing the users is not working
+        return customer.objectId == User.current()?.objectId
     }
 }

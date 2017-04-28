@@ -31,6 +31,10 @@ class MessageTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setContents(contract: Contract) {
+        theTimeStamp.text = formatTimeStamp(contract.sentDate)
+    }
+    
     fileprivate func profileCircleSetup() {
         let diameter : CGFloat = self.frame.width * 0.2
         theCircleImageView = CircularImageView(file: nil, diameter: diameter)

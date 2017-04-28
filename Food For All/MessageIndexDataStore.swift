@@ -21,19 +21,24 @@ class MessageIndexDataStore {
     }
     
     func loadMessages() {
-        let query = ContractParse.query()! as! PFQuery<ContractParse>
-        query.whereKey("isCompleted", notEqualTo: true)
+        let customerQuery = ContractParse.query()!
+        customerQuery.whereKey("isCompleted", notEqualTo: true)
         
         let gigQuery = GigParse.query()!
         gigQuery.whereKey("creator", equalTo: User.current() ?? User())
-        query.whereKey("gig", matchesQuery: gigQuery)
+        customerQuery.whereKey("gig", matchesQuery: gigQuery)
+        
+        let freelancerQuery = ContractParse.query()!
+        freelancerQuery.whereKey("isCompleted", notEqualTo: true)
+        freelancerQuery.whereKey("customer", equalTo: User.current() ?? User())
         
         //TODO: I am pulling down a lot of things and I shouldn't be pulling those down until they actually click a message, then I can load more. 
-        query.includeKey("customer")
-        query.includeKey("gig")
-        query.includeKey("gig.creator")
-        query.findObjectsInBackground { (contractParses, error) in
-            if let contractParses = contractParses {
+        let orQuery = PFQuery.orQuery(withSubqueries: [customerQuery, freelancerQuery])
+        orQuery.includeKey("customer")
+        orQuery.includeKey("gig")
+        orQuery.includeKey("gig.creator")
+        orQuery.findObjectsInBackground { (contractParses, error) in
+            if let contractParses = contractParses as? [ContractParse] {
                 let contracts = contractParses.map({ (c: ContractParse) -> Contract in
                     return Contract(contractParse: c)
                 })

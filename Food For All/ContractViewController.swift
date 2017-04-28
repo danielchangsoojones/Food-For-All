@@ -24,6 +24,13 @@ class ContractViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navController = navigationController as? ClearNavigationController {
+            navController.makeTransparent()
+        }
+    }
     
     func viewSetup() {
         let contractView = self.contractView

@@ -55,6 +55,7 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
         theTableView.delegate = self
         theTableView.dataSource = self
         theTableView.register(CustomerMessageTableViewCell.self, forCellReuseIdentifier: CustomerMessageTableViewCell.identifier)
+        theTableView.register(FreelancerMessageTableViewCell.self, forCellReuseIdentifier: FreelancerMessageTableViewCell.identifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +64,14 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contract = contracts[indexPath.row]
-        let cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath) as! CustomerMessageTableViewCell
+        var cell: MessageTableViewCell!
+        if contract.currentUserIsCustomer {
+            cell = theTableView.dequeueReusableCell(withIdentifier: FreelancerMessageTableViewCell.identifier, for: indexPath) as! FreelancerMessageTableViewCell
+        } else {
+            //current user is the freelancer, so show customer profile
+            cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath) as! CustomerMessageTableViewCell
+        }
+        
         cell.setContents(contract: contract)
         return cell
     }
@@ -75,14 +83,15 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contract = contracts[indexPath.row]
         
+        var contractVC: ContractViewController!
         if contract.currentUserIsCustomer {
-            
+            contractVC = FreelancerContractViewController()
         } else {
             //current user is the freelancer, so show information about the user
-            let contractVC = CustomerContractViewController()
-            contractVC.contract = contract
-            pushVC(contractVC)
+            contractVC = CustomerContractViewController()
         }
+        contractVC.contract = contract
+        pushVC(contractVC)
     }
 }
 
