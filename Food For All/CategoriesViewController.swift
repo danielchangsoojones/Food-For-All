@@ -76,6 +76,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let category = categories[indexPath.section]
         let gigs: [Gig] = dictionary[category.lowercased()] ?? []
         cell.setContent(gigs: gigs, shouldShowEmptyState: shouldShowEmptyState(gigs: gigs))
+        cell.delegate = self
         return cell
     }
     
@@ -200,6 +201,13 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 //        pushVC(gigDetailVC)
 //    }
 //}
+
+extension CategoriesViewController: DiscoverTableViewCellDelegate {
+    func pressed(gig: Gig) {
+        let gigDetailVC = DetailViewController(gig: gig)
+        pushVC(gigDetailVC)
+    }
+}
 
 extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {

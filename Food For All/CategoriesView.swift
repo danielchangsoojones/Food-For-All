@@ -23,6 +23,7 @@ class CategoriesView: UIView {
     fileprivate func tableViewSetup() {
         theTableView = UITableView(frame: self.bounds, style: .grouped)
         theTableView.separatorStyle = .none
+        theTableView.backgroundColor = UIColor.white
         self.addSubview(theTableView)
     }
 }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DiscoverTableViewCellDelegate {
+    func pressed(gig: Gig)
+}
+
 class DiscoverTableViewCell: HorizontalTableViewCell {
     override var reuseIdentifier: String? {
         return DiscoverTableViewCell.identifier
@@ -15,6 +19,7 @@ class DiscoverTableViewCell: HorizontalTableViewCell {
     
     var gigs: [Gig] = []
     var shouldShowEmptyState = false
+    var delegate: DiscoverTableViewCellDelegate?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -80,6 +85,11 @@ extension DiscoverTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     fileprivate func createEmptyStateCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyGigsCollectionViewCell.identifier, for: indexPath) as! EmptyGigsCollectionViewCell
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let gig = gigs[indexPath.item]
+        delegate?.pressed(gig: gig)
     }
 }
 
