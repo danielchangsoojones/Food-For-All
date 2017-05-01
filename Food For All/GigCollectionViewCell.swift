@@ -10,6 +10,7 @@ import UIKit
 
 class GigCollectionViewCell: GlidingCollectionViewCell {
     struct Constants {
+        static let width: CGFloat = 200
         static let height: CGFloat = 280
         static let verticalSpacing: CGFloat = 5
         static let horizontalInset: CGFloat = 5
@@ -54,7 +55,7 @@ extension GigCollectionViewCell {
         contentView.addSubview(theProfileImageView)
         theProfileImageView.snp.makeConstraints { (make) in
             make.leading.trailing.top.equalToSuperview()
-            make.height.equalTo(self.frame.width)
+            make.height.equalTo(Constants.width)
         }
     }
     

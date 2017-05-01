@@ -58,6 +58,10 @@
 		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
 		9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */; };
 		9265C1381EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */; };
+		9265C13A1EB796330017E01E /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1391EB796330017E01E /* CategoriesView.swift */; };
+		9265C13F1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */; };
+		9265C1421EB7A0A00017E01E /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */; };
+		9265C1441EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1431EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -224,6 +228,10 @@
 		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
 		9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractDataStore.swift; sourceTree = "<group>"; };
 		9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerMessageTableViewCell.swift; sourceTree = "<group>"; };
+		9265C1391EB796330017E01E /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		9265C1431EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -429,6 +437,7 @@
 				92F86B3F1E568A4B00BF8CF7 /* Mutual Friends */,
 				9230BA4B1E5910F900B77A56 /* Detail Photos */,
 				9230BA4F1E5911C200B77A56 /* HorizontalTableViewCell.swift */,
+				9265C1431EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift */,
 			);
 			name = "Horizontal Collection View";
 			sourceTree = "<group>";
@@ -737,6 +746,32 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		9265C13C1EB798CB0017E01E /* Tableview */ = {
+			isa = PBXGroup;
+			children = (
+				929EC3421E9F13AB00162AEB /* Cells */,
+			);
+			name = Tableview;
+			sourceTree = "<group>";
+		};
+		9265C1401EB7A0790017E01E /* Collection Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */,
+				92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */,
+				92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */,
+			);
+			name = "Collection Cells";
+			sourceTree = "<group>";
+		};
+		9265C1471EB7B42B0017E01E /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
 		9279DA1E1E3C340B00E2CCA1 /* Data store */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,8 +908,9 @@
 			isa = PBXGroup;
 			children = (
 				929EC33F1E9F139D00162AEB /* Data Store */,
-				929EC3421E9F13AB00162AEB /* Cells */,
+				9265C13C1EB798CB0017E01E /* Tableview */,
 				929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */,
+				9265C1391EB796330017E01E /* CategoriesView.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -890,9 +926,9 @@
 		929EC3421E9F13AB00162AEB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */,
-				92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */,
-				92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */,
+				9265C1471EB7B42B0017E01E /* Sections */,
+				9265C1401EB7A0790017E01E /* Collection Cells */,
+				9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1585,6 +1621,7 @@
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */,
 				92F86B301E55633700BF8CF7 /* EditRatingDataStore.swift in Sources */,
+				9265C13F1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift in Sources */,
 				927E2F4A1E3D5B4C00B24D40 /* CustomNavigationController.swift in Sources */,
 				923A60CD1E5CC72C00C56471 /* EnlargedPhoto.swift in Sources */,
 				92F86B5F1E58A34500BF8CF7 /* HintCollectionViewFooter.swift in Sources */,
@@ -1605,6 +1642,7 @@
 				921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */,
 				92F86B3C1E56718C00BF8CF7 /* GigDetailData.swift in Sources */,
 				9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */,
+				9265C1421EB7A0A00017E01E /* DiscoverTableViewCell.swift in Sources */,
 				9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */,
 				923A8CDF1E425D2B00F1BFCA /* CreationViewController.swift in Sources */,
 				92A843C51E42D31400F6358E /* ServiceFormViewController.swift in Sources */,
@@ -1641,6 +1679,7 @@
 				92D12BA71E3057B7009AC99E /* LogInDataStore.swift in Sources */,
 				92F86B651E58FFAF00BF8CF7 /* PhotoFormDataStore.swift in Sources */,
 				92DD8D401E358D8A009EB164 /* UIImageViewExtension.swift in Sources */,
+				9265C13A1EB796330017E01E /* CategoriesView.swift in Sources */,
 				92967CBA1EAC17350083A399 /* MessageIndexView.swift in Sources */,
 				923A8CE91E54D42900F1BFCA /* ReviewParse.swift in Sources */,
 				92A843BF1E42CD5C00F6358E /* CellData.swift in Sources */,
@@ -1669,6 +1708,7 @@
 				924D26FE1E75E5C500413CDE /* ContractViewController.swift in Sources */,
 				9248C5791E999F5F005ECA37 /* TransactionContentView.swift in Sources */,
 				92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */,
+				9265C1441EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift in Sources */,
 				92D12BB71E3069C1009AC99E /* WelcomeDataStore.swift in Sources */,
 				92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */,
 				92DD8D321E350B22009EB164 /* FrontPageViewController.swift in Sources */,
@@ -1814,7 +1854,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1833,7 +1873,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Medici Holdings LLC (KNK3WJA66N)";
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2029,7 +2069,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = KNK3WJA66N;
 				INFOPLIST_FILE = "Food For All/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

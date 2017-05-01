@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MutualFriendTableViewCell: HorizontalTableViewCell {
+class MutualFriendTableViewCell: HorizontalDetailTableViewCell {
     var theHeadingLabel: UILabel!
     
     var mutualFriends: [MutualFriend] = []
     
     init(numOfFriends: Int) {
-        super.init(frame: CGRect.zero, identifier: "mutualFriendCell")
+        super.init(style: .default, reuseIdentifier: "mutualFriendCell")
         theCollectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.reuseIdentifier)
         theCollectionView.delegate = self
         theCollectionView.dataSource = self

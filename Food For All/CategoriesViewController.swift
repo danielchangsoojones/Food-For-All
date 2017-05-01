@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import EZSwiftExtensions
-import Mixpanel
-import GlidingCollection
 
 class CategoriesViewController: UIViewController {
-    var glidingView: GlidingCollection!
+    var theTableView: UITableView!
     
     var dataStore: CategoriesDataStore?
     
@@ -24,95 +21,81 @@ class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         reorderMilkMoooversPosition()
         createDictionaryHeaders()
-        glidingCollectionViewSetup()
+        viewSetup()
         dataStoreSetup()
         self.view.backgroundColor = UIColor.white
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    fileprivate func viewSetup() {
+        let categoriesView = CategoriesView(frame: self.view.bounds)
+        self.view = categoriesView
+        theTableView = categoriesView.theTableView
+        tableViewSetup()
     }
     
-    fileprivate func dataStoreSetup() {
-        dataStore = CategoriesDataStore(delegate: self)
-        dataStore?.loadGigs()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBarSetup()
     }
     
-    fileprivate func reorderMilkMoooversPosition() {
-        if let milkIndex = categories.index(of: Helpers.milkMooovers) {
-            let element = categories.remove(at: milkIndex)
-            categories.insert(element, at: categories.count - 1)
+    fileprivate func navBarSetup() {
+        if let navController = navigationController as? ClearNavigationController {
+            navController.change(color: CustomColors.JellyTeal)
+            //Must set title of the navigationItem instead of VC or else the tab bar has the title on it.
+            self.navigationItem.title = "Discover"
         }
     }
 }
 
-extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
-    var visibleGigs: [Gig] {
-        let sectionIndex: Int = glidingView.expandedItemIndex
-        let gigs = dictionary[categories[sectionIndex].lowercased()] ?? []
-        return gigs
+extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        theTableView.delegate = self
+        theTableView.dataSource = self
+        theTableView.contentInset.bottom = tabBarHeight
+        registerTableViewCells()
     }
     
-    fileprivate func glidingCollectionViewSetup() {
-        var config = GlidingConfig.shared
-        config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
-        config.animationDuration = 0
-        GlidingConfig.shared = config
-        glidingView = GlidingCollection(frame: self.view.frame)
-        registerCollectionCells()
-        glidingView.dataSource = self
-        glidingView.collectionView.dataSource = self
-        glidingView.collectionView.delegate = self
-        glidingView.collectionView.backgroundColor = glidingView.backgroundColor
-        self.view.addSubview(glidingView)
+    fileprivate func registerTableViewCells() {
+        theTableView.register(DiscoverSectionHeaderTableViewCell.self, forCellReuseIdentifier: DiscoverSectionHeaderTableViewCell.identifier)
+        theTableView.register(DiscoverTableViewCell.self, forCellReuseIdentifier: DiscoverTableViewCell.identifier)
     }
     
-    fileprivate func registerCollectionCells() {
-        glidingView.collectionView.register(GigCollectionViewCell.self, forCellWithReuseIdentifier: GigCollectionViewCell.identifier)
-        glidingView.collectionView.register(EmptyGigsCollectionViewCell.self, forCellWithReuseIdentifier: EmptyGigsCollectionViewCell.identifier)
-    }
-    
-    func numberOfItems(in collection: GlidingCollection) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return categories.count
     }
     
-    func glidingCollection(_ collection: GlidingCollection, itemAtIndex index: Int) -> String {
-        return "-" + categories[index]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let gigs = visibleGigs
-        if shouldShowEmptyState(gigs: gigs) {
-            //shwo empty state cell
-            return 1
-        } else {
-            return gigs.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gigs = visibleGigs
-        
-        var cell: UICollectionViewCell = UICollectionViewCell()
-        if shouldShowEmptyState(gigs: gigs) {
-            cell = createEmptyStateCell(collectionView: collectionView, indexPath: indexPath)
-        } else {
-            cell = createGigCell(collectionView: collectionView, indexPath: indexPath, gigs: gigs)
-        }
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DiscoverTableViewCell.identifier, for: indexPath) as! DiscoverTableViewCell
+        let category = categories[indexPath.section]
+        let gigs: [Gig] = dictionary[category.lowercased()] ?? []
+        cell.setContent(gigs: gigs, shouldShowEmptyState: shouldShowEmptyState(gigs: gigs))
+        cell.delegate = self
         return cell
     }
     
-    fileprivate func createGigCell(collectionView: UICollectionView, indexPath: IndexPath, gigs: [Gig]) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GigCollectionViewCell.identifier, for: indexPath) as! GigCollectionViewCell
-        let gig = gigs[indexPath.row]
-        cell.setContents(gig: gig)
-        return cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return GigCollectionViewCell.Constants.height + 20
     }
     
-    fileprivate func createEmptyStateCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyGigsCollectionViewCell.identifier, for: indexPath) as! EmptyGigsCollectionViewCell
-        return cell
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableCell(withIdentifier: DiscoverSectionHeaderTableViewCell.identifier) as! DiscoverSectionHeaderTableViewCell
+        let category = categories[section]
+        let categoryCount = dictionary[category.lowercased()]?.count ?? 0
+        headerView.setContent(title: categories[section], categoryCount: categoryCount)
+        headerView.delegate = self
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 25
     }
     
     fileprivate func shouldShowEmptyState(gigs: [Gig]) -> Bool {
@@ -120,21 +103,24 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        if cell is EmptyGigsCollectionViewCell {
-            CreationViewController.show(from: self)
-        } else if cell is GigCollectionViewCell {
-            showGigDetailVC(indexPath: indexPath)
-        }
+extension CategoriesViewController: DiscoverSectionHeaderDelegate {
+    func showAllGigs(for category: String) {
+        //TODO: this is not the most failsafe way to get the category name.
+        let frontPageVC = FrontPageViewController()
+        let gigs = dictionary[category.lowercased()] ?? []
+        frontPageVC.gigs = gigs
+        pushVC(frontPageVC)
     }
-    
-    fileprivate func showGigDetailVC(indexPath: IndexPath) {
-        let gigs = visibleGigs
-        let gig = gigs[indexPath.item]
+}
+
+extension CategoriesViewController: DiscoverTableViewCellDelegate {
+    func pressed(gig: Gig) {
         let gigDetailVC = DetailViewController(gig: gig)
         pushVC(gigDetailVC)
+    }
+    
+    func emptyStatePressed() {
+        CreationViewController.show(from: self)
     }
 }
 
@@ -148,12 +134,24 @@ extension CategoriesViewController: CategoriesDataStoreDelegate {
                 dictionary[category]?.append(gig)
             }
         }
-        glidingView.collectionView.reloadData()
+        theTableView.reloadData()
     }
     
     fileprivate func createDictionaryHeaders() {
         for category in categories {
             dictionary[category.lowercased()] = []
+        }
+    }
+    
+    fileprivate func dataStoreSetup() {
+        dataStore = CategoriesDataStore(delegate: self)
+        dataStore?.loadGigs()
+    }
+    
+    fileprivate func reorderMilkMoooversPosition() {
+        if let milkIndex = categories.index(of: Helpers.milkMooovers) {
+            let element = categories.remove(at: milkIndex)
+            categories.insert(element, at: categories.count - 1)
         }
     }
 }
