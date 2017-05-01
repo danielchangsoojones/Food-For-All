@@ -12,13 +12,13 @@ protocol GigPhotosCellDelegate {
     func showPhotoViewer(selectedIndexPath: IndexPath)
 }
 
-class GigPhotosTableViewCell: HorizontalTableViewCell {
+class GigPhotosTableViewCell: HorizontalDetailTableViewCell {
     var photos: [GigPhoto] = []
     
     var delegate: GigPhotosCellDelegate?
     
     init(photos: [GigPhoto], delegate: GigPhotosCellDelegate) {
-        super.init(frame: CGRect.zero, identifier: "gigPhotosCell")
+        super.init(style: .default, reuseIdentifier: "gigPhotosCell")
         self.photos = photos
         self.delegate = delegate
         theCollectionView.register(PhotoDetailCollectionViewCell.self, forCellWithReuseIdentifier: PhotoDetailCollectionViewCell.identifier)
