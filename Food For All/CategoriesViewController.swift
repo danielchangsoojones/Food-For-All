@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import EZSwiftExtensions
-import Mixpanel
-import GlidingCollection
 
 class CategoriesViewController: UIViewController {
     var theTableView: UITableView!
@@ -54,6 +51,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func tableViewSetup() {
         theTableView.delegate = self
         theTableView.dataSource = self
+        theTableView.contentInset.bottom = tabBarHeight
         registerTableViewCells()
     }
     
@@ -105,98 +103,6 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//extension CategoriesViewController: GlidingCollectionDatasource, UICollectionViewDataSource {
-//    var visibleGigs: [Gig] {
-//        let sectionIndex: Int = glidingView.expandedItemIndex
-//        let gigs = dictionary[categories[sectionIndex].lowercased()] ?? []
-//        return gigs
-//    }
-//    
-//    fileprivate func glidingCollectionViewSetup() {
-//        var config = GlidingConfig.shared
-//        config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
-//        config.animationDuration = 0
-//        GlidingConfig.shared = config
-//        glidingView = GlidingCollection(frame: self.view.frame)
-//        registerCollectionCells()
-//        glidingView.dataSource = self
-//        glidingView.collectionView.dataSource = self
-//        glidingView.collectionView.delegate = self
-//        glidingView.collectionView.backgroundColor = glidingView.backgroundColor
-//        self.view.addSubview(glidingView)
-//    }
-//    
-//    fileprivate func registerCollectionCells() {
-//        glidingView.collectionView.register(GigCollectionViewCell.self, forCellWithReuseIdentifier: GigCollectionViewCell.identifier)
-//        glidingView.collectionView.register(EmptyGigsCollectionViewCell.self, forCellWithReuseIdentifier: EmptyGigsCollectionViewCell.identifier)
-//    }
-//    
-//    func numberOfItems(in collection: GlidingCollection) -> Int {
-//        return categories.count
-//    }
-//    
-//    func glidingCollection(_ collection: GlidingCollection, itemAtIndex index: Int) -> String {
-//        return "-" + categories[index]
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let gigs = visibleGigs
-//        if shouldShowEmptyState(gigs: gigs) {
-//            //shwo empty state cell
-//            return 1
-//        } else {
-//            return gigs.count
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let gigs = visibleGigs
-//        
-//        var cell: UICollectionViewCell = UICollectionViewCell()
-//        if shouldShowEmptyState(gigs: gigs) {
-//            cell = createEmptyStateCell(collectionView: collectionView, indexPath: indexPath)
-//        } else {
-//            cell = createGigCell(collectionView: collectionView, indexPath: indexPath, gigs: gigs)
-//        }
-//        
-//        return cell
-//    }
-//    
-//    fileprivate func createGigCell(collectionView: UICollectionView, indexPath: IndexPath, gigs: [Gig]) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GigCollectionViewCell.identifier, for: indexPath) as! GigCollectionViewCell
-//        let gig = gigs[indexPath.row]
-//        cell.setContents(gig: gig)
-//        return cell
-//    }
-//    
-//    fileprivate func createEmptyStateCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyGigsCollectionViewCell.identifier, for: indexPath) as! EmptyGigsCollectionViewCell
-//        return cell
-//    }
-//    
-//    fileprivate func shouldShowEmptyState(gigs: [Gig]) -> Bool {
-//        return gigs.isEmpty && hasLoaded
-//    }
-//}
-//
-//extension CategoriesViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        if cell is EmptyGigsCollectionViewCell {
-//            CreationViewController.show(from: self)
-//        } else if cell is GigCollectionViewCell {
-//            showGigDetailVC(indexPath: indexPath)
-//        }
-//    }
-//    
-//    fileprivate func showGigDetailVC(indexPath: IndexPath) {
-//        let gigs = visibleGigs
-//        let gig = gigs[indexPath.item]
-//        let gigDetailVC = DetailViewController(gig: gig)
-//        pushVC(gigDetailVC)
-//    }
-//}
-
 extension CategoriesViewController: DiscoverSectionHeaderDelegate {
     func showAllGigs(for category: String) {
         //TODO: this is not the most failsafe way to get the category name.
@@ -211,6 +117,10 @@ extension CategoriesViewController: DiscoverTableViewCellDelegate {
     func pressed(gig: Gig) {
         let gigDetailVC = DetailViewController(gig: gig)
         pushVC(gigDetailVC)
+    }
+    
+    func emptyStatePressed() {
+        CreationViewController.show(from: self)
     }
 }
 

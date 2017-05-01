@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GlidingCollection
 
 class GlidingCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
@@ -26,11 +25,10 @@ class GlidingCollectionViewCell: UICollectionViewCell {
     fileprivate func addShadow() {
         contentView.clipsToBounds = true
         
-        let config = GlidingConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 7
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale

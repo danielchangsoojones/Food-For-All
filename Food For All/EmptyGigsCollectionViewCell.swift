@@ -49,6 +49,8 @@ extension EmptyGigsCollectionViewCell {
     
     fileprivate func createButtonSetup() {
         theCreateButton = Helpers.stylizeButton(text: "Create")
+        ///not having user interaction because if they click a cell, then we just want them to go to creation page, may change in the future
+        theCreateButton.isUserInteractionEnabled = false
         contentView.addSubview(theCreateButton)
         theCreateButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()

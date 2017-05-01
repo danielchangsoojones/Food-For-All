@@ -10,6 +10,7 @@ import UIKit
 
 protocol DiscoverTableViewCellDelegate {
     func pressed(gig: Gig)
+    func emptyStatePressed()
 }
 
 class DiscoverTableViewCell: HorizontalTableViewCell {
@@ -88,8 +89,21 @@ extension DiscoverTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        if cell is EmptyGigsCollectionViewCell {
+           emptyStatePressed()
+        } else if cell is GigCollectionViewCell {
+            gigPressed(indexPath: indexPath)
+        }
+    }
+    
+    fileprivate func gigPressed(indexPath: IndexPath) {
         let gig = gigs[indexPath.item]
         delegate?.pressed(gig: gig)
+    }
+    
+    fileprivate func emptyStatePressed() {
+        delegate?.emptyStatePressed()
     }
 }
 
