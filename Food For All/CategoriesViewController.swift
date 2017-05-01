@@ -59,7 +59,6 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     fileprivate func registerTableViewCells() {
         theTableView.register(DiscoverSectionHeaderTableViewCell.self, forCellReuseIdentifier: DiscoverSectionHeaderTableViewCell.identifier)
-        theTableView.register(DiscoverSectionFooterTableViewCell.self, forCellReuseIdentifier: DiscoverSectionFooterTableViewCell.identifier)
         theTableView.register(DiscoverTableViewCell.self, forCellReuseIdentifier: DiscoverTableViewCell.identifier)
     }
     
@@ -94,11 +93,6 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = tableView.dequeueReusableCell(withIdentifier: DiscoverSectionFooterTableViewCell.identifier) as! DiscoverSectionFooterTableViewCell
-        return footerView
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

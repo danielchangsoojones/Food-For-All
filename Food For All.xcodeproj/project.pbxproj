@@ -62,7 +62,6 @@
 		9265C13F1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */; };
 		9265C1421EB7A0A00017E01E /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */; };
 		9265C1441EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1431EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift */; };
-		9265C1461EB7B41E0017E01E /* DiscoverSectionFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1451EB7B41E0017E01E /* DiscoverSectionFooterTableViewCell.swift */; };
 		9279DA1D1E3C339800E2CCA1 /* MessageMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */; };
 		9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */; };
 		9279DA231E3CE74D00E2CCA1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */; };
@@ -233,7 +232,6 @@
 		9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		9265C1431EB7A24D0017E01E /* HorizontalDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalDetailTableViewCell.swift; sourceTree = "<group>"; };
-		9265C1451EB7B41E0017E01E /* DiscoverSectionFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSectionFooterTableViewCell.swift; sourceTree = "<group>"; };
 		9279DA1C1E3C339800E2CCA1 /* MessageMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMetrics.swift; sourceTree = "<group>"; };
 		9279DA1F1E3C342000E2CCA1 /* DetailDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		9279DA221E3CE74D00E2CCA1 /* MainSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
@@ -769,7 +767,6 @@
 		9265C1471EB7B42B0017E01E /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				9265C1451EB7B41E0017E01E /* DiscoverSectionFooterTableViewCell.swift */,
 				9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */,
 			);
 			name = Sections;
@@ -1658,7 +1655,6 @@
 				92F86B281E552DAF00BF8CF7 /* AllReviewsDataStore.swift in Sources */,
 				92D1999D1E458F1B00ABC255 /* PersonalGigsTableViewController.swift in Sources */,
 				92F86B351E56707100BF8CF7 /* GigItemTableViewCell.swift in Sources */,
-				9265C1461EB7B41E0017E01E /* DiscoverSectionFooterTableViewCell.swift in Sources */,
 				9279DA201E3C342000E2CCA1 /* DetailDataStore.swift in Sources */,
 				9248C5671E95E1BF005ECA37 /* SetLocationViewController.swift in Sources */,
 				92CC523D1E7733F3006D5E2B /* Contract.swift in Sources */,
