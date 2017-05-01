@@ -56,6 +56,7 @@ extension CategoriesViewController: GlidingCollectionDatasource, UICollectionVie
     fileprivate func glidingCollectionViewSetup() {
         var config = GlidingConfig.shared
         config.cardsSize = CGSize(width: 200, height: GigCollectionViewCell.Constants.height)
+        config.animationDuration = 0
         GlidingConfig.shared = config
         glidingView = GlidingCollection(frame: self.view.frame)
         registerCollectionCells()
