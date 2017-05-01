@@ -51,6 +51,7 @@ PODS:
   - TextFieldEffects (1.3.0)
   - Timepiece (1.1.0)
   - TTTAttributedLabel (2.0.0)
+  - UXCam (2.5.8)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - TextFieldEffects
   - Timepiece
   - TTTAttributedLabel
+  - UXCam
 
 EXTERNAL SOURCES:
   ParseFacebookUtilsV4:
@@ -120,7 +122,8 @@ SPEC CHECKSUMS:
   TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
   Timepiece: 4190a7bc5ae1c05c87531fd75b14e17d2a017902
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  UXCam: 76cb857694b8f1776998028de985d737b6852bce
 
-PODFILE CHECKSUM: 5e3601da967c4d0b60f0aa3a543dd2af7a8b8fa0
+PODFILE CHECKSUM: bd60d4659a563351170eb3d6a7394b81c37fd0a7
 
 COCOAPODS: 1.1.1
