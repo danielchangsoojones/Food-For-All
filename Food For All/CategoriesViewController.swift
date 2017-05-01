@@ -88,6 +88,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let category = categories[section]
         let categoryCount = dictionary[category.lowercased()]?.count ?? 0
         headerView.setContent(title: categories[section], categoryCount: categoryCount)
+        headerView.delegate = self
         return headerView
     }
     
@@ -195,6 +196,16 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 //        pushVC(gigDetailVC)
 //    }
 //}
+
+extension CategoriesViewController: DiscoverSectionHeaderDelegate {
+    func showAllGigs(for category: String) {
+        //TODO: this is not the most failsafe way to get the category name.
+        let frontPageVC = FrontPageViewController()
+        let gigs = dictionary[category.lowercased()] ?? []
+        frontPageVC.gigs = gigs
+        pushVC(frontPageVC)
+    }
+}
 
 extension CategoriesViewController: DiscoverTableViewCellDelegate {
     func pressed(gig: Gig) {

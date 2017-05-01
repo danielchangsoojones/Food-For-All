@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DiscoverSectionHeaderDelegate {
+    func showAllGigs(for category: String)
+}
+
 class DiscoverSectionHeaderTableViewCell: UITableViewCell {
     struct Constants {
         static let horizontalInset: CGFloat = 10
@@ -15,6 +19,8 @@ class DiscoverSectionHeaderTableViewCell: UITableViewCell {
     
     var theTitleLabel: UILabel!
     var theAllButton: UIButton!
+    
+    var delegate: DiscoverSectionHeaderDelegate?
     
     override var reuseIdentifier: String? {
         return DiscoverSectionHeaderTableViewCell.identifier
@@ -52,11 +58,16 @@ extension DiscoverSectionHeaderTableViewCell {
         theAllButton = UIButton()
         theAllButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold)
         theAllButton.setTitleColor(UIColor.black, for: .normal)
+        theAllButton.addTarget(self, action: #selector(allButtonPressed), for: .touchUpInside)
         contentView.addSubview(theAllButton)
         theAllButton.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview().inset(Constants.horizontalInset)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    func allButtonPressed() {
+        delegate?.showAllGigs(for: theTitleLabel.text ?? "")
     }
 }
 
