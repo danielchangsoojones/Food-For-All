@@ -58,7 +58,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
 //first view controller
 extension CustomTabBarController {
     var firstTabBarItem: UITabBarItem {
-        return createTabBarItem(image: #imageLiteral(resourceName: "Home"), tag: Tabs.review.rawValue)
+        return createTabBarItem(image: #imageLiteral(resourceName: "Magnifying Glass"), tag: Tabs.review.rawValue)
     }
     
     var firstVC: UIViewController {

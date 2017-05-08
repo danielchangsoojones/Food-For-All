@@ -18,7 +18,7 @@ protocol TransactionFeedDataStoreDelegate {
 
 class TransactionFeedDataStore {
     struct Constants {
-        static let distanceRadius: Double = 100
+        static let distanceRadius: Double = 50
     }
     
     var delegate: TransactionFeedDataStoreDelegate?

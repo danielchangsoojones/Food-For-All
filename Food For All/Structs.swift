@@ -212,7 +212,7 @@ struct Helpers {
     }
     
     static var milkMooovers: String = "Milk Mooovers"
-    static var categories: [String] = ["Tutoring", "Laundry", "Haircuts", "Photography", "Other", milkMooovers]
+    static var categories: [String] = ["Housework", "Babysitting", "Personal Training", "Tutoring", "Laundry", "Haircuts", "Photography", "Other", milkMooovers]
     
     static func venmoTapped(gig: Gig) {
         let venmoUsername: String? = gig.creator.venmoUsername

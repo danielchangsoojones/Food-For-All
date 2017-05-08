@@ -13,14 +13,14 @@ class CategoriesViewController: UIViewController {
     
     var dataStore: CategoriesDataStore?
     
-    var categories: [String] = Helpers.categories
+    var categories: [String] = []
     var dictionary: [String : [Gig]] = [:]
     var hasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reorderMilkMoooversPosition()
-        createDictionaryHeaders()
+//        reorderMilkMoooversPosition()
+//        createDictionaryHeaders()
         viewSetup()
         dataStoreSetup()
         self.view.backgroundColor = UIColor.white
@@ -85,7 +85,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let headerView = tableView.dequeueReusableCell(withIdentifier: DiscoverSectionHeaderTableViewCell.identifier) as! DiscoverSectionHeaderTableViewCell
         let category = categories[section]
         let categoryCount = dictionary[category.lowercased()]?.count ?? 0
-        headerView.setContent(title: categories[section], categoryCount: categoryCount)
+        headerView.setContent(title: categories[section].uppercased(), categoryCount: categoryCount)
         headerView.delegate = self
         return headerView
     }
@@ -127,31 +127,36 @@ extension CategoriesViewController: DiscoverTableViewCellDelegate {
 extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {
         hasLoaded = true
-        dictionary.removeAll()
-        createDictionaryHeaders()
         for gig in gigs {
             if let category = gig.tags.first {
-                dictionary[category]?.append(gig)
+                if dictionary[category] != nil {
+                    //the category already exists in the dictionary
+                    dictionary[category]?.append(gig)
+                } else {
+                    //the category gig has yet to be created
+                    dictionary[category.lowercased()] = [gig]
+                    categories.append(category.lowercased())
+                }
             }
         }
+        orderCategories()
         theTableView.reloadData()
     }
     
-    fileprivate func createDictionaryHeaders() {
-        for category in categories {
-            dictionary[category.lowercased()] = []
+    fileprivate func orderCategories() {
+        let lowercaseCategories = Helpers.categories.map { (str: String) -> String in
+            return str.lowercased()
+        }
+        categories.sort { (str1, str2) -> Bool in
+            if let str1Index = lowercaseCategories.index(of: str1), let str2Index = lowercaseCategories.index(of: str2) {
+                return str1Index < str2Index
+            }
+            return false
         }
     }
     
     fileprivate func dataStoreSetup() {
         dataStore = CategoriesDataStore(delegate: self)
         dataStore?.loadGigs()
-    }
-    
-    fileprivate func reorderMilkMoooversPosition() {
-        if let milkIndex = categories.index(of: Helpers.milkMooovers) {
-            let element = categories.remove(at: milkIndex)
-            categories.insert(element, at: categories.count - 1)
-        }
     }
 }
