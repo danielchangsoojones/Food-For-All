@@ -42,12 +42,10 @@ class AgreementView: UIView {
             make.leading.trailing.equalToSuperview().inset(self.frame.width * 0.1)
             make.top.equalTo(theTitleLabel.snp.bottom).offset(40)
         }
-        let bullet1 = BulletLabel(text: "I am a Bloomington student")
-        let bullet2 = BulletLabel(text: "I understand that no user is considered a \"professional\"")
-        let bullet3 = BulletLabel(text: "I will contribute to the honesty of this community")
+        let bullet1 = BulletLabel(text: "I understand that no user is considered a \"professional\"")
+        let bullet2 = BulletLabel(text: "I will contribute to the honesty of this community")
         theStackView.addArrangedSubview(bullet1)
         theStackView.addArrangedSubview(bullet2)
-        theStackView.addArrangedSubview(bullet3)
     }
     
     fileprivate func titleSetup() {

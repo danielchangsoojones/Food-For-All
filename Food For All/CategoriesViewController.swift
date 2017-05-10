@@ -19,8 +19,6 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        reorderMilkMoooversPosition()
-//        createDictionaryHeaders()
         viewSetup()
         dataStoreSetup()
         self.view.backgroundColor = UIColor.white
@@ -127,6 +125,7 @@ extension CategoriesViewController: DiscoverTableViewCellDelegate {
 extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {
         hasLoaded = true
+        dictionary.removeAll()
         for gig in gigs {
             if let category = gig.tags.first {
                 if dictionary[category] != nil {
