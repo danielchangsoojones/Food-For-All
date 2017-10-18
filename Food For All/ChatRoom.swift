@@ -27,6 +27,8 @@ class ChatRoom {
         }
     }
     
+    var lastMessage: Message?
+    
     init(gig: Gig, consumer: User) {
         self.gig = gig
         self.consumer = consumer

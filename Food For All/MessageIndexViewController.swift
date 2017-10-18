@@ -9,9 +9,9 @@
 import UIKit
 
 class MessageIndexViewController: UIViewController {
-    var theTableView : UITableView!
+    var tableView : UITableView!
     
-    var contracts: [Contract] = []
+    var chatRooms: [ChatRoom] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,7 @@ class MessageIndexViewController: UIViewController {
     fileprivate func viewSetup() {
         let messageIndexView = MessageIndexView(frame: self.view.bounds)
         self.view = messageIndexView
-        theTableView = messageIndexView.theTableView
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView = messageIndexView.theTableView
     }
     
     fileprivate func navBarSetup() {
@@ -52,14 +47,13 @@ class MessageIndexViewController: UIViewController {
 
 extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func tableViewSetup() {
-        theTableView.delegate = self
-        theTableView.dataSource = self
-        theTableView.register(CustomerMessageTableViewCell.self, forCellReuseIdentifier: CustomerMessageTableViewCell.identifier)
-        theTableView.register(FreelancerMessageTableViewCell.self, forCellReuseIdentifier: FreelancerMessageTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(MessageTableViewCell.self, forCellReuseIdentifier: MessageTableViewCell.identifier)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if contracts.count > 0 {
+        if chatRooms.count > 0 {
             tableView.backgroundView = nil
             return 1
         } else {
@@ -69,20 +63,13 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contracts.count
+        return chatRooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contract = contracts[indexPath.row]
-        var cell: MessageTableViewCell!
-        if contract.currentUserIsCustomer {
-            cell = theTableView.dequeueReusableCell(withIdentifier: FreelancerMessageTableViewCell.identifier, for: indexPath) as! FreelancerMessageTableViewCell
-        } else {
-            //current user is the freelancer, so show customer profile
-            cell = theTableView.dequeueReusableCell(withIdentifier: CustomerMessageTableViewCell.identifier, for: indexPath) as! CustomerMessageTableViewCell
-        }
-        
-        cell.setContents(contract: contract)
+        let chatRoom = chatRooms[indexPath.row]
+        var cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.identifier, for: indexPath) as! MessageTableViewCell
+        cell.setContents(from: chatRoom)
         return cell
     }
     
@@ -91,23 +78,15 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contract = contracts[indexPath.row]
-        
-        var contractVC: ContractViewController!
-        if contract.currentUserIsCustomer {
-            contractVC = FreelancerContractViewController()
-        } else {
-            //current user is the freelancer, so show information about the user
-            contractVC = CustomerContractViewController()
-        }
-        contractVC.contract = contract
-        pushVC(contractVC)
+        let chatRoom = chatRooms[indexPath.row]
+        let chatVC = ChatViewController(chatRoom: chatRoom)
+        pushVC(chatVC)
     }
 }
 
 extension MessageIndexViewController: MessageIndexDataStoreDelegate {
     func loaded(contracts: [Contract]) {
         self.contracts = contracts
-        theTableView.reloadData()
+        tableView.reloadData()
     }
 }

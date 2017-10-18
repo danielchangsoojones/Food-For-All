@@ -59,7 +59,6 @@
 		926427901E5C0366009EDDF3 /* NameDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9264278F1E5C0366009EDDF3 /* NameDataStore.swift */; };
 		9265C1301EB0D6590017E01E /* MessageIndexDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */; };
 		9265C1361EB15F4F0017E01E /* CustomerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */; };
-		9265C1381EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */; };
 		9265C13A1EB796330017E01E /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1391EB796330017E01E /* CategoriesView.swift */; };
 		9265C13F1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */; };
 		9265C1421EB7A0A00017E01E /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */; };
@@ -82,12 +81,12 @@
 		92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF51EB0F5060019E722 /* FreelancerContractView.swift */; };
 		92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */; };
 		928CA3081F96F3F500CA00A5 /* CustomMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */; };
+		928CA30F1F96FFCC00CA00A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA30E1F96FFCC00CA00A5 /* Message.swift */; };
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
 		92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB21EA669430083A399 /* MessageIndexViewController.swift */; };
 		92967CB61EAC12A80083A399 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */; };
-		92967CB81EAC16C80083A399 /* CustomerMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */; };
 		92967CBA1EAC17350083A399 /* MessageIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB91EAC17350083A399 /* MessageIndexView.swift */; };
 		929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */; };
 		929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */; };
@@ -232,7 +231,6 @@
 		9264278F1E5C0366009EDDF3 /* NameDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataStore.swift; sourceTree = "<group>"; };
 		9265C12F1EB0D6590017E01E /* MessageIndexDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexDataStore.swift; sourceTree = "<group>"; };
 		9265C1351EB15F4F0017E01E /* CustomerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerContractDataStore.swift; sourceTree = "<group>"; };
-		9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerMessageTableViewCell.swift; sourceTree = "<group>"; };
 		9265C1391EB796330017E01E /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		9265C13E1EB799650017E01E /* DiscoverSectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9265C1411EB7A0A00017E01E /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
@@ -255,12 +253,12 @@
 		92894BF51EB0F5060019E722 /* FreelancerContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractView.swift; sourceTree = "<group>"; };
 		92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendContractTableViewCell.swift; sourceTree = "<group>"; };
 		928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageType.swift; sourceTree = "<group>"; };
+		928CA30E1F96FFCC00CA00A5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CB21EA669430083A399 /* MessageIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexViewController.swift; sourceTree = "<group>"; };
 		92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessageTableViewCell.swift; sourceTree = "<group>"; };
 		92967CB91EAC17350083A399 /* MessageIndexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexView.swift; sourceTree = "<group>"; };
 		929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataStore.swift; sourceTree = "<group>"; };
 		929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -908,6 +906,22 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		928CA30D1F96FFB500CA00A5 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				920498EB1F96EF4200E3D404 /* ChatRoom.swift */,
+				928CA30E1F96FFCC00CA00A5 /* Message.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		928CA3101F9703B700CA00A5 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		92967CB11EA668DD0083A399 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
@@ -921,8 +935,6 @@
 			isa = PBXGroup;
 			children = (
 				92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */,
-				92967CB71EAC16C80083A399 /* CustomerMessageTableViewCell.swift */,
-				9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1072,12 +1084,12 @@
 		92D12BA91E3058E9009AC99E /* Internal Models */ = {
 			isa = PBXGroup;
 			children = (
+				928CA30D1F96FFB500CA00A5 /* Chat */,
 				92DD8D411E358DC8009EB164 /* Gig.swift */,
 				92B3E45B1E4F88FB00FD2042 /* Review.swift */,
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
 				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
 				92CC523C1E7733F3006D5E2B /* Contract.swift */,
-				920498EB1F96EF4200E3D404 /* ChatRoom.swift */,
 			);
 			name = "Internal Models";
 			sourceTree = "<group>";
@@ -1085,6 +1097,7 @@
 		92D12BAA1E3058EF009AC99E /* Database Models */ = {
 			isa = PBXGroup;
 			children = (
+				928CA3101F9703B700CA00A5 /* Chat */,
 				92F86B591E589E8E00BF8CF7 /* Metrics */,
 				92F86B581E589E7A00BF8CF7 /* Gig */,
 				92D12BAB1E30592D009AC99E /* User.swift */,
@@ -1652,6 +1665,7 @@
 				924D27031E7600EE00413CDE /* BottomLabelButtonView.swift in Sources */,
 				92A843C91E43E09900F6358E /* PricingFormViewController.swift in Sources */,
 				92D12B9E1E283165009AC99E /* WelcomeFormView.swift in Sources */,
+				928CA30F1F96FFCC00CA00A5 /* Message.swift in Sources */,
 				9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */,
 				9230BA501E5911C200B77A56 /* HorizontalTableViewCell.swift in Sources */,
 				929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */,
@@ -1671,7 +1685,6 @@
 				9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,
 				92A843C31E42D0BA00F6358E /* SuperCreationFormViewController.swift in Sources */,
-				92967CB81EAC16C80083A399 /* CustomerMessageTableViewCell.swift in Sources */,
 				923A60D31E5FDD8A00C56471 /* AgreementView.swift in Sources */,
 				9248C56C1E9974C4005ECA37 /* TransactionTableViewCell.swift in Sources */,
 				923A60D61E5FF36A00C56471 /* BulletLabel.swift in Sources */,
@@ -1723,7 +1736,6 @@
 				929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */,
 				92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */,
 				92DD8D3D1E358D38009EB164 /* CircularImageView.swift in Sources */,
-				9265C1381EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift in Sources */,
 				9248C57B1E99AA52005ECA37 /* EmptyState.swift in Sources */,
 				92F86B481E5693D000BF8CF7 /* FriendCollectionViewCell.swift in Sources */,
 				92D12B9C1E28314F009AC99E /* WelcomeFormViewController.swift in Sources */,
