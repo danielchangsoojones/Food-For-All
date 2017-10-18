@@ -22,6 +22,7 @@ PODS:
   - Former (1.5.1)
   - Instabug (6.4.1)
   - MBProgressHUD (1.0.0)
+  - MessageKit (0.7.2)
   - Mixpanel-swift (2.1.4)
   - NextGrowingTextView (0.8.5)
   - NYTPhotoViewer (1.1.0):
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - Former
   - Instabug
   - MBProgressHUD (~> 1.0.0)
+  - MessageKit
   - Mixpanel-swift
   - NextGrowingTextView
   - NYTPhotoViewer
@@ -107,6 +109,7 @@ SPEC CHECKSUMS:
   Former: 0b48a812c0d93b092b908d1b0574d0fd95c6b6f9
   Instabug: f1e8ced2a08618b48aade3ec67b260f92d8fd8a6
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MessageKit: 8863e9e60a6195fcf23aa0b44884018daa698b87
   Mixpanel-swift: 02c76c6ff25cac461eabb4d47365aab1681fb5d9
   NextGrowingTextView: 3cc930a03c5979071244af42bcc81360d7453323
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
@@ -124,6 +127,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   UXCam: 76cb857694b8f1776998028de985d737b6852bce
 
-PODFILE CHECKSUM: bd60d4659a563351170eb3d6a7394b81c37fd0a7
+PODFILE CHECKSUM: 16f463d0962efb2315192d8f44c5fc0c28ae0bd4
 
 COCOAPODS: 1.1.1

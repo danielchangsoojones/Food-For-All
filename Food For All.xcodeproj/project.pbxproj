@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09C5067B870692A2B8F9F647 /* Pods_Food_For_AllTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */; };
+		920498EA1F96EBCE00E3D404 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920498E91F96EBCE00E3D404 /* ChatViewController.swift */; };
+		920498EC1F96EF4200E3D404 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920498EB1F96EF4200E3D404 /* ChatRoom.swift */; };
 		921152071E97D1D6003A4455 /* SettingsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */; };
 		9211520A1E97FC27003A4455 /* EmptyGigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921152091E97FC27003A4455 /* EmptyGigsView.swift */; };
 		921FA5201E7760D300C1B2B6 /* FreelancerContractDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */; };
@@ -79,6 +81,7 @@
 		92894BF41EB0E81C0019E722 /* FreelancerContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */; };
 		92894BF61EB0F5060019E722 /* FreelancerContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BF51EB0F5060019E722 /* FreelancerContractView.swift */; };
 		92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */; };
+		928CA3081F96F3F500CA00A5 /* CustomMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */; };
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
@@ -176,6 +179,8 @@
 /* Begin PBXFileReference section */
 		1117FE6F73D2AF7DCC7D0067 /* Pods_Food_For_AllTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_For_AllTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC19C2640E6FBDFB5C1EECD /* Pods-Food For AllTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food For AllTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Food For AllTests/Pods-Food For AllTests.debug (production).xcconfig"; sourceTree = "<group>"; };
+		920498E91F96EBCE00E3D404 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		920498EB1F96EF4200E3D404 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		921152061E97D1D6003A4455 /* SettingsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLocationViewController.swift; sourceTree = "<group>"; };
 		921152091E97FC27003A4455 /* EmptyGigsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsView.swift; sourceTree = "<group>"; };
 		921FA51F1E7760D300C1B2B6 /* FreelancerContractDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractDataStore.swift; sourceTree = "<group>"; };
@@ -249,6 +254,7 @@
 		92894BF31EB0E81C0019E722 /* FreelancerContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractViewController.swift; sourceTree = "<group>"; };
 		92894BF51EB0F5060019E722 /* FreelancerContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerContractView.swift; sourceTree = "<group>"; };
 		92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendContractTableViewCell.swift; sourceTree = "<group>"; };
+		928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageType.swift; sourceTree = "<group>"; };
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -382,6 +388,17 @@
 				CC511788EE824EDE0CA27C85 /* Pods-Food For AllTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		920498E81F96EB9700E3D404 /* Messages Index */ = {
+			isa = PBXGroup;
+			children = (
+				9265C12E1EB0D5D20017E01E /* Data Store */,
+				92967CB41EAC0B800083A399 /* Cell */,
+				92967CB21EA669430083A399 /* MessageIndexViewController.swift */,
+				92967CB91EAC17350083A399 /* MessageIndexView.swift */,
+			);
+			name = "Messages Index";
 			sourceTree = "<group>";
 		};
 		921152051E97D1B3003A4455 /* Settings Location */ = {
@@ -883,13 +900,19 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		928CA3061F96F3A800CA00A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		92967CB11EA668DD0083A399 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
-				9265C12E1EB0D5D20017E01E /* Data Store */,
-				92967CB41EAC0B800083A399 /* Cell */,
-				92967CB21EA669430083A399 /* MessageIndexViewController.swift */,
-				92967CB91EAC17350083A399 /* MessageIndexView.swift */,
+				920498E81F96EB9700E3D404 /* Messages Index */,
+				9297A7971F930C3400DFDDE7 /* Chat */,
 			);
 			name = Messaging;
 			sourceTree = "<group>";
@@ -902,6 +925,15 @@
 				9265C1371EB2C75C0017E01E /* FreelancerMessageTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		9297A7971F930C3400DFDDE7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				928CA3061F96F3A800CA00A5 /* Components */,
+				920498E91F96EBCE00E3D404 /* ChatViewController.swift */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		929EC33E1E9F135000162AEB /* Categories */ = {
@@ -1045,6 +1077,7 @@
 				92F86B4A1E57843D00BF8CF7 /* MutualFriend.swift */,
 				92F86B561E58963F00BF8CF7 /* GigPhoto.swift */,
 				92CC523C1E7733F3006D5E2B /* Contract.swift */,
+				920498EB1F96EF4200E3D404 /* ChatRoom.swift */,
 			);
 			name = "Internal Models";
 			sourceTree = "<group>";
@@ -1592,6 +1625,8 @@
 				9248C5771E998278005ECA37 /* TransactionFeedDataStore.swift in Sources */,
 				92F86B421E568A9D00BF8CF7 /* CircleProfileView.swift in Sources */,
 				92F86B571E58963F00BF8CF7 /* GigPhoto.swift in Sources */,
+				920498EC1F96EF4200E3D404 /* ChatRoom.swift in Sources */,
+				928CA3081F96F3F500CA00A5 /* CustomMessageType.swift in Sources */,
 				9264278C1E5BFEED009EDDF3 /* NameViewController.swift in Sources */,
 				92F86B391E5670FA00BF8CF7 /* RatingTableViewCell.swift in Sources */,
 				92F86B441E568B8F00BF8CF7 /* MutualFriendTableViewCell.swift in Sources */,
@@ -1631,6 +1666,7 @@
 				9279DA261E3D030A00E2CCA1 /* MainSearchingViewController.swift in Sources */,
 				92DD8D421E358DC8009EB164 /* Gig.swift in Sources */,
 				927E2F4D1E3D5F3C00B24D40 /* CustomSearchBar.swift in Sources */,
+				920498EA1F96EBCE00E3D404 /* ChatViewController.swift in Sources */,
 				92D199AB1E4695C100ABC255 /* EditingGigDataStore.swift in Sources */,
 				9248C57E1E99BFAF005ECA37 /* TransactionFeedVCSearchExtension.swift in Sources */,
 				92F86B201E53679700BF8CF7 /* MyCosmosView.swift in Sources */,

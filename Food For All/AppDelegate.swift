@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if User.current()?._location == nil {
                 toSetLocationVC()
             } else {
-                toFrontPageVC()
+                setInitialVC(vc: UINavigationController(rootViewController: ChatViewController()))
+//                toFrontPageVC()
             }
         }
         

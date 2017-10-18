@@ -33,6 +33,7 @@ target 'Food For All' do
   pod 'AMScrollingNavbar'
   pod 'TagListView', '~> 1.0'
   pod 'UXCam'
+  pod 'MessageKit'
 
 end
 
