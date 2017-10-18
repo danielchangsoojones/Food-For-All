@@ -16,19 +16,20 @@ class ChatViewController: MessagesViewController {
             messagesCollectionView.reloadData()
         }
     }
-//
-//    init(chatRoom: ChatRoom) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.chatRoom = chatRoom
-//    }
+
+    init(chatRoom: ChatRoom) {
+        super.init(nibName: nil, bundle: nil)
+        self.chatRoom = chatRoom
+    }
     
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messageDelegateSetup()
+        chatHeadingSetup()
     }
     
     private func messageDelegateSetup() {
@@ -36,6 +37,10 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
+    }
+    
+    private func chatHeadingSetup() {
+        self.title = chatRoom.otherUser.theFirstName
     }
 }
 

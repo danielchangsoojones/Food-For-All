@@ -17,6 +17,16 @@ class ChatRoom {
     var consumer: User!
     var gig: Gig!
     
+    var otherUser: User {
+        get {
+            if consumer.objectId == User.current()?.objectId {
+                return freelancer
+            } else {
+                return consumer
+            }
+        }
+    }
+    
     init(gig: Gig, consumer: User) {
         self.gig = gig
         self.consumer = consumer
