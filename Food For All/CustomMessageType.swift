@@ -10,12 +10,13 @@ import Foundation
 import MessageKit
 
 class CustomMessageType: MessageType {
+    private var _sender: Sender!
     var sender: Sender {
-        return Sender(id: User.current()?.objectId ?? randomString(), displayName: User.current()?.fullName ?? "Unknown")
+        return _sender
     }
     
     var messageId: String {
-        return randomString()
+        return Helpers.randomString(length: 10)
     }
     
     var sentDate: Date {
@@ -28,23 +29,8 @@ class CustomMessageType: MessageType {
         return MessageData.text(text)
     }
     
-    init(text: String) {
+    init(text: String, sender: Sender) {
         self.text = text
-    }
-    
-    private func randomString() -> String {
-        let length: Int = 10
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return randomString
+        self._sender = sender
     }
 }
