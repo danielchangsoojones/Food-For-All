@@ -35,7 +35,7 @@ class MessageIndexViewController: UIViewController {
         if let navController = navigationController as? ClearNavigationController {
             navController.change(color: CustomColors.JellyTeal)
             //Must set title of the navigationItem instead of VC or else the tab bar has the title on it.
-            self.navigationItem.title = "Message History"
+            self.navigationItem.title = "Messages"
         }
     }
     

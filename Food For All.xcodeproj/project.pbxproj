@@ -88,6 +88,8 @@
 		92967CB31EA669430083A399 /* MessageIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB21EA669430083A399 /* MessageIndexViewController.swift */; };
 		92967CB61EAC12A80083A399 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */; };
 		92967CBA1EAC17350083A399 /* MessageIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CB91EAC17350083A399 /* MessageIndexView.swift */; };
+		9299BE6B1F97EB2C00831C75 /* MessageParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299BE6A1F97EB2C00831C75 /* MessageParse.swift */; };
+		9299BE6D1F97EB5E00831C75 /* ChatRoomParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299BE6C1F97EB5E00831C75 /* ChatRoomParse.swift */; };
 		929EC3411E9F13A700162AEB /* CategoriesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */; };
 		929EC3461E9F13BD00162AEB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */; };
 		92A843BB1E419BEA00F6358E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */; };
@@ -260,6 +262,8 @@
 		92967CB21EA669430083A399 /* MessageIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexViewController.swift; sourceTree = "<group>"; };
 		92967CB51EAC12A80083A399 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		92967CB91EAC17350083A399 /* MessageIndexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIndexView.swift; sourceTree = "<group>"; };
+		9299BE6A1F97EB2C00831C75 /* MessageParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParse.swift; sourceTree = "<group>"; };
+		9299BE6C1F97EB5E00831C75 /* ChatRoomParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomParse.swift; sourceTree = "<group>"; };
 		929EC3401E9F13A700162AEB /* CategoriesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataStore.swift; sourceTree = "<group>"; };
 		929EC3451E9F13BD00162AEB /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		92A843BA1E419BEA00F6358E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTabBarController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -918,6 +922,8 @@
 		928CA3101F9703B700CA00A5 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				9299BE6A1F97EB2C00831C75 /* MessageParse.swift */,
+				9299BE6C1F97EB5E00831C75 /* ChatRoomParse.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1657,6 +1663,7 @@
 				92D199931E4550AE00ABC255 /* CreationDataStore.swift in Sources */,
 				92894BF41EB0E81C0019E722 /* FreelancerContractViewController.swift in Sources */,
 				92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */,
+				9299BE6B1F97EB2C00831C75 /* MessageParse.swift in Sources */,
 				92F86B531E580D7C00BF8CF7 /* NewPhotoCollectionViewCell.swift in Sources */,
 				92F86B371E5670EC00BF8CF7 /* VenmoTableViewCell.swift in Sources */,
 				92F86B2A1E555D2600BF8CF7 /* PersonalReviewTableViewCell.swift in Sources */,
@@ -1713,6 +1720,7 @@
 				9254B71F1E396ADB0034F6D0 /* CustomScrollerView.swift in Sources */,
 				927BE0AF1E26F4D400220168 /* Enviroment.swift in Sources */,
 				9254B71C1E3942DB0034F6D0 /* DetailView.swift in Sources */,
+				9299BE6D1F97EB5E00831C75 /* ChatRoomParse.swift in Sources */,
 				925C5F221E25AA1A00196504 /* WelcomeView.swift in Sources */,
 				927E2F541E3E3F5100B24D40 /* MainSearchingDataStore.swift in Sources */,
 				92D12BAF1E3060F1009AC99E /* SignUpViewController.swift in Sources */,
