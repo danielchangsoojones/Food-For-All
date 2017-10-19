@@ -10,7 +10,7 @@ import Foundation
 import MessageKit
 
 class CustomMessageType: MessageType {
-    private var _sender: Sender!
+    var _sender: Sender!
     var sender: Sender {
         return _sender
     }
@@ -29,8 +29,10 @@ class CustomMessageType: MessageType {
         return MessageData.text(text)
     }
     
-    init(text: String, sender: Sender) {
-        self.text = text
+    init(text: String?, sender: Sender) {
+        self.text = text ?? ""
         self._sender = sender
     }
+    
+    init() {}
 }

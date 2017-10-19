@@ -25,7 +25,7 @@ class MessageIndexDataStore {
 
 extension MessageIndexDataStore {
     func loadMessages() {
-        PFCloud.callFunction(inBackground: "loadMessages", withParameters: [:], block: {
+        PFCloud.callFunction(inBackground: "loadChatRooms", withParameters: [:], block: {
             (results: Any?, error: Error?) -> Void in
             if let results = results as? [Any] {
                 let chatRooms = self.parse(results)

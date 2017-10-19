@@ -16,6 +16,7 @@ class MessageParse: PFObject, PFSubclassing {
     
     @NSManaged var chatRoom: ChatRoomParse
     @NSManaged var text: String?
+    @NSManaged var sender: User
 }
 
 

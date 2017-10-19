@@ -10,15 +10,33 @@ import Foundation
 
 class Message {
     var text: String? {
-        return messageParse?.text
+        get {
+            return messageParse?.text
+        }
+        set {
+            if messageParse == nil {
+                messageParse = MessageParse()
+                messageParse?.text = newValue
+            }
+        }
     }
     var sentDate: Date {
         return messageParse?.createdAt ?? Date()
+    }
+    
+    var messageType = CustomMessageType()
+    
+    var sender: User {
+        return messageParse?.sender ?? User()
     }
     
     var messageParse: MessageParse?
     
     init(messageParse: MessageParse) {
         self.messageParse = messageParse
+    }
+    
+    init(text: String) {
+        self.text = text
     }
 }

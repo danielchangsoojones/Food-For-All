@@ -11,11 +11,13 @@ import MessageKit
 
 class ChatViewController: MessagesViewController {
     var chatRoom: ChatRoom!
-    var messages: [MessageType] = [] {
+    var messages: [Message] = [] {
         didSet {
             messagesCollectionView.reloadData()
         }
     }
+    
+    var dataStore: ChatDataStore?
 
     init(chatRoom: ChatRoom) {
         super.init(nibName: nil, bundle: nil)
@@ -42,6 +44,11 @@ class ChatViewController: MessagesViewController {
     private func chatHeadingSetup() {
         self.title = chatRoom.otherUser.theFirstName
     }
+    
+    private func dataStoreSetup() {
+        dataStore = ChatDataStore(delegate: self)
+        dataStore?.loadMessages(for: chatRoom)
+    }
 }
 
 extension ChatViewController: MessagesDataSource {
@@ -54,14 +61,16 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return messages[indexPath.section]
+        return messages[indexPath.section].messageType
     }
 }
 
 extension ChatViewController: MessageInputBarDelegate {
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-        let message = CustomMessageType(text: "Heyyyy", sender: currentSender())
+        let message = Message(text: text)
+        message.messageType = CustomMessageType(text: text, sender: currentSender())
         messages.append(message)
+        dataStore?.send(message, from: chatRoom)
     }
 }
 
@@ -69,5 +78,27 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func avatarSize(for: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         //don't show avatar images. Simpler than having to code out avatar images
         return CGSize.zero
+    }
+}
+
+extension ChatViewController: ChatDataDelegate {
+    func loaded(_ messages: [Message]) {
+        setSenders(to: messages)
+    }
+    
+    private func setSenders(to messages: [Message]) {
+        for message in messages {
+            if message.sender == User.current() {
+                set(currentSender(), to: message)
+            } else {
+                let messageSender = message.sender
+                let sender = Sender(id: messageSender.objectId ?? "Unknown", displayName: messageSender.theFirstName)
+                set(sender, to: message)
+            }
+        }
+    }
+    
+    private func set(_ sender: Sender, to message: Message) {
+        message.messageType = CustomMessageType(text: message.text, sender: sender)
     }
 }
