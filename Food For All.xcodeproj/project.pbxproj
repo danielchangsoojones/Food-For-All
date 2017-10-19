@@ -82,6 +82,7 @@
 		92894BFD1EB117C00019E722 /* MutualFriendContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */; };
 		928CA3081F96F3F500CA00A5 /* CustomMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */; };
 		928CA30F1F96FFCC00CA00A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA30E1F96FFCC00CA00A5 /* Message.swift */; };
+		928CA3131F9881BA00CA00A5 /* ChatDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA3121F9881BA00CA00A5 /* ChatDataStore.swift */; };
 		92967CAC1EA16CE70083A399 /* GigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */; };
 		92967CAE1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */; };
 		92967CB01EA271800083A399 /* GlidingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */; };
@@ -256,6 +257,7 @@
 		92894BFC1EB117C00019E722 /* MutualFriendContractTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendContractTableViewCell.swift; sourceTree = "<group>"; };
 		928CA3071F96F3F500CA00A5 /* CustomMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageType.swift; sourceTree = "<group>"; };
 		928CA30E1F96FFCC00CA00A5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		928CA3121F9881BA00CA00A5 /* ChatDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataStore.swift; sourceTree = "<group>"; };
 		92967CAB1EA16CE70083A399 /* GigCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAD1EA26CFF0083A399 /* EmptyGigsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyGigsCollectionViewCell.swift; sourceTree = "<group>"; };
 		92967CAF1EA271800083A399 /* GlidingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlidingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -928,6 +930,14 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
+		928CA3111F9880AE00CA00A5 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				928CA3121F9881BA00CA00A5 /* ChatDataStore.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
 		92967CB11EA668DD0083A399 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +958,7 @@
 		9297A7971F930C3400DFDDE7 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				928CA3111F9880AE00CA00A5 /* Data Store */,
 				928CA3061F96F3A800CA00A5 /* Components */,
 				920498E91F96EBCE00E3D404 /* ChatViewController.swift */,
 			);
@@ -1656,6 +1667,7 @@
 				925C5F241E25AA9C00196504 /* WelcomeViewController.swift in Sources */,
 				92D4F6421E79AE1C00BCB9A0 /* ContractNewRatingViewController.swift in Sources */,
 				92DD8D3B1E358D2D009EB164 /* CircleView.swift in Sources */,
+				928CA3131F9881BA00CA00A5 /* ChatDataStore.swift in Sources */,
 				925C5F271E25BD4600196504 /* Structs.swift in Sources */,
 				92B3E45C1E4F88FB00FD2042 /* Review.swift in Sources */,
 				92D199A51E4685A300ABC255 /* SettingsDataStore.swift in Sources */,
