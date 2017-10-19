@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class ChatRoomParse: PFObject, PFSubclassing {
     class func parseClassName() -> String {

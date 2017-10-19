@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if User.current()?._location == nil {
                 toSetLocationVC()
             } else {
-                setInitialVC(vc: UINavigationController(rootViewController: ChatViewController()))
+                setInitialVC(vc: UINavigationController(rootViewController: MessageIndexViewController()))
 //                toFrontPageVC()
             }
         }
@@ -75,6 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ReviewParse.registerSubclass()
         GigDetailPhoto.registerSubclass()
         ContractParse.registerSubclass()
+        MessageParse.registerSubclass()
+        ChatRoomParse.registerSubclass()
     }
     
     fileprivate func toWelcomeVC() {

@@ -85,8 +85,8 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 extension MessageIndexViewController: MessageIndexDataStoreDelegate {
-    func loaded(contracts: [Contract]) {
-        self.contracts = contracts
+    func loaded(_ chatRooms: [ChatRoom]) {
+        self.chatRooms = chatRooms
         tableView.reloadData()
     }
 }

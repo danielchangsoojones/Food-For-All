@@ -9,11 +9,16 @@
 import Foundation
 
 class Message {
-    var text: String?
-    var sentDate: Date = Date()
+    var text: String? {
+        return messageParse?.text
+    }
+    var sentDate: Date {
+        return messageParse?.createdAt ?? Date()
+    }
     
-    init(text: String, sentDate: Date) {
-        self.text = text
-        self.dateSent = dateSent
+    var messageParse: MessageParse?
+    
+    init(messageParse: MessageParse) {
+        self.messageParse = messageParse
     }
 }
