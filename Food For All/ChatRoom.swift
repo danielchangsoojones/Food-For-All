@@ -29,8 +29,16 @@ class ChatRoom {
     
     var lastMessage: Message?
     
+    var chatRoomParse: ChatRoomParse?
+    
     init(gig: Gig, consumer: User) {
         self.gig = gig
         self.consumer = consumer
+    }
+    
+    init(chatRoomParse: ChatRoomParse) {
+        self.chatRoomParse = chatRoomParse
+        self.gig = Gig(gigParse: chatRoomParse.gig)
+        self.consumer = chatRoomParse.consumer
     }
 }

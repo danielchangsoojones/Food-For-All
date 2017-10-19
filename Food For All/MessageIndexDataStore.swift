@@ -20,15 +20,32 @@ class MessageIndexDataStore {
         self.delegate = delegate
     }
     
+
+}
+
+extension MessageIndexDataStore {
     func loadMessages() {
         PFCloud.callFunction(inBackground: "loadMessages", withParameters: [:], block: {
             (results: Any?, error: Error?) -> Void in
             if let results = results as? [Any] {
-                print(results)
-//                self.delegate?.loaded(chat)
+                let chatRooms = self.parse(results)
+                self.delegate?.loaded(chatRooms)
             } else if let error = error {
                 print(error)
             }
         })
+    }
+    
+    private func parse(_ results: [Any]) -> [ChatRoom] {
+        var chatRooms: [ChatRoom] = []
+        for case let result as [Any] in results {
+            if let chatRoomParse = result.first as? ChatRoomParse, let messages = result[1] as? [MessageParse], let firstMessage = messages.first {
+                let chatRoom = ChatRoom(chatRoomParse: chatRoomParse)
+                chatRoom.lastMessage = Message(messageParse: firstMessage)
+                chatRooms.append(chatRoom)
+            }
+        }
+        
+        return chatRooms
     }
 }
