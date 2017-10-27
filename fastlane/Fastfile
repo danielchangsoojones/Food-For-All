@@ -22,6 +22,10 @@ lane :beta do
   cert
   #Generates a provisioning profile. Stores the profile in the current folder
   sigh
+
+  #need to unlock the keychain for some reason. I'm not sure why or if this is even useful. Fastlane seems to work sometimes and not others with this line.
+  unlock_keychain(path:"login.keychain", password:"basket1234")
+  sh "security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain"
   # build your iOS app
   gym(
     scheme: "Configurations Release",
