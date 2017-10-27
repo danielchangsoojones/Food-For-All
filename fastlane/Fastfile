@@ -14,13 +14,53 @@ default_platform :ios
 # don't worry, fastlane will prompt you for required
 # info which you can add here later
 lane :beta do
-  increment_build_number
+  increment_version_number(
+    bump_type: "minor" # Automatically increment minor version number (i.e. 20.1.4 = Major.Minor.Patch)
+  )
 
+  #Fetch or generate the latest available code signing identity
+  cert
+  #Generates a provisioning profile. Stores the profile in the current folder
+  sigh
   # build your iOS app
   gym(
-    # scheme: "Configurations Release"
+    scheme: "Configurations Release",
+    export_options: {
+      provisioningProfiles: {
+        "dcj.Chong500Productions.Food-For-All": "Freelancers Distrubution"
+      }
+    }
   )
 
   # upload to Testflight
   pilot(skip_waiting_for_build_processing: false)
+end
+
+#my app store lane is still not working. I will have to do some more debugging to get it to work.
+lane :release do
+  increment_version_number(
+    bump_type: "minor" # Automatically increment minor version number (i.e. 20.1.4 = Major.Minor.Patch)
+  )
+
+  #Fetch or generate the latest available code signing identity
+  cert
+  #Generates a provisioning profile. Stores the profile in the current folder
+  sigh
+
+  # build your iOS app
+  gym(
+    scheme: "Configurations Release",
+    export_options: {
+      provisioningProfiles: {
+        "dcj.Chong500Productions.Food-For-All": "Freelancers Distrubution"
+      }
+    }
+  )
+
+  # Upload the binary to iTunes
+  deliver(
+    force: true,
+    submit_for_review: true,
+    release_notes: "A Medici Jones original. Always releasing new features to improve the Gigio experience, just for you!"
+  )                   
 end
