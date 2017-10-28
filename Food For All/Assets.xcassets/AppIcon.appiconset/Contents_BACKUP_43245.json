@@ -49,9 +49,14 @@
       "scale" : "3x"
     },
     {
+<<<<<<< HEAD
+      "idiom" : "ios-marketing",
+      "size" : "1024x1024",
+=======
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
       "filename" : "Icon.png",
+>>>>>>> development
       "scale" : "1x"
     }
   ],

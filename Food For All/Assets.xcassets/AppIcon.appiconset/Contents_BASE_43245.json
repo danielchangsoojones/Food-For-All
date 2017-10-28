@@ -47,12 +47,6 @@
       "idiom" : "iphone",
       "filename" : "ShuffleIcon180Point.png",
       "scale" : "3x"
-    },
-    {
-      "size" : "1024x1024",
-      "idiom" : "ios-marketing",
-      "filename" : "Icon.png",
-      "scale" : "1x"
     }
   ],
   "info" : {

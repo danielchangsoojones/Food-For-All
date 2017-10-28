@@ -126,6 +126,7 @@ extension CategoriesViewController: CategoriesDataStoreDelegate {
     func loaded(gigs: [Gig]) {
         hasLoaded = true
         dictionary.removeAll()
+        categories.removeAll()
         for gig in gigs {
             if let category = gig.tags.first {
                 if dictionary[category] != nil {
@@ -143,11 +144,13 @@ extension CategoriesViewController: CategoriesDataStoreDelegate {
     }
     
     fileprivate func orderCategories() {
-        let lowercaseCategories = Helpers.categories.map { (str: String) -> String in
+        //get the list of category ordering
+        let categoryOrdering = Helpers.categories.map { (str: String) -> String in
             return str.lowercased()
         }
+        //sort the received categories to match the category ordering.
         categories.sort { (str1, str2) -> Bool in
-            if let str1Index = lowercaseCategories.index(of: str1), let str2Index = lowercaseCategories.index(of: str2) {
+            if let str1Index = categoryOrdering.index(of: str1), let str2Index = categoryOrdering.index(of: str2) {
                 return str1Index < str2Index
             }
             return false
