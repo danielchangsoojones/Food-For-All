@@ -34,8 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if User.current()?._location == nil {
                 toSetLocationVC()
             } else {
-                setInitialVC(vc: UINavigationController(rootViewController: MessageIndexViewController()))
-//                toFrontPageVC()
+                toFrontPageVC()
             }
         }
         
