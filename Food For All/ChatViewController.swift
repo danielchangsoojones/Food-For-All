@@ -32,6 +32,7 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         messageDelegateSetup()
         chatHeadingSetup()
+        dataStoreSetup()
     }
     
     private func messageDelegateSetup() {
@@ -84,6 +85,9 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
 extension ChatViewController: ChatDataDelegate {
     func loaded(_ messages: [Message]) {
         setSenders(to: messages)
+        //need to reverse the messages because we receive them in the newest order, but the collection view needs to place the newest messages at the bottom, hence reversed.
+        let newestOrderedMessages: [Message] = messages.reversed()
+        self.messages = newestOrderedMessages
     }
     
     private func setSenders(to messages: [Message]) {
