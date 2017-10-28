@@ -31,6 +31,11 @@ class ChatViewController: MessagesViewController {
         dataStoreSetup()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataStore?.disconnectFromChatRoom()
+    }
+    
     private func messageDelegateSetup() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
