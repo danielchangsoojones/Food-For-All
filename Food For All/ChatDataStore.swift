@@ -8,13 +8,18 @@
 
 import Foundation
 import Parse
+import ParseLiveQuery
 
 protocol ChatDataDelegate {
     func loaded(_ messages: [Message])
+    func received(_ newMessage: Message)
 }
 
 class ChatDataStore {
     var delegate: ChatDataDelegate?
+    fileprivate let liveQueryClient = ParseLiveQuery.Client()
+    fileprivate var subscription: Subscription<MessageParse>?
+    fileprivate var messageQuery: PFQuery<MessageParse>!
     
     init(delegate: ChatDataDelegate) {
         self.delegate = delegate
@@ -43,13 +48,46 @@ extension ChatDataStore {
         })
         return messages
     }
+    
+
+}
+
+//Live Query Extension
+extension ChatDataStore {
+    func subscribeToUpdates(for chatRoom: ChatRoom) {
+        setMessageQuery(from: chatRoom)
+        subscription = liveQueryClient
+            .subscribe(messageQuery)
+            .handle(Event.created) { (_, message: MessageParse) in
+                self.received(message)
+        }
+    }
+    
+    private func received(_ messageParse: MessageParse) {
+        let newMessage = Message(messageParse: messageParse)
+        self.delegate?.received(newMessage)
+    }
+    
+    private func setMessageQuery(from chatRoom: ChatRoom) {
+        if let chatRoomParse = chatRoom.chatRoomParse, let currentUserObjectId = User.current()?.objectId, let chatRoomObjectId = chatRoomParse.objectId {
+            messageQuery = MessageParse.query() as! PFQuery<MessageParse>
+            messageQuery.whereKey("chatRoomObjectId", equalTo: chatRoomObjectId)
+            messageQuery.whereKey("senderObjectId", notEqualTo: currentUserObjectId)
+        }
+    }
+    
+    func disconnectFromChatRoom() {
+        liveQueryClient.unsubscribe(messageQuery, handler: subscription!)
+    }
 }
 
 extension ChatDataStore {
     func send(_ message: Message, from chatRoom: ChatRoom) {
         if let currentUser = User.current(), let chatRoomParse = chatRoom.chatRoomParse {
             message.messageParse?.chatRoom = chatRoomParse
+            message.messageParse?.chatRoomObjectId = chatRoomParse.objectId ?? "Error"
             message.messageParse?.sender = currentUser
+            message.messageParse?.senderObjectId = currentUser.objectId ?? "Error"
             message.messageParse?.saveInBackground(block: { (success, error) in
                 if let error = error {
                     Helpers.showBanner(title: "Sending Error", subtitle: error.localizedDescription)

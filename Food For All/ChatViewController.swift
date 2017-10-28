@@ -11,11 +11,7 @@ import MessageKit
 
 class ChatViewController: MessagesViewController {
     var chatRoom: ChatRoom!
-    var messages: [Message] = [] {
-        didSet {
-            messagesCollectionView.reloadData()
-        }
-    }
+    var messages: [Message] = []
     
     var dataStore: ChatDataStore?
 
@@ -49,6 +45,7 @@ class ChatViewController: MessagesViewController {
     private func dataStoreSetup() {
         dataStore = ChatDataStore(delegate: self)
         dataStore?.loadMessages(for: chatRoom)
+        dataStore?.subscribeToUpdates(for: chatRoom)
     }
 }
 
@@ -88,6 +85,14 @@ extension ChatViewController: ChatDataDelegate {
         //need to reverse the messages because we receive them in the newest order, but the collection view needs to place the newest messages at the bottom, hence reversed.
         let newestOrderedMessages: [Message] = messages.reversed()
         self.messages = newestOrderedMessages
+        messagesCollectionView.reloadData()
+    }
+    
+    func received(_ newMessage: Message) {
+        let sender = createSender(for: chatRoom.otherUser)
+        set(sender, to: newMessage)
+        messages.append(newMessage)
+        messagesCollectionView.reloadData()
     }
     
     private func setSenders(to messages: [Message]) {
@@ -96,10 +101,15 @@ extension ChatViewController: ChatDataDelegate {
                 set(currentSender(), to: message)
             } else {
                 let messageSender = message.sender
-                let sender = Sender(id: messageSender.objectId ?? "Unknown", displayName: messageSender.theFirstName)
+                let sender = createSender(for: messageSender)
                 set(sender, to: message)
             }
         }
+    }
+    
+    private func createSender(for otherUser: User) -> Sender {
+        let sender = Sender(id: otherUser.objectId ?? "Unknown", displayName: otherUser.theFirstName)
+        return sender
     }
     
     private func set(_ sender: Sender, to message: Message) {

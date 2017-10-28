@@ -8,6 +8,7 @@ PODS:
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
+  - Bolts-Swift (1.3.0)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
@@ -40,12 +41,17 @@ PODS:
     - FBSDKLoginKit (~> 4.16.1)
     - FBSDKTVOSKit (~> 4.10)
     - Parse (~> 1.12)
+  - ParseLiveQuery (2.0.0):
+    - Bolts-Swift (~> 1.3)
+    - Parse (~> 1.14.2)
+    - Starscream (= 2.0.3)
   - ParseUI (1.2.0):
     - Bolts/Tasks (~> 1.3)
     - Parse (~> 1.9)
   - RAReorderableLayout (0.6.1)
   - SCLAlertView (0.7.0)
   - SnapKit (3.0.2)
+  - Starscream (2.0.3)
   - STPopup (1.8.2)
   - SwiftyJSON (3.1.4)
   - TagListView (1.1.0)
@@ -72,6 +78,7 @@ DEPENDENCIES:
   - NYTPhotoViewer
   - Parse
   - ParseFacebookUtilsV4 (from `https://github.com/white-rabbit-apps/ParseFacebookUtils-iOS.git`)
+  - ParseLiveQuery
   - ParseUI
   - RAReorderableLayout
   - SCLAlertView
@@ -100,6 +107,7 @@ SPEC CHECKSUMS:
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   AMScrollingNavbar: cf603d4d5f11061d466a0878b9ada136248927b2
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
   BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
@@ -115,10 +123,12 @@ SPEC CHECKSUMS:
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 8ff88d57d9b1fc99d88e42c36958f98edeb06763
+  ParseLiveQuery: 38fb42e4b8611ecfcb199d47e48aeaf6879f8560
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   RAReorderableLayout: 5b6b87dd4022ee1747fd475623b14f5df940f754
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  Starscream: 3fdd5c277e57cca6b5c406d274e3f34a7c88f2ce
   STPopup: b69b3e7484ef7d2baec5f9ab2939f8a7bcdfe218
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TagListView: d0267a71393f3c73db5c9ea2f979ac1125fcab56
@@ -127,6 +137,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   UXCam: 76cb857694b8f1776998028de985d737b6852bce
 
-PODFILE CHECKSUM: 16f463d0962efb2315192d8f44c5fc0c28ae0bd4
+PODFILE CHECKSUM: 24e7ae1d764f24169fa62ce815a76d7d5400ffa8
 
 COCOAPODS: 1.1.1

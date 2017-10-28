@@ -10,6 +10,7 @@ target 'Food For All' do
   pod 'EZSwiftExtensions'
   pod 'Parse'
   pod 'ParseUI'
+  pod 'ParseLiveQuery'
   pod "TextFieldEffects"
   pod 'BRYXBanner'
   pod 'Alamofire', '~> 4.3'

@@ -14,9 +14,14 @@ class MessageParse: PFObject, PFSubclassing {
         return "Message"
     }
     
-    @NSManaged var chatRoom: ChatRoomParse
+    @NSManaged var chatRoom: ChatRoomParse    
     @NSManaged var text: String?
     @NSManaged var sender: User
+    
+    
+    //need to save the objectId's because Parse Live Queries can't query pointers.
+    @NSManaged var senderObjectId: String
+    @NSManaged var chatRoomObjectId: String
 }
 
 
