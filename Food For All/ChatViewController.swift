@@ -92,7 +92,7 @@ extension ChatViewController: ChatDataDelegate {
     
     private func setSenders(to messages: [Message]) {
         for message in messages {
-            if message.sender == User.current() {
+            if message.sender.objectId == User.current()?.objectId {
                 set(currentSender(), to: message)
             } else {
                 let messageSender = message.sender
