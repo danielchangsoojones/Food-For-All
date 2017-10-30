@@ -19,7 +19,7 @@ class ChatDataStore {
     var delegate: ChatDataDelegate?
     fileprivate let liveQueryClient = ParseLiveQuery.Client()
     fileprivate var subscription: Subscription<MessageParse>?
-    fileprivate var messageQuery: PFQuery<MessageParse>!
+    fileprivate var messageQuery: PFQuery<MessageParse>?
     
     init(delegate: ChatDataDelegate) {
         self.delegate = delegate
@@ -56,10 +56,16 @@ extension ChatDataStore {
 extension ChatDataStore {
     func subscribeToUpdates(for chatRoom: ChatRoom) {
         setMessageQuery(from: chatRoom)
-        subscription = liveQueryClient
-            .subscribe(messageQuery)
-            .handle(Event.created) { (_, message: MessageParse) in
-                self.received(message)
+        subscribeToLiveQuery()
+    }
+    
+    private func subscribeToLiveQuery() {
+        if let messageQuery = messageQuery {
+            subscription = liveQueryClient
+                .subscribe(messageQuery)
+                .handle(Event.created) { (_, message: MessageParse) in
+                    self.received(message)
+            }
         }
     }
     
@@ -70,14 +76,16 @@ extension ChatDataStore {
     
     private func setMessageQuery(from chatRoom: ChatRoom) {
         if let chatRoomParse = chatRoom.chatRoomParse, let currentUserObjectId = User.current()?.objectId, let chatRoomObjectId = chatRoomParse.objectId {
-            messageQuery = MessageParse.query() as! PFQuery<MessageParse>
-            messageQuery.whereKey("chatRoomObjectId", equalTo: chatRoomObjectId)
-            messageQuery.whereKey("senderObjectId", notEqualTo: currentUserObjectId)
+            messageQuery = MessageParse.query() as? PFQuery<MessageParse>
+            messageQuery?.whereKey("chatRoomObjectId", equalTo: chatRoomObjectId)
+            messageQuery?.whereKey("senderObjectId", notEqualTo: currentUserObjectId)
         }
     }
     
     func disconnectFromChatRoom() {
-        liveQueryClient.unsubscribe(messageQuery, handler: subscription!)
+        if let messageQuery = messageQuery, let subscription = subscription {
+            liveQueryClient.unsubscribe(messageQuery, handler: subscription)
+        }
     }
 }
 
@@ -85,9 +93,7 @@ extension ChatDataStore {
     func send(_ message: Message, from chatRoom: ChatRoom) {
         if let currentUser = User.current(), let chatRoomParse = chatRoom.chatRoomParse {
             message.messageParse?.chatRoom = chatRoomParse
-            message.messageParse?.chatRoomObjectId = chatRoomParse.objectId ?? "Error"
             message.messageParse?.sender = currentUser
-            message.messageParse?.senderObjectId = currentUser.objectId ?? "Error"
             message.messageParse?.saveInBackground(block: { (success, error) in
                 if let error = error {
                     Helpers.showBanner(title: "Sending Error", subtitle: error.localizedDescription)

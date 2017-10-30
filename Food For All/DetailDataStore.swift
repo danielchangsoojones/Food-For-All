@@ -25,6 +25,22 @@ class DetailDataStore {
 }
 
 extension DetailDataStore {
+    func createChatRoom(for gig: Gig) -> ChatRoom {
+        if let currentUser = User.current() {
+            let chatRoom = ChatRoom()
+            let chatRoomParse = ChatRoomParse()
+            chatRoom.chatRoomParse = chatRoomParse
+            chatRoom.gig = gig
+            chatRoom.consumer = currentUser
+            return chatRoom
+        }
+        
+        //shouldn't reach here
+        return ChatRoom()
+    }
+}
+
+extension DetailDataStore {
     func getMutualFriends(creator: User) {
         if let creatorFBID = creator.facebookId {
             PFCloud.callFunction(inBackground: "findMutualFriends", withParameters: ["targetUserFacebookID": creatorFBID], block: {

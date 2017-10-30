@@ -14,8 +14,16 @@ class ChatRoom {
             return gig.creator
         }
     }
-    var consumer: User!
-    var gig: Gig!
+    var consumer: User! {
+        didSet {
+            chatRoomParse?.consumer = consumer
+        }
+    }
+    var gig: Gig! {
+        didSet {
+            chatRoomParse?.gig = gig.gigParse
+        }
+    }
     
     var otherUser: User {
         get {
@@ -30,6 +38,8 @@ class ChatRoom {
     var lastMessage: Message?
     
     var chatRoomParse: ChatRoomParse?
+    
+    init() {}
     
     init(gig: Gig, consumer: User) {
         self.gig = gig

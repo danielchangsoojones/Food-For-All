@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import NYTPhotoViewer
 
 class DetailViewController: UIViewController {
@@ -187,8 +186,9 @@ extension DetailViewController {
     }
     
     func messageButtonPressed(sender: UIButton) {
-        messageHelper = MessageHelper(currentVC: self, gig: self.gig, delegate: self)
-        messageHelper?.show()
+        let chatRoom = dataStore.createChatRoom(for: gig)
+        let chatVC = ChatViewController(chatRoom: chatRoom)
+        pushVC(chatVC)
     }
     
     func reviewCellTapped() {
@@ -235,21 +235,6 @@ extension DetailViewController: PhotoFormDelegate {
             self.photos = photos
             cellTypes = GigItemType.insertInto(array: cellTypes, type: .photos)
             theTableView.reloadData()
-        }
-    }
-}
-
-extension DetailViewController: MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        if result == .sent {
-            messageHelper?.saveMessageMetric(result: result)
-            let contract = Contract()
-            contract.gig = self.gig
-            dataStore.save(contract: contract)
-            self.dismiss(animated: true, completion: nil)
-        } else {
-            //message was canceled
-            messageHelper?.messageComposeViewController(controller, didFinishWith: result)
         }
     }
 }
