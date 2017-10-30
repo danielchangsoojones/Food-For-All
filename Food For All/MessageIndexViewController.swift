@@ -57,14 +57,6 @@ extension MessageIndexViewController: UITableViewDelegate, UITableViewDataSource
             tableView.backgroundView = nil
             return 1
         } else {
-            //TODO: delete this code, just for testing
-            let button = UIButton(frame: CGRect(x: 0, y: 0, w: 200, h: 200))
-            button.addTapGesture(action: { (tap) in
-                self.dataStoreSetup()
-            })
-            tableView.addSubview(button)
-            
-            
             Helpers.EmptyMessage(message: "No Messages", tableView: tableView)
             return 0
         }

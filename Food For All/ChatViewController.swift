@@ -12,7 +12,6 @@ import MessageKit
 class ChatViewController: MessagesViewController {
     var chatRoom: ChatRoom!
     var messages: [Message] = []
-    
     var dataStore: ChatDataStore?
 
     init(chatRoom: ChatRoom) {
@@ -73,6 +72,8 @@ extension ChatViewController: MessageInputBarDelegate {
         let message = Message(text: text)
         message.messageType = CustomMessageType(text: text, sender: currentSender())
         messages.append(message)
+        messagesCollectionView.reloadData()
+        inputBar.inputTextView.text = ""
         dataStore?.send(message, from: chatRoom)
     }
 }
