@@ -5,47 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.004328">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.004247">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003856">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003854">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: increment_version_number" time="26.333101">
+      <testcase classname="fastlane.lanes" name="2: increment_version_number" time="10.116944">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cert" time="3.135664">
+      <testcase classname="fastlane.lanes" name="3: cert" time="5.805567">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: sigh" time="4.913232">
+      <testcase classname="fastlane.lanes" name="4: sigh" time="5.534183">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: unlock_keychain" time="0.063729">
+      <testcase classname="fastlane.lanes" name="5: unlock_keychain" time="0.112466">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain" time="0.034561">
+      <testcase classname="fastlane.lanes" name="6: security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain" time="0.041239">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: gym" time="417.757301">
+      <testcase classname="fastlane.lanes" name="7: gym" time="504.359664">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: pilot" time="3461.62556">
+      <testcase classname="fastlane.lanes" name="8: pilot" time="2844.299512">
         
       </testcase>
     
