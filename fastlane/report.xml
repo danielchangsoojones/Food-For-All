@@ -5,47 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.004328">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.004423">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003856">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003908">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: increment_version_number" time="26.333101">
+      <testcase classname="fastlane.lanes" name="2: increment_version_number" time="2.482827">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cert" time="3.135664">
+      <testcase classname="fastlane.lanes" name="3: cert" time="3.810704">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: sigh" time="4.913232">
+      <testcase classname="fastlane.lanes" name="4: sigh" time="4.603841">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: unlock_keychain" time="0.063729">
+      <testcase classname="fastlane.lanes" name="5: unlock_keychain" time="0.090696">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain" time="0.034561">
+      <testcase classname="fastlane.lanes" name="6: security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain" time="0.04029">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: gym" time="417.757301">
+      <testcase classname="fastlane.lanes" name="7: gym" time="415.398554">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: pilot" time="3461.62556">
+      <testcase classname="fastlane.lanes" name="8: pilot" time="2192.883816">
         
       </testcase>
     
